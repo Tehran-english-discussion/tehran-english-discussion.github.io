@@ -77,6 +77,9 @@ p { margin: 0; }
 a { color: inherit; }
 button, input { font: inherit; }
 :focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--wall); color: var(--on-dark); }
+a, button { -webkit-tap-highlight-color: transparent; }
+p { text-wrap: pretty; }
 
 .label { font-family: var(--ui); font-weight: 600; font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; }
 .logo {
@@ -92,8 +95,8 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 .brand .name { font-family: var(--ui); font-weight: 600; font-size: .9rem; line-height: 1.2; }
 .top nav { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
 .top nav a { font-family: var(--ui); font-weight: 500; font-size: .92rem; text-decoration: none; padding: 7px 13px; border-radius: 999px; transition: background-color .2s, color .2s, transform .2s; }
-.top nav a.pill:hover { background: var(--wall-deep); transform: translateY(-1px); }
-.top nav a:hover { background: var(--plaster-2); }
+@media (hover: hover) { .top nav a.pill:hover { background: var(--wall-deep); transform: translateY(-1px); } }
+@media (hover: hover) { .top nav a:hover { background: var(--plaster-2); } }
 .top nav a.pill { background: var(--wall); color: var(--on-dark); }
 .top nav a[aria-current="page"] { background: var(--plaster-2); box-shadow: inset 0 -2px 0 var(--wall); }
 .top nav a.pill[aria-current="page"] { background: var(--wall-deep); box-shadow: none; }
@@ -116,9 +119,9 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 #explore { background: var(--plaster-2); margin-top: clamp(72px, 10vw, 128px); }
 #explore .wrap { padding-top: clamp(56px, 8vw, 96px); }
 .door { position: relative; display: grid; align-content: start; gap: 10px; padding: 26px 24px 64px; border-radius: 18px; background: var(--plaster); border: 1.5px solid color-mix(in srgb, var(--wall) 16%, var(--line)); text-decoration: none; box-shadow: 0 1px 0 color-mix(in srgb, var(--cloth) 60%, transparent) inset, 0 16px 32px -24px rgba(58, 36, 22, .55); transition: transform .25s cubic-bezier(.2,.8,.2,1), border-color .25s, box-shadow .25s; }
-.door:hover { transform: translateY(-4px); border-color: var(--wall); box-shadow: 0 26px 44px -26px rgba(58, 36, 22, .7); }
+@media (hover: hover) { .door:hover { transform: translateY(-4px); border-color: var(--wall); box-shadow: 0 26px 44px -26px rgba(58, 36, 22, .7); } }
 .door .go { transition: transform .25s cubic-bezier(.2,.8,.2,1); }
-.door:hover .go { transform: translateX(4px); }
+@media (hover: hover) { .door:hover .go { transform: translateX(4px); } }
 .door .label { color: var(--wall); }
 .door h3 { font-size: 1.9rem; letter-spacing: -.01em; }
 .door h3 em { font-style: italic; color: var(--wall); }
@@ -189,8 +192,8 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 .deck-ctl { margin-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--on-dark); }
 .deck-ctl span { font-family: var(--ui); font-size: .82rem; opacity: .85; }
 .deck-ctl small { display: block; font-size: .74rem; opacity: .75; }
-.deck-ctl button { border: 1.5px solid color-mix(in srgb, var(--on-dark) 55%, transparent); background: transparent; color: var(--on-dark); border-radius: 999px; padding: 7px 16px; cursor: pointer; font-family: var(--ui); font-weight: 600; font-size: .84rem; }
-.deck-ctl button:hover { background: color-mix(in srgb, var(--on-dark) 14%, transparent); }
+.deck-ctl button { border: 1.5px solid color-mix(in srgb, var(--on-dark) 55%, transparent); background: transparent; color: var(--on-dark); border-radius: 999px; padding: 7px 16px; cursor: pointer; font-family: var(--ui); font-weight: 600; font-size: .84rem;  min-width: 44px; min-height: 44px;}
+@media (hover: hover) { .deck-ctl button:hover { background: color-mix(in srgb, var(--on-dark) 14%, transparent); } }
 @media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; } .hero .lede { margin-top: 24px; } .ticket { margin-top: 30px; } .hero-cta { margin-top: 22px; } }
 @media (max-width: 480px) { .wall { padding: 96px 18px 22px; } .chandelier { width: 120px; height: 90px; } }
 
@@ -323,7 +326,7 @@ html.live .scene-wrap .glow { animation: none; opacity: 1; transform: scale(1.3)
 .rail-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; }
 .rail-nav { display: flex; gap: 8px; }
 .rail-nav button { width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--fg); background: transparent; color: var(--fg); cursor: pointer; font-family: var(--ui); font-size: 1.1rem; display: grid; place-items: center; }
-.rail-nav button:hover { background: var(--fg); color: var(--plaster); }
+@media (hover: hover) { .rail-nav button:hover { background: var(--fg); color: var(--plaster); } }
 .rail {
   display: grid; grid-auto-flow: column; grid-auto-columns: min(330px, 82vw); gap: 20px;
   overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: max(20px, calc((100vw - 1200px) / 2 + 20px));
@@ -367,7 +370,7 @@ html.live .scene-wrap .glow { animation: none; opacity: 1; transform: scale(1.3)
 .lb { position: fixed; inset: 0; z-index: 60; background: rgba(16, 10, 6, .94); display: grid; place-items: center; touch-action: pan-y; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
 .lb img { max-width: min(94vw, 1400px); max-height: 80vh; object-fit: contain; border-radius: 10px; user-select: none; -webkit-user-drag: none; transition: transform .25s ease, opacity .25s ease; }
 .lb button { position: absolute; border: 0; cursor: pointer; background: rgba(255, 253, 248, .12); color: #FFFDF8; border-radius: 999px; width: 52px; height: 52px; font-family: var(--ui); font-size: 1.4rem; display: grid; place-items: center; }
-.lb button:hover { background: rgba(255, 253, 248, .24); }
+@media (hover: hover) { .lb button:hover { background: rgba(255, 253, 248, .24); } }
 .lb .x { top: calc(16px + env(safe-area-inset-top, 0px)); right: calc(16px + env(safe-area-inset-right, 0px)); }
 .lb .pv { left: calc(16px + env(safe-area-inset-left, 0px)); top: 50%; transform: translateY(-50%); }
 .lb .nx { right: calc(16px + env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); }
@@ -437,6 +440,26 @@ html.live .scene-wrap .glow { animation: none; opacity: 1; transform: scale(1.3)
 .mate b { font-weight: 800; font-size: 2.2rem; line-height: 1.05; font-variation-settings: "SOFT" 100, "WONK" 1; }
 .mate p { font-family: var(--ui); font-size: .86rem; line-height: 1.45; opacity: .9; }
 @media (max-width: 700px) { .crew { grid-template-columns: minmax(0, 1fr); } }
+/* Name cards are buttons; tapping one opens a little card with that person's Fridays */
+.lt-wrap { position: relative; }
+.lt button.seat { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; }
+.lt .seat.on .tent { box-shadow: 0 0 0 3px #FFC700, 0 8px 14px -10px rgba(58, 36, 22, .8); }
+.who { position: absolute; z-index: 5; width: min(340px, 100%); padding: 20px 20px 18px; border-radius: 14px; background: #FFFDF8; color: #2A1C12; box-shadow: 0 24px 50px -20px rgba(42, 28, 18, .55), 0 0 0 1px rgba(42, 28, 18, .08); }
+.who .x { position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; border: 0; border-radius: 50%; background: #F3ECE0; color: #2A1C12; cursor: pointer; font-size: .9rem; }
+.who .label { color: #A63F2A; }
+.who b#who-nm { display: block; margin-top: 4px; font-size: 1.9rem; font-weight: 750; line-height: 1.05; font-variation-settings: "SOFT" 100, "WONK" 1; }
+.who .stat { margin-top: 6px; font-family: var(--ui); font-size: .9rem; color: #7B6650; }
+.who .stat strong { color: #2A1C12; font-size: 1.05rem; }
+.who .dots { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 12px; }
+.who .dots i { width: 8px; height: 8px; border-radius: 2px; background: #EDE4D4; }
+.who .dots i.y { background: #C9A04A; }
+.who .dots i.m { background: #A63F2A; }
+.who .since { margin-top: 12px; font-size: .98rem; line-height: 1.4; }
+.who .since span { color: #7B6650; }
+.who .mlabel { margin-top: 12px; font-family: var(--ui); font-weight: 700; font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: #A63F2A; }
+.who ul { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 4px; font-size: .96rem; }
+.who li span { display: inline-block; min-width: 4.2rem; font-family: var(--ui); font-size: .78rem; font-weight: 600; color: #7B6650; }
+
 /* Leaderboard: most Fridays at the table */
 .board-wrap { margin: 8px 0 56px; }
 .board-title { font-size: clamp(1.8rem, 3.6vw, 2.6rem); letter-spacing: -.02em; }
@@ -469,7 +492,7 @@ html.live .scene-wrap .glow { animation: none; opacity: 1; transform: scale(1.3)
 .lt .head { grid-column: 2; grid-row: 1 / span 2; flex-direction: row-reverse; justify-content: flex-start; align-self: center; gap: 12px; }
 .lt .head .chair { transform: rotate(90deg); box-shadow: inset 0 7px 0 rgba(42, 28, 18, .25), 0 0 0 3px #FFC700; }
 .lt .head .tent { writing-mode: horizontal-tb; transform: rotate(-3deg); height: auto; width: auto; margin: 0; padding: 9px 11px; background: #FFC700; font-style: normal; font-size: .9rem; overflow: visible; }
-.lt .head:hover .tent { transform: rotate(0); }
+@media (hover: hover) { .lt .head:hover .tent { transform: rotate(0); } }
 @media (max-width: 900px) {
   .lt { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .lt::before { left: 40px; right: 40px; top: 0; bottom: 40px; }
@@ -534,15 +557,15 @@ html.live .scene-wrap .glow { animation: none; opacity: 1; transform: scale(1.3)
 .join p { font-size: 1.24rem; max-width: 52ch; color: var(--muted); }
 .join p strong { color: var(--fg); font-weight: 550; }
 .ig-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--wall); color: var(--on-dark); font-family: var(--ui); font-weight: 600; font-size: 1rem; text-decoration: none; padding: 13px 22px; border-radius: 999px; }
-.ig-btn:hover { background: var(--wall-deep); }
+@media (hover: hover) { .ig-btn:hover { background: var(--wall-deep); } }
 .ig-btn span { opacity: .8; font-weight: 500; }
 .top nav a.ig { display: inline-flex; align-items: center; padding: 7px 9px; }
 @media (max-width: 860px) { .top nav a.ig { display: inline-flex; } }
 .hero-cta { margin-top: 30px; display: flex; align-items: center; gap: 14px 18px; flex-wrap: wrap; }
 .cta { display: inline-flex; align-items: center; gap: 10px; background: var(--walnut); color: var(--on-dark); font-family: var(--ui); font-weight: 600; font-size: 1.02rem; text-decoration: none; padding: 14px 24px; border-radius: 999px; }
 .cta, .tg-btn, .ig-btn, .btn { transition: background-color .2s, transform .2s, box-shadow .2s; }
-.cta:hover { background: var(--wall); transform: translateY(-1px); }
-.ig-btn:hover, .btn:hover { transform: translateY(-1px); }
+@media (hover: hover) { .cta:hover { background: var(--wall); transform: translateY(-1px); } }
+@media (hover: hover) { .ig-btn:hover, .btn:hover { transform: translateY(-1px); } }
 .hero .last { margin-top: 14px; font-family: var(--ui); font-size: .92rem; color: var(--muted); }
 .hero .last b { color: var(--fg); font-weight: 600; }
 .hero-cta span { font-family: var(--ui); font-size: .92rem; color: var(--muted); }
@@ -555,7 +578,7 @@ html.live .scene-wrap .glow { animation: none; opacity: 1; transform: scale(1.3)
 @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
 .join-acts { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 6px; }
 .tg-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--yolk); color: var(--on-yolk); font-family: var(--ui); font-weight: 700; font-size: 1.15rem; text-decoration: none; padding: 17px 30px; border-radius: 999px; box-shadow: 0 16px 34px -18px rgba(58, 36, 22, .7); }
-.tg-btn:hover { transform: translateY(-1px); }
+@media (hover: hover) { .tg-btn:hover { transform: translateY(-1px); } }
 .tg-btn span { font-weight: 500; opacity: .75; }
 .tg-btn, .ig-btn { flex-wrap: wrap; row-gap: 2px; max-width: 100%; overflow-wrap: anywhere; }
 @media (max-width: 420px) { .tg-btn { font-size: 1.02rem; padding: 15px 22px; } .ig-btn span { flex-basis: 100%; padding-left: 30px; } }
@@ -567,13 +590,13 @@ footer.site .logo { width: 60px; color: var(--fg); }
 footer.site .foot-line { flex-basis: 100%; font-family: var(--display); font-style: italic; font-size: 1.25rem; color: var(--fg); order: -1; }
 footer.site nav { display: flex; flex-wrap: wrap; gap: 4px 18px; }
 footer.site nav a { color: var(--muted); text-decoration: none; }
-footer.site nav a:hover { color: var(--wall); }
+@media (hover: hover) { footer.site nav a:hover { color: var(--wall); } }
 
 @media (prefers-reduced-motion: no-preference) {
   .deck { animation: drift 9s ease-in-out infinite alternate; }
   @keyframes drift { from { translate: 0 0; } to { translate: 0 -7px; } }
   .frame { transition: transform .75s cubic-bezier(.2,.8,.2,1), opacity .45s, box-shadow .4s; }
-  .deck:hover .frame:not(.dragging) { box-shadow: 0 38px 60px -26px rgba(30, 12, 6, .85); }
+  @media (hover: hover) { .deck:hover .frame:not(.dragging) { box-shadow: 0 38px 60px -26px rgba(30, 12, 6, .85); } }
   .js-reveal .rv { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .8s cubic-bezier(.2,.8,.2,1); transition-delay: calc(var(--i, 0) * 90ms); }
   .js-reveal .rv.in { opacity: 1; transform: none; }
   .hero h1, .hero .lede, .hero .ticket { animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }
@@ -769,8 +792,11 @@ footer.site nav a:hover { color: var(--wall); }
         <ol class="board" id="board"></ol>
         <p class="names-note">Counted from the weekly sign-up lists in our Telegram group, including the coordinators and the moderator of each Friday.</p>
       </div>
-      <div class="lt" id="lt" role="list" aria-label="The regulars, seated around the long table"></div>
-      <p class="names-note">Terracotta name cards belong to people who have moderated at least one Friday. The empty chair at the head of the table is yours.</p>
+      <div class="lt-wrap">
+        <div class="lt" id="lt" aria-label="The regulars, seated around the long table. Choose a name to see their Fridays."></div>
+        <div class="who" id="who" role="dialog" aria-modal="false" aria-labelledby="who-nm" hidden></div>
+      </div>
+      <p class="names-note">Tap a name card to see that person’s Fridays. Terracotta cards belong to people who have moderated. We count by first name, so friends who share a name share a card. The empty chair at the head of the table is yours.</p>
     </div>
   </section>
 </div>
@@ -1202,9 +1228,10 @@ footer.site nav a:hover { color: var(--wall); }
   const board = [["Breeze", 44], ["Navid", 39], ["Arash", 37], ["Amir", 34], ["Mo", 34], ["Parnian", 34], ["Hamid", 33], ["Fateme", 32], ["Pouria", 31], ["Hasti", 31]];
   $("board").innerHTML = board.map(([n, c], i) => `<li${i < 3 ? ` class="top3"` : ""}><span class="rk">${i + 1}</span><span class="nm">${esc(n)}</span><span class="bar"><i style="width:${Math.round(c / board[0][1] * 100)}%"></i></span><span class="ct">${c}<small> Fridays</small></span></li>`).join("");
   const half = Math.ceil(regulars.length / 2);
-  const seat = n => `<div class="seat" role="listitem"${mods.has(n) ? ` title="${esc(n)} has moderated a Friday"` : ""}><span class="chair" aria-hidden="true"></span><span class="tent${mods.has(n) ? " mod" : ""}">${esc(n)}</span></div>`;
+  const people = {"Breeze":["00000111000110010001000001111111011111111111000001111111111111111111",[6,11,12,15,19,27,36]],"Navid":["00000000000010011111111110000111111111111111010000111111110001101010",[21,22,30,45,66]],"Arash":["00000000000000000110111110000010111111100111000001111111111111111111",[59,67]],"Amir":["00000111110111111101010000110000001011100011000000111100000111111110",[61,65]],"Mo":["00000000000100000000011101111111111111111111000000000000111111110111",[32,57]],"Parnian":["00000000000100011110010110111111110111111111000001101100100111010000",[17,37,60]],"Hamid":["00000011011101111101001001001000111111001000000001010011111011110010",[14,58]],"Fateme":["00011111111101011111111101100111110000010110000000000001000010000010",[4,25,55]],"Pouria":["01111111011110111111110101111011000110000000000000000000100000000011",[9,20,28,35]],"Hasti":["00000000000011011101101111011011100011011111100001101100100100010000",[13,43,44,49]],"Farnaz":["00101000110100000000011110111001111111100000000001110011111110000000",[]],"Reihaneh":["00000000000011111111110001101101001100100001000000010110101001001101",[34,54]],"Rey":["00000000000000000110010010011111010111111111000001101100000111000000",[]],"Maryam":["00010001111100000000011111111111111111100000000000000000000000000000",[]],"Sahar":["00000000000000011110011010011100000011100001000001101001111001010000",[29,38]],"Maede":["00000000000000111011101010101101110000010100000000000000111100100000",[26]],"Zahra":["00110010100000111011100110010101000100001000000000000000101100000000",[31]],"Arezoo":["00000000100010111000101110000101001110110110000000000000000100000010",[]],"Fatemeh":["01000011010010011000000000001000000000001000000001000011100111111000",[40,64]],"Ali":["00000000111110011101000100110100001000000000000001000000000010101000",[]],"Amirhosein":["00000000000000000000000000000000101001000011000001101100111101110010",[]],"Arman":["00000111110011110000001000000100000011001000000000000000000100000010",[]],"Mohammad":["00000010000000100111100100000000000000010100000000010111111000000000",[]],"Mobina":["00000000000000000000001100011101010000011101000010001000110000000001",[33,48]],"Majed":["00000000111111111110000000000001101100000000000000000000000000000000",[16]],"Sam":["00000000000100000000000000000000000111100111000000111000111000000010",[]],"Narges":["00000000000000111011100000000000010110000011000000001100000000110000",[42,53]],"Meysam":["00000000010111110000110110000001000000010010000000000000000000000000",[]],"Sanaz":["00001000000000111011000000000000000000001000000000010110100100000000",[]],"Bahar":["00000000000000000000000000000000000000000011000001111111101000000010",[50]],"Ghazal":["00000000000000000000000000000000000000000000000001000011100111111110",[]],"Sooroo6":["00000000000000000000000000000000000000000000000000111111110101010010",[]],"Faeghe":["00001110011001110010010000100000000000000000000000000000000000000000",[]],"Mahdi":["00000011110010000111100110000000000000000000000000000000000000000000",[]],"Afagh":["00000000010001100000100000011000100110001000000000000001000000000000",[]],"Amirhessam":["00000000001001000000000000000000000011000000000000101000001111010000",[]],"Hesam":["00000000000111101011001001000000100000001000000000000000000000000000",[]],"Amin":["00000000000000000110100001111010011001000000000000000000000000000000",[]],"Yazdoon":["00000000000000000001100110100010001010000111000000000000000000000000",[23,41]],"Arasteh":["00000000000000000000100000110000100110011100000001000001000000000000",[]],"Kimia":["00000010000000000000000000000000000100000000000000011011001000101010",[]],"Reyhane":["00000000000100001111010000110100010000000000000000000000000000000000",[18]],"Mehdi":["00000000000000000000000000000000001110111111000000000000001000000000",[]],"Ramtin":["00000000000000000000000000000000000000000000000001010111000111110000",[]]};
+  const seat = n => `<button type="button" class="seat" data-n="${esc(n)}" aria-haspopup="dialog" aria-label="${esc(n)}, ${people[n] ? people[n][0].split("1").length - 1 : 0} Fridays"><span class="chair" aria-hidden="true"></span><span class="tent${mods.has(n) ? " mod" : ""}">${esc(n)}</span></button>`;
   $("lt").innerHTML = `<div class="side top">${regulars.slice(0, half).map(seat).join("")}</div><div class="side bottom">${regulars.slice(half).map(seat).join("")}</div>
-    <a class="seat head" href="#join" role="listitem"><span class="chair" aria-hidden="true"></span><span class="tent">Your seat?</span></a>`;
+    <a class="seat head" href="#join"><span class="chair" aria-hidden="true"></span><span class="tent">Your seat?</span></a>`;
 
   // ---------- The book wall above the jar ----------
   const bookColors = ["#2F4A3A", "#D9B26B", "#6E2B22", "#E9DFC8", "#3E4A63", "#B98552"];
@@ -1214,6 +1241,35 @@ footer.site nav a:hover { color: var(--wall); }
     const x = 40 + k * 73 + ((k * 13) % 17) - 8, y = 26 + ((k * 7) % 3) * 9, r = ((k * 29) % 22) - 11;
     return k % 3 === 1 ? closedBook(x, y, r, bookColors[k % bookColors.length]) : openBook(x, y, r, 20 + (k % 2) * 4);
   }).join("");
+
+  // Tap a name card: how many Fridays, which ones, and which they moderated
+  const allF = log.flatMap(([season, rows]) => rows.map(r => [...r, season]));
+  const who = $("who"), lt = $("lt");
+  let openSeat = null;
+  const closeWho = () => { if (!openSeat) return; who.hidden = true; openSeat.classList.remove("on"); openSeat.setAttribute("aria-expanded", "false"); openSeat.focus(); openSeat = null; };
+  const openWho = btn => {
+    const n = btn.dataset.n, [bits, modded] = people[n] || ["", []];
+    const count = bits.split("1").length - 1, first = allF[bits.indexOf("1")];
+    who.innerHTML = `<button type="button" class="x" aria-label="Close">✕</button>
+      <span class="label">At the table</span><b id="who-nm">${esc(n)}</b>
+      <p class="stat"><strong>${count}</strong> of ${allF.length} Fridays on record${modded.length ? ` · moderated ${modded.length}` : ""}</p>
+      <div class="dots" aria-hidden="true">${[...bits].map((b, i) => `<i class="${b === "1" ? "y" : ""}${modded.includes(i) ? " m" : ""}" title="${esc(allF[i][0] + ", " + allF[i][2])}"></i>`).join("")}</div>
+      ${first ? `<p class="since">First Friday: <b>${esc(first[0])}</b>, ${esc(first[2])} <span>(${esc(first[4])})</span></p>` : ""}
+      ${modded.length ? `<p class="mlabel">Moderated</p><ul>${modded.map(i => `<li><span>${esc(allF[i][0])}</span>${esc(allF[i][2])}</li>`).join("")}</ul>` : ""}`;
+    if (openSeat) { openSeat.classList.remove("on"); openSeat.setAttribute("aria-expanded", "false"); }
+    openSeat = btn; btn.classList.add("on"); btn.setAttribute("aria-expanded", "true");
+    who.hidden = false;
+    const wrap = who.parentElement.getBoundingClientRect(), r = btn.getBoundingClientRect(), w = who.offsetWidth, h = who.offsetHeight;
+    const above = btn.closest(".bottom") && innerWidth > 900;
+    who.style.left = Math.max(0, Math.min(wrap.width - w, r.left - wrap.left + r.width / 2 - w / 2)) + "px";
+    who.style.top = (above ? r.top - wrap.top - h - 8 : r.bottom - wrap.top + 8) + "px";
+    who.querySelector(".x").focus({ preventScroll: true });
+  };
+  lt.addEventListener("click", e => { const b = e.target.closest("button.seat"); if (!b) return; b === openSeat ? closeWho() : openWho(b); });
+  who.addEventListener("click", e => { if (e.target.closest(".x")) closeWho(); });
+  document.addEventListener("click", e => { if (openSeat && !who.contains(e.target) && !e.target.closest("button.seat")) closeWho(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeWho(); });
+  addEventListener("hashchange", () => { if (openSeat) { who.hidden = true; openSeat.classList.remove("on"); openSeat = null; } });
 
   // ---------- Topic Jar ----------
   const Q = [
@@ -1356,7 +1412,7 @@ footer.site nav a:hover { color: var(--wall); }
       <g class="head">
         <circle cx="-19" cy="257" r="4.5" fill="${skD}"/><circle cx="19" cy="257" r="4.5" fill="${skD}"/>${p.ear ? `<circle cx="-19" cy="265" r="2" fill="${C.brass}"/><circle cx="19" cy="265" r="2" fill="${C.brass}"/>` : ""}
         <ellipse class="face" cx="0" cy="254" rx="19" ry="22" fill="${sk}"/>
-        ${p.beard || p.stubble ? `<path d="M-18 257Q-17 283 0 285Q17 283 18 257Q14 273 0 274Q-14 273-18 257Z" fill="${p.beard ? p.hc : p.stubble}" opacity="${p.beard ? 1 : .32}"/>` : ""}
+        ${p.beard || p.stubble ? `<path d="M-18 257Q-17 283 0 285Q17 283 18 257Q14 273 0 274Q-14 273-18 257Z" fill="${p.beard ? p.hc : shade(sk, .86)}"/>` : ""}
         <g class="feat">
           <g class="eyes"><circle cx="-7" cy="254" r="2.3" fill="${C.ink}"/><circle cx="7" cy="254" r="2.3" fill="${C.ink}"/></g>
           <path d="M-11 246.5h7M4 246.5h7" stroke="${p.bc || p.hc}" stroke-width="2" stroke-linecap="round"/>
