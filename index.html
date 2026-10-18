@@ -1078,18 +1078,18 @@ footer.site nav a:hover { color: var(--wall); }
   const C = { wall: "#A63F2A", wallD: "#8E3423", plaster: "#F3ECE0", wood: "#B9824A", woodD: "#8A5A30", brass: "#C9A04A", brassHi: "#E7CB86", ink: "#2A1C12", lip: "#7A3324" };
   const skin = ["#F7DCC8", "#F1D0B8", "#EDC8AC", "#E8C0A2", "#F4D5BF", "#EAC4A8"];
   const shade = (hex, f) => "#" + [1, 3, 5].map(i => Math.min(255, Math.round(parseInt(hex.slice(i, i + 2), 16) * f)).toString(16).padStart(2, "0")).join("");
-  // Drawn from the regulars in the session 69 group photo, left to right as they stood.
+  // Drawn from the regulars in the session 67 group photo, left to right as they stood.
   const crowd = [
-    { x: 150, s: 0, hair: "updo", hc: "#3B2A20", shirt: "url(#stripesG)", inner: "#1F1F22", chain: 1 },
-    { x: 250, s: 1, hair: "wavyS", hc: "#2E2019", shirt: "#E6C3A3" },
-    { x: 350, s: 3, hair: "receding", hc: "#9A948C", shirt: "url(#stripesO)", glasses: "rect", stubble: "#9A948C" },
-    { x: 450, s: 4, hair: "curly", hc: "#3B2A20", shirt: "#B9D3E6" },
-    { x: 550, s: 2, hair: "shoulder", hc: "#2A1C12", shirt: "url(#cherry)", chain: 1 },
-    { x: 650, s: 0, hair: "bangs", hc: "#1E1612", shirt: "#1F1F22", arm: "skin" },
-    { x: 750, s: 2, hair: "curlyTop", hc: "#2A1C12", shirt: "#23304F", glasses: 1, stubble: "#2A1C12" },
-    { x: 850, s: 1, hair: "short", hc: "#1E1612", shirt: "#1F1F22", beard: 1 },
-    { x: 950, s: 4, hair: "short", hc: "#2A1C12", shirt: "#BFDCD6" },
-    { x: 1050, s: 3, hair: "short", hc: "#2A1C12", shirt: "url(#stripesT)", beard: 1 }
+    { x: 150, s: 4, hair: "wavyL", hc: "#3B2A20", shirt: "#F4F1EA", locks: 1 },
+    { x: 250, s: 0, hair: "bangsS", hc: "#1A1310", shirt: "#4F5B6B" },
+    { x: 350, s: 1, hair: "wavyL", hc: "url(#ombre)", bc: "#5A3B26", shirt: "#1F1F22", bag: 1 },
+    { x: 450, s: 2, hair: "bob", hc: "#1A1310", shirt: "#F4F1EA", tie: "#F2C230" },
+    { x: 550, s: 3, hair: "short", hc: "#1E1612", shirt: "url(#stripesT)", beard: 1 },
+    { x: 650, s: 0, hair: "tousled", hc: "#2A1C12", shirt: "#22283A", chain: 1 },
+    { x: 750, s: 4, hair: "bob", hc: "#3B2A20", shirt: "url(#paisley)", inner: "#1F1F22", chain: 1, lip: "#B23A3A" },
+    { x: 850, s: 1, hair: "shoulder", hc: "#2A1C12", shirt: "url(#confetti)", over: "#F4F1EA", glasses: 1 },
+    { x: 950, s: 3, hair: "cap", hc: "#2A1C12", shirt: "#6F7348", glasses: "rect", mous: 1, stubble: "#7A5A45" },
+    { x: 1050, s: 2, hair: "tousled", hc: "#1E1612", shirt: "#1F1F22", glasses: "rect", stubble: "#7A5A45" }
   ];
   function hairOf(p) {
     const hc = p.hc;
@@ -1100,6 +1100,10 @@ footer.site nav a:hover { color: var(--wall); }
       case "bun": return [`<circle cx="0" cy="219" r="10" fill="${hc}"/><path d="M-21 252Q-23 224 0 223Q23 224 21 252L18 274H-18Z" fill="${hc}"/>`, `<path d="M-20 249Q-21 226 0 225Q21 226 20 249Q10 234 0 235Q-10 234-20 249Z" fill="${hc}"/>`];
       case "curly": return [blob([[-22, 236], [-14, 226], [-3, 221], [9, 223], [19, 230], [24, 242], [-25, 252], [25, 256], [-24, 266], [24, 270], [-20, 280], [20, 282]]), `<path d="M-19 248Q-18 228 0 227Q18 228 19 248Q14 238 6 240Q0 234-6 240Q-14 238-19 248Z" fill="${hc}"/>`];
       case "curlyS": return ["", blob([[-17, 238, 8], [-10, 229, 8], [0, 226, 8], [10, 229, 8], [17, 238, 8], [-20, 247, 6], [20, 247, 6]])];
+      case "wavyL": return [`<path d="M-23 250Q-28 221 0 221Q28 221 23 250Q31 262 25 276Q32 290 26 304Q32 316 25 326Q0 332-25 326Q-32 316-26 304Q-32 290-25 276Q-31 262-23 250Z" fill="${hc}"/>`, `<path d="M-20 252Q-22 224 2 223Q22 225 20 250Q14 236 6 232Q-6 238-20 252Z" fill="${hc}"/>`];
+      case "bangsS": return [`<path d="M-23 250Q-25 221 0 221Q25 221 23 250L26 306Q0 313-26 306Z" fill="${hc}"/>`, `<path d="M-20 250Q-21 224 0 223Q21 224 20 250L19 243Q0 239-19 243Z" fill="${hc}"/>`];
+      case "tousled": return ["", `<path d="M-20 251Q-25 224-3 220Q20 218 23 237Q25 247 20 252Q18 240 11 238Q12 245 4 244Q6 238-2 236Q-6 244-14 242Q-16 246-20 251Z" fill="${hc}"/>`];
+      case "cap": return ["", `<path d="M-20 252Q-21 240-18 236H18Q21 240 20 252Q17 244 14 242H-14Q-17 244-20 252Z" fill="${hc}"/><path d="M-21 242Q-22 218 0 217Q22 218 21 242Z" fill="#E8DCC0"/><path d="M-22 242Q0 236 22 242Q0 247-22 242Z" fill="#D2C29F"/>`];
       case "updo": return [`<circle cx="15" cy="229" r="9" fill="${hc}"/>`, `<path d="M-20 252Q-22 223 0 222Q22 223 20 252Q15 232 0 231Q-15 232-20 252Z" fill="${hc}"/><path d="M-18 246Q-24 262-19 278" stroke="${hc}" stroke-width="2.2" fill="none" stroke-linecap="round"/>`];
       case "wavyS": return [`<path d="M-23 250Q-27 221 0 221Q27 221 23 250Q30 260 25 272Q30 284 24 294Q0 300-24 294Q-30 284-25 272Q-30 260-23 250Z" fill="${hc}"/>`, `<path d="M-20 252Q-22 224 2 223Q22 225 20 250Q14 236 6 232Q-6 238-20 252Z" fill="${hc}"/>`];
       case "receding": return ["", `<path d="M-20 252Q-22 226 0 223Q22 226 20 252Q18 238 12 233Q0 238-12 233Q-18 238-20 252Z" fill="${hc}"/>`];
@@ -1119,7 +1123,7 @@ footer.site nav a:hover { color: var(--wall); }
       <g class="head">${back}</g>
       <rect x="-7" y="268" width="14" height="30" rx="4" fill="${skD}"/>
       <path d="M-38 400L-36 318Q-34 296-12 292H12Q34 296 36 318L38 400Z" fill="${p.shirt}"/>
-      ${p.inner ? `<path d="M-12 292L0 328L12 292Z" fill="${p.inner}"/>` : ""}${p.chain ? `<path d="M-8 291Q0 302 8 291" stroke="${C.brass}" stroke-width="1.3" fill="none"/>` : ""}
+      ${p.inner ? `<path d="M-12 292L0 328L12 292Z" fill="${p.inner}"/>` : ""}${p.chain ? `<path d="M-8 291Q0 302 8 291" stroke="${C.brass}" stroke-width="1.3" fill="none"/>` : ""}${p.over ? `<path d="M-38 400L-36 318Q-34 296-12 292L-13 400Z" fill="${p.over}"/><path d="M38 400L36 318Q34 296 12 292L13 400Z" fill="${p.over}"/>` : ""}${p.tie ? `<path d="M-11 291L0 300L11 291L7 289L0 294L-7 289Z" fill="#FFFFFF"/><path d="M-4 299H4L6 330L0 338L-6 330Z" fill="${p.tie}"/>` : ""}${p.locks ? `<path d="M-21 262Q-31 280-24 297Q-31 314-24 332Q-17 338-13 331Q-19 314-13 297Q-19 280-12 266Z" fill="${p.hc}"/><path d="M21 262Q31 280 24 297Q31 314 24 332Q17 338 13 331Q19 314 13 297Q19 280 12 266Z" fill="${p.hc}"/>` : ""}${p.bag ? `<path d="M-26 300L24 360" stroke="#B9B9B9" stroke-width="2" stroke-dasharray="3 2"/>` : ""}
       ${p.ns ? `<path d="M-15 289Q0 305 15 289L19 298Q0 316-19 298Z" fill="${p.ns}"/><path d="M5 303L9 336L17 331L12 301Z" fill="${shade(p.ns, .85)}"/>` : ""}
       <g class="head">
         <circle cx="-19" cy="257" r="4.5" fill="${skD}"/><circle cx="19" cy="257" r="4.5" fill="${skD}"/>${p.ear ? `<circle cx="-19" cy="265" r="2" fill="${C.brass}"/><circle cx="19" cy="265" r="2" fill="${C.brass}"/>` : ""}
@@ -1127,18 +1131,18 @@ footer.site nav a:hover { color: var(--wall); }
         ${p.beard || p.stubble ? `<path d="M-18 257Q-17 283 0 285Q17 283 18 257Q14 273 0 274Q-14 273-18 257Z" fill="${p.beard ? p.hc : p.stubble}" opacity="${p.beard ? 1 : .32}"/>` : ""}
         <g class="feat">
           <g class="eyes"><circle cx="-7" cy="254" r="2.3" fill="${C.ink}"/><circle cx="7" cy="254" r="2.3" fill="${C.ink}"/></g>
-          <path d="M-11 246.5h7M4 246.5h7" stroke="${p.hc}" stroke-width="2" stroke-linecap="round"/>
+          <path d="M-11 246.5h7M4 246.5h7" stroke="${p.bc || p.hc}" stroke-width="2" stroke-linecap="round"/>
           ${p.glasses === "rect" ? `<g fill="none" stroke="${C.ink}" stroke-width="1.7"><rect x="-13.5" y="249.5" width="12" height="9" rx="2"/><rect x="1.5" y="249.5" width="12" height="9" rx="2"/><path d="M-1.5 253h3"/></g>` : p.glasses ? `<g fill="none" stroke="${C.ink}" stroke-width="1.6"><circle cx="-7" cy="254" r="6.3"/><circle cx="7" cy="254" r="6.3"/><path d="M-1 253h2"/></g>` : ""}
           <circle cx="-11" cy="262" r="3.5" fill="#E07A5F" opacity=".22"/><circle cx="11" cy="262" r="3.5" fill="#E07A5F" opacity=".22"/>
-          ${p.beard ? `<path d="M-7 263.5Q0 260.5 7 263.5" stroke="${p.hc}" stroke-width="2.6" fill="none" stroke-linecap="round"/>` : ""}
-          <path class="mouth-r" d="M-5 266.5Q0 270.5 5 266.5" stroke="${C.lip}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-          <ellipse class="mouth-o" cx="0" cy="267.5" rx="4" ry="3.2" fill="${C.lip}"/>
+          ${p.mous ? `<path d="M-11 264Q-5 258 0 261.5Q5 258 11 264Q12 268 8 266.5Q4 263.5 0 264.5Q-4 263.5-8 266.5Q-12 268-11 264Z" fill="${p.hc}"/>` : ""}${p.beard ? `<path d="M-7 263.5Q0 260.5 7 263.5" stroke="${p.hc}" stroke-width="2.6" fill="none" stroke-linecap="round"/>` : ""}
+          <path class="mouth-r" d="M-5 266.5Q0 270.5 5 266.5" stroke="${p.lip || C.lip}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <ellipse class="mouth-o" cx="0" cy="267.5" rx="4" ry="3.2" fill="${p.lip || C.lip}"/>
         </g>${front}
       </g></g>`;
   }
   const armsSvg = (p, i) => {
     const sk = skin[p.s];
-    return `<g class="arms" id="a${i}" transform="translate(${p.x} 0)" fill="none" stroke="${p.arm === "skin" ? sk : p.shirt}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+    return `<g class="arms" id="a${i}" transform="translate(${p.x} 0)" fill="none" stroke="${p.arm === "skin" ? sk : p.over || p.shirt}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
       <path d="M-31 306Q-46 342-39 378L-15 386"/><circle cx="-13" cy="386" r="6.5" fill="${sk}" stroke="none"/>
       <path d="M31 306Q46 342 39 378"/><g class="fa"><path d="M39 378L15 386"/><circle cx="13" cy="386" r="6.5" fill="${sk}" stroke="none"/></g></g>`;
   };
@@ -1154,6 +1158,9 @@ footer.site nav a:hover { color: var(--wall); }
   const leaves = [[730, 110, 34, "#44603A"], [790, 90, 40, "#5C7A4A"], [860, 120, 38, "#44603A"], [930, 88, 42, "#6E8A55"], [975, 140, 30, "#4E6B3E"], [760, 170, 36, "#6E8A55"], [900, 180, 40, "#5C7A4A"], [830, 230, 44, "#44603A"], [960, 250, 36, "#6E8A55"], [740, 280, 40, "#5C7A4A"], [880, 300, 38, "#4E6B3E"]];
   const svg = `<svg class="scene" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
     <defs>
+      <linearGradient id="ombre" x1="0" x2="0" y1="0" y2="1"><stop offset=".15" stop-color="#3B2A20"/><stop offset=".75" stop-color="#C49A6C"/></linearGradient>
+      <pattern id="paisley" width="18" height="18" patternUnits="userSpaceOnUse"><rect width="18" height="18" fill="#6E7A3A"/><ellipse cx="5" cy="5" rx="3" ry="1.8" fill="#C8A24A" transform="rotate(-30 5 5)"/><circle cx="13" cy="13" r="2" fill="#B5543A"/><circle cx="13" cy="4" r="1" fill="#D9C79A"/><ellipse cx="4" cy="14" rx="2.4" ry="1.4" fill="#4E5A2A" transform="rotate(40 4 14)"/></pattern>
+      <pattern id="confetti" width="16" height="16" patternUnits="userSpaceOnUse"><rect width="16" height="16" fill="#2A2522"/><circle cx="3" cy="4" r="1.6" fill="#D9473B"/><rect x="9" y="2" width="3" height="3" fill="#F2C230"/><circle cx="12" cy="11" r="1.5" fill="#5B8BC9"/><circle cx="5" cy="12" r="1.3" fill="#F4F1EA"/></pattern>
       <pattern id="stripesG" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#ECEBE7"/><rect width="2" height="6" fill="#9C9B97"/></pattern>
       <pattern id="stripesO" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#F3F1E8"/><rect width="2" height="6" fill="#6F7460"/></pattern>
       <pattern id="stripesT" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#F6F5F1"/><rect width="1.2" height="4" fill="#A3A9B0"/></pattern>
