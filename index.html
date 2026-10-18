@@ -92,8 +92,30 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 .top nav a { font-family: var(--ui); font-weight: 500; font-size: .92rem; text-decoration: none; padding: 7px 13px; border-radius: 999px; }
 .top nav a:hover { background: var(--plaster-2); }
 .top nav a.pill { background: var(--wall); color: var(--on-dark); }
-@media (max-width: 860px) { .top nav a:not(.pill) { display: none; } }
+.top nav a[aria-current="page"] { background: var(--plaster-2); box-shadow: inset 0 -2px 0 var(--wall); }
+.top nav a.pill[aria-current="page"] { background: var(--wall-deep); box-shadow: none; }
+@media (max-width: 860px) {
+  .top .wrap { flex-wrap: wrap; row-gap: 8px; padding-bottom: 8px; }
+  .top nav { flex-wrap: nowrap; justify-content: flex-start; width: 100%; overflow-x: auto; scrollbar-width: none; margin-inline: -4px; padding: 2px 4px; }
+  .top nav::-webkit-scrollbar { display: none; }
+  .top nav a { flex: none; }
+}
 @media (max-width: 420px) { .brand .name { display: none; } }
+
+/* ---------- Pages ---------- */
+.view[hidden] { display: none; }
+.view section { scroll-margin-top: 80px; }
+.view > .sec:last-child .wrap { padding-bottom: clamp(72px, 10vw, 128px); }
+.explore { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.door { position: relative; display: grid; align-content: start; gap: 10px; padding: 26px 24px 64px; border-radius: 18px; background: var(--plaster-2); border: 1px solid var(--line); text-decoration: none; transition: transform .2s, border-color .2s; }
+.door:hover { transform: translateY(-3px); border-color: var(--wall); }
+.door .label { color: var(--wall); }
+.door h3 { font-size: 1.9rem; letter-spacing: -.01em; }
+.door h3 em { font-style: italic; color: var(--wall); }
+.door p { color: var(--muted); font-size: 1.02rem; }
+.door .go { position: absolute; left: 24px; bottom: 20px; font-family: var(--ui); font-size: 1.2rem; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: var(--wall); color: var(--on-dark); }
+@media (max-width: 1000px) { .explore { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .explore { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- Hero ---------- */
 .hero { overflow-x: clip; }
@@ -304,7 +326,7 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 @media (max-width: 480px) { .row { grid-template-columns: 3.8rem minmax(0, 1fr); } .row .m { grid-column: 2; margin-top: -6px; } }
 
 /* People */
-.crew { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 52px; }
+.crew { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 52px; }
 .mate { border-radius: 22px; padding: 22px; display: grid; gap: 4px; align-content: start; color: var(--on-dark); }
 .mate:nth-child(1) { background: var(--wall); }
 .mate:nth-child(2) { background: var(--leaf); }
@@ -313,7 +335,7 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 .mate .label { font-size: .62rem; opacity: .75; }
 .mate b { font-weight: 800; font-size: 2.2rem; line-height: 1.05; font-variation-settings: "SOFT" 100, "WONK" 1; }
 .mate p { font-family: var(--ui); font-size: .86rem; line-height: 1.45; opacity: .9; }
-@media (max-width: 900px) { .crew { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .crew { grid-template-columns: minmax(0, 1fr); } }
 .names { font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.55; font-weight: 400; text-wrap: pretty; }
 .names span { white-space: nowrap; }
 .names span.mod { font-style: italic; color: var(--wall); }
@@ -392,25 +414,27 @@ footer.site .logo { width: 60px; color: var(--fg); }
   .frame, .card q.flip { transition: none; animation: none; }
 }
 </style>
+
 </head>
 <body>
-
 
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#home"><span class="chip"><span class="logo" role="img" aria-label=".TED logo"></span></span><span class="name">Tehran English<br>Discussion</span></a>
     <nav aria-label="Sections">
-      <a href="#fridays">Recent Fridays</a>
+      <a href="#home">Home</a>
+      <a href="#fridays">Fridays</a>
       <a href="#archive">Archive</a>
       <a href="#people">People</a>
-      <a href="https://instagram.com/tehran.english.discussion" class="ig" target="_blank" rel="noopener" aria-label="Instagram: @tehran.english.discussion"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
       <a href="#jar">Topic Jar</a>
+      <a href="https://instagram.com/tehran.english.discussion" class="ig" target="_blank" rel="noopener" aria-label="Instagram: @tehran.english.discussion"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
       <a href="#join" class="pill">Join us</a>
     </nav>
   </div>
 </header>
 
-<main id="home">
+<main>
+<div class="view" id="home" data-title="Home">
   <section class="hero">
     <div class="wrap">
       <div>
@@ -472,6 +496,20 @@ footer.site .logo { width: 60px; color: var(--fg); }
     </div>
   </section>
 
+  <section class="sec" id="explore">
+    <div class="wrap">
+      <div class="head"><span class="label">Find your way around</span><h2>Pull up a <em>chair</em></h2></div>
+      <div class="explore">
+        <a class="door" href="#fridays"><span class="label">Photos &amp; stories</span><h3>Recent <em>Fridays</em></h3><p>The latest sessions, the gallery, and what people said on the way out.</p><span class="go" aria-hidden="true">→</span></a>
+        <a class="door" href="#archive"><span class="label">Session log</span><h3>The <em>archive</em></h3><p>Every topic and moderator since April 2025, searchable by season.</p><span class="go" aria-hidden="true">→</span></a>
+        <a class="door" href="#people"><span class="label">Who comes</span><h3>The <em>people</em></h3><p>The coordinators and the regulars who keep the table full.</p><span class="go" aria-hidden="true">→</span></a>
+        <a class="door" href="#jar"><span class="label">Warm-ups</span><h3>Topic <em>Jar</em></h3><p>Draw a question for a quiet moment or a future Friday.</p><span class="go" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="view" id="v-fridays" data-title="Fridays" hidden>
   <section class="sec" id="fridays">
     <div class="wrap">
       <div class="rail-head">
@@ -519,7 +557,9 @@ footer.site .logo { width: 60px; color: var(--fg); }
       </div>
     </div>
   </section>
+</div>
 
+<div class="view" id="v-archive" data-title="Archive" hidden>
   <section class="archive" id="archive">
     <div class="wrap">
       <div class="head">
@@ -535,13 +575,14 @@ footer.site .logo { width: 60px; color: var(--fg); }
       <p class="legend"><b>★</b> Fan favourite: rated 4.9 or higher by the people in the room.</p>
     </div>
   </section>
+</div>
 
+<div class="view" id="v-people" data-title="People" hidden>
   <section class="sec" id="people">
     <div class="wrap">
       <div class="head"><span class="label">The people at the table</span><h2>Friends who wait <em>all week</em> for Friday</h2></div>
       <div class="crew">
         <div class="mate"><span class="label">Coordinator</span><b>Breeze</b><p>43 sessions, moderated 7 of them.</p></div>
-        <div class="mate"><span class="label">Coordinator</span><b>Navid</b><p>40 sessions, moderated 4 of them.</p></div>
         <div class="mate"><span class="label">Coordinator</span><b>Pouria</b><p>35 sessions, moderated 4 of them.</p></div>
         <div class="mate"><span class="label">Coordinator</span><b>Mo</b><p>Co-ran sessions 67, 68 and 69 with Breeze.</p></div>
       </div>
@@ -549,7 +590,9 @@ footer.site .logo { width: 60px; color: var(--fg); }
       <p class="names-note">Names in terracotta italics have moderated at least one Friday.</p>
     </div>
   </section>
+</div>
 
+<div class="view" id="v-jar" data-title="Topic Jar" hidden>
   <section class="sec" id="jar">
     <div class="wrap">
       <div class="jar">
@@ -577,7 +620,9 @@ footer.site .logo { width: 60px; color: var(--fg); }
       </div>
     </div>
   </section>
+</div>
 
+<div class="view" id="v-join" data-title="Join us" hidden>
   <section id="join">
     <div class="wrap join">
       <span class="label">Pull up a chair</span>
@@ -594,6 +639,7 @@ footer.site .logo { width: 60px; color: var(--fg); }
       <a class="ig-btn" href="https://instagram.com/tehran.english.discussion" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg> Follow us on Instagram <span>@tehran.english.discussion</span></a>
     </div>
   </section>
+</div>
 </main>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
@@ -639,6 +685,28 @@ footer.site .logo { width: 60px; color: var(--fg); }
     ["Spring 2026", [["06 Mar","Hasti","Survival Skills",null],["01 May","Hasti","Manifestation",4.83],["08 May","Navid","Habits & Routines",4.63],["15 May","Parastou","Going on a Date",4.91],["22 May","Sadra","Loneliness / Solitude",4.73],["29 May","Mobina","Debate Session",4.64],["05 Jun","Hasti","Habits",4.68],["12 Jun","Bahar","Leadership",4.60],["19 Jun","Reyhan","Time Traveling",4.83]]],
     ["Summer 2026", [["26 Jun","Sareh","Things We Realized Too Late",null],["S63","Reihaneh","Friendship",null],["S64","Fateme","Uncertainty",null],["S65","Majid","Reflection",null],["S66","Mo","Bucket Lists",null],["S67","Hamid","FOMO",null],["S68","Arash","Pursuit of Happiness",null],["S69","Parnian","Workplace Discord",null]]]
   ];
+
+  // ---------- Pages ----------
+  const views = [...document.querySelectorAll(".view")];
+  const navLinks = [...document.querySelectorAll(".top nav a[href^='#']")];
+  function route() {
+    const id = decodeURIComponent(location.hash.slice(1)) || "home";
+    const el = document.getElementById(id);
+    const view = (el && el.closest(".view")) || views[0];
+    const changed = view.hidden;
+    views.forEach(v => { v.hidden = v !== view; });
+    const page = view.id === "home" ? "home" : view.id.slice(2);
+    navLinks.forEach(a => a.getAttribute("href") === "#" + page ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
+    document.title = view.id === "home" ? "Tehran English Discussion" : view.dataset.title + " · Tehran English Discussion";
+    const cur = navLinks.find(a => a.hasAttribute("aria-current"));
+    const nav = cur && cur.parentElement;
+    if (nav && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = cur.offsetLeft - (nav.clientWidth - cur.offsetWidth) / 2;
+    if (el && el !== view && el !== view.firstElementChild) el.scrollIntoView({ behavior: "instant" });
+    else if (changed || el === view || el === view.firstElementChild) window.scrollTo({ top: 0, behavior: "instant" });
+  }
+  addEventListener("hashchange", route);
+  addEventListener("load", route);
+  route();
 
   // ---------- Next Friday ----------
   const now = new Date();
