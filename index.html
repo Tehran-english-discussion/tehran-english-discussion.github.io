@@ -276,6 +276,64 @@ html.live .scene-wrap .glow { animation: none; opacity: 1; transform: scale(1.3)
 @keyframes pulse { 50% { opacity: .25; } }
 @media (prefers-reduced-motion: reduce) { html.live .ticket .k::before, html.live .wall::before { animation: none; } }
 
+/* Tea glass in the Friday card: fills from Saturday, steams on Friday */
+.ticket .tea { display: grid; place-items: center; padding: 6px 16px 6px 2px; }
+.ticket .tea svg { display: block; overflow: visible; }
+.ticket .tsteam { fill: none; stroke: rgba(42, 28, 18, .45); stroke-width: 1.6; stroke-linecap: round; animation: steam 3s ease-out infinite; opacity: 0; }
+.ticket .tsteam + .tsteam { animation-delay: 1.4s; }
+
+/* The Join window follows Tehran's clock and seasons */
+.join-window .stars, .join-window .moon, .join-window .branches, .join-window .blossom, .join-window .snow { display: none; }
+.join-window[data-sky="dusk"] .sky { fill: #F4C08E; }
+.join-window[data-sky="night"] .sky { fill: #1E2944; }
+.join-window[data-sky="night"] .stars, .join-window[data-sky="night"] .moon { display: inline; }
+.join-window[data-sky="night"] .trees { filter: brightness(.45) saturate(.8); }
+.join-window[data-sky="night"] .sunbeam { display: none; }
+.join-window[data-sky="night"] .stars circle { animation: twinkle 3s ease-in-out infinite; }
+.join-window[data-sky="night"] .stars circle:nth-child(2n) { animation-delay: 1.2s; }
+.join-window[data-season="autumn"] .lf:nth-child(3n) { fill: #C9662E; }
+.join-window[data-season="autumn"] .lf:nth-child(3n+1) { fill: #D9A441; }
+.join-window[data-season="autumn"] .lf:nth-child(3n+2) { fill: #9A5B2A; }
+.join-window[data-season="winter"] .lf { fill: #E4E6E0; opacity: .3; }
+.join-window[data-season="winter"] .branches, .join-window[data-season="winter"] .snow { display: inline; }
+.join-window[data-season="winter"] .snow circle { animation: snowfall 7s linear infinite; }
+.join-window[data-season="spring"] .blossom { display: inline; }
+@keyframes snowfall { from { transform: translateY(-30px); } to { transform: translateY(300px); } }
+
+/* The chandelier secret: three taps and the lights go down */
+.chandelier { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.dim { position: fixed; inset: 0; z-index: 70; pointer-events: none; opacity: 0; transition: opacity .9s ease; background: radial-gradient(circle at var(--cx, 50%) var(--cy, 30%), rgba(255, 214, 140, .18) 0, rgba(14, 9, 6, 0) 90px, rgba(14, 9, 6, .86) 260px); }
+.egg { position: fixed; left: 50%; bottom: calc(28px + env(safe-area-inset-bottom, 0px)); z-index: 71; margin: 0; padding: 12px 20px; border-radius: 999px; background: #FFFDF8; color: #2A1C12; font-style: italic; font-size: 1.05rem; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; transition: opacity .6s .3s, transform .6s .3s; max-width: calc(100vw - 32px); text-align: center; }
+html.lights-off .dim { opacity: 1; pointer-events: auto; }
+html.lights-off .egg { opacity: 1; transform: translate(-50%, 0); }
+html.lights-off .chandelier { position: absolute; z-index: 72; color: #FFE6A6; filter: drop-shadow(0 0 6px #FFD36B) drop-shadow(0 0 22px rgba(255, 200, 90, .9)); }
+html.lights-off .chandelier .drops { animation-duration: 1.1s; }
+
+/* Thank-you notes: sticky notes on the wall */
+.notes { columns: 4 230px; column-gap: 22px; }
+.note { break-inside: avoid; position: relative; margin: 0 0 24px; padding: 22px 18px 14px; background: var(--c); color: #2A1C12; transform: rotate(var(--r)); box-shadow: 0 1px 1px rgba(42, 28, 18, .12), 0 16px 26px -18px rgba(58, 36, 22, .6); }
+.note::before { content: ""; position: absolute; top: -9px; left: 50%; width: 64px; height: 20px; margin-left: -32px; background: rgba(255, 253, 248, .55); box-shadow: 0 1px 2px rgba(42, 28, 18, .1); transform: rotate(-2deg); }
+.note p { font-family: "Caveat", "Segoe Print", cursive; font-weight: 500; font-size: 1.42rem; line-height: 1.16; }
+.note figcaption { margin-top: 10px; font-family: var(--ui); font-weight: 600; font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(42, 28, 18, .62); }
+@media (max-width: 560px) { .notes { columns: 1; } .note { max-width: 420px; } }
+
+/* Words from the table: index cards */
+.words { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.word { position: relative; padding: 18px 18px 14px; border-radius: 4px; color: #2A1C12; display: grid; gap: 6px; align-content: start;
+  background: linear-gradient(#FFFDF8 0 30px, transparent 30px), repeating-linear-gradient(#FFFDF8 0 23px, #D9E3EE 23px 24px); box-shadow: inset 0 3px 0 #A63F2A, 0 12px 22px -16px rgba(58, 36, 22, .6); }
+.word h3 { font-size: 1.4rem; font-weight: 750; line-height: 1.1; }
+.word p { font-size: 1rem; line-height: 1.5; color: #4A3A2C; }
+.word span { margin-top: 4px; font-family: var(--ui); font-weight: 600; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: #A63F2A; }
+
+/* Share button on each archive tile */
+.tilebox { position: relative; }
+.tilebox .tile { width: 100%; transform: none; }
+.tilebox .share { position: absolute; right: 8px; bottom: 8px; z-index: 2; width: 32px; height: 32px; border: 0; border-radius: 50%; display: grid; place-items: center; background: rgba(42, 28, 18, .08); color: #7E2D1E; cursor: pointer; transition: background-color .2s; }
+@media (hover: hover) { .tilebox .share:hover { background: #A63F2A; color: #FFFDF8; } }
+.tilebox .share:disabled { opacity: .5; cursor: progress; }
+.tile .face { padding-right: 44px; }
+@media (prefers-reduced-motion: reduce) { .ticket .tsteam, .join-window .snow circle, .join-window .stars circle { animation: none; } .dim, .egg { transition: none; } }
+
 /* ---------- Topic ticker ---------- */
 .ticker { background: var(--walnut); color: var(--brass-hi); overflow: hidden; }
 .ticker .track { -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
@@ -410,7 +468,7 @@ html.live .scene-wrap .glow { animation: none; opacity: 1; transform: scale(1.3)
 /* The wall of Fridays: one paper tile per session, flipping to show who moderated */
 .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
 .tile { position: relative; height: 136px; padding: 0; border: 0; background: none; cursor: pointer; perspective: 900px; color: inherit; font: inherit; text-align: left; }
-.tile:nth-child(3n+1) { transform: rotate(-.7deg); } .tile:nth-child(3n+2) { transform: rotate(.5deg); } .tile:nth-child(4n) { transform: rotate(-.3deg) translateY(2px); }
+.tilebox:nth-child(3n+1) { transform: rotate(-.7deg); } .tilebox:nth-child(3n+2) { transform: rotate(.5deg); } .tilebox:nth-child(4n) { transform: rotate(-.3deg) translateY(2px); }
 .tile .face { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; padding: 13px 14px; border-radius: 10px; backface-visibility: hidden; -webkit-backface-visibility: hidden; transition: transform .6s cubic-bezier(.2,.8,.2,1); box-shadow: 0 14px 24px -16px rgba(0, 0, 0, .7); }
 .tile .front { background: #F7EEDD; color: #2A1C12; }
 .tile .back { background: var(--brass-hi); color: #2A1C12; transform: rotateY(180deg); }
@@ -644,6 +702,7 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
             <span class="v" id="next-v">Friday · 1st of Aban</span>
             <span class="s" id="next-s">5 days to go</span>
           </div>
+          <div class="tea" id="tea" aria-hidden="true"></div>
         </div>
         <p class="last" id="last-s"></p>
         <div class="hero-cta"><a class="cta" href="#join">Join us →</a><span>Great English and ideas to share? Send us a voice intro</span></div>
@@ -759,6 +818,28 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
       </div>
     </div>
   </section>
+
+  <section class="sec" id="thanks">
+    <div class="wrap">
+      <div class="head"><span class="label">Thank-you notes</span><h2>Left in the group chat, <em>after Friday</em></h2><p>Real notes members wrote to each other after our sessions.</p></div>
+      <div class="notes">
+        <figure class="note" style="--c:#FFF1A8;--r:-3deg"><p>Guys, it was a real discussion by real people. Thanks for sharing and being real.</p><figcaption>Pouria · Mar 2025</figcaption></figure>
+        <figure class="note" style="--c:#FAD4C0;--r:-1deg"><p>The talk level was beyond things I thought about. Thanks Atabak for the really challenging questions.</p><figcaption>Hossein · Apr 2025</figcaption></figure>
+        <figure class="note" style="--c:#D8E8C8;--r:1deg"><p>I had the best time, you guys. Thanks for participating and all the positive energy.</p><figcaption>Shims · Apr 2025</figcaption></figure>
+        <figure class="note" style="--c:#D6E4F0;--r:3deg"><p>It was so nice to join you, everyone. You decorated my Friday evening!</p><figcaption>A first-timer · Apr 2025</figcaption></figure>
+        <figure class="note" style="--c:#F6D6E6;--r:-2deg"><p>It was one of the best experiences I’ve ever had. A special thank you to the moderators.</p><figcaption>A member · May 2025</figcaption></figure>
+        <figure class="note" style="--c:#FFF1A8;--r:0deg"><p>Today was amazing. I loved the discussion we had. 10/10</p><figcaption>Meysam · Jul 2025</figcaption></figure>
+        <figure class="note" style="--c:#FAD4C0;--r:2deg"><p>I am genuinely so lucky to have made such amazing friends. Love you all!</p><figcaption>Breeze · Sep 2025</figcaption></figure>
+        <figure class="note" style="--c:#D8E8C8;--r:-3deg"><p>Thanks for the great session. Loved the heated arguments!</p><figcaption>Alireza · Nov 2025</figcaption></figure>
+        <figure class="note" style="--c:#D6E4F0;--r:-1deg"><p>Thank you for a great session. I’ll be taking a leaf out of your book next time I try moderating.</p><figcaption>Mohammad, to Mobina · Nov 2025</figcaption></figure>
+        <figure class="note" style="--c:#F6D6E6;--r:1deg"><p>Really, thanks to Pouria and Breeze for the amazing meeting. Best Yalda ever.</p><figcaption>Narges · Dec 2025</figcaption></figure>
+        <figure class="note" style="--c:#FFF1A8;--r:3deg"><p>Greatest of first impressions. Thank y’all friendly people for having me.</p><figcaption>Hassan · Feb 2026</figcaption></figure>
+        <figure class="note" style="--c:#FAD4C0;--r:-2deg"><p>I needed to hear different perspectives on building a utopia from educated friends, and I really enjoyed it today.</p><figcaption>Yazdan · Feb 2026</figcaption></figure>
+        <figure class="note" style="--c:#D8E8C8;--r:0deg"><p>Thank you for this great community you made and maintained. I joined a year ago, about this time of year.</p><figcaption>Navid · Jun 2026</figcaption></figure>
+        <figure class="note" style="--c:#D6E4F0;--r:2deg"><p>I get very energetic and hyped up after the meetings. It makes Friday evenings far from gloomy and blue.</p><figcaption>Arash · Sep 2026</figcaption></figure>
+      </div>
+    </div>
+  </section>
 </div>
 
 <div class="view" id="v-archive" data-title="Archive" hidden>
@@ -834,12 +915,35 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
       </div>
     </div>
   </section>
+
+  <section class="sec" id="words">
+    <div class="wrap">
+      <div class="head"><span class="label">Words from the table</span><h2>New words, picked up <em>on Fridays</em></h2><p>Arash writes down the words and phrases he picks up at our sessions and shares them in the group. Here are some of them.</p></div>
+      <div class="words">
+        <article class="word"><h3>well-versed</h3><p>Deeply skilled or knowledgeable in something.</p><span>Higher Education · Nov 2025</span></article>
+        <article class="word"><h3>to dwindle</h3><p>To shrink, little by little.</p><span>Higher Education · Nov 2025</span></article>
+        <article class="word"><h3>a bastion</h3><p>A place or person that strongly defends a set of values.</p><span>Higher Education · Nov 2025</span></article>
+        <article class="word"><h3>infringement</h3><p>Breaking a rule, or stepping on someone’s rights.</p><span>The Parliament · Feb 2026</span></article>
+        <article class="word"><h3>to siphon money</h3><p>To quietly move money away, usually dishonestly.</p><span>The Parliament · Feb 2026</span></article>
+        <article class="word"><h3>to eradicate</h3><p>To wipe something out completely.</p><span>The Parliament · Feb 2026</span></article>
+        <article class="word"><h3>a threshold</h3><p>The point where something starts to happen.</p><span>The Parliament · Feb 2026</span></article>
+        <article class="word"><h3>infatuation</h3><p>An intense, often short-lived passion for someone.</p><span>Trust, Love & Stalking · Feb 2026</span></article>
+        <article class="word"><h3>to water down a story</h3><p>To tell it softer or tamer than it really was.</p><span>Trust, Love & Stalking · Feb 2026</span></article>
+        <article class="word"><h3>a leap of faith</h3><p>Trusting something before you have proof.</p><span>Trust, Love & Stalking · Feb 2026</span></article>
+        <article class="word"><h3>a lost cause</h3><p>Something that can no longer succeed or be saved.</p><span>Leadership · Jun 2026</span></article>
+        <article class="word"><h3>crucial</h3><p>Decisive; the thing everything depends on.</p><span>Leadership · Jun 2026</span></article>
+        <article class="word"><h3>assertive</h3><p>Confident and clear about what you want.</p><span>Leadership · Jun 2026</span></article>
+        <article class="word"><h3>agitated</h3><p>Visibly troubled or nervous.</p><span>Leadership · Jun 2026</span></article>
+        <article class="word"><h3>to lay off</h3><p>To let workers go because there isn’t enough work.</p><span>Leadership · Jun 2026</span></article>
+      </div>
+    </div>
+  </section>
 </div>
 
 <div class="view" id="v-join" data-title="Join us" hidden>
   <section id="join">
     <div class="wrap join">
-      <div class="join-window" aria-hidden="true">
+      <div class="join-window" id="window" aria-hidden="true">
         <svg viewBox="0 0 300 400" focusable="false">
           <defs>
             <pattern id="lace2" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#FBF7EF"/><circle cx="6" cy="6" r="2.8" fill="none" stroke="#E4D8C5" stroke-width="1"/><circle cx="0" cy="0" r="1.2" fill="#E4D8C5"/><circle cx="12" cy="12" r="1.2" fill="#E4D8C5"/></pattern>
@@ -847,9 +951,13 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
             <clipPath id="glasspanes"><rect x="34" y="34" width="232" height="300"/></clipPath>
           </defs>
           <rect x="6" y="6" width="288" height="348" rx="6" fill="#E6DCCB"/>
-          <rect x="34" y="34" width="232" height="300" fill="#DCE6CE"/>
+          <rect class="sky" x="34" y="34" width="232" height="300" fill="#DCE6CE"/>
           <g clip-path="url(#glasspanes)">
-            <g class="trees"><circle cx="60" cy="70" r="40" fill="#5C7A4A"/><circle cx="130" cy="50" r="46" fill="#44603A"/><circle cx="210" cy="72" r="44" fill="#6E8A55"/><circle cx="262" cy="40" r="34" fill="#4E6B3E"/><circle cx="90" cy="140" r="44" fill="#6E8A55"/><circle cx="180" cy="150" r="50" fill="#5C7A4A"/><circle cx="250" cy="150" r="36" fill="#44603A"/><circle cx="50" cy="210" r="38" fill="#44603A"/><circle cx="140" cy="230" r="46" fill="#4E6B3E"/><circle cx="240" cy="236" r="42" fill="#6E8A55"/></g>
+            <g class="stars" fill="#FFF6D8"><circle cx="58" cy="52" r="1.4"/><circle cx="96" cy="78" r="1"/><circle cx="132" cy="46" r="1.6"/><circle cx="188" cy="64" r="1.1"/><circle cx="226" cy="44" r="1.4"/><circle cx="246" cy="86" r="1"/><circle cx="74" cy="96" r="1.1"/><circle cx="168" cy="92" r="1.3"/></g><path class="moon" d="M222 70a16 16 0 1 0 14 24 13 13 0 1 1-14-24z" fill="#FFF1C9"/>
+            <g class="branches" stroke="#6B4A33" stroke-width="4" stroke-linecap="round" fill="none"><path d="M80 334V200L60 150M80 230L112 176M112 176L104 140M112 176L140 160"/><path d="M200 334V210L230 160M200 250L170 196M170 196L176 150M230 160L250 128"/></g>
+            <g class="trees"><circle class="lf" cx="60" cy="70" r="40" fill="#5C7A4A"/><circle class="lf" cx="130" cy="50" r="46" fill="#44603A"/><circle class="lf" cx="210" cy="72" r="44" fill="#6E8A55"/><circle class="lf" cx="262" cy="40" r="34" fill="#4E6B3E"/><circle class="lf" cx="90" cy="140" r="44" fill="#6E8A55"/><circle class="lf" cx="180" cy="150" r="50" fill="#5C7A4A"/><circle class="lf" cx="250" cy="150" r="36" fill="#44603A"/><circle class="lf" cx="50" cy="210" r="38" fill="#44603A"/><circle class="lf" cx="140" cy="230" r="46" fill="#4E6B3E"/><circle class="lf" cx="240" cy="236" r="42" fill="#6E8A55"/></g>
+            <g class="blossom" fill="#F4B6C6"><circle cx="52" cy="60" r="3.2"/><circle cx="84" cy="92" r="3.2"/><circle cx="120" cy="40" r="3.2"/><circle cx="146" cy="70" r="3.2"/><circle cx="196" cy="58" r="3.2"/><circle cx="230" cy="86" r="3.2"/><circle cx="256" cy="48" r="3.2"/><circle cx="72" cy="140" r="3.2"/><circle cx="110" cy="160" r="3.2"/><circle cx="172" cy="130" r="3.2"/><circle cx="206" cy="170" r="3.2"/><circle cx="244" cy="140" r="3.2"/><circle cx="62" cy="214" r="3.2"/><circle cx="128" cy="238" r="3.2"/><circle cx="160" cy="214" r="3.2"/><circle cx="232" cy="226" r="3.2"/><circle cx="98" cy="196" r="3.2"/><circle cx="188" cy="250" r="3.2"/></g>
+            <g class="snow" fill="#FFFFFF"><circle cx="50" cy="40" r="2" style="animation-delay:-0s"/><circle cx="84" cy="20" r="1.6" style="animation-delay:-2.1s"/><circle cx="120" cy="50" r="2.2" style="animation-delay:-4.3s"/><circle cx="150" cy="30" r="1.5" style="animation-delay:-1.2s"/><circle cx="182" cy="46" r="2" style="animation-delay:-3.4s"/><circle cx="214" cy="26" r="1.7" style="animation-delay:-5.1s"/><circle cx="244" cy="44" r="2.1" style="animation-delay:-0.7s"/><circle cx="66" cy="70" r="1.4" style="animation-delay:-2.8s"/><circle cx="198" cy="64" r="1.6" style="animation-delay:-4.8s"/><circle cx="260" cy="60" r="1.5" style="animation-delay:-1.9s"/></g>
             <rect x="34" y="176" width="232" height="158" fill="url(#lace2)" opacity=".92"/>
             <path d="M34 176Q92 186 150 176T266 176" fill="none" stroke="#EDE3D2" stroke-width="3"/>
           </g>
@@ -860,7 +968,7 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
             <rect x="34" y="214" width="232" height="6"/><rect x="88" y="114" width="6" height="220"/><rect x="206" y="114" width="6" height="220"/>
           </g>
           <rect x="28" y="28" width="244" height="312" fill="none" stroke="#FFFDF8" stroke-width="12"/>
-          <path d="M34 34L150 334H34Z" fill="url(#sun)" opacity=".55"/>
+          <path class="sunbeam" d="M34 34L150 334H34Z" fill="url(#sun)" opacity=".55"/>
           <rect x="0" y="340" width="300" height="22" rx="4" fill="#F3ECE0"/><rect x="0" y="360" width="300" height="6" rx="3" fill="#D8CAB2"/>
           <g transform="translate(218 340)"><ellipse rx="15" ry="3.5" fill="#E2D6C3"/><path d="M-7-2L-8.5-17Q-10-24-6.5-28H6.5Q10-24 8.5-17L7-2Z" fill="#B5541C" opacity=".9"/><path d="M-6.5-28H6.5" stroke="#FFFDF8" stroke-width="1.6"/><path class="steam" d="M-2-34q-5-7 0-14t0-14" stroke="#A8957A" stroke-width="2" fill="none" stroke-linecap="round"/><path class="steam" d="M4-34q-5-7 0-14t0-14" stroke="#A8957A" stroke-width="2" fill="none" stroke-linecap="round"/></g>
           <g transform="translate(70 340)"><path d="M-16-26H16L12 0H-12Z" fill="#B5543A"/><rect x="-18" y="-30" width="36" height="6" rx="2" fill="#8E3423"/><path d="M0-30Q-4-52-18-60M0-30Q2-56 12-68M0-30Q8-46 22-50M0-30Q-10-40-24-40" stroke="#44603A" stroke-width="3" fill="none" stroke-linecap="round"/><g fill="#5C7A4A"><ellipse cx="-18" cy="-60" rx="8" ry="4" transform="rotate(-30 -18 -60)"/><ellipse cx="12" cy="-68" rx="8" ry="4" transform="rotate(-60 12 -68)"/><ellipse cx="22" cy="-50" rx="8" ry="4" transform="rotate(20 22 -50)"/><ellipse cx="-24" cy="-40" rx="7" ry="3.5" transform="rotate(10 -24 -40)"/></g></g>
@@ -891,6 +999,8 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
   <span class="cnt" id="lb-cnt"></span>
 </div>
 
+<div class="dim" id="dim" aria-hidden="true"></div>
+<p class="egg" role="status">You found the light switch. See you on Friday.</p>
 <div class="rug" aria-hidden="true"></div>
 <footer class="site">
   <div class="wrap">
@@ -1015,8 +1125,48 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
     $("next-v").textContent = "We’re at the table";
     $("next-s").textContent = t.h >= 18 ? "Second table · 6 to 8 pm" : "First table · 4 to 6 pm, the second at 6";
   };
-  checkEvening();
-  setInterval(checkEvening, 60000);
+  // The tea glass fills a little each day from Saturday and steams on Friday
+  const week = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  const pourTea = () => {
+    let day = "Fri"; try { day = tehranNow().day; } catch (e) {}
+    const f = (week.indexOf(day) + 1) / 7, h = 34 * f;
+    $("tea").title = day === "Fri" ? "Tea’s ready" : "The tea fills up by Friday";
+    $("tea").innerHTML = `<svg viewBox="0 -14 34 62" width="34" height="62" focusable="false"><defs><clipPath id="teaclip"><path d="M9 6H25Q27 14 23 22Q21 26 22 30Q24 38 21 42H13Q10 38 12 30Q13 26 11 22Q7 14 9 6Z"/></clipPath></defs>
+      ${day === "Fri" ? `<path class="tsteam" d="M14 2q-4-5 0-10t0-10" /><path class="tsteam" d="M20 2q-4-5 0-10t0-10" />` : ""}
+      <ellipse cx="17" cy="45" rx="15" ry="3" fill="rgba(42,28,18,.18)"/>
+      <path d="M9 6H25Q27 14 23 22Q21 26 22 30Q24 38 21 42H13Q10 38 12 30Q13 26 11 22Q7 14 9 6Z" fill="rgba(255,253,248,.45)"/>
+      <rect clip-path="url(#teaclip)" x="0" y="${42 - h}" width="34" height="${h}" fill="#B5541C"/>
+      <path d="M9 6H25Q27 14 23 22Q21 26 22 30Q24 38 21 42H13Q10 38 12 30Q13 26 11 22Q7 14 9 6Z" fill="none" stroke="rgba(42,28,18,.55)" stroke-width="1.3"/>
+      <path d="M8.5 6H25.5" stroke="rgba(42,28,18,.55)" stroke-width="1.6" stroke-linecap="round"/></svg>`;
+  };
+  // The Join page window shows Tehran's real sky and season
+  const dressWindow = () => {
+    const win = $("window"); if (!win) return;
+    let h = 12, month = 8;
+    try { h = tehranNow().h; month = parseInt(new Intl.DateTimeFormat("en-u-ca-persian", { timeZone: "Asia/Tehran", month: "numeric" }).format(new Date()), 10); } catch (e) {}
+    win.dataset.sky = h >= 6 && h < 17 ? "day" : h >= 17 && h < 20 ? "dusk" : "night";
+    win.dataset.season = ["spring", "summer", "autumn", "winter"][Math.floor((month - 1) / 3)] || "summer";
+  };
+  const everyMinute = () => { checkEvening(); pourTea(); dressWindow(); };
+  everyMinute();
+  setInterval(everyMinute, 60000);
+
+  // Tap the chandelier three times: the lights go down for a moment
+  const chand = document.querySelector(".chandelier");
+  let taps = [], dimTimer = null;
+  const lightsUp = () => { document.documentElement.classList.remove("lights-off"); clearTimeout(dimTimer); };
+  chand.addEventListener("click", () => {
+    const now = Date.now(); taps = taps.filter(t => now - t < 1400); taps.push(now);
+    if (taps.length < 3) return;
+    taps = [];
+    const r = chand.getBoundingClientRect();
+    $("dim").style.setProperty("--cx", r.left + r.width / 2 + "px");
+    $("dim").style.setProperty("--cy", r.top + r.height * .6 + "px");
+    document.documentElement.classList.add("lights-off");
+    clearTimeout(dimTimer); dimTimer = setTimeout(lightsUp, 7000);
+  });
+  $("dim").addEventListener("click", lightsUp);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") lightsUp(); });
 
   const lastF = log[log.length - 1][1].slice(-1)[0];
   $("last-s").innerHTML = `Last Friday: <b>${esc(lastF[2])}</b>, moderated by ${esc(lastF[1])}`;
@@ -1199,14 +1349,17 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
   let season = "All", query = "";
   try { const s = localStorage.getItem("ted-season"); if (s && (s === "All" || log.some(x => x[0] === s))) season = s; } catch (e) {}
   $("seasons").innerHTML = ["All", ...log.map(s => s[0])].map(s => `<button type="button" id="season-${s.replace(/\W+/g, "")}" data-s="${esc(s)}" aria-pressed="${s === season}">${esc(s)}</button>`).join("");
+  let shareRows = [];
   function renderLog() {
     const q = query.trim().toLowerCase();
+    shareRows = [];
     const html = log.filter(s => season === "All" || s[0] === season).map(([name, rows]) => {
       const hit = rows.filter(r => !q || r[2].toLowerCase().includes(q) || r[1].toLowerCase().includes(q));
       if (!hit.length) return "";
       return `<div class="season"><h3>${esc(name)}<small>${hit.length} ${hit.length === 1 ? "Friday" : "Fridays"}</small></h3><div class="tiles">${hit.map(r => {
+        const k = shareRows.push([r, name]) - 1;
         const fav = r[3] >= 4.9, d = /^S\d+$/.test(r[0]) ? "Session " + r[0].slice(1) : r[0];
-        return `<button type="button" class="tile${fav ? " fav" : ""}" aria-label="${esc(d)}: ${esc(r[2])}, moderated by ${esc(r[1])}${fav ? ", a fan favourite" : ""}"><span class="face front" aria-hidden="true"><span class="d">${esc(d)}</span><span class="t">${esc(r[2])}</span>${fav ? `<span class="star">★</span>` : ""}</span><span class="face back" aria-hidden="true"><span><small>Moderated by</small><br><b>${esc(r[1])}</b></span><span class="d">${esc(r[2])}</span></span></button>`;
+        return `<div class="tilebox"><button type="button" class="tile${fav ? " fav" : ""}" aria-label="${esc(d)}: ${esc(r[2])}, moderated by ${esc(r[1])}${fav ? ", a fan favourite" : ""}"><span class="face front" aria-hidden="true"><span class="d">${esc(d)}</span><span class="t">${esc(r[2])}</span>${fav ? `<span class="star">★</span>` : ""}</span><span class="face back" aria-hidden="true"><span><small>Moderated by</small><br><b>${esc(r[1])}</b></span><span class="d">${esc(r[2])}</span></span></button><button type="button" class="share" data-k="${k}" aria-label="Make a shareable card for ${esc(r[2])}"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></button></div>`;
       }).join("")}</div></div>`;
     }).join("");
     $("log").innerHTML = html || `<p class="empty">No Friday matches “${esc(query)}” yet. Maybe it should be the next topic.</p>`;
@@ -1219,7 +1372,57 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
     renderLog();
   });
   $("q").addEventListener("input", e => { query = e.target.value; renderLog(); });
-  $("log").addEventListener("click", e => { const t = e.target.closest(".tile"); if (t) t.classList.toggle("flip"); });
+  $("log").addEventListener("click", e => {
+    const sh = e.target.closest(".share");
+    if (sh) return shareCard(shareRows[+sh.dataset.k], sh);
+    const t = e.target.closest(".tile"); if (t) t.classList.toggle("flip");
+  });
+
+  // A story-sized card (1080 × 1920) for one Friday, shared from the phone or downloaded as a PNG
+  const loadImg = src => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = src; });
+  async function shareCard([r, season], btn) {
+    btn.disabled = true;
+    try {
+      await Promise.all(["800 120px Fraunces", "italic 400 56px Fraunces", "600 34px 'Instrument Sans'"].map(f => document.fonts.load(f).catch(() => {})));
+      const months = { Jan: 0, Feb: 1, Mar: 2 }, y0 = parseInt(season.match(/\d{4}/)[0], 10);
+      const mon = r[0].split(" ")[1], year = season.startsWith("Winter") && mon in months ? y0 + 1 : y0;
+      const c = document.createElement("canvas"); c.width = 1080; c.height = 1920;
+      const x = c.getContext("2d");
+      const g = x.createLinearGradient(0, 0, 0, 1920); g.addColorStop(0, "#A63F2A"); g.addColorStop(1, "#6E2618"); x.fillStyle = g; x.fillRect(0, 0, 1080, 1920);
+      const glow = x.createRadialGradient(540, 120, 0, 540, 120, 700); glow.addColorStop(0, "rgba(255,227,160,.35)"); glow.addColorStop(1, "rgba(255,227,160,0)"); x.fillStyle = glow; x.fillRect(0, 0, 1080, 1100);
+      // logo on a yellow chip
+      const logo = await loadImg("logo-mask.png"), lw = 300, lh = lw * logo.height / logo.width;
+      const o = document.createElement("canvas"); o.width = lw; o.height = lh; const ox = o.getContext("2d");
+      ox.drawImage(logo, 0, 0, lw, lh); ox.globalCompositeOperation = "source-in"; ox.fillStyle = "#2A1C12"; ox.fillRect(0, 0, lw, lh);
+      x.fillStyle = "#FFC700"; x.beginPath(); x.roundRect ? x.roundRect(540 - lw / 2 - 40, 180, lw + 80, lh + 60, 26) : x.rect(540 - lw / 2 - 40, 180, lw + 80, lh + 60); x.fill(); x.drawImage(o, 540 - lw / 2, 210);
+      x.textAlign = "center"; x.fillStyle = "#F7EEDD";
+      x.font = "600 34px 'Instrument Sans', sans-serif"; x.letterSpacing = "8px"; x.fillText("I WAS AT THE TABLE", 540, 560); x.letterSpacing = "0px";
+      x.font = "italic 400 56px Fraunces, Georgia, serif"; x.fillStyle = "#E7CB86"; x.fillText(`Friday · ${r[0]} ${year}`, 540, 660);
+      // topic, wrapped
+      x.fillStyle = "#FFFDF8"; let size = 120, lines;
+      do { x.font = `800 ${size}px Fraunces, Georgia, serif`; lines = []; let line = "";
+        for (const w of r[2].split(" ")) { const t = line ? line + " " + w : w; if (x.measureText(t).width > 900 && line) { lines.push(line); line = w; } else line = t; }
+        lines.push(line); size -= 8; } while (lines.length > 4 && size > 60);
+      const lh2 = (size + 8) * 1.08, top = 980 - (lines.length - 1) * lh2 / 2;
+      lines.forEach((l, i) => x.fillText(l, 540, top + i * lh2));
+      x.font = "600 40px 'Instrument Sans', sans-serif"; x.fillStyle = "#F7EEDD"; x.fillText(`Moderated by ${r[1]}`, 540, top + lines.length * lh2 + 50);
+      x.font = "italic 400 46px Fraunces, Georgia, serif"; x.fillStyle = "#E7CB86"; x.fillText("Tehran English Discussion", 540, 1560);
+      x.font = "500 32px 'Instrument Sans', sans-serif"; x.fillStyle = "#F7EEDD"; x.fillText("Every Friday, one long table · tehran-english-discussion.github.io", 540, 1620);
+      // the Persian tile band from the footer
+      const band = getComputedStyle(document.querySelector(".rug")).backgroundImage.match(/url\("?(.*?)"?\)/);
+      x.fillStyle = "#3A2416"; x.fillRect(0, 1720, 1080, 120); x.fillStyle = "#C9A04A"; x.fillRect(0, 1716, 1080, 6); x.fillRect(0, 1838, 1080, 6);
+      if (band) { const t = await loadImg(band[1]); for (let i = 0; i < 1080; i += 96) x.drawImage(t, i, 1732, 96, 96); }
+      const blob = await new Promise(ok => c.toBlob(ok, "image/png"));
+      const file = new File([blob], `ted-${r[2].toLowerCase().replace(/[^a-z0-9]+/g, "-")}.png`, { type: "image/png" });
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({ files: [file], title: r[2], text: "I was at the table · Tehran English Discussion" }).catch(() => {});
+      } else {
+        const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = file.name; document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+      }
+    } catch (err) { console.warn("Share card failed", err); }
+    btn.disabled = false;
+  }
   renderLog();
 
   // ---------- Names ----------
