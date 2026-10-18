@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Tehran English Discussion (.TED): friends who meet every Friday to share viewpoints and life stories in English.">
+<meta property="og:title" content="Tehran English Discussion">
+<meta property="og:description" content="Every Friday, one long table. An English discussion club in Tehran.">
+<meta property="og:image" content="https://tehran-english-discussion.github.io/session-69.jpg">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Tehran English Discussion</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:wght@400..700&display=swap">
+<style>
+/* Layout: the café, room by room. Plaster walls, the terracotta wall where every group photo is taken (an arch holding a
+   deck of gilt-framed photos), walnut for the long table, leaf green from the trees in the windows, dotted tablecloths,
+   and the club's own yellow kept for the things that belong to .TED: the logo, the story cards, the next-Friday ticket. */
+:root {
+  --plaster: #F5EEE1;
+  --plaster-2: #ECE2CF;
+  --fg: #2A1C12;
+  --muted: #7B6650;
+  --line: #DCCDB2;
+  --wall: #A63F2A;
+  --wall-deep: #7E2D1E;
+  --brass: #B8892E;
+  --brass-hi: #E2C27A;
+  --walnut: #3A2416;
+  --leaf: #44603A;
+  --on-dark: #F7EEDD;
+  --on-dark-muted: #CDBB9C;
+  --yolk: #FFC700;
+  --on-yolk: #2A1C12;
+  --cloth: #FFFDF8;
+  --on-cloth: #2A1C12;
+  --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --ui: "Instrument Sans", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --plaster: #1B1410; --plaster-2: #241B15; --fg: #F3E9D8; --muted: #B39F84; --line: #3A2C21;
+    --wall: #B04A33; --wall-deep: #84301F; --brass: #D2A74C; --brass-hi: #E9CD86;
+    --walnut: #110C08; --leaf: #354D2E; --on-dark: #F7EEDD; --on-dark-muted: #C3B092;
+    --yolk: #FFC700; --on-yolk: #2A1C12; --cloth: #FBF6EC; --on-cloth: #2A1C12;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --plaster: #1B1410; --plaster-2: #241B15; --fg: #F3E9D8; --muted: #B39F84; --line: #3A2C21;
+  --wall: #B04A33; --wall-deep: #84301F; --brass: #D2A74C; --brass-hi: #E9CD86;
+  --walnut: #110C08; --leaf: #354D2E; --on-dark: #F7EEDD; --on-dark-muted: #C3B092;
+  --yolk: #FFC700; --on-yolk: #2A1C12; --cloth: #FBF6EC; --on-cloth: #2A1C12;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--plaster); color: var(--fg); overflow-x: hidden;
+  font-family: var(--display); font-optical-sizing: auto; font-variation-settings: "SOFT" 50;
+  font-size: 1.14rem; line-height: 1.62; font-weight: 380;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 20; background: var(--plaster); }
+.wrap {
+  max-width: 1200px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1; font-weight: 700; font-variation-settings: "SOFT" 100, "WONK" 1; }
+h1 em, h2 em, h3 em { font-weight: 400; }
+p { margin: 0; }
+a { color: inherit; }
+button, input { font: inherit; }
+:focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; border-radius: 6px; }
+
+.label { font-family: var(--ui); font-weight: 600; font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; }
+.logo {
+  display: inline-block; width: 78px; aspect-ratio: 450 / 151; background: currentColor;
+  -webkit-mask: url(logo-mask.png) center / contain no-repeat; mask: url(logo-mask.png) center / contain no-repeat;
+}
+
+/* ---------- Header ---------- */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--plaster) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand .chip { background: var(--yolk); color: var(--on-yolk); padding: 9px 11px; border-radius: 10px; display: grid; }
+.brand .name { font-family: var(--ui); font-weight: 600; font-size: .9rem; line-height: 1.2; }
+.top nav { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+.top nav a { font-family: var(--ui); font-weight: 500; font-size: .92rem; text-decoration: none; padding: 7px 13px; border-radius: 999px; }
+.top nav a:hover { background: var(--plaster-2); }
+.top nav a.pill { background: var(--wall); color: var(--on-dark); }
+@media (max-width: 860px) { .top nav a:not(.pill) { display: none; } }
+@media (max-width: 420px) { .brand .name { display: none; } }
+
+/* ---------- Hero ---------- */
+.hero .wrap {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: center;
+  padding-block: clamp(36px, 6vw, 80px) clamp(56px, 8vw, 100px);
+}
+.kicker { display: flex; align-items: center; gap: 12px; color: var(--wall); }
+.kicker .rule { flex: 0 0 40px; height: 1.5px; background: currentColor; }
+.hero h1 { margin-top: 24px; font-size: clamp(3.3rem, 8.2vw, 7rem); line-height: .95; letter-spacing: -.025em; font-weight: 800; }
+.hero h1 em { display: block; font-style: italic; color: var(--wall); }
+.hero .lede { margin-top: 26px; font-size: 1.3rem; line-height: 1.55; max-width: 33ch; color: var(--muted); }
+.hero .lede strong { color: var(--fg); font-weight: 500; }
+
+.ticket {
+  margin-top: 34px; display: inline-flex; align-items: stretch; max-width: 100%;
+  background: var(--yolk); color: var(--on-yolk); border-radius: 18px; position: relative;
+  box-shadow: 0 18px 36px -22px rgba(58, 36, 22, .7);
+}
+.ticket .cal { display: grid; place-items: center; padding: 12px 20px; text-align: center; line-height: 1; border-right: 2px dashed color-mix(in srgb, var(--on-yolk) 35%, transparent); }
+.ticket .cal small { font-family: var(--ui); font-weight: 700; font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; }
+.ticket .cal b { display: block; margin-top: 4px; font-family: var(--display); font-weight: 800; font-size: 2.4rem; font-variant-numeric: lining-nums tabular-nums; }
+.ticket .info { padding: 12px 22px 12px 18px; display: grid; align-content: center; gap: 1px; min-width: 0; }
+.ticket .info .k { font-family: var(--ui); font-weight: 600; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; opacity: .75; }
+.ticket .info .v { font-weight: 650; font-size: 1.28rem; line-height: 1.2; }
+.ticket .info .s { font-family: var(--ui); font-size: .84rem; opacity: .8; }
+
+/* The red wall: an arch with the chandelier and a deck of gilt-framed photos */
+.wall {
+  position: relative; min-width: 0; justify-self: center; width: min(100%, 540px);
+  background:
+    radial-gradient(120% 70% at 50% 0%, color-mix(in srgb, var(--brass-hi) 22%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--wall), var(--wall-deep));
+  border-radius: 999px 999px 28px 28px; padding: 120px 34px 34px;
+  box-shadow: inset 0 0 0 10px color-mix(in srgb, var(--plaster) 10%, transparent);
+}
+.chandelier { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 150px; height: 110px; color: var(--brass-hi); }
+@media (prefers-reduced-motion: no-preference) { .chandelier .drops { animation: twinkle 3.6s ease-in-out infinite; } }
+@keyframes twinkle { 50% { opacity: .55; } }
+.deck { position: relative; width: 100%; aspect-ratio: 1 / .9; }
+.frame {
+  position: absolute; inset: 0 0 auto 0; margin: 0; cursor: pointer;
+  padding: 7px; border-radius: 4px;
+  background: linear-gradient(135deg, var(--brass-hi), var(--brass) 30%, var(--brass-hi) 55%, var(--brass) 80%, var(--brass-hi));
+  box-shadow: 0 26px 44px -22px rgba(30, 12, 6, .8);
+  transform-origin: 50% 85%;
+  transform: translate(calc(var(--x, 0) * 1px), calc(var(--y, 0) * 1px)) rotate(calc(var(--r, 0) * 1deg));
+  transition: transform .75s cubic-bezier(.2,.8,.2,1), opacity .45s;
+}
+.frame .mat { background: var(--cloth); padding: 10px 10px 0; }
+.frame img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--line); }
+.frame figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 10px 2px 12px; color: var(--on-cloth); min-width: 0; }
+.frame figcaption b { font-weight: 700; font-style: italic; font-size: 1.15rem; line-height: 1.15; }
+.frame figcaption span { font-family: var(--ui); font-weight: 600; font-size: .66rem; letter-spacing: .16em; color: #A63F2A; white-space: nowrap; }
+.frame.out { transform: translate(115%, -4%) rotate(16deg); opacity: 0; }
+.deck-ctl { margin-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--on-dark); }
+.deck-ctl span { font-family: var(--ui); font-size: .82rem; opacity: .85; }
+.deck-ctl button { border: 1.5px solid color-mix(in srgb, var(--on-dark) 55%, transparent); background: transparent; color: var(--on-dark); border-radius: 999px; padding: 7px 16px; cursor: pointer; font-family: var(--ui); font-weight: 600; font-size: .84rem; }
+.deck-ctl button:hover { background: color-mix(in srgb, var(--on-dark) 14%, transparent); }
+@media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .wall { padding: 96px 18px 22px; } .chandelier { width: 120px; height: 90px; } }
+
+/* ---------- Topic ticker ---------- */
+.ticker { background: var(--walnut); color: var(--brass-hi); overflow: hidden; }
+.ticker .track { display: flex; width: max-content; animation: tick 170s linear infinite; padding-block: 20px; }
+.ticker:hover .track { animation-play-state: paused; }
+.ticker span { font-style: italic; font-weight: 400; font-size: clamp(1.25rem, 2.3vw, 1.75rem); white-space: nowrap; padding-inline: 20px; }
+.ticker span::after { content: "✦"; font-style: normal; color: var(--yolk); font-size: .6em; margin-left: 40px; vertical-align: .2em; }
+@keyframes tick { to { transform: translateX(-50%); } }
+
+/* ---------- Numbers ---------- */
+.numbers .wrap { padding-block: clamp(56px, 8vw, 96px) 0; }
+.nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1.5px solid var(--fg); }
+.num { padding: 22px 22px 0 0; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.num + .num { padding-left: 22px; border-left: 1px solid var(--line); }
+.num b { font-weight: 300; font-size: clamp(3rem, 6.4vw, 5.4rem); line-height: .95; font-variant-numeric: lining-nums; letter-spacing: -.03em; font-variation-settings: "SOFT" 100; }
+.num b sup { font-size: .36em; color: var(--wall); vertical-align: 1em; margin-left: 3px; font-weight: 600; }
+.num p { color: var(--muted); font-size: 1rem; line-height: 1.45; max-width: 24ch; }
+@media (max-width: 820px) {
+  .nums { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .num:nth-child(3) { padding-left: 0; border-left: 0; }
+  .num:nth-child(n+3) { margin-top: 24px; border-top: 1px solid var(--line); }
+}
+
+/* ---------- Sections ---------- */
+.sec .wrap { padding-block: clamp(72px, 10vw, 128px) 0; }
+.head { display: grid; gap: 14px; max-width: 820px; margin-bottom: clamp(32px, 5vw, 52px); }
+.head .label { color: var(--wall); }
+.head h2 { font-size: clamp(2.4rem, 5.4vw, 4.3rem); letter-spacing: -.02em; line-height: 1; }
+.head h2 em { font-style: italic; color: var(--wall); }
+.head p { color: var(--muted); font-size: 1.18rem; max-width: 56ch; }
+
+/* Why */
+.why { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.why .big { font-size: clamp(1.9rem, 3.5vw, 2.8rem); line-height: 1.18; font-weight: 400; text-wrap: balance; font-variation-settings: "SOFT" 100, "WONK" 1; }
+.why .big em { font-style: italic; color: var(--wall); }
+.why .big mark { background: linear-gradient(transparent 62%, color-mix(in srgb, var(--yolk) 70%, transparent) 62%); color: inherit; }
+.reason { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: 4px 18px; padding: 22px 0; border-top: 1px solid var(--line); }
+.reason:last-child { border-bottom: 1px solid var(--line); }
+.reason .glyph { grid-row: span 2; font-size: 2rem; line-height: 1.1; }
+.reason:nth-child(1) .glyph { color: var(--brass); }
+.reason:nth-child(2) .glyph { color: var(--wall); }
+.reason:nth-child(3) .glyph { color: var(--leaf); }
+.reason h3 { font-size: 1.5rem; font-weight: 650; }
+.reason p { color: var(--muted); }
+@media (max-width: 860px) { .why { grid-template-columns: 1fr; } }
+
+/* Recent Fridays: the club's yellow story cards */
+.rail-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; }
+.rail-nav { display: flex; gap: 8px; }
+.rail-nav button { width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--fg); background: transparent; color: var(--fg); cursor: pointer; font-family: var(--ui); font-size: 1.1rem; display: grid; place-items: center; }
+.rail-nav button:hover { background: var(--fg); color: var(--plaster); }
+.rail {
+  display: grid; grid-auto-flow: column; grid-auto-columns: min(330px, 82vw); gap: 20px;
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: max(20px, calc((100vw - 1200px) / 2 + 20px));
+  padding: 10px max(20px, calc((100vw - 1200px) / 2 + 20px)) 28px;
+  scrollbar-width: thin; scrollbar-color: var(--line) transparent;
+}
+.story {
+  scroll-snap-align: start; background: var(--yolk); color: var(--on-yolk); border-radius: 24px;
+  padding: 14px 14px 20px; display: grid; grid-template-rows: auto auto 1fr auto; gap: 14px; text-align: center;
+}
+.story .ph { position: relative; }
+.story img { display: block; width: 100%; aspect-ratio: 5 / 4; object-fit: cover; border-radius: 14px; border: 4px solid var(--cloth); }
+.story .t { display: grid; gap: 6px; }
+.story .t .label { font-size: .64rem; color: #A63F2A; letter-spacing: .3em; }
+.story h3 { font-size: 2rem; font-weight: 800; line-height: 1; letter-spacing: -.01em; }
+.story .sub { font-style: italic; font-size: 1.05rem; line-height: 1.3; opacity: .85; }
+.story blockquote { margin: 0; font-style: italic; font-size: 1rem; line-height: 1.42; align-self: center; }
+.story blockquote cite { display: block; margin-top: 6px; font-style: normal; font-family: var(--ui); font-weight: 600; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: #A63F2A; }
+.story .by { display: flex; justify-content: space-between; gap: 10px; text-align: left; border-top: 1px solid color-mix(in srgb, var(--on-yolk) 22%, transparent); padding-top: 12px; }
+.story .by div:last-child { text-align: right; }
+.story .by small { display: block; font-family: var(--ui); font-weight: 600; font-size: .56rem; letter-spacing: .16em; text-transform: uppercase; opacity: .7; }
+.story .by b { font-weight: 700; font-size: 1.08rem; }
+
+/* Voices: the green of the window trees */
+.voices-band { background: var(--leaf); color: var(--on-dark); margin-top: clamp(72px, 10vw, 128px); }
+.voices-band .wrap { padding-block: clamp(64px, 9vw, 112px); }
+.voices-band .head .label { color: var(--yolk); }
+.voices-band .head h2 em { color: var(--brass-hi); }
+.voices { columns: 3 290px; column-gap: 32px; }
+.voice { break-inside: avoid; margin: 0 0 30px; padding-top: 18px; border-top: 1px solid color-mix(in srgb, var(--on-dark) 35%, transparent); }
+.voice p { font-style: italic; font-size: 1.3rem; line-height: 1.42; font-weight: 350; }
+.voice p::before { content: "“"; font-style: normal; font-weight: 800; color: var(--yolk); font-size: 2.6rem; line-height: 0; vertical-align: -.42em; margin-right: 4px; }
+.voice footer { margin-top: 10px; font-family: var(--ui); font-size: .76rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--on-dark-muted); }
+.voice footer span { color: var(--brass-hi); }
+.voice.big p { font-size: 1.7rem; }
+
+/* Archive: walnut, like the long table */
+.archive { background: var(--walnut); color: var(--on-dark); }
+.archive .wrap { padding-block: clamp(64px, 9vw, 112px); }
+.archive .head .label { color: var(--brass-hi); }
+.archive .head h2 em { color: var(--brass-hi); }
+.archive .head p { color: var(--on-dark-muted); }
+.tools { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+.seasons { display: flex; gap: 8px; flex-wrap: wrap; }
+.seasons button { border: 1.5px solid color-mix(in srgb, var(--on-dark) 28%, transparent); background: transparent; color: var(--on-dark); font-family: var(--ui); font-weight: 600; font-size: .82rem; padding: 7px 14px; border-radius: 999px; cursor: pointer; }
+.seasons button[aria-pressed="true"] { background: var(--brass-hi); border-color: var(--brass-hi); color: var(--on-yolk); }
+.search { flex: 0 1 280px; min-width: 0; }
+.search input { width: 100%; font-family: var(--ui); font-size: .92rem; color: var(--on-dark); background: transparent; border: 1.5px solid color-mix(in srgb, var(--on-dark) 28%, transparent); border-radius: 999px; padding: 9px 16px; }
+.search input::placeholder { color: var(--on-dark-muted); }
+.log { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px; align-items: start; }
+.season { margin-bottom: 36px; min-width: 0; }
+.season h3 { font-size: 1.6rem; font-weight: 500; font-style: italic; color: var(--brass-hi); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid color-mix(in srgb, var(--brass-hi) 40%, transparent); }
+.season h3 small { font-family: var(--ui); font-style: normal; font-weight: 600; font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--on-dark-muted); }
+.row { display: grid; grid-template-columns: 4.4rem minmax(0, 1fr) auto; gap: 14px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid color-mix(in srgb, var(--on-dark) 9%, transparent); }
+.row .d { font-family: var(--ui); font-size: .78rem; font-weight: 600; letter-spacing: .05em; color: var(--on-dark-muted); font-variant-numeric: tabular-nums; }
+.row .topic { font-size: 1.2rem; font-weight: 450; line-height: 1.25; }
+.row .topic .fav { color: var(--yolk); font-size: .8em; margin-left: 6px; }
+.row .m { font-family: var(--ui); font-size: .82rem; color: var(--on-dark-muted); white-space: nowrap; }
+.legend { margin-top: 8px; font-family: var(--ui); font-size: .84rem; color: var(--on-dark-muted); }
+.legend b { color: var(--yolk); font-weight: 600; }
+.empty { font-style: italic; font-size: 1.3rem; color: var(--on-dark-muted); }
+@media (max-width: 900px) { .log { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .row { grid-template-columns: 3.8rem minmax(0, 1fr); } .row .m { grid-column: 2; margin-top: -6px; } }
+
+/* People */
+.crew { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 52px; }
+.mate { border-radius: 22px; padding: 22px; display: grid; gap: 4px; align-content: start; color: var(--on-dark); }
+.mate:nth-child(1) { background: var(--wall); }
+.mate:nth-child(2) { background: var(--leaf); }
+.mate:nth-child(3) { background: var(--walnut); }
+.mate:nth-child(4) { background: var(--yolk); color: var(--on-yolk); }
+.mate .label { font-size: .62rem; opacity: .75; }
+.mate b { font-weight: 800; font-size: 2.2rem; line-height: 1.05; font-variation-settings: "SOFT" 100, "WONK" 1; }
+.mate p { font-family: var(--ui); font-size: .86rem; line-height: 1.45; opacity: .9; }
+@media (max-width: 900px) { .crew { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.names { font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.55; font-weight: 400; text-wrap: pretty; }
+.names span { white-space: nowrap; }
+.names span.mod { font-style: italic; color: var(--wall); }
+.names span + span::before { content: " · "; color: var(--brass); font-style: normal; white-space: normal; }
+.names-note { margin-top: 18px; font-family: var(--ui); font-size: .86rem; color: var(--muted); }
+
+/* Topic jar: a terracotta wall and a dotted tablecloth card */
+.jar { background: linear-gradient(160deg, var(--wall), var(--wall-deep)); color: var(--on-dark); border-radius: 36px; position: relative; overflow: hidden; }
+.jar-in { position: relative; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(24px, 5vw, 64px); padding: clamp(28px, 5vw, 60px); align-items: center; }
+.jar .label { color: var(--brass-hi); }
+.jar h2 { font-size: clamp(2.2rem, 4.4vw, 3.3rem); margin-top: 14px; }
+.jar .intro p { margin-top: 14px; max-width: 38ch; opacity: .9; }
+.cats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.cats button { border: 1.5px solid color-mix(in srgb, var(--on-dark) 55%, transparent); background: transparent; color: var(--on-dark); font-family: var(--ui); font-weight: 600; font-size: .82rem; padding: 7px 14px; border-radius: 999px; cursor: pointer; }
+.cats button[aria-pressed="true"] { background: var(--cloth); border-color: var(--cloth); color: var(--on-cloth); }
+.card {
+  color: var(--on-cloth); border-radius: 22px; padding: clamp(24px, 4vw, 40px); min-height: 300px;
+  display: grid; grid-template-rows: auto 1fr auto; gap: 18px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--on-cloth) 9%, transparent) 1.2px, transparent 1.6px) 0 0 / 14px 14px, var(--cloth);
+  box-shadow: 0 30px 60px -30px rgba(30, 10, 4, .8); transform: rotate(-1.2deg);
+}
+.card .meta { display: flex; justify-content: space-between; gap: 12px; color: #A63F2A; }
+.card .meta span:last-child { font-variant-numeric: tabular-nums; color: #7B6650; }
+.card q { font-weight: 650; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.18; quotes: none; align-self: center; text-wrap: balance; font-variation-settings: "SOFT" 100, "WONK" 1; }
+.card q.flip { animation: flip .5s cubic-bezier(.2,.8,.2,1); }
+@keyframes flip { from { opacity: .1; transform: translateY(16px); } }
+.card .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn { font-family: var(--ui); font-weight: 600; font-size: .92rem; cursor: pointer; border: 0; border-radius: 999px; padding: 12px 20px; background: #3A2416; color: #FFFDF8; }
+.btn.ghost { background: transparent; color: #3A2416; box-shadow: inset 0 0 0 1.5px #3A2416; }
+@media (max-width: 860px) { .jar-in { grid-template-columns: 1fr; } .card { transform: none; } }
+
+/* Join */
+.join { padding-block: clamp(80px, 11vw, 140px) clamp(64px, 8vw, 100px); display: grid; gap: 26px; justify-items: start; }
+.join .label { color: var(--wall); }
+.join h2 { font-size: clamp(3rem, 8.6vw, 7rem); line-height: .95; letter-spacing: -.025em; max-width: 12ch; font-weight: 800; }
+.join h2 em { font-style: italic; color: var(--wall); }
+.join p { font-size: 1.24rem; max-width: 52ch; color: var(--muted); }
+.join p strong { color: var(--fg); font-weight: 550; }
+
+.rug { height: 14px; background: conic-gradient(from 45deg, var(--wall) 25%, var(--walnut) 0 50%, var(--wall) 0 75%, var(--brass) 0) 0 0 / 14px 14px; opacity: .9; }
+footer.site .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 26px; font-family: var(--ui); font-size: .84rem; color: var(--muted); }
+footer.site .logo { width: 60px; color: var(--fg); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1, .hero .lede, .hero .ticket { animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }
+  .hero .lede { animation-delay: .1s; } .hero .ticket { animation-delay: .2s; }
+  @keyframes rise { from { transform: translateY(16px); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ticker .track { animation: none; flex-wrap: wrap; width: auto; }
+  .frame, .card q.flip { transition: none; animation: none; }
+}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home"><span class="chip"><span class="logo" role="img" aria-label=".TED logo"></span></span><span class="name">Tehran English<br>Discussion</span></a>
+    <nav aria-label="Sections">
+      <a href="#fridays">Recent Fridays</a>
+      <a href="#archive">Archive</a>
+      <a href="#people">People</a>
+      <a href="#jar" class="pill">Topic Jar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="kicker"><span class="rule" aria-hidden="true"></span><span class="label">An English discussion club · Tehran</span></div>
+        <h1>Every Friday, <em>one long table.</em></h1>
+        <p class="lede"><strong>English teachers, IELTS veterans, engineers and book lovers.</strong> Once a week we sit under the same chandelier and share our viewpoints and our lives, in a language we love.</p>
+        <div class="ticket" aria-live="polite">
+          <div class="cal"><div><small id="next-mon">Oct</small><b id="next-day">23</b></div></div>
+          <div class="info">
+            <span class="k" id="next-k">Next Friday</span>
+            <span class="v" id="next-v">Friday · 1st of Aban</span>
+            <span class="s" id="next-s">5 days to go</span>
+          </div>
+        </div>
+      </div>
+      <div class="wall">
+        <svg class="chandelier" viewBox="0 0 150 110" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <path d="M75 0v34"/>
+          <path d="M75 34c-10 0-20 4-28 12M75 34c10 0 20 4 28 12M75 40c-22 0-40 10-52 22M75 40c22 0 40 10 52 22"/>
+          <path d="M47 46v8M103 46v8M23 62v8M127 62v8M75 34v30"/>
+          <g fill="currentColor" stroke="none">
+            <circle cx="75" cy="34" r="3.5"/>
+            <path d="M44 54h6l-1 4h-4zM100 54h6l-1 4h-4zM20 70h6l-1 4h-4zM124 70h6l-1 4h-4zM72 64h6l-1 4h-4z"/>
+          </g>
+          <g class="drops" fill="currentColor" stroke="none" opacity=".9">
+            <path d="M47 60l2 5-2 4-2-4zM103 60l2 5-2 4-2-4zM23 76l2 5-2 4-2-4zM127 76l2 5-2 4-2-4zM75 70l2.4 6-2.4 5-2.4-5zM61 56l1.6 4-1.6 3-1.6-3zM89 56l1.6 4-1.6 3-1.6-3zM35 66l1.6 4-1.6 3-1.6-3zM115 66l1.6 4-1.6 3-1.6-3zM75 84l1.6 4-1.6 3-1.6-3z"/>
+          </g>
+        </svg>
+        <div class="deck" id="deck" aria-label="Group photos from recent sessions"></div>
+        <div class="deck-ctl"><span id="deck-count">Session 69 · 1 of 8</span><button type="button" id="shuffle">Next photo</button></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-label="Every topic we have talked about"><div class="track" id="ticker"></div></div>
+
+  <section class="numbers">
+    <div class="wrap">
+      <div class="nums">
+        <div class="num"><b>69</b><p>Fridays so far, and we still don’t run out of things to say.</p></div>
+        <div class="num"><b>54</b><p>topics on record, from Hustle Culture to Time Traveling.</p></div>
+        <div class="num"><b>4.68<sup>/5</sup></b><p>average rating across 45 sessions rated by members.</p></div>
+        <div class="num"><b>40<sup>+</sup></b><p>regulars who keep coming back, many for more than 20 sessions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="why">
+    <div class="wrap">
+      <div class="why">
+        <p class="big">Our English is already good. We come for <mark>the people</mark>, the stories, and <em>the feeling of not growing alone.</em></p>
+        <div>
+          <div class="reason"><span class="glyph" aria-hidden="true">✦</span><h3>Share what we’ve lived</h3><p>Interesting viewpoints and real life stories, told in our own words. Someone always says something we think about all week.</p></div>
+          <div class="reason"><span class="glyph" aria-hidden="true">♥</span><h3>So no one is alone</h3><p>We talk a lot about growth, and growth is easier with friends who listen, push back kindly, and remember what you said last time.</p></div>
+          <div class="reason"><span class="glyph" aria-hidden="true">❦</span><h3>Keep English a joy</h3><p>No drills, no band scores. We keep the language alive the way we first fell for it: through books, ideas and good talk.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="fridays">
+    <div class="wrap">
+      <div class="rail-head">
+        <div class="head" style="margin-bottom:0">
+          <span class="label">A conversation on…</span>
+          <h2>Recent <em>Fridays</em></h2>
+        </div>
+        <div class="rail-nav">
+          <button type="button" id="rail-prev" aria-label="Previous sessions">←</button>
+          <button type="button" id="rail-next" aria-label="Next sessions">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="rail" id="rail" tabindex="0" aria-label="Recent session cards"></div>
+  </section>
+
+  <section class="voices-band" id="voices">
+    <div class="wrap">
+      <div class="head"><span class="label">Overheard after Friday</span><h2>What people <em>said</em></h2></div>
+      <div class="voices">
+        <figure class="voice big"><p>I laughed a lot. Thank you for the chance to come together and talk with such really, really great people.</p><footer>Fatemeh · <span>Friendship</span></footer></figure>
+        <figure class="voice"><p>Hearing about people’s lists and learning new items to add to my own was really cool.</p><footer>Mojgan · <span>Bucket Lists</span></footer></figure>
+        <figure class="voice"><p>I could really relate to the topic and enjoyed the whole session. It was interesting how differently everyone interpreted the concept.</p><footer>Arash · <span>FOMO</span></footer></figure>
+        <figure class="voice"><p>You did a great job this time, going with the flow and letting everyone express their opinions. You seemed even more comfortable and confident.</p><footer>Ray · <span>FOMO</span></footer></figure>
+        <figure class="voice big"><p>It was a really good session you pulled off.</p><footer>Parnian · <span>Pursuit of Happiness</span></footer></figure>
+        <figure class="voice"><p>I really enjoyed the topic; it was completely new to me.</p><footer>Bahar · <span>FOMO</span></footer></figure>
+        <figure class="voice"><p>I really enjoyed how you shared your own thoughts on the topic while moderating the discussion at the same time.</p><footer>Mahdi · <span>FOMO</span></footer></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="archive" id="archive">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Full session log</span>
+        <h2>Every Friday, <em>on record</em></h2>
+        <p>What we talked about and who moderated, season by season since April 2025.</p>
+      </div>
+      <div class="tools">
+        <div class="seasons" id="seasons" role="group" aria-label="Season"></div>
+        <div class="search"><input id="q" type="search" placeholder="Search a topic or a name" aria-label="Search a topic or a name"></div>
+      </div>
+      <div class="log" id="log"></div>
+      <p class="legend"><b>★</b> Fan favourite: rated 4.9 or higher by the people in the room.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="people">
+    <div class="wrap">
+      <div class="head"><span class="label">The people at the table</span><h2>Friends who wait <em>all week</em> for Friday</h2></div>
+      <div class="crew">
+        <div class="mate"><span class="label">Coordinator</span><b>Breeze</b><p>43 sessions, moderated 7 of them.</p></div>
+        <div class="mate"><span class="label">Coordinator</span><b>Navid</b><p>40 sessions, moderated 4 of them.</p></div>
+        <div class="mate"><span class="label">Coordinator</span><b>Pouria</b><p>35 sessions, moderated 4 of them.</p></div>
+        <div class="mate"><span class="label">Coordinator</span><b>Mo</b><p>Co-ran sessions 67, 68 and 69 with Breeze.</p></div>
+      </div>
+      <p class="names" id="names"></p>
+      <p class="names-note">Names in terracotta italics have moderated at least one Friday.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="jar">
+    <div class="wrap">
+      <div class="jar">
+        <div class="jar-in">
+          <div class="intro">
+            <span class="label">Topic Jar</span>
+            <h2>Need a question to start with?</h2>
+            <p>Draw one for a warm-up, for a quiet moment at the table, or as an idea for a future Friday.</p>
+            <div class="cats" role="group" aria-label="Question category">
+              <button type="button" id="cat-all" data-cat="all" aria-pressed="true">All</button>
+              <button type="button" id="cat-growth" data-cat="growth" aria-pressed="false">Growth</button>
+              <button type="button" id="cat-life" data-cat="life" aria-pressed="false">Life stories</button>
+              <button type="button" id="cat-books" data-cat="books" aria-pressed="false">Books &amp; words</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="meta label"><span id="q-cat">Growth</span><span id="q-num">1 / 24</span></div>
+            <q id="q-text">What’s a belief you held strongly five years ago that you’ve since let go of?</q>
+            <div class="actions">
+              <button type="button" class="btn" id="draw">Draw another</button>
+              <button type="button" class="btn ghost" id="copy">Copy question</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="wrap join">
+      <span class="label">Pull up a chair</span>
+      <h2>There’s always room for <em>one more.</em></h2>
+      <p><strong>Want to join a Friday?</strong> Ask any member to bring you along as a guest. Come with a story, or come to listen first. Everyone starts somewhere.</p>
+    </div>
+  </section>
+</main>
+
+<div class="rug" aria-hidden="true"></div>
+<footer class="site">
+  <div class="wrap">
+    <span class="logo" role="img" aria-label=".TED logo"></span>
+    <span>Tehran English Discussion · Every Friday since spring 2025</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ---------- Data from the club's own posts and session log ----------
+  const recent = [
+    { n: 69, img: "session-69.jpg", t: "Workplace Discord", sub: "Coworkers, clients & the chaos in between", q: "What’s your biggest “you won’t believe what just happened” moment at work?", by: "This week’s prompt", mod: "Parnian", co: "Breeze & Mo" },
+    { n: 68, img: "session-68.jpg", t: "Pursuit of Happiness", sub: "Is chasing it making us miserable?", q: "It was a really good session you pulled off.", by: "Parnian", mod: "Arash", co: "Breeze & Mo" },
+    { n: 67, img: "session-67.jpg", t: "FOMO", sub: "Fear of missing out", q: "I could really relate to the topic and enjoyed the whole session.", by: "Arash", mod: "Hamid", co: "Breeze & Mo" },
+    { n: 66, img: "session-66.jpg", t: "Bucket Lists", sub: "Lists, dreams and new ideas", q: "Hearing about people’s lists and learning new items to add to my own was really cool.", by: "Mojgan", mod: "Mo", co: "Breeze & Navid" },
+    { n: 65, img: "session-65.jpg", t: "Reflection", sub: "The reflection of thoughts on reality", q: "", by: "", mod: "Majid", co: "Breeze & Navid" },
+    { n: 64, img: "session-64.jpg", t: "Uncertainty", sub: "Living under uncertainty", q: "How do we keep moving forward when we don’t know what’s next?", by: "The question of the night", mod: "Fateme", co: "Breeze & Navid" },
+    { n: 63, img: "session-63.jpg", t: "Friendship", sub: "A conversation on friendship", q: "I laughed a lot. Thank you for the chance to come together and talk with such really, really great people.", by: "Fatemeh", mod: "Reihaneh", co: "Breeze & Navid" },
+    { n: 61, img: "session-61.jpg", t: "Things We Realized Too Late", sub: "Friday · 5th of Tir", q: "", by: "", mod: "Sareh", co: "Breeze & Navid" }
+  ];
+
+  // [date, moderator, topic, rating or null]
+  const log = [
+    ["Spring 2025", [["25 Apr","Breeze","Adulthood & Its Challenges",4.52],["02 May","Robi","Hustle Culture",4.82],["09 May","Somaye","Freedom of Choice",3.75],["16 May","Pouria","Life Turning Points",4.43],["23 May","Robi","Self-Promotion vs Self-Effacing",4.71],["30 May","Breeze","Lying & Emotional Intelligence",4.82]]],
+    ["Summer 2025", [["04 Jul","Breeze","Modern Relationships",4.71],["11 Jul","Hasti","Paranormal Experiences",4.62],["18 Jul","Hamid","Loyalty in the Age of Options",4.33],["25 Jul","Breeze","Power",4.61],["01 Aug","Majed","Games",4.87],["08 Aug","Parnian","Contradictions in Relationships",4.72],["15 Aug","Reyhane","Childhood Trauma",4.76],["22 Aug","Breeze","Courtroom Drama",4.90]]],
+    ["Autumn 2025", [["29 Aug","Pouria","Personal Development",5.00],["05 Sep","Navid","Art",4.67],["12 Sep","Navid","Art (part 2)",4.77],["19 Sep","Yazdoon","Philosophy & Ethics",4.88],["26 Sep","Atabak","Relationship Responsibilities",4.23],["03 Oct","Fateme","Expectations & Regrets",4.86],["10 Oct","Maede","Self Awareness",4.93],["17 Oct","Breeze","The Nature of Good & Evil",4.92],["24 Oct","Pouria","Communication & Networking",4.77],["31 Oct","Sahar","Fear",4.95]]],
+    ["Winter 2025–26", [["07 Nov","Navid","Higher Education",4.36],["14 Nov","Zahra","Unpopular Opinions",4.60],["21 Nov","Mo Ka","Job Satisfaction",4.81],["28 Nov","Mobina","Beyond the Books",4.67],["05 Dec","Reihaneh","Death",4.00],["12 Dec","Pouria","Fixed vs Growth Mindset",4.82],["19 Dec","Breeze","Moral Dilemmas",4.90],["26 Dec","Parnian","Revenge & Anger",4.61],["02 Jan","Sahar","Philosophy (part 2)",4.41],["09 Jan","Morteza","A Range of Little Topics",3.62],["13 Feb","Fatemeh JF","Books vs Movies",4.89],["20 Feb","Yazdoon","The Parliament",4.69],["27 Feb","Narges","Trust, Love & Stalking",5.00]]],
+    ["Spring 2026", [["06 Mar","Hasti","Survival Skills",null],["01 May","Hasti","Manifestation",4.83],["08 May","Navid","Habits & Routines",4.63],["15 May","Parastou","Going on a Date",4.91],["22 May","Sadra","Loneliness / Solitude",4.73],["29 May","Mobina","Debate Session",4.64],["05 Jun","Hasti","Habits",4.68],["12 Jun","Bahar","Leadership",4.60],["19 Jun","Reyhan","Time Traveling",4.83]]],
+    ["Summer 2026", [["26 Jun","Sareh","Things We Realized Too Late",null],["S63","Reihaneh","Friendship",null],["S64","Fateme","Uncertainty",null],["S65","Majid","Reflection",null],["S66","Mo","Bucket Lists",null],["S67","Hamid","FOMO",null],["S68","Arash","Pursuit of Happiness",null],["S69","Parnian","Workplace Discord",null]]]
+  ];
+
+  // ---------- Next Friday ----------
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const diff = (5 - today.getDay() + 7) % 7;
+  const fri = new Date(today); fri.setDate(today.getDate() + diff);
+  const ord = n => n + (n % 10 === 1 && n % 100 !== 11 ? "st" : n % 10 === 2 && n % 100 !== 12 ? "nd" : n % 10 === 3 && n % 100 !== 13 ? "rd" : "th");
+  let persian = "";
+  try {
+    const parts = new Intl.DateTimeFormat("en-u-ca-persian", { day: "numeric", month: "long" }).formatToParts(fri);
+    const d = parts.find(p => p.type === "day"), m = parts.find(p => p.type === "month");
+    if (d && m && /^[A-Za-z]/.test(m.value)) persian = ord(parseInt(d.value, 10)) + " of " + m.value;
+  } catch (e) {}
+  $("next-day").textContent = fri.getDate();
+  $("next-mon").textContent = fri.toLocaleDateString("en", { month: "short" });
+  $("next-k").textContent = diff === 0 ? "Today is Friday" : "Next Friday";
+  $("next-v").textContent = persian ? "Friday · " + persian : fri.toLocaleDateString("en", { weekday: "long", month: "long", day: "numeric" });
+  $("next-s").textContent = diff === 0 ? "See you at the table" : diff === 1 ? "Tomorrow. Bring a story." : diff + " days to go";
+
+  // ---------- Deck of gilt-framed photos ----------
+  const deck = $("deck");
+  const pose = [[0,0,-1.5],[12,-8,3.5],[-14,-5,-6],[18,-12,7],[-18,-10,-9],[6,-16,10],[-8,-18,-11],[0,-20,5]];
+  const order = recent.map((r, i) => i);
+  const cards = recent.map((r, i) => {
+    const f = document.createElement("figure");
+    f.className = "frame";
+    f.innerHTML = `<div class="mat"><img src="${r.img}" alt="Group photo from session ${r.n}, ${esc(r.t)}" loading="${i < 2 ? "eager" : "lazy"}"><figcaption><b>${esc(r.t)}</b><span>SESSION ${r.n}</span></figcaption></div>`;
+    f.addEventListener("click", () => { next(); stopAuto(); });
+    deck.appendChild(f);
+    return f;
+  });
+  function layout() {
+    order.forEach((ci, pos) => {
+      const c = cards[ci], p = pose[pos] || pose[pose.length - 1];
+      c.style.setProperty("--x", p[0]); c.style.setProperty("--y", p[1]); c.style.setProperty("--r", p[2]);
+      c.style.zIndex = 50 - pos;
+      c.setAttribute("aria-hidden", pos === 0 ? "false" : "true");
+    });
+    $("deck-count").textContent = "Session " + recent[order[0]].n + " · " + (order[0] + 1) + " of " + recent.length;
+  }
+  let busy = false;
+  function next() {
+    if (busy) return; busy = true;
+    const top = cards[order[0]];
+    if (reduce) { order.push(order.shift()); layout(); busy = false; return; }
+    top.classList.add("out");
+    setTimeout(() => {
+      order.push(order.shift()); top.style.transition = "none"; top.classList.remove("out"); layout();
+      void top.offsetWidth; top.style.transition = ""; busy = false;
+    }, 420);
+  }
+  layout();
+  let auto = reduce ? null : setInterval(next, 4500);
+  function stopAuto() { if (auto) { clearInterval(auto); auto = null; } }
+  $("shuffle").addEventListener("click", () => { next(); stopAuto(); });
+
+  // ---------- Ticker ----------
+  const tick = log.flatMap(s => s[1].map(r => `<span>${esc(r[2])}</span>`)).join("");
+  $("ticker").innerHTML = tick + `<span aria-hidden="true" style="display:contents">${tick}</span>`;
+
+  // ---------- Recent Fridays ----------
+  $("rail").innerHTML = recent.map(r => `
+    <article class="story">
+      <div class="ph"><img src="${r.img}" alt="Members at session ${r.n}" loading="lazy"></div>
+      <div class="t"><span class="label">Session ${r.n}</span><h3>${esc(r.t)}</h3><span class="sub">${esc(r.sub)}</span></div>
+      ${r.q ? `<blockquote>“${esc(r.q)}”<cite>${esc(r.by)}</cite></blockquote>` : `<span></span>`}
+      <div class="by"><div><small>Moderated by</small><b>${esc(r.mod)}</b></div><div><small>Coordinated by</small><b>${esc(r.co)}</b></div></div>
+    </article>`).join("");
+  const rail = $("rail");
+  const step = () => (rail.querySelector(".story")?.offsetWidth || 320) + 20;
+  $("rail-prev").addEventListener("click", () => rail.scrollBy({ left: -step(), behavior: reduce ? "auto" : "smooth" }));
+  $("rail-next").addEventListener("click", () => rail.scrollBy({ left: step(), behavior: reduce ? "auto" : "smooth" }));
+
+  // ---------- Archive ----------
+  let season = "All", query = "";
+  try { const s = localStorage.getItem("ted-season"); if (s && (s === "All" || log.some(x => x[0] === s))) season = s; } catch (e) {}
+  $("seasons").innerHTML = ["All", ...log.map(s => s[0])].map(s => `<button type="button" id="season-${s.replace(/\W+/g, "")}" data-s="${esc(s)}" aria-pressed="${s === season}">${esc(s)}</button>`).join("");
+  function renderLog() {
+    const q = query.trim().toLowerCase();
+    const html = log.filter(s => season === "All" || s[0] === season).map(([name, rows]) => {
+      const hit = rows.filter(r => !q || r[2].toLowerCase().includes(q) || r[1].toLowerCase().includes(q));
+      if (!hit.length) return "";
+      return `<div class="season"><h3>${esc(name)}<small>${hit.length} ${hit.length === 1 ? "Friday" : "Fridays"}</small></h3>${hit.map(r =>
+        `<div class="row"><span class="d">${esc(r[0])}</span><span class="topic">${esc(r[2])}${r[3] >= 4.9 ? `<span class="fav" title="Fan favourite">★</span>` : ""}</span><span class="m">${esc(r[1])}</span></div>`).join("")}</div>`;
+    }).join("");
+    $("log").innerHTML = html || `<p class="empty">No Friday matches “${esc(query)}” yet. Maybe it should be the next topic.</p>`;
+  }
+  $("seasons").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    season = b.dataset.s;
+    $("seasons").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    try { localStorage.setItem("ted-season", season); } catch (e) {}
+    renderLog();
+  });
+  $("q").addEventListener("input", e => { query = e.target.value; renderLog(); });
+  renderLog();
+
+  // ---------- Names ----------
+  const regulars = ["Breeze","Navid","Pouria","Hasti","Parnian","Fateme","Hamid","Maedeh","Sahar","Farnaz","Maryam","Majed","Mobina","Amir","Zahra","Yazdoon","Reihaneh","Narges","Atabak","Reyhane","Rey","Arman","Arash","Ali","Hesam","Robi","Meysam","Bahar","Mo Ka","Afagh","Arezoo","Mahdi","Sam","Arasteh","Mohammad","Faeghe","Sadra","Amin","Sanaz","Parastou","Sareh","Somaye","Morteza","Mojgan"];
+  const mods = new Set(["Breeze","Navid","Pouria","Hasti","Parnian","Fateme","Hamid","Maedeh","Sahar","Majed","Mobina","Zahra","Yazdoon","Reihaneh","Narges","Atabak","Reyhane","Arash","Robi","Bahar","Mo Ka","Sadra","Parastou","Sareh","Somaye","Morteza"]);
+  $("names").innerHTML = regulars.map(n => `<span class="${mods.has(n) ? "mod" : ""}">${esc(n)}</span>`).join("") + `<span>and you, next Friday</span>`;
+
+  // ---------- Topic Jar ----------
+  const Q = [
+    ["growth", "What’s a belief you held strongly five years ago that you’ve since let go of?"],
+    ["growth", "Tell us about a small habit that changed more than you expected."],
+    ["growth", "What did a failure teach you that success never could?"],
+    ["growth", "What does growth look like on an ordinary Tuesday?"],
+    ["growth", "What’s a risk you’re glad you took, and one you’re glad you didn’t?"],
+    ["growth", "Which skill took you the longest to learn, and was it worth it?"],
+    ["growth", "When did you last change your mind about someone?"],
+    ["growth", "What’s the best advice you ignored?"],
+    ["life", "If you could talk to your younger self for ten minutes, which year would you visit?"],
+    ["life", "What’s something you’re proud of that nobody noticed?"],
+    ["life", "What does home mean to you now, compared to ten years ago?"],
+    ["life", "Tell us about a stranger who changed your day."],
+    ["life", "What’s a decision that looked small at the time and turned out to be huge?"],
+    ["life", "Which place in Tehran holds a story you’ve never told?"],
+    ["life", "What’s a question you wish people asked you more often?"],
+    ["life", "What did you realize too late, and what would you tell someone just in time?"],
+    ["books", "Which book arrived in your life at exactly the right moment?"],
+    ["books", "Who was the first person who made you love English?"],
+    ["books", "Which English word do you love most, and why?"],
+    ["books", "Which fictional character do you understand better as you get older?"],
+    ["books", "What’s a book you disagree with but still recommend?"],
+    ["books", "Is there something you can say better in English than in Persian? What is it?"],
+    ["books", "If your life were a novel, what would this chapter be called?"],
+    ["books", "Which sentence from a book do you still remember by heart?"]
+  ];
+  const label = { growth: "Growth", life: "Life stories", books: "Books & words" };
+  let cat = "all", last = 0;
+  try { const c = localStorage.getItem("ted-jar-cat"); if (c && (c === "all" || label[c])) cat = c; } catch (e) {}
+  const text = $("q-text");
+  const pool = () => Q.map((q, j) => j).filter(j => cat === "all" || Q[j][0] === cat);
+  const show = i => {
+    last = i; text.textContent = Q[i][1];
+    $("q-cat").textContent = label[Q[i][0]];
+    const p = pool(); $("q-num").textContent = (p.indexOf(i) + 1) + " / " + p.length;
+    text.classList.remove("flip"); void text.offsetWidth; text.classList.add("flip");
+  };
+  const draw = () => { const p = pool().filter(j => j !== last); show(p[Math.floor(Math.random() * p.length)]); };
+  const setCat = c => {
+    cat = c;
+    document.querySelectorAll(".cats button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.cat === c)));
+    try { localStorage.setItem("ted-jar-cat", c); } catch (e) {}
+  };
+  document.querySelectorAll(".cats button").forEach(b => b.addEventListener("click", () => { setCat(b.dataset.cat); draw(); }));
+  $("draw").addEventListener("click", draw);
+  const copyBtn = $("copy");
+  copyBtn.addEventListener("click", () => {
+    const done = msg => { copyBtn.textContent = msg; setTimeout(() => (copyBtn.textContent = "Copy question"), 1600); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(text); const s = getSelection(); s.removeAllRanges(); s.addRange(r); done("Selected. Press Ctrl+C"); };
+    try { navigator.clipboard.writeText(text.textContent).then(() => done("Copied"), fallback); } catch (e) { fallback(); }
+  });
+  setCat(cat);
+  if (cat !== "all") draw();
+})();
+</script>
+
+</body>
+</html>
