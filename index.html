@@ -234,6 +234,33 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 .story .by small { display: block; font-family: var(--ui); font-weight: 600; font-size: .56rem; letter-spacing: .16em; text-transform: uppercase; opacity: .7; }
 .story .by b { font-weight: 700; font-size: 1.08rem; }
 
+/* Gallery: a swipeable strip of Fridays, plus a full-screen viewer */
+.strip {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  scroll-padding-inline: max(20px, calc((100vw - 1200px) / 2 + 20px));
+  padding: 10px max(20px, calc((100vw - 1200px) / 2 + 20px)) 26px;
+  scrollbar-width: thin; scrollbar-color: var(--line) transparent; cursor: grab;
+}
+.strip.grabbing, .rail.grabbing { cursor: grabbing; scroll-snap-type: none; }
+.strip .ph {
+  flex: 0 0 auto; height: clamp(230px, 50vw, 500px); aspect-ratio: 4 / 3; max-width: 86vw;
+  border: 0; padding: 0; border-radius: 18px; overflow: hidden; scroll-snap-align: start; cursor: zoom-in;
+  background: var(--plaster-2); box-shadow: 0 18px 36px -24px rgba(58, 36, 22, .6);
+}
+.strip .ph.wide { aspect-ratio: 16 / 9; }
+.strip img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.strip .ph:hover img { transform: scale(1.03); }
+.gal-count { font-family: var(--ui); font-size: .9rem; color: var(--muted); }
+.lb { position: fixed; inset: 0; z-index: 60; background: rgba(16, 10, 6, .94); display: grid; place-items: center; touch-action: pan-y; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.lb img { max-width: min(94vw, 1400px); max-height: 80vh; object-fit: contain; border-radius: 10px; user-select: none; -webkit-user-drag: none; transition: transform .25s ease, opacity .25s ease; }
+.lb button { position: absolute; border: 0; cursor: pointer; background: rgba(255, 253, 248, .12); color: #FFFDF8; border-radius: 999px; width: 52px; height: 52px; font-family: var(--ui); font-size: 1.4rem; display: grid; place-items: center; }
+.lb button:hover { background: rgba(255, 253, 248, .24); }
+.lb .x { top: calc(16px + env(safe-area-inset-top, 0px)); right: calc(16px + env(safe-area-inset-right, 0px)); }
+.lb .pv { left: calc(16px + env(safe-area-inset-left, 0px)); top: 50%; transform: translateY(-50%); }
+.lb .nx { right: calc(16px + env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); }
+.lb .cnt { position: absolute; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); left: 0; right: 0; text-align: center; font-family: var(--ui); font-size: .9rem; color: #CDBB9C; }
+@media (max-width: 600px) { .lb .pv, .lb .nx { top: auto; bottom: calc(52px + env(safe-area-inset-bottom, 0px)); transform: none; } }
+
 /* Voices: the green of the window trees */
 .voices-band { background: var(--leaf); color: var(--on-dark); margin-top: clamp(72px, 10vw, 128px); }
 .voices-band .wrap { padding-block: clamp(64px, 9vw, 112px); }
@@ -457,6 +484,23 @@ footer.site .logo { width: 60px; color: var(--fg); }
     <div class="rail" id="rail" tabindex="0" aria-label="Recent session cards"></div>
   </section>
 
+  <section class="sec" id="gallery">
+    <div class="wrap">
+      <div class="rail-head">
+        <div class="head" style="margin-bottom:0">
+          <span class="label">Gallery</span>
+          <h2>Friday after <em>Friday</em></h2>
+          <p>Swipe through more of our evenings: costumes, birthday hats, new cafés and the same long table.</p>
+        </div>
+        <div class="rail-nav">
+          <button type="button" id="gal-prev" aria-label="Previous photos">←</button>
+          <button type="button" id="gal-next" aria-label="Next photos">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="strip" id="strip" tabindex="0" aria-label="Photos from our sessions. Swipe or drag to see more."></div>
+  </section>
+
   <section class="voices-band" id="voices">
     <div class="wrap">
       <div class="head"><span class="label">Overheard after Friday</span><h2>What people <em>said</em></h2></div>
@@ -547,6 +591,14 @@ footer.site .logo { width: 60px; color: var(--fg); }
     </div>
   </section>
 </main>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <img id="lb-img" alt="">
+  <button type="button" class="x" id="lb-x" aria-label="Close">✕</button>
+  <button type="button" class="pv" id="lb-pv" aria-label="Previous photo">←</button>
+  <button type="button" class="nx" id="lb-nx" aria-label="Next photo">→</button>
+  <span class="cnt" id="lb-cnt"></span>
+</div>
 
 <div class="rug" aria-hidden="true"></div>
 <footer class="site">
@@ -701,6 +753,75 @@ footer.site .logo { width: 60px; color: var(--fg); }
   const step = () => (rail.querySelector(".story")?.offsetWidth || 320) + 20;
   $("rail-prev").addEventListener("click", () => rail.scrollBy({ left: -step(), behavior: reduce ? "auto" : "smooth" }));
   $("rail-next").addEventListener("click", () => rail.scrollBy({ left: step(), behavior: reduce ? "auto" : "smooth" }));
+
+  // ---------- Drag to scroll (mouse); touch already swipes natively ----------
+  function dragScroll(el) {
+    let d = null, moved = false;
+    el.addEventListener("pointerdown", e => {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      d = { x: e.clientX, left: el.scrollLeft }; moved = false;
+    });
+    el.addEventListener("pointermove", e => {
+      if (!d) return;
+      const dx = e.clientX - d.x;
+      if (!moved && Math.abs(dx) > 5) { moved = true; el.classList.add("grabbing"); }
+      if (moved) el.scrollLeft = d.left - dx;
+    });
+    const end = () => {
+      if (!d) return; d = null;
+      if (moved) {
+        el.classList.remove("grabbing");
+        const kids = [...el.children], pad = parseFloat(getComputedStyle(el).scrollPaddingLeft) || 0;
+        const near = kids.reduce((b, k) => Math.abs(k.offsetLeft - pad - el.scrollLeft) < Math.abs(b.offsetLeft - pad - el.scrollLeft) ? k : b, kids[0]);
+        if (near) el.scrollTo({ left: near.offsetLeft - pad, behavior: reduce ? "auto" : "smooth" });
+      }
+    };
+    el.addEventListener("pointerup", end);
+    el.addEventListener("pointerleave", end);
+    el.addEventListener("click", e => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+  }
+  dragScroll(rail);
+
+  // ---------- Gallery ----------
+  const wide = new Set([1, 2]);
+  const photos = Array.from({ length: 25 }, (_, i) => `gallery/friday-${String(i + 1).padStart(2, "0")}.jpg`);
+  const strip = $("strip");
+  strip.innerHTML = photos.map((src, i) => `<button type="button" class="ph${wide.has(i + 1) ? " wide" : ""}" data-i="${i}" aria-label="Open photo ${i + 1} of ${photos.length}"><img src="${src}" alt="Club members together at a Friday session" loading="lazy" draggable="false"></button>`).join("");
+  dragScroll(strip);
+  const gstep = () => (strip.querySelector(".ph")?.offsetWidth || 400) + 16;
+  $("gal-prev").addEventListener("click", () => strip.scrollBy({ left: -gstep(), behavior: reduce ? "auto" : "smooth" }));
+  $("gal-next").addEventListener("click", () => strip.scrollBy({ left: gstep(), behavior: reduce ? "auto" : "smooth" }));
+
+  const lb = $("lb"), lbImg = $("lb-img");
+  let cur = 0, opener = null;
+  const showPhoto = i => {
+    cur = (i + photos.length) % photos.length;
+    lbImg.src = photos[cur];
+    lbImg.alt = "Club members together at a Friday session, photo " + (cur + 1);
+    $("lb-cnt").textContent = (cur + 1) + " / " + photos.length + " · swipe for more";
+  };
+  const openLb = (i, btn) => { opener = btn; showPhoto(i); lb.hidden = false; document.documentElement.style.overflow = "hidden"; $("lb-x").focus(); };
+  const closeLb = () => { lb.hidden = true; document.documentElement.style.overflow = ""; if (opener) opener.focus(); };
+  strip.addEventListener("click", e => { const b = e.target.closest(".ph"); if (b) openLb(+b.dataset.i, b); });
+  $("lb-x").addEventListener("click", closeLb);
+  $("lb-pv").addEventListener("click", () => showPhoto(cur - 1));
+  $("lb-nx").addEventListener("click", () => showPhoto(cur + 1));
+  lb.addEventListener("click", e => { if (e.target === lb) closeLb(); });
+  document.addEventListener("keydown", e => {
+    if (lb.hidden) return;
+    if (e.key === "Escape") closeLb();
+    if (e.key === "ArrowRight") showPhoto(cur + 1);
+    if (e.key === "ArrowLeft") showPhoto(cur - 1);
+  });
+  let sw = null;
+  lb.addEventListener("pointerdown", e => { if (e.target === lbImg) sw = { x: e.clientX, y: e.clientY }; });
+  lb.addEventListener("pointermove", e => { if (sw) lbImg.style.transform = `translateX(${(e.clientX - sw.x) * 0.6}px)`; });
+  lb.addEventListener("pointerup", e => {
+    if (!sw) return;
+    const dx = e.clientX - sw.x, dy = e.clientY - sw.y; sw = null; lbImg.style.transform = "";
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) showPhoto(cur + (dx < 0 ? 1 : -1));
+  });
+  lb.addEventListener("pointercancel", () => { sw = null; lbImg.style.transform = ""; });
 
   // ---------- Archive ----------
   let season = "All", query = "";
