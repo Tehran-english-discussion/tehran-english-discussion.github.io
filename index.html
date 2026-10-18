@@ -418,6 +418,23 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 .mate b { font-weight: 800; font-size: 2.2rem; line-height: 1.05; font-variation-settings: "SOFT" 100, "WONK" 1; }
 .mate p { font-family: var(--ui); font-size: .86rem; line-height: 1.45; opacity: .9; }
 @media (max-width: 700px) { .crew { grid-template-columns: minmax(0, 1fr); } }
+/* Leaderboard: most Fridays at the table */
+.board-wrap { margin: 8px 0 56px; }
+.board-title { font-size: clamp(1.8rem, 3.6vw, 2.6rem); letter-spacing: -.02em; }
+.board-title em { font-style: italic; color: var(--wall); font-weight: 400; }
+.board { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 40px; }
+.board li { display: grid; grid-template-columns: 2.2rem minmax(5.5rem, auto) minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.board .rk { font-weight: 300; font-size: 1.6rem; line-height: 1; color: var(--muted); font-variant-numeric: lining-nums; }
+.board .nm { font-weight: 650; font-size: 1.2rem; }
+.board .bar { height: 8px; border-radius: 999px; background: var(--plaster-2); overflow: hidden; }
+.board .bar i { display: block; height: 100%; border-radius: inherit; background: var(--wall); }
+.board .ct { font-family: var(--ui); font-weight: 700; font-size: 1rem; font-variant-numeric: tabular-nums; }
+.board .ct small { font-weight: 500; color: var(--muted); font-size: .78rem; }
+.board .top3 .rk { color: var(--brass); font-weight: 600; }
+.board .top3 .bar i { background: linear-gradient(90deg, var(--brass), var(--yolk)); }
+@media (max-width: 760px) { .board { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 420px) { .board li { grid-template-columns: 1.8rem minmax(0, 1fr) auto; } .board .bar { grid-column: 2 / span 2; grid-row: 2; } }
+
 /* The long table, seen from above: a chair and a name card for every regular */
 .lt { --chair: #B9824A; position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 132px; grid-template-rows: auto auto; margin-top: 8px; }
 .lt::before { content: ""; position: absolute; left: 0; right: 46px; top: 44px; bottom: 44px; border-radius: 18px; background: radial-gradient(circle, rgba(42, 28, 18, .1) 1.2px, transparent 1.6px) 0 0 / 14px 14px, #FFFDF8; box-shadow: 0 24px 44px -28px rgba(58, 36, 22, .7), inset 0 0 0 1px #E6DCCB; }
@@ -613,9 +630,9 @@ footer.site nav a:hover { color: var(--wall); }
     <div class="wrap">
       <div class="nums">
         <div class="num"><b>76</b><p>Fridays so far, and we still don’t run out of things to say.</p></div>
-        <div class="num"><b>54</b><p>topics on record, from Hustle Culture to Time Traveling.</p></div>
-        <div class="num"><b>4.68<sup>/5</sup></b><p>average rating across 45 sessions rated by members.</p></div>
-        <div class="num"><b>40<sup>+</sup></b><p>regulars who keep coming back, many for more than 20 sessions.</p></div>
+        <div class="num"><b>68</b><p>Fridays on record, from Relationships to Forks in the Road.</p></div>
+        <div class="num"><b>4.68<sup>/5</sup></b><p>average rating across 58 sessions rated by members.</p></div>
+        <div class="num"><b>44</b><p>regulars who have come to ten Fridays or more.</p></div>
       </div>
     </div>
   </section>
@@ -711,14 +728,14 @@ footer.site nav a:hover { color: var(--wall); }
       <div class="head">
         <span class="label">Full session log</span>
         <h2>Every Friday, <em>on record</em></h2>
-        <p>What we talked about and who moderated, season by season since April 2025.</p>
+        <p>What we talked about and who moderated, season by season since our first Friday in March 2025.</p>
       </div>
       <div class="tools">
         <div class="seasons" id="seasons" role="group" aria-label="Season"></div>
         <div class="search"><input id="q" type="search" placeholder="Search a topic or a name" aria-label="Search a topic or a name"></div>
       </div>
       <div class="log" id="log"></div>
-      <p class="legend"><b>★</b> Fan favourite: rated 4.9 or higher by the people in the room.</p>
+      <p class="legend"><b>★</b> Fan favourite: rated 4.9 or higher by the people in the room. A few Fridays from the January 2026 blackout and our weeks on Bale aren’t in the records yet.</p>
     </div>
   </section>
 </div>
@@ -728,9 +745,14 @@ footer.site nav a:hover { color: var(--wall); }
     <div class="wrap">
       <div class="head"><span class="label">The people at the table</span><h2>Friends who wait <em>all week</em> for Friday</h2></div>
       <div class="crew">
-        <div class="mate"><span class="label">Coordinator</span><b>Breeze</b><p>43 sessions, moderated 7 of them.</p></div>
-        <div class="mate"><span class="label">Coordinator</span><b>Pouria</b><p>35 sessions, moderated 4 of them.</p></div>
-        <div class="mate"><span class="label">Coordinator</span><b>Mo</b><p>Co-ran sessions 67, 68 and 69 with Breeze.</p></div>
+        <div class="mate"><span class="label">Coordinator</span><b>Breeze</b><p>44 Fridays, moderated 7 of them.</p></div>
+        <div class="mate"><span class="label">Coordinator</span><b>Pouria</b><p>31 Fridays, moderated 4 of them.</p></div>
+        <div class="mate"><span class="label">Coordinator</span><b>Mo</b><p>34 Fridays, moderated 2. Coordinating with Breeze since summer 2026.</p></div>
+      </div>
+      <div class="board-wrap">
+        <div class="head" style="margin-bottom:22px"><span class="label">Leaderboard</span><h3 class="board-title">Most Fridays <em>at the table</em></h3></div>
+        <ol class="board" id="board"></ol>
+        <p class="names-note">Counted from the weekly sign-up lists in our Telegram group, including the coordinators and the moderator of each Friday.</p>
       </div>
       <div class="lt" id="lt" role="list" aria-label="The regulars, seated around the long table"></div>
       <p class="names-note">Terracotta name cards belong to people who have moderated at least one Friday. The empty chair at the head of the table is yours.</p>
@@ -855,14 +877,17 @@ footer.site nav a:hover { color: var(--wall); }
     { n: 61, img: "session-61.jpg", t: "Things We Realized Too Late", sub: "Friday · 5th of Tir", q: "", by: "", mod: "Sareh", co: "Breeze & Navid" }
   ];
 
-  // [date, moderator, topic, rating or null]
+  // [date, moderator, topic, rating or null], from the weekly sign-up lists and rating polls in the club's Telegram group.
+  // Sessions held during the January 2026 blackout and some held on Bale are not recorded here.
   const log = [
-    ["Spring 2025", [["25 Apr","Breeze","Adulthood & Its Challenges",4.52],["02 May","Robi","Hustle Culture",4.82],["09 May","Somaye","Freedom of Choice",3.75],["16 May","Pouria","Life Turning Points",4.43],["23 May","Robi","Self-Promotion vs Self-Effacing",4.71],["30 May","Breeze","Lying & Emotional Intelligence",4.82]]],
-    ["Summer 2025", [["04 Jul","Breeze","Modern Relationships",4.71],["11 Jul","Hasti","Paranormal Experiences",4.62],["18 Jul","Hamid","Loyalty in the Age of Options",4.33],["25 Jul","Breeze","Power",4.61],["01 Aug","Majed","Games",4.87],["08 Aug","Parnian","Contradictions in Relationships",4.72],["15 Aug","Reyhane","Childhood Trauma",4.76],["22 Aug","Breeze","Courtroom Drama",4.90]]],
-    ["Autumn 2025", [["29 Aug","Pouria","Personal Development",5.00],["05 Sep","Navid","Art",4.67],["12 Sep","Navid","Art (part 2)",4.77],["19 Sep","Yazdoon","Philosophy & Ethics",4.88],["26 Sep","Atabak","Relationship Responsibilities",4.23],["03 Oct","Fateme","Expectations & Regrets",4.86],["10 Oct","Maede","Self Awareness",4.93],["17 Oct","Breeze","The Nature of Good & Evil",4.92],["24 Oct","Pouria","Communication & Networking",4.77],["31 Oct","Sahar","Fear",4.95]]],
-    ["Winter 2025–26", [["07 Nov","Navid","Higher Education",4.36],["14 Nov","Zahra","Unpopular Opinions",4.60],["21 Nov","Mo Ka","Job Satisfaction",4.81],["28 Nov","Mobina","Beyond the Books",4.67],["05 Dec","Reihaneh","Death",4.00],["12 Dec","Pouria","Fixed vs Growth Mindset",4.82],["19 Dec","Breeze","Moral Dilemmas",4.90],["26 Dec","Parnian","Revenge & Anger",4.61],["02 Jan","Sahar","Philosophy (part 2)",4.41],["09 Jan","Morteza","A Range of Little Topics",3.62],["13 Feb","Fatemeh JF","Books vs Movies",4.89],["20 Feb","Yazdoon","The Parliament",4.69],["27 Feb","Narges","Trust, Love & Stalking",5.00]]],
-    ["Spring 2026", [["06 Mar","Hasti","Survival Skills",null],["01 May","Hasti","Manifestation",4.83],["08 May","Navid","Habits & Routines",4.63],["15 May","Parastou","Going on a Date",4.91],["22 May","Sadra","Loneliness / Solitude",4.73],["29 May","Mobina","Debate Session",4.64],["05 Jun","Hasti","Habits",4.68],["12 Jun","Bahar","Leadership",4.60],["19 Jun","Reyhan","Time Traveling",4.83]]],
-    ["Summer 2026", [["26 Jun","Sareh","Things We Realized Too Late",null],["S63","Reihaneh","Friendship",null],["S64","Fateme","Uncertainty",null],["S65","Majid","Reflection",null],["S66","Mo","Bucket Lists",null],["S67","Hamid","FOMO",null],["S68","Arash","Pursuit of Happiness",null],["S69","Parnian","Workplace Discord",null]]]
+    ["Winter 2024–25", [["07 Mar", "—", "The First Friday", null], ["14 Mar", "—", "Relationships", null]]],
+    ["Spring 2025", [["28 Mar", "Atabak", "Is Reality Subjective?", null], ["04 Apr", "Atabak", "Embracing Our Imperfections", null], ["11 Apr", "Fateme", "Happiness & Work-Life Balance", null], ["18 Apr", "Shimen", "Work-Life Balance", null], ["25 Apr", "Breeze", "Adulthood & Its Challenges", 4.52], ["02 May", "Robi", "Hustle Culture", 4.82], ["09 May", "Somaye", "Freedom of Choice", 3.75], ["16 May", "Pouria", "Life Turning Points", 4.43], ["23 May", "Robi", "Self-Promotion vs Self-Effacing", 4.71], ["30 May", "Breeze", "Lying & Emotional Intelligence", 4.82]]],
+    ["Summer 2025", [["04 Jul", "Breeze", "Modern Relationships", 4.71], ["11 Jul", "Hasti", "Paranormal Experiences", 4.62], ["18 Jul", "Hamid", "Loyalty in the Age of Options", 4.33], ["25 Jul", "Breeze", "Power", 4.61], ["01 Aug", "Majed", "Games", 4.87], ["08 Aug", "Parnian", "Contradictions in Relationships", 4.72], ["15 Aug", "Reyhane", "Childhood Trauma", 4.76], ["22 Aug", "Breeze", "Courtroom Drama", 4.9], ["29 Aug", "Pouria", "Personal Development", 5.0], ["05 Sep", "Navid", "Art", 4.67], ["12 Sep", "Navid", "Art (part 2)", 4.77], ["19 Sep", "Yazdoon", "Philosophy and Ethics", 4.88]]],
+    ["Autumn 2025", [["26 Sep", "Atabak", "Relationship Responsibilities", 4.23], ["03 Oct", "Fateme", "Expectations and Regrets", 4.86], ["10 Oct", "Maede", "Self Awareness", 4.93], ["17 Oct", "Breeze", "The Nature of Good and Evil", 4.92], ["24 Oct", "Pouria", "Communication and Networking", 4.77], ["31 Oct", "Sahar", "Fear", 4.95], ["07 Nov", "Navid", "Higher Education", 4.36], ["14 Nov", "Zahra", "Unpopular Opinions", 4.6], ["21 Nov", "Mo Ka", "Job Satisfaction", 4.81], ["28 Nov", "Mobina", "Beyond the Books", 4.67], ["05 Dec", "Reihaneh", "Death", 4.0], ["12 Dec", "Pouria", "Fixed vs Growth Mindset", 4.82], ["19 Dec", "Breeze", "Moral Dilemmas", 4.9]]],
+    ["Winter 2025–26", [["26 Dec", "Parnian", "Revenge & Anger", 4.61], ["02 Jan", "Sahar", "Philosophy (part 2)", 4.41], ["06 Feb", "Morteza", "A Range of Little Topics", 3.62], ["13 Feb", "Fatemeh JF", "Books vs Movies", 4.89], ["20 Feb", "Yazdoon", "The Parliament", 4.69], ["27 Feb", "Narges", "Trust, Love & Stalking", 5.0], ["06 Mar", "Hasti", "Survival Skills", null]]],
+    ["Spring 2026", [["01 May", "Hasti", "Manifestation", 4.83], ["08 May", "Navid", "Habits & Routines", 4.63], ["15 May", "Parastou", "Going on a Date", 4.91], ["22 May", "Sadra", "Loneliness / Solitude", 4.73], ["29 May", "Mobina", "Debate Session", 4.64], ["05 Jun", "Hasti", "Habits", 4.68], ["12 Jun", "Bahar", "Leadership", 4.6], ["19 Jun", "Reyhan", "Time Traveling", 4.83]]],
+    ["Summer 2026", [["26 Jun", "Sareh", "Things We Realized Too Late", 4.53], ["03 Jul", "Narges", "Happiness, Joy & Guilty Pleasures", 4.69], ["10 Jul", "Reihaneh", "Friendship", 4.94], ["17 Jul", "Fateme", "Uncertainty", 4.54], ["24 Jul", "Majid", "Reflection", 4.47], ["31 Jul", "Mo", "Bucket Lists", null], ["07 Aug", "Hamid", "FOMO", 4.9], ["14 Aug", "Arash", "Pursuit of Happiness", 4.81], ["21 Aug", "Parnian", "Workplace Discord", 5.0], ["28 Aug", "Amir", "Personality", 4.25], ["04 Sep", "Xara", "You Said, I Heard", 5.0], ["11 Sep", "Sohrab", "Regrets: The Roads Not Taken", 4.46]]],
+    ["Autumn 2026", [["25 Sep", "Fatemeh", "When Did We Get So Serious?", null], ["02 Oct", "Amir Z", "Music", null], ["09 Oct", "Navid", "Forks in the Road", 5.0], ["16 Oct", "Arash", "Health", 5.0]]]
   ];
 
   // ---------- Pages ----------
@@ -913,8 +938,8 @@ footer.site nav a:hover { color: var(--wall); }
   $("next-v").textContent = persian ? "Friday · " + persian : fri.toLocaleDateString("en", { weekday: "long", month: "long", day: "numeric" });
   $("next-s").textContent = diff === 0 ? "See you at the table" : diff === 1 ? "Tomorrow. Bring a story." : diff + " days to go";
 
-  const lastF = recent[0];
-  $("last-s").innerHTML = `Last Friday: <b>${esc(lastF.t)}</b>, moderated by ${esc(lastF.mod)}`;
+  const lastF = log[log.length - 1][1].slice(-1)[0];
+  $("last-s").innerHTML = `Last Friday: <b>${esc(lastF[2])}</b>, moderated by ${esc(lastF[1])}`;
 
   // ---------- Deck of gilt-framed photos ----------
   const deck = $("deck");
@@ -1113,8 +1138,11 @@ footer.site nav a:hover { color: var(--wall); }
   renderLog();
 
   // ---------- Names ----------
-  const regulars = ["Breeze","Navid","Pouria","Hasti","Parnian","Fateme","Hamid","Maedeh","Sahar","Farnaz","Maryam","Majed","Mobina","Amir","Zahra","Yazdoon","Reihaneh","Narges","Atabak","Reyhane","Rey","Arman","Arash","Ali","Hesam","Robi","Meysam","Bahar","Mo Ka","Afagh","Arezoo","Mahdi","Sam","Arasteh","Mohammad","Faeghe","Sadra","Amin","Sanaz","Parastou","Sareh","Somaye","Morteza","Mojgan"];
-  const mods = new Set(["Breeze","Navid","Pouria","Hasti","Parnian","Fateme","Hamid","Maedeh","Sahar","Majed","Mobina","Zahra","Yazdoon","Reihaneh","Narges","Atabak","Reyhane","Arash","Robi","Bahar","Mo Ka","Sadra","Parastou","Sareh","Somaye","Morteza"]);
+  // Everyone on 10 or more Fridays' sign-up lists
+  const regulars = ["Breeze", "Navid", "Arash", "Amir", "Mo", "Parnian", "Hamid", "Fateme", "Pouria", "Hasti", "Farnaz", "Reihaneh", "Rey", "Maryam", "Sahar", "Maede", "Zahra", "Arezoo", "Fatemeh", "Ali", "Amirhosein", "Arman", "Mohammad", "Mobina", "Majed", "Sam", "Narges", "Meysam", "Sanaz", "Bahar", "Ghazal", "Sooroo6", "Faeghe", "Mahdi", "Afagh", "Amirhessam", "Hesam", "Amin", "Yazdoon", "Arasteh", "Kimia", "Reyhane", "Mehdi", "Ramtin"];
+  const mods = new Set(["Amir", "Arash", "Bahar", "Breeze", "Fateme", "Fatemeh", "Hamid", "Hasti", "Maede", "Majed", "Mo", "Mobina", "Narges", "Navid", "Parnian", "Pouria", "Reihaneh", "Reyhane", "Sahar", "Yazdoon", "Zahra"]);
+  const board = [["Breeze", 44], ["Navid", 39], ["Arash", 37], ["Amir", 34], ["Mo", 34], ["Parnian", 34], ["Hamid", 33], ["Fateme", 32], ["Pouria", 31], ["Hasti", 31]];
+  $("board").innerHTML = board.map(([n, c], i) => `<li${i < 3 ? ` class="top3"` : ""}><span class="rk">${i + 1}</span><span class="nm">${esc(n)}</span><span class="bar"><i style="width:${Math.round(c / board[0][1] * 100)}%"></i></span><span class="ct">${c}<small> Fridays</small></span></li>`).join("");
   const half = Math.ceil(regulars.length / 2);
   const seat = n => `<div class="seat" role="listitem"${mods.has(n) ? ` title="${esc(n)} has moderated a Friday"` : ""}><span class="chair" aria-hidden="true"></span><span class="tent${mods.has(n) ? " mod" : ""}">${esc(n)}</span></div>`;
   $("lt").innerHTML = `<div class="side top">${regulars.slice(0, half).map(seat).join("")}</div><div class="side bottom">${regulars.slice(half).map(seat).join("")}</div>
