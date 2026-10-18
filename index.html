@@ -57,7 +57,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 body {
   background: var(--plaster); color: var(--fg); overflow-x: hidden;
   font-family: var(--display); font-optical-sizing: auto; font-variation-settings: "SOFT" 50;
@@ -96,6 +96,7 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 @media (max-width: 420px) { .brand .name { display: none; } }
 
 /* ---------- Hero ---------- */
+.hero { overflow-x: clip; }
 .hero .wrap {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: center;
   padding-block: clamp(36px, 6vw, 80px) clamp(56px, 8vw, 100px);
@@ -345,7 +346,8 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 @media (max-width: 860px) { .jar-in { grid-template-columns: 1fr; } .card { transform: none; } }
 
 /* Join */
-.join { padding-block: clamp(80px, 11vw, 140px) clamp(64px, 8vw, 100px); display: grid; gap: 26px; justify-items: start; }
+.join { padding-block: clamp(80px, 11vw, 140px) clamp(64px, 8vw, 100px); display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; justify-items: start; }
+.join > * { max-width: 100%; }
 .join .label { color: var(--wall); }
 .join h2 { font-size: clamp(3rem, 8.6vw, 7rem); line-height: .95; letter-spacing: -.025em; max-width: 12ch; font-weight: 800; }
 .join h2 em { font-style: italic; color: var(--wall); }
@@ -371,6 +373,8 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 .tg-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--yolk); color: var(--on-yolk); font-family: var(--ui); font-weight: 700; font-size: 1.15rem; text-decoration: none; padding: 17px 30px; border-radius: 999px; box-shadow: 0 16px 34px -18px rgba(58, 36, 22, .7); }
 .tg-btn:hover { transform: translateY(-1px); }
 .tg-btn span { font-weight: 500; opacity: .75; }
+.tg-btn, .ig-btn { flex-wrap: wrap; row-gap: 2px; max-width: 100%; overflow-wrap: anywhere; }
+@media (max-width: 420px) { .tg-btn { font-size: 1.02rem; padding: 15px 22px; } .ig-btn span { flex-basis: 100%; padding-left: 30px; } }
 footer.site a { color: var(--wall); text-underline-offset: 3px; }
 
 .rug { height: 14px; background: conic-gradient(from 45deg, var(--wall) 25%, var(--walnut) 0 50%, var(--wall) 0 75%, var(--brass) 0) 0 0 / 14px 14px; opacity: .9; }
