@@ -13,7 +13,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:wght@400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:wght@400..700&family=Caveat:wght@500..700&display=swap">
 <style>
 /* Layout: the café, room by room. Plaster walls, the terracotta wall where every group photo is taken (an arch holding a
    deck of gilt-framed photos), walnut for the long table, leaf green from the trees in the windows, dotted tablecloths,
@@ -254,6 +254,25 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 @media (max-width: 1000px) { .join-window { position: static; width: min(62%, 240px); margin-bottom: -6px; } }
 @media (prefers-reduced-motion: reduce) { .join-window .trees, .join-window .steam { animation: none; } }
 
+/* ---------- Page cross-fade ---------- */
+header.top { view-transition-name: site-header; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .38s; animation-timing-function: cubic-bezier(.4, 0, .2, 1); }
+.view.fade-in { animation: viewin .45s cubic-bezier(.2,.8,.2,1); }
+@keyframes viewin { from { opacity: 0; transform: translateY(10px); } }
+
+/* ---------- Friday evening, 4 to 8 pm Tehran time: the chandelier is lit and the room warms up ---------- */
+body { transition: background-color 1.2s ease; }
+html.live { --plaster: #F2E3CC; --plaster-2: #E8D3B4; }
+html.live .chandelier { color: #FFE6A6; filter: drop-shadow(0 0 5px #FFD36B) drop-shadow(0 0 16px rgba(255, 200, 90, .85)); }
+html.live .chandelier .drops { animation-duration: 1.6s; }
+html.live .wall { box-shadow: inset 0 0 0 10px color-mix(in srgb, var(--plaster) 10%, transparent), 0 0 120px 10px rgba(255, 190, 90, .45); }
+html.live .wall::before { content: ""; position: absolute; left: 50%; top: -60px; width: 340px; height: 340px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle, rgba(255, 216, 140, .6), transparent 65%); pointer-events: none; animation: glow 4s ease-in-out infinite alternate; }
+html.live .ticket { box-shadow: 0 0 0 5px rgba(255, 199, 0, .3), 0 18px 36px -22px rgba(58, 36, 22, .7); }
+html.live .ticket .k::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 7px; border-radius: 50%; background: #C0392B; vertical-align: 1px; animation: pulse 1.4s ease-in-out infinite; }
+html.live .scene-wrap .glow { animation: none; opacity: 1; transform: scale(1.3); transform-origin: 600px 108px; }
+@keyframes pulse { 50% { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) { html.live .ticket .k::before, html.live .wall::before { animation: none; } }
+
 /* ---------- Topic ticker ---------- */
 .ticker { background: var(--walnut); color: var(--brass-hi); overflow: hidden; }
 .ticker .track { -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
@@ -329,22 +348,22 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 .story .by b { font-weight: 700; font-size: 1.08rem; }
 
 /* Gallery: a swipeable strip of Fridays, plus a full-screen viewer */
-.strip {
-  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
-  scroll-padding-inline: max(20px, calc((100vw - 1200px) / 2 + 20px));
-  padding: 10px max(20px, calc((100vw - 1200px) / 2 + 20px)) 26px;
-  scrollbar-width: thin; scrollbar-color: var(--line) transparent; cursor: grab;
+.rail.grabbing { cursor: grabbing; scroll-snap-type: none; }
+/* Gallery: polaroids pinned to the wall, each with a handwritten caption */
+.pinwall { columns: 4 230px; column-gap: 26px; margin-top: 36px; }
+.pinwall .ph {
+  position: relative; display: block; width: 100%; margin: 0 0 30px; break-inside: avoid; cursor: zoom-in;
+  border: 0; padding: 10px 10px 0; background: #FFFDF8; color: #2A1C12; text-align: center; font: inherit;
+  box-shadow: 0 1px 2px rgba(42, 28, 18, .15), 0 18px 30px -20px rgba(58, 36, 22, .7);
+  transform: rotate(var(--rot, 0deg)); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
 }
-.strip.grabbing, .rail.grabbing { cursor: grabbing; scroll-snap-type: none; }
-.strip .ph {
-  flex: 0 0 auto; height: clamp(230px, 50vw, 500px); aspect-ratio: 4 / 3; max-width: 86vw;
-  border: 0; padding: 0; border-radius: 18px; overflow: hidden; scroll-snap-align: start; cursor: zoom-in;
-  background: var(--plaster-2); box-shadow: 0 18px 36px -24px rgba(58, 36, 22, .6);
-}
-.strip .ph.wide { aspect-ratio: 16 / 9; }
-.strip img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
-.strip .ph:hover img { transform: scale(1.03); }
-.gal-count { font-family: var(--ui); font-size: .9rem; color: var(--muted); }
+.pinwall .ph::before { content: ""; position: absolute; top: -7px; left: 50%; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff8 0 2px, transparent 3px), var(--pin, #A63F2A); box-shadow: 0 3px 4px rgba(42, 28, 18, .35); z-index: 1; }
+.pinwall img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: var(--line); pointer-events: none; }
+.pinwall .ph.tall img { aspect-ratio: 4 / 5; }
+.pinwall .cap { display: block; padding: 10px 6px 12px; font-family: "Caveat", "Segoe Print", cursive; font-weight: 600; font-size: 1.32rem; line-height: 1.1; }
+@media (hover: hover) { .pinwall .ph:hover { transform: rotate(0deg) translateY(-4px) scale(1.02); box-shadow: 0 2px 4px rgba(42, 28, 18, .15), 0 30px 44px -24px rgba(58, 36, 22, .75); z-index: 2; } }
+@media (max-width: 560px) { .pinwall { columns: 2; column-gap: 14px; } .pinwall .ph { padding: 6px 6px 0; margin-bottom: 20px; } .pinwall .cap { font-size: 1.05rem; padding: 7px 3px 9px; } }
+@media (prefers-reduced-motion: reduce) { .pinwall .ph { transition: none; } }
 .lb { position: fixed; inset: 0; z-index: 60; background: rgba(16, 10, 6, .94); display: grid; place-items: center; touch-action: pan-y; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
 .lb img { max-width: min(94vw, 1400px); max-height: 80vh; object-fit: contain; border-radius: 10px; user-select: none; -webkit-user-drag: none; transition: transform .25s ease, opacity .25s ease; }
 .lb button { position: absolute; border: 0; cursor: pointer; background: rgba(255, 253, 248, .12); color: #FFFDF8; border-radius: 999px; width: 52px; height: 52px; font-family: var(--ui); font-size: 1.4rem; display: grid; place-items: center; }
@@ -695,15 +714,11 @@ footer.site nav a:hover { color: var(--wall); }
         <div class="head" style="margin-bottom:0">
           <span class="label">Gallery</span>
           <h2>Friday after <em>Friday</em></h2>
-          <p>Swipe through more of our evenings: costumes, birthday hats, new cafés and the same long table.</p>
-        </div>
-        <div class="rail-nav">
-          <button type="button" id="gal-prev" aria-label="Previous photos">←</button>
-          <button type="button" id="gal-next" aria-label="Next photos">→</button>
+          <p>Pinned to the wall: costumes, birthday hats, new cafés and the same long table. Tap a photo to see it bigger.</p>
         </div>
       </div>
+      <div class="pinwall" id="strip" aria-label="Photos from our sessions"></div>
     </div>
-    <div class="strip" id="strip" tabindex="0" aria-label="Photos from our sessions. Swipe or drag to see more."></div>
   </section>
 
   <section class="voices-band" id="voices">
@@ -893,7 +908,7 @@ footer.site nav a:hover { color: var(--wall); }
   // ---------- Pages ----------
   const views = [...document.querySelectorAll(".view")];
   const navLinks = [...document.querySelectorAll(".top nav a[href^='#']")];
-  function route() {
+  function render() {
     const id = decodeURIComponent(location.hash.slice(1)) || "home";
     const el = document.getElementById(id);
     const view = (el && el.closest(".view")) || views[0];
@@ -916,8 +931,23 @@ footer.site nav a:hover { color: var(--wall); }
   };
   topNav.addEventListener("scroll", navEdges, { passive: true });
   addEventListener("resize", navEdges);
+  // Pages cross-fade: the View Transitions API where supported, a short fade-up elsewhere
+  let routed = false;
+  function route() {
+    const animate = routed && !reduce;
+    routed = true;
+    if (animate && document.startViewTransition && document.visibilityState === "visible") {
+      // If the browser can't snapshot the page promptly, switch without the fade rather than wait
+      let done = false;
+      const vt = document.startViewTransition(() => { if (!done) { done = true; render(); } });
+      setTimeout(() => { if (!done) { done = true; vt.skipTransition(); render(); } }, 300);
+      return;
+    }
+    render();
+    if (animate) { const v = views.find(x => !x.hidden); v.classList.remove("fade-in"); void v.offsetWidth; v.classList.add("fade-in"); }
+  }
   addEventListener("hashchange", route);
-  addEventListener("load", route);
+  addEventListener("load", render);
   route();
 
   // ---------- Next Friday ----------
@@ -934,9 +964,32 @@ footer.site nav a:hover { color: var(--wall); }
   } catch (e) {}
   $("next-day").textContent = fri.getDate();
   $("next-mon").textContent = fri.toLocaleDateString("en", { month: "short" });
-  $("next-k").textContent = diff === 0 ? "Today is Friday" : "Next Friday";
-  $("next-v").textContent = persian ? "Friday · " + persian : fri.toLocaleDateString("en", { weekday: "long", month: "long", day: "numeric" });
-  $("next-s").textContent = diff === 0 ? "See you at the table" : diff === 1 ? "Tomorrow. Bring a story." : diff + " days to go";
+  const setTicket = () => {
+    $("next-k").textContent = diff === 0 ? "Today is Friday" : "Next Friday";
+    $("next-v").textContent = persian ? "Friday · " + persian : fri.toLocaleDateString("en", { weekday: "long", month: "long", day: "numeric" });
+    $("next-s").textContent = diff === 0 ? "See you at the table" : diff === 1 ? "Tomorrow. Bring a story." : diff + " days to go";
+  };
+
+  // ---------- Friday evening: two tables run from 4 to 8 pm, Tehran time ----------
+  // Add ?evening to the address to preview it on any day.
+  const forceEvening = /[?&]evening\b/.test(location.search);
+  const tehranNow = () => {
+    const parts = new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Tehran", weekday: "short", hour: "numeric", hourCycle: "h23" }).formatToParts(new Date());
+    const get = t => (parts.find(p => p.type === t) || {}).value;
+    return { day: get("weekday"), h: parseInt(get("hour"), 10) };
+  };
+  const checkEvening = () => {
+    let t = { day: "", h: 0 };
+    try { t = tehranNow(); } catch (e) {}
+    const live = forceEvening || (t.day === "Fri" && t.h >= 16 && t.h < 20);
+    document.documentElement.classList.toggle("live", live);
+    if (!live) return setTicket();
+    $("next-k").textContent = "Right now";
+    $("next-v").textContent = "We’re at the table";
+    $("next-s").textContent = t.h >= 18 ? "Second table · 6 to 8 pm" : "First table · 4 to 6 pm, the second at 6";
+  };
+  checkEvening();
+  setInterval(checkEvening, 60000);
 
   const lastF = log[log.length - 1][1].slice(-1)[0];
   $("last-s").innerHTML = `Last Friday: <b>${esc(lastF[2])}</b>, moderated by ${esc(lastF[1])}`;
@@ -1070,14 +1123,19 @@ footer.site nav a:hover { color: var(--wall); }
   dragScroll(rail);
 
   // ---------- Gallery ----------
-  const wide = new Set([1, 2]);
-  const photos = Array.from({ length: 25 }, (_, i) => `gallery/friday-${String(i + 1).padStart(2, "0")}.jpg`);
+  const captions = [
+    "The long table, evening edition", "Under the lamp at the green café", "Mid-sentence, as usual", "Peace sign, board games behind",
+    "Everyone squeezed into one frame", "Halloween: witches, a bunny and Fear", "Books on the wall, friends at the table", "Name tags on, smiles on",
+    "The view from the head of the table", "A full house under the chandelier", "Party hats for a birthday", "Front row, back row, all friends",
+    "Gathered round the little table", "A sunny Friday by the green walls", "Coats on, autumn at the café", "A plush friend joined us",
+    "Winter jumpers, warm room", "Scarves and stripes season", "Late arrivals still made the photo", "Packed in, all the way to the door",
+    "The green room, every chair taken", "Name tags and a busy table", "One more under the chandelier", "Fairy lights on the terrace",
+    "Guitar on the wall, trees outside"
+  ];
+  const pins = ["#A63F2A", "#C9A04A", "#44603A", "#3E4A63", "#FFC700"];
+  const photos = captions.map((_, i) => `gallery/friday-${String(i + 1).padStart(2, "0")}.jpg`);
   const strip = $("strip");
-  strip.innerHTML = photos.map((src, i) => `<button type="button" class="ph${wide.has(i + 1) ? " wide" : ""}" data-i="${i}" aria-label="Open photo ${i + 1} of ${photos.length}"><img src="${src}" alt="Club members together at a Friday session" loading="lazy" draggable="false"></button>`).join("");
-  dragScroll(strip);
-  const gstep = () => (strip.querySelector(".ph")?.offsetWidth || 400) + 16;
-  $("gal-prev").addEventListener("click", () => strip.scrollBy({ left: -gstep(), behavior: reduce ? "auto" : "smooth" }));
-  $("gal-next").addEventListener("click", () => strip.scrollBy({ left: gstep(), behavior: reduce ? "auto" : "smooth" }));
+  strip.innerHTML = photos.map((src, i) => `<button type="button" class="ph${i % 5 === 3 ? " tall" : ""}" data-i="${i}" style="--rot:${((i * 37) % 7) - 3}deg;--pin:${pins[i % pins.length]}" aria-label="Open photo: ${esc(captions[i])}"><img src="${src}" alt="Club members together at a Friday session: ${esc(captions[i])}" loading="lazy" draggable="false"><span class="cap">${esc(captions[i])}</span></button>`).join("");
 
   const lb = $("lb"), lbImg = $("lb-img");
   let cur = 0, opener = null;
@@ -1085,7 +1143,7 @@ footer.site nav a:hover { color: var(--wall); }
     cur = (i + photos.length) % photos.length;
     lbImg.src = photos[cur];
     lbImg.alt = "Club members together at a Friday session, photo " + (cur + 1);
-    $("lb-cnt").textContent = (cur + 1) + " / " + photos.length + " · swipe for more";
+    $("lb-cnt").textContent = captions[cur] + " · " + (cur + 1) + " / " + photos.length;
   };
   const openLb = (i, btn) => { opener = btn; showPhoto(i); lb.hidden = false; document.documentElement.style.overflow = "hidden"; $("lb-x").focus(); };
   const closeLb = () => { lb.hidden = true; document.documentElement.style.overflow = ""; if (opener) opener.focus(); };
