@@ -240,6 +240,20 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 @media (max-width: 480px) { .bubble { font-size: .86rem; padding: 9px 12px; max-width: 78%; border-radius: 13px; } }
 @media (prefers-reduced-motion: reduce) { .scene *, .scene-wrap .bubble { animation: none !important; transition: none !important; } }
 
+/* The café's wall of open books, mounted along the top of the jar panel */
+.bookwall { display: block; width: 100%; height: clamp(70px, 9vw, 96px); margin-bottom: -12px; }
+/* The café window on the Join page: white frames, lace curtains, trees outside */
+.join { position: relative; }
+.join-window { position: absolute; right: max(20px, env(safe-area-inset-right, 0px)); top: clamp(80px, 11vw, 140px); width: min(32%, 360px); }
+.join-window svg { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 24px 30px rgba(58, 36, 22, .25)); }
+.join-window .trees { animation: sway 7s ease-in-out infinite alternate; }
+.join-window .steam { animation: steam 3.4s ease-out infinite; opacity: 0; }
+.join-window .steam + .steam { animation-delay: 1.6s; }
+.join > :not(.join-window) { max-width: min(100%, 640px); }
+.join .steps { max-width: 100%; }
+@media (max-width: 1000px) { .join-window { position: static; width: min(62%, 240px); margin-bottom: -6px; } }
+@media (prefers-reduced-motion: reduce) { .join-window .trees, .join-window .steam { animation: none; } }
+
 /* ---------- Topic ticker ---------- */
 .ticker { background: var(--walnut); color: var(--brass-hi); overflow: hidden; }
 .ticker .track { -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
@@ -477,6 +491,7 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 /* Join */
 .join { padding-block: clamp(80px, 11vw, 140px) clamp(64px, 8vw, 100px); display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; justify-items: start; }
 .join > * { max-width: 100%; }
+.join > .steps, .join > .join-acts { grid-column: 1; }
 .join .label { color: var(--wall); }
 .join h2 { font-size: clamp(3rem, 8.6vw, 7rem); line-height: .95; letter-spacing: -.025em; max-width: 12ch; font-weight: 800; }
 .join h2 em { font-style: italic; color: var(--wall); }
@@ -727,6 +742,7 @@ footer.site nav a:hover { color: var(--wall); }
   <section class="sec" id="jar">
     <div class="wrap">
       <div class="jar">
+        <svg class="bookwall" id="bookwall" viewBox="0 0 1100 96" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"></svg>
         <div class="jar-in">
           <div class="intro">
             <span class="label">Topic Jar</span>
@@ -759,6 +775,33 @@ footer.site nav a:hover { color: var(--wall); }
 <div class="view" id="v-join" data-title="Join us" hidden>
   <section id="join">
     <div class="wrap join">
+      <div class="join-window" aria-hidden="true">
+        <svg viewBox="0 0 300 400" focusable="false">
+          <defs>
+            <pattern id="lace2" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#FBF7EF"/><circle cx="6" cy="6" r="2.8" fill="none" stroke="#E4D8C5" stroke-width="1"/><circle cx="0" cy="0" r="1.2" fill="#E4D8C5"/><circle cx="12" cy="12" r="1.2" fill="#E4D8C5"/></pattern>
+            <linearGradient id="sun" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#FFF3CF" stop-opacity=".7"/><stop offset="1" stop-color="#FFF3CF" stop-opacity="0"/></linearGradient>
+            <clipPath id="glasspanes"><rect x="34" y="34" width="232" height="300"/></clipPath>
+          </defs>
+          <rect x="6" y="6" width="288" height="348" rx="6" fill="#E6DCCB"/>
+          <rect x="34" y="34" width="232" height="300" fill="#DCE6CE"/>
+          <g clip-path="url(#glasspanes)">
+            <g class="trees"><circle cx="60" cy="70" r="40" fill="#5C7A4A"/><circle cx="130" cy="50" r="46" fill="#44603A"/><circle cx="210" cy="72" r="44" fill="#6E8A55"/><circle cx="262" cy="40" r="34" fill="#4E6B3E"/><circle cx="90" cy="140" r="44" fill="#6E8A55"/><circle cx="180" cy="150" r="50" fill="#5C7A4A"/><circle cx="250" cy="150" r="36" fill="#44603A"/><circle cx="50" cy="210" r="38" fill="#44603A"/><circle cx="140" cy="230" r="46" fill="#4E6B3E"/><circle cx="240" cy="236" r="42" fill="#6E8A55"/></g>
+            <rect x="34" y="176" width="232" height="158" fill="url(#lace2)" opacity=".92"/>
+            <path d="M34 176Q92 186 150 176T266 176" fill="none" stroke="#EDE3D2" stroke-width="3"/>
+          </g>
+          <g fill="#FFFDF8">
+            <rect x="34" y="104" width="232" height="10"/>
+            <rect x="145" y="104" width="10" height="230"/>
+            <rect x="90" y="34" width="6" height="70"/><rect x="146" y="34" width="8" height="70"/><rect x="204" y="34" width="6" height="70"/>
+            <rect x="34" y="214" width="232" height="6"/><rect x="88" y="114" width="6" height="220"/><rect x="206" y="114" width="6" height="220"/>
+          </g>
+          <rect x="28" y="28" width="244" height="312" fill="none" stroke="#FFFDF8" stroke-width="12"/>
+          <path d="M34 34L150 334H34Z" fill="url(#sun)" opacity=".55"/>
+          <rect x="0" y="340" width="300" height="22" rx="4" fill="#F3ECE0"/><rect x="0" y="360" width="300" height="6" rx="3" fill="#D8CAB2"/>
+          <g transform="translate(218 340)"><ellipse rx="15" ry="3.5" fill="#E2D6C3"/><path d="M-7-2L-8.5-17Q-10-24-6.5-28H6.5Q10-24 8.5-17L7-2Z" fill="#B5541C" opacity=".9"/><path d="M-6.5-28H6.5" stroke="#FFFDF8" stroke-width="1.6"/><path class="steam" d="M-2-34q-5-7 0-14t0-14" stroke="#A8957A" stroke-width="2" fill="none" stroke-linecap="round"/><path class="steam" d="M4-34q-5-7 0-14t0-14" stroke="#A8957A" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+          <g transform="translate(70 340)"><path d="M-16-26H16L12 0H-12Z" fill="#B5543A"/><rect x="-18" y="-30" width="36" height="6" rx="2" fill="#8E3423"/><path d="M0-30Q-4-52-18-60M0-30Q2-56 12-68M0-30Q8-46 22-50M0-30Q-10-40-24-40" stroke="#44603A" stroke-width="3" fill="none" stroke-linecap="round"/><g fill="#5C7A4A"><ellipse cx="-18" cy="-60" rx="8" ry="4" transform="rotate(-30 -18 -60)"/><ellipse cx="12" cy="-68" rx="8" ry="4" transform="rotate(-60 12 -68)"/><ellipse cx="22" cy="-50" rx="8" ry="4" transform="rotate(20 22 -50)"/><ellipse cx="-24" cy="-40" rx="7" ry="3.5" transform="rotate(10 -24 -40)"/></g></g>
+        </svg>
+      </div>
       <span class="label">Pull up a chair</span>
       <h2>There’s always room for <em>one more.</em></h2>
       <p><strong>Want to join us?</strong> Before your first Friday, we’d love to hear your voice. A short introduction in English helps us get a sense of your level and say hello properly.</p>
@@ -1076,6 +1119,15 @@ footer.site nav a:hover { color: var(--wall); }
   const seat = n => `<div class="seat" role="listitem"${mods.has(n) ? ` title="${esc(n)} has moderated a Friday"` : ""}><span class="chair" aria-hidden="true"></span><span class="tent${mods.has(n) ? " mod" : ""}">${esc(n)}</span></div>`;
   $("lt").innerHTML = `<div class="side top">${regulars.slice(0, half).map(seat).join("")}</div><div class="side bottom">${regulars.slice(half).map(seat).join("")}</div>
     <a class="seat head" href="#join" role="listitem"><span class="chair" aria-hidden="true"></span><span class="tent">Your seat?</span></a>`;
+
+  // ---------- The book wall above the jar ----------
+  const bookColors = ["#2F4A3A", "#D9B26B", "#6E2B22", "#E9DFC8", "#3E4A63", "#B98552"];
+  const openBook = (x, y, r, w) => `<g transform="translate(${x} ${y}) rotate(${r})"><path d="M0 0L${-w}-5V30L0 36Z" fill="#F3E6C8"/><path d="M0 0L${w}-5V30L0 36Z" fill="#E6D3AE"/><path d="M${-w}-5V30L${-w - 3} 32V-3ZM${w}-5V30L${w + 3} 32V-3Z" fill="#CDB68A"/><path d="M0 0V36" stroke="#BFA77C"/><path d="M${-w + 5} 6H-5M${-w + 5} 12H-5M${-w + 5} 18H-7M5 6H${w - 5}M5 12H${w - 5}M5 18H${w - 7}" stroke="#D9C59E" stroke-width="1.2"/></g>`;
+  const closedBook = (x, y, r, c) => `<g transform="translate(${x} ${y}) rotate(${r})"><rect x="-14" y="-2" width="28" height="38" rx="2" fill="${c}"/><rect x="-14" y="-2" width="4" height="38" fill="rgba(0,0,0,.18)"/><rect x="-7" y="6" width="16" height="3" fill="rgba(255,253,248,.6)"/><rect x="-5" y="12" width="12" height="2" fill="rgba(255,253,248,.4)"/></g>`;
+  $("bookwall").innerHTML = Array.from({ length: 15 }, (_, k) => {
+    const x = 40 + k * 73 + ((k * 13) % 17) - 8, y = 26 + ((k * 7) % 3) * 9, r = ((k * 29) % 22) - 11;
+    return k % 3 === 1 ? closedBook(x, y, r, bookColors[k % bookColors.length]) : openBook(x, y, r, 20 + (k % 2) * 4);
+  }).join("");
 
   // ---------- Topic Jar ----------
   const Q = [
