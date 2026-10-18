@@ -1078,17 +1078,18 @@ footer.site nav a:hover { color: var(--wall); }
   const C = { wall: "#A63F2A", wallD: "#8E3423", plaster: "#F3ECE0", wood: "#B9824A", woodD: "#8A5A30", brass: "#C9A04A", brassHi: "#E7CB86", ink: "#2A1C12", lip: "#7A3324" };
   const skin = ["#F7DCC8", "#F1D0B8", "#EDC8AC", "#E8C0A2", "#F4D5BF", "#EAC4A8"];
   const shade = (hex, f) => "#" + [1, 3, 5].map(i => Math.min(255, Math.round(parseInt(hex.slice(i, i + 2), 16) * f)).toString(16).padStart(2, "0")).join("");
+  // Drawn from the regulars in the session 69 group photo, left to right as they stood.
   const crowd = [
-    { x: 150, s: 4, hair: "wavy", hc: "#B98A5A", shirt: "#7E9BB8", ear: 1 },
-    { x: 250, s: 3, hair: "short", hc: "#3B2A20", shirt: "url(#stripes)", glasses: 1, beard: 1 },
-    { x: 350, s: 1, hair: "bangs", hc: "#2A1C12", shirt: "#2B2522", ns: "#B5543A" },
-    { x: 450, s: 2, hair: "bald", hc: "#2A1C12", shirt: "#3A3532", beard: 1 },
-    { x: 550, s: 0, hair: "curly", hc: "#3B2A20", shirt: "#EFE6D6", glasses: 1 },
-    { x: 650, s: 1, hair: "short", hc: "#1E1612", shirt: "#F6F2EA" },
-    { x: 750, s: 4, hair: "bob", hc: "#5A3B26", shirt: "#7D8F6A", ear: 1 },
-    { x: 850, s: 5, hair: "manbun", hc: "#1E1612", shirt: "#283A5A", beard: 1 },
-    { x: 950, s: 0, hair: "pony", hc: "#6B3A26", shirt: "#C9B79A", ns: "#4C6FA5" },
-    { x: 1050, s: 2, hair: "curlyS", hc: "#2A1C12", shirt: "#5E7FA3", glasses: 1 }
+    { x: 150, s: 0, hair: "updo", hc: "#3B2A20", shirt: "url(#stripesG)", inner: "#1F1F22", chain: 1 },
+    { x: 250, s: 1, hair: "wavyS", hc: "#2E2019", shirt: "#E6C3A3" },
+    { x: 350, s: 3, hair: "receding", hc: "#9A948C", shirt: "url(#stripesO)", glasses: "rect", stubble: "#9A948C" },
+    { x: 450, s: 4, hair: "curly", hc: "#3B2A20", shirt: "#B9D3E6" },
+    { x: 550, s: 2, hair: "shoulder", hc: "#2A1C12", shirt: "url(#cherry)", chain: 1 },
+    { x: 650, s: 0, hair: "bangs", hc: "#1E1612", shirt: "#1F1F22", arm: "skin" },
+    { x: 750, s: 2, hair: "curlyTop", hc: "#2A1C12", shirt: "#23304F", glasses: 1, stubble: "#2A1C12" },
+    { x: 850, s: 1, hair: "short", hc: "#1E1612", shirt: "#1F1F22", beard: 1 },
+    { x: 950, s: 4, hair: "short", hc: "#2A1C12", shirt: "#BFDCD6" },
+    { x: 1050, s: 3, hair: "short", hc: "#2A1C12", shirt: "url(#stripesT)", beard: 1 }
   ];
   function hairOf(p) {
     const hc = p.hc;
@@ -1099,8 +1100,13 @@ footer.site nav a:hover { color: var(--wall); }
       case "bun": return [`<circle cx="0" cy="219" r="10" fill="${hc}"/><path d="M-21 252Q-23 224 0 223Q23 224 21 252L18 274H-18Z" fill="${hc}"/>`, `<path d="M-20 249Q-21 226 0 225Q21 226 20 249Q10 234 0 235Q-10 234-20 249Z" fill="${hc}"/>`];
       case "curly": return [blob([[-22, 236], [-14, 226], [-3, 221], [9, 223], [19, 230], [24, 242], [-25, 252], [25, 256], [-24, 266], [24, 270], [-20, 280], [20, 282]]), `<path d="M-19 248Q-18 228 0 227Q18 228 19 248Q14 238 6 240Q0 234-6 240Q-14 238-19 248Z" fill="${hc}"/>`];
       case "curlyS": return ["", blob([[-17, 238, 8], [-10, 229, 8], [0, 226, 8], [10, 229, 8], [17, 238, 8], [-20, 247, 6], [20, 247, 6]])];
+      case "updo": return [`<circle cx="15" cy="229" r="9" fill="${hc}"/>`, `<path d="M-20 252Q-22 223 0 222Q22 223 20 252Q15 232 0 231Q-15 232-20 252Z" fill="${hc}"/><path d="M-18 246Q-24 262-19 278" stroke="${hc}" stroke-width="2.2" fill="none" stroke-linecap="round"/>`];
+      case "wavyS": return [`<path d="M-23 250Q-27 221 0 221Q27 221 23 250Q30 260 25 272Q30 284 24 294Q0 300-24 294Q-30 284-25 272Q-30 260-23 250Z" fill="${hc}"/>`, `<path d="M-20 252Q-22 224 2 223Q22 225 20 250Q14 236 6 232Q-6 238-20 252Z" fill="${hc}"/>`];
+      case "receding": return ["", `<path d="M-20 252Q-22 226 0 223Q22 226 20 252Q18 238 12 233Q0 238-12 233Q-18 238-20 252Z" fill="${hc}"/>`];
+      case "shoulder": return [`<path d="M-23 250Q-25 221 0 221Q25 221 23 250L25 292Q0 298-25 292Z" fill="${hc}"/>`, `<path d="M-20 251Q-21 224 0 223Q21 224 20 251Q14 234 0 229Q-14 234-20 251Z" fill="${hc}"/>`];
+      case "curlyTop": return ["", blob([[-19, 243, 6], [20, 243, 6], [-15, 232, 7], [-7, 224, 7], [3, 220, 7.5], [12, 224, 7], [18, 233, 7], [-2, 229, 6], [8, 230, 6]])];
       case "wavy": return [`<path d="M-23 250Q-26 221 0 221Q26 221 23 250Q30 262 25 275Q31 289 26 305Q0 313-26 305Q-31 289-25 275Q-30 262-23 250Z" fill="${hc}"/>`, `<path d="M-20 252Q-22 224 2 223Q22 225 20 250Q14 236 6 232Q-6 238-20 252Z" fill="${hc}"/>`];
-      case "bangs": return [`<path d="M-23 250Q-25 221 0 221Q25 221 23 250L26 306Q0 313-26 306Z" fill="${hc}"/>`, `<path d="M-20 250Q-21 224 0 223Q21 224 20 250L19 243Q0 239-19 243Z" fill="${hc}"/>`];
+      case "bangs": return [`<path d="M-23 250Q-27 221 0 221Q27 221 23 250Q30 262 25 274Q30 286 24 297Q0 303-24 297Q-30 286-25 274Q-30 262-23 250Z" fill="${hc}"/>`, `<path d="M-20 250Q-21 224 0 223Q21 224 20 250L19 243Q0 239-19 243Z" fill="${hc}"/>`];
       case "bob": return [`<path d="M-24 250Q-26 221 0 221Q26 221 24 250L25 279Q12 285 0 283Q-12 285-25 279Z" fill="${hc}"/>`, `<path d="M-20 250Q-21 225 0 224Q21 225 20 250Q12 232-3 234Q-14 236-20 250Z" fill="${hc}"/>`];
       case "pony": return [`<path d="M8 222Q32 212 31 238Q33 264 22 286Q19 262 14 242Z" fill="${hc}"/>`, `<path d="M-20 252Q-22 223 0 222Q22 223 20 252Q16 233 0 232Q-16 233-20 252Z" fill="${hc}"/>`];
       case "manbun": return [`<circle cx="0" cy="218" r="7.5" fill="${hc}"/>`, `<path d="M-20 251Q-23 224 0 222Q23 224 20 251Q16 233 0 233Q-14 233-20 251Z" fill="${hc}"/>`];
@@ -1113,15 +1119,16 @@ footer.site nav a:hover { color: var(--wall); }
       <g class="head">${back}</g>
       <rect x="-7" y="268" width="14" height="30" rx="4" fill="${skD}"/>
       <path d="M-38 400L-36 318Q-34 296-12 292H12Q34 296 36 318L38 400Z" fill="${p.shirt}"/>
+      ${p.inner ? `<path d="M-12 292L0 328L12 292Z" fill="${p.inner}"/>` : ""}${p.chain ? `<path d="M-8 291Q0 302 8 291" stroke="${C.brass}" stroke-width="1.3" fill="none"/>` : ""}
       ${p.ns ? `<path d="M-15 289Q0 305 15 289L19 298Q0 316-19 298Z" fill="${p.ns}"/><path d="M5 303L9 336L17 331L12 301Z" fill="${shade(p.ns, .85)}"/>` : ""}
       <g class="head">
         <circle cx="-19" cy="257" r="4.5" fill="${skD}"/><circle cx="19" cy="257" r="4.5" fill="${skD}"/>${p.ear ? `<circle cx="-19" cy="265" r="2" fill="${C.brass}"/><circle cx="19" cy="265" r="2" fill="${C.brass}"/>` : ""}
         <ellipse class="face" cx="0" cy="254" rx="19" ry="22" fill="${sk}"/>
-        ${p.beard ? `<path d="M-18 257Q-17 283 0 285Q17 283 18 257Q14 273 0 274Q-14 273-18 257Z" fill="${p.hc}"/>` : ""}
+        ${p.beard || p.stubble ? `<path d="M-18 257Q-17 283 0 285Q17 283 18 257Q14 273 0 274Q-14 273-18 257Z" fill="${p.beard ? p.hc : p.stubble}" opacity="${p.beard ? 1 : .32}"/>` : ""}
         <g class="feat">
           <g class="eyes"><circle cx="-7" cy="254" r="2.3" fill="${C.ink}"/><circle cx="7" cy="254" r="2.3" fill="${C.ink}"/></g>
           <path d="M-11 246.5h7M4 246.5h7" stroke="${p.hc}" stroke-width="2" stroke-linecap="round"/>
-          ${p.glasses ? `<g fill="none" stroke="${C.ink}" stroke-width="1.6"><circle cx="-7" cy="254" r="6.3"/><circle cx="7" cy="254" r="6.3"/><path d="M-1 253h2"/></g>` : ""}
+          ${p.glasses === "rect" ? `<g fill="none" stroke="${C.ink}" stroke-width="1.7"><rect x="-13.5" y="249.5" width="12" height="9" rx="2"/><rect x="1.5" y="249.5" width="12" height="9" rx="2"/><path d="M-1.5 253h3"/></g>` : p.glasses ? `<g fill="none" stroke="${C.ink}" stroke-width="1.6"><circle cx="-7" cy="254" r="6.3"/><circle cx="7" cy="254" r="6.3"/><path d="M-1 253h2"/></g>` : ""}
           <circle cx="-11" cy="262" r="3.5" fill="#E07A5F" opacity=".22"/><circle cx="11" cy="262" r="3.5" fill="#E07A5F" opacity=".22"/>
           ${p.beard ? `<path d="M-7 263.5Q0 260.5 7 263.5" stroke="${p.hc}" stroke-width="2.6" fill="none" stroke-linecap="round"/>` : ""}
           <path class="mouth-r" d="M-5 266.5Q0 270.5 5 266.5" stroke="${C.lip}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
@@ -1131,7 +1138,7 @@ footer.site nav a:hover { color: var(--wall); }
   }
   const armsSvg = (p, i) => {
     const sk = skin[p.s];
-    return `<g class="arms" id="a${i}" transform="translate(${p.x} 0)" fill="none" stroke="${p.shirt}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+    return `<g class="arms" id="a${i}" transform="translate(${p.x} 0)" fill="none" stroke="${p.arm === "skin" ? sk : p.shirt}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
       <path d="M-31 306Q-46 342-39 378L-15 386"/><circle cx="-13" cy="386" r="6.5" fill="${sk}" stroke="none"/>
       <path d="M31 306Q46 342 39 378"/><g class="fa"><path d="M39 378L15 386"/><circle cx="13" cy="386" r="6.5" fill="${sk}" stroke="none"/></g></g>`;
   };
@@ -1147,7 +1154,10 @@ footer.site nav a:hover { color: var(--wall); }
   const leaves = [[730, 110, 34, "#44603A"], [790, 90, 40, "#5C7A4A"], [860, 120, 38, "#44603A"], [930, 88, 42, "#6E8A55"], [975, 140, 30, "#4E6B3E"], [760, 170, 36, "#6E8A55"], [900, 180, 40, "#5C7A4A"], [830, 230, 44, "#44603A"], [960, 250, 36, "#6E8A55"], [740, 280, 40, "#5C7A4A"], [880, 300, 38, "#4E6B3E"]];
   const svg = `<svg class="scene" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
     <defs>
-      <pattern id="stripes" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#F4F1EA"/><rect width="2" height="6" fill="#7F93A8"/></pattern>
+      <pattern id="stripesG" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#ECEBE7"/><rect width="2" height="6" fill="#9C9B97"/></pattern>
+      <pattern id="stripesO" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#F3F1E8"/><rect width="2" height="6" fill="#6F7460"/></pattern>
+      <pattern id="stripesT" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#F6F5F1"/><rect width="1.2" height="4" fill="#A3A9B0"/></pattern>
+      <pattern id="cherry" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#FBF8F2"/><circle cx="5" cy="6" r="1.1" fill="#C0392B"/><circle cx="7" cy="6.5" r="1.1" fill="#C0392B"/><circle cx="16" cy="17" r="1.1" fill="#C0392B"/><circle cx="18" cy="17.5" r="1.1" fill="#C0392B"/></pattern>
       <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#FFFDF8"/><circle cx="3" cy="3" r="1.2" fill="#CDBDA3"/><circle cx="9" cy="9" r="1.2" fill="#CDBDA3"/></pattern>
       <pattern id="lace" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#F8F3EA"/><circle cx="7" cy="7" r="3.2" fill="none" stroke="#E4D8C5" stroke-width="1"/></pattern>
       <radialGradient id="glow"><stop offset="0" stop-color="#FFE3A0" stop-opacity=".6"/><stop offset="1" stop-color="#FFE3A0" stop-opacity="0"/></radialGradient>
