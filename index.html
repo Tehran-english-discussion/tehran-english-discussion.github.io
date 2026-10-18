@@ -148,8 +148,14 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 .frame figcaption b { font-weight: 700; font-style: italic; font-size: 1.15rem; line-height: 1.15; }
 .frame figcaption span { font-family: var(--ui); font-weight: 600; font-size: .66rem; letter-spacing: .16em; color: #A63F2A; white-space: nowrap; }
 .frame.out { transform: translate(115%, -4%) rotate(16deg); opacity: 0; }
+.frame.out-left { transform: translate(-115%, -4%) rotate(-16deg); opacity: 0; }
+.frame.dragging { transition: none; cursor: grabbing; }
+.deck { touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: grab; outline-offset: 8px; }
+.frame img { -webkit-user-drag: none; pointer-events: none; }
+.deck-nav { display: flex; gap: 8px; }
 .deck-ctl { margin-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--on-dark); }
 .deck-ctl span { font-family: var(--ui); font-size: .82rem; opacity: .85; }
+.deck-ctl small { display: block; font-size: .74rem; opacity: .75; }
 .deck-ctl button { border: 1.5px solid color-mix(in srgb, var(--on-dark) 55%, transparent); background: transparent; color: var(--on-dark); border-radius: 999px; padding: 7px 16px; cursor: pointer; font-family: var(--ui); font-weight: 600; font-size: .84rem; }
 .deck-ctl button:hover { background: color-mix(in srgb, var(--on-dark) 14%, transparent); }
 @media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; } }
@@ -323,6 +329,21 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 .ig-btn span { opacity: .8; font-weight: 500; }
 .top nav a.ig { display: inline-flex; align-items: center; padding: 7px 9px; }
 @media (max-width: 860px) { .top nav a.ig { display: inline-flex; } }
+.hero-cta { margin-top: 22px; display: flex; align-items: center; gap: 14px 18px; flex-wrap: wrap; }
+.cta { display: inline-flex; align-items: center; gap: 10px; background: var(--walnut); color: var(--on-dark); font-family: var(--ui); font-weight: 600; font-size: 1.02rem; text-decoration: none; padding: 14px 24px; border-radius: 999px; }
+.cta:hover { background: var(--wall); }
+.hero-cta span { font-family: var(--ui); font-size: .92rem; color: var(--muted); }
+.steps { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; width: 100%; counter-reset: st; }
+.steps li { counter-increment: st; background: var(--plaster-2); border: 1px solid var(--line); border-radius: 24px; padding: 26px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.steps li::before { content: counter(st); font-family: var(--display); font-weight: 300; font-size: 3.4rem; line-height: 1; color: var(--wall); font-variation-settings: "SOFT" 100; }
+.steps h3 { font-size: 1.45rem; font-weight: 650; }
+.steps p { font-size: 1.05rem !important; color: var(--muted); }
+.steps .handle { font-family: var(--ui); font-weight: 600; color: var(--fg); user-select: all; }
+@media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+.join-acts { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 6px; }
+.tg-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--yolk); color: var(--on-yolk); font-family: var(--ui); font-weight: 700; font-size: 1.15rem; text-decoration: none; padding: 17px 30px; border-radius: 999px; box-shadow: 0 16px 34px -18px rgba(58, 36, 22, .7); }
+.tg-btn:hover { transform: translateY(-1px); }
+.tg-btn span { font-weight: 500; opacity: .75; }
 footer.site a { color: var(--wall); text-underline-offset: 3px; }
 
 .rug { height: 14px; background: conic-gradient(from 45deg, var(--wall) 25%, var(--walnut) 0 50%, var(--wall) 0 75%, var(--brass) 0) 0 0 / 14px 14px; opacity: .9; }
@@ -352,7 +373,8 @@ footer.site .logo { width: 60px; color: var(--fg); }
       <a href="#archive">Archive</a>
       <a href="#people">People</a>
       <a href="https://instagram.com/tehran.english.discussion" class="ig" target="_blank" rel="noopener" aria-label="Instagram: @tehran.english.discussion"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-      <a href="#jar" class="pill">Topic Jar</a>
+      <a href="#jar">Topic Jar</a>
+      <a href="#join" class="pill">Join us</a>
     </nav>
   </div>
 </header>
@@ -372,6 +394,7 @@ footer.site .logo { width: 60px; color: var(--fg); }
             <span class="s" id="next-s">5 days to go</span>
           </div>
         </div>
+        <div class="hero-cta"><a class="cta" href="#join">Join us →</a><span>Send us a short voice intro on Telegram</span></div>
       </div>
       <div class="wall">
         <svg class="chandelier" viewBox="0 0 150 110" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
@@ -386,8 +409,8 @@ footer.site .logo { width: 60px; color: var(--fg); }
             <path d="M47 60l2 5-2 4-2-4zM103 60l2 5-2 4-2-4zM23 76l2 5-2 4-2-4zM127 76l2 5-2 4-2-4zM75 70l2.4 6-2.4 5-2.4-5zM61 56l1.6 4-1.6 3-1.6-3zM89 56l1.6 4-1.6 3-1.6-3zM35 66l1.6 4-1.6 3-1.6-3zM115 66l1.6 4-1.6 3-1.6-3zM75 84l1.6 4-1.6 3-1.6-3z"/>
           </g>
         </svg>
-        <div class="deck" id="deck" aria-label="Group photos from recent sessions"></div>
-        <div class="deck-ctl"><span id="deck-count">Session 69 · 1 of 8</span><button type="button" id="shuffle">Next photo</button></div>
+        <div class="deck" id="deck" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Group photos from recent sessions. Swipe, or use the arrow keys."></div>
+        <div class="deck-ctl"><span><span id="deck-count">Session 69 · 1 of 8</span><small>Swipe the photos</small></span><span class="deck-nav"><button type="button" id="deck-prev" aria-label="Previous photo">←</button><button type="button" id="shuffle" aria-label="Next photo">→</button></span></div>
       </div>
     </div>
   </section>
@@ -511,7 +534,15 @@ footer.site .logo { width: 60px; color: var(--fg); }
     <div class="wrap join">
       <span class="label">Pull up a chair</span>
       <h2>There’s always room for <em>one more.</em></h2>
-      <p><strong>Want to join a Friday?</strong> Ask any member to bring you along as a guest. Come with a story, or come to listen first. Everyone starts somewhere.</p>
+      <p><strong>Want to join us?</strong> Before your first Friday, we’d love to hear your voice. A short introduction in English helps us get a sense of your level and say hello properly.</p>
+      <ol class="steps">
+        <li><h3>Record a voice message</h3><p>Introduce yourself in English: who you are, what you do, and why you’d like to join. Keep it natural, like you’re talking at the table.</p></li>
+        <li><h3>Send it on Telegram</h3><p>Send the voice message to Pouria at <span class="handle">@pjsofts</span>.</p></li>
+        <li><h3>We’ll get back to you</h3><p>We listen, say hello, and let you know about the next Friday.</p></li>
+      </ol>
+      <div class="join-acts">
+        <a class="tg-btn" href="https://t.me/pjsofts" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg> Send your voice intro <span>@pjsofts</span></a>
+      </div>
       <a class="ig-btn" href="https://instagram.com/tehran.english.discussion" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg> Follow us on Instagram <span>@tehran.english.discussion</span></a>
     </div>
   </section>
@@ -579,7 +610,6 @@ footer.site .logo { width: 60px; color: var(--fg); }
     const f = document.createElement("figure");
     f.className = "frame";
     f.innerHTML = `<div class="mat"><img src="${r.img}" alt="Group photo from session ${r.n}, ${esc(r.t)}" loading="${i < 2 ? "eager" : "lazy"}"><figcaption><b>${esc(r.t)}</b><span>SESSION ${r.n}</span></figcaption></div>`;
-    f.addEventListener("click", () => { next(); stopAuto(); });
     deck.appendChild(f);
     return f;
   });
@@ -593,20 +623,67 @@ footer.site .logo { width: 60px; color: var(--fg); }
     $("deck-count").textContent = "Session " + recent[order[0]].n + " · " + (order[0] + 1) + " of " + recent.length;
   }
   let busy = false;
-  function next() {
+  // dir 1: top photo leaves to the left and the next one shows; dir -1: the previous photo comes back on top.
+  function go(dir) {
     if (busy) return; busy = true;
-    const top = cards[order[0]];
-    if (reduce) { order.push(order.shift()); layout(); busy = false; return; }
-    top.classList.add("out");
-    setTimeout(() => {
-      order.push(order.shift()); top.style.transition = "none"; top.classList.remove("out"); layout();
-      void top.offsetWidth; top.style.transition = ""; busy = false;
-    }, 420);
+    if (reduce) { dir > 0 ? order.push(order.shift()) : order.unshift(order.pop()); layout(); busy = false; return; }
+    if (dir > 0) {
+      const top = cards[order[0]];
+      top.classList.add("out-left");
+      setTimeout(() => {
+        order.push(order.shift()); top.style.transition = "none"; top.classList.remove("out-left"); layout();
+        void top.offsetWidth; top.style.transition = ""; busy = false;
+      }, 380);
+    } else {
+      order.unshift(order.pop());
+      const back = cards[order[0]];
+      back.style.transition = "none"; back.classList.add("out"); layout();
+      void back.offsetWidth; back.style.transition = ""; back.classList.remove("out");
+      setTimeout(() => { busy = false; }, 380);
+    }
   }
+  const next = () => go(1);
   layout();
   let auto = reduce ? null : setInterval(next, 4500);
   function stopAuto() { if (auto) { clearInterval(auto); auto = null; } }
-  $("shuffle").addEventListener("click", () => { next(); stopAuto(); });
+  $("shuffle").addEventListener("click", () => { go(1); stopAuto(); });
+  $("deck-prev").addEventListener("click", () => { go(-1); stopAuto(); });
+  deck.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") { go(1); stopAuto(); e.preventDefault(); }
+    if (e.key === "ArrowLeft") { go(-1); stopAuto(); e.preventDefault(); }
+  });
+
+  // Drag or swipe the top photo
+  let drag = null;
+  deck.addEventListener("pointerdown", e => {
+    if (busy || (e.pointerType === "mouse" && e.button !== 0)) return;
+    const top = cards[order[0]];
+    drag = { x: e.clientX, y: e.clientY, dx: 0, top, id: e.pointerId, live: false };
+    stopAuto();
+  });
+  deck.addEventListener("pointermove", e => {
+    if (!drag || e.pointerId !== drag.id) return;
+    drag.dx = e.clientX - drag.x;
+    const dy = e.clientY - drag.y;
+    if (!drag.live) {
+      if (Math.abs(drag.dx) < 6) return;
+      if (Math.abs(dy) > Math.abs(drag.dx)) { drag = null; return; }
+      drag.live = true; drag.top.classList.add("dragging");
+      try { deck.setPointerCapture(e.pointerId); } catch (err) {}
+    }
+    drag.top.style.transform = `translate(${drag.dx}px, ${Math.abs(drag.dx) * -0.05}px) rotate(${drag.dx * 0.05 - 1.5}deg)`;
+  });
+  const endDrag = e => {
+    if (!drag || (e && e.pointerId !== drag.id)) return;
+    const { top, dx, live } = drag; drag = null;
+    top.classList.remove("dragging"); top.style.transform = "";
+    if (!live) { go(1); return; }
+    const w = deck.offsetWidth || 400;
+    if (dx < -w * 0.18) go(1);
+    else if (dx > w * 0.18) go(-1);
+  };
+  deck.addEventListener("pointerup", endDrag);
+  deck.addEventListener("pointercancel", () => { if (drag) { drag.top.classList.remove("dragging"); drag.top.style.transform = ""; drag = null; } });
 
   // ---------- Ticker ----------
   const tick = log.flatMap(s => s[1].map(r => `<span>${esc(r[2])}</span>`)).join("");
