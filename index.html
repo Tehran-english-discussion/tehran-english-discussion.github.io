@@ -1572,29 +1572,29 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
   const shade = (hex, f) => "#" + [1, 3, 5].map(i => Math.min(255, Math.round(parseInt(hex.slice(i, i + 2), 16) * f)).toString(16).padStart(2, "0")).join("");
   // Everyone in the session 67 group photo, left to right as they stood. b: standing in the back row.
   const crowd = [
-    { x: 90, s: 1, hair: "long", hc: "#1A1310", shirt: "#A9BCD9", shades: "#1F1F22" },
-    { x: 132, b: 1, s: 1, hair: "curlyTop", hc: "#1A1310", shirt: "#22283A", beard: 1 },
-    { x: 175, s: 4, hair: "wavyL", hc: "#3B2A20", shirt: "#F4F1EA", locks: 1 },
-    { x: 260, s: 0, hair: "bangsS", hc: "#1A1310", shirt: "#4F5B6B" },
-    { x: 302, b: 1, s: 0, hair: "hijab", hc: "#16110F", shirt: "#16110F", glasses: 1, wrap: 1 },
-    { x: 387, b: 1, s: 4, hair: "hijab", hc: "url(#scarf)", fringe: "#1A1310", bc: "#1A1310", shirt: "#1F1F22" },
-    { x: 345, s: 1, hair: "wavyL", hc: "url(#ombre)", bc: "#5A3B26", shirt: "#1F1F22", bag: 1 },
-    { x: 472, b: 1, s: 3, hair: "long", hc: "#2A1C12", shirt: "#E9D36A" },
-    { x: 430, s: 0, hair: "wavyS", hc: "#3B2A20", shirt: "#A39A84", inner: "#22283A" },
-    { x: 515, s: 4, hair: "updo", hc: "#2A1C12", shirt: "url(#lace)", chain: 1 },
-    { x: 557, b: 1, s: 2, hair: "long", hc: "#120C0A", shirt: "#3A2A26", shades: "#F4F1EA", chain: 1 },
-    { x: 600, s: 2, hair: "bob", hc: "#1A1310", shirt: "#F4F1EA", tie: "#F2C230" },
-    { x: 642, b: 1, s: 0, hair: "wavyS", hc: "#4A2418", shirt: "#F4F1EA", flower: 1 },
-    { x: 685, s: 3, hair: "short", hc: "#1E1612", shirt: "url(#stripesT)", beard: 1 },
-    { x: 770, s: 0, hair: "tousled", hc: "#2A1C12", shirt: "#22283A", chain: 1 },
-    { x: 727, b: 1, s: 4, hair: "wavy", hc: "#5A3B26", shirt: "url(#floral)" },
-    { x: 812, b: 1, s: 2, hair: "short", hc: "#2A1C12", shirt: "#B39A6E", glasses: "rect", beard: 1 },
-    { x: 897, b: 1, s: 3, hair: "receding", hc: "#1A1310", shirt: "#F1E9D6", stubble: 1 },
-    { x: 855, s: 4, hair: "bob", hc: "#3B2A20", shirt: "url(#paisley)", inner: "#1F1F22", chain: 1, lip: "#B23A3A" },
-    { x: 982, b: 1, s: 3, hair: "short", hc: "#1A1310", shirt: "#7E9A6A", stubble: 1 },
-    { x: 940, s: 1, hair: "shoulder", hc: "#2A1C12", shirt: "url(#confetti)", over: "#F4F1EA", glasses: 1 },
-    { x: 1025, s: 3, hair: "cap", hc: "#2A1C12", shirt: "#6F7348", glasses: "rect", mous: 1, stubble: "#7A5A45" },
-    { x: 1110, s: 2, hair: "tousled", hc: "#1E1612", shirt: "#1F1F22", glasses: "rect", stubble: "#7A5A45" }
+    { n: "Mona", x: 90, s: 1, hair: "long", hc: "#1A1310", shirt: "#A9BCD9", shades: "#1F1F22" },
+    { n: "Mehdi", x: 132, b: 1, s: 1, hair: "curlyTop", hc: "#1A1310", shirt: "#22283A", beard: 1 },
+    { n: "Maede", x: 175, s: 4, hair: "wavyL", hc: "#3B2A20", shirt: "#F4F1EA", locks: 1 },
+    { n: "Zahra", x: 260, s: 0, hair: "bangsS", hc: "#1A1310", shirt: "#4F5B6B" },
+    { n: "Reyhaneh", x: 302, b: 1, s: 0, hair: "hijab", hc: "#16110F", shirt: "#16110F", glasses: 1, wrap: 1 },
+    { n: "Farnaz", x: 387, b: 1, s: 4, hair: "hijab", hc: "url(#scarf)", fringe: "#1A1310", bc: "#1A1310", shirt: "#1F1F22" },
+    { n: "Shimen", x: 345, s: 1, hair: "wavyL", hc: "url(#ombre)", bc: "#5A3B26", shirt: "#1F1F22", bag: 1 },
+    { n: "Bahar", x: 472, b: 1, s: 3, hair: "long", hc: "#2A1C12", shirt: "#E9D36A" },
+    { n: "Reyhan", x: 430, s: 0, hair: "wavyS", hc: "#3B2A20", shirt: "#A39A84", inner: "#22283A" },
+    { n: "Sahar", x: 515, s: 4, hair: "updo", hc: "#2A1C12", shirt: "url(#lace)", chain: 1 },
+    { n: "Mojan", x: 557, b: 1, s: 2, hair: "long", hc: "#120C0A", shirt: "#3A2A26", shades: "#F4F1EA", chain: 1 },
+    { n: "Sam", x: 600, s: 2, hair: "bob", hc: "#1A1310", shirt: "#F4F1EA", tie: "#F2C230" },
+    { n: "Breeze", x: 642, b: 1, s: 0, hair: "wavyS", hc: "#4A2418", shirt: "#F4F1EA", flower: 1 },
+    { n: "Hamid", x: 685, s: 3, hair: "short", hc: "#1E1612", shirt: "url(#stripesT)", beard: 1 },
+    { n: "AmirHossein", x: 770, s: 0, hair: "tousled", hc: "#2A1C12", shirt: "#22283A", chain: 1 },
+    { n: "Faati", x: 727, b: 1, s: 4, hair: "wavy", hc: "#5A3B26", shirt: "url(#floral)" },
+    { n: "Foad", x: 812, b: 1, s: 2, hair: "short", hc: "#2A1C12", shirt: "#B39A6E", glasses: "rect", beard: 1 },
+    { n: "Arash", x: 897, b: 1, s: 3, hair: "receding", hc: "#1A1310", shirt: "#F1E9D6", stubble: 1 },
+    { n: "Negar", x: 855, s: 4, hair: "bob", hc: "#3B2A20", shirt: "url(#paisley)", inner: "#1F1F22", chain: 1, lip: "#B23A3A" },
+    { n: "Mo", x: 982, b: 1, s: 3, hair: "short", hc: "#1A1310", shirt: "#7E9A6A", stubble: 1 },
+    { n: "Kimia", x: 940, s: 1, hair: "shoulder", hc: "#2A1C12", shirt: "url(#confetti)", over: "#F4F1EA", glasses: 1 },
+    { n: "Mohammad", x: 1025, s: 3, hair: "cap", hc: "#2A1C12", shirt: "#6F7348", glasses: "rect", mous: 1, stubble: "#7A5A45" },
+    { n: "Amir Hesam", x: 1110, s: 2, hair: "tousled", hc: "#1E1612", shirt: "#1F1F22", glasses: "rect", stubble: "#7A5A45" }
   ];
   function hairOf(p) {
     const hc = p.hc;
@@ -1625,7 +1625,7 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
   }
   function personSvg(p, i) {
     const sk = skin[p.s], skD = shade(sk, .88), [back, front] = hairOf(p), low = p.b ? 480 : 400;
-    return `<g class="p" id="p${i}" transform="translate(${p.x} ${p.b ? "-26) scale(.82" : "0"})" style="--bd:${(i * 1.7) % 5}s;--ld:${(i % 4) * .07}s">
+    return `<g class="p" id="p${i}" transform="translate(${p.x} ${p.b ? "-26) scale(.82" : "0"})" style="--bd:${(i * 1.7) % 5}s;--ld:${(i % 4) * .07}s"><title>${esc(p.n)}</title>
       <g class="head">${back}</g>
       <rect x="-7" y="268" width="14" height="30" rx="4" fill="${skD}"/>
       <path d="M-38 ${low}L-36 318Q-34 296-12 292H12Q34 296 36 318L38 ${low}Z" fill="${p.shirt}"/>
@@ -1714,7 +1714,7 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
   const sceneSvg = sceneWrap.querySelector("svg");
   const P = crowd.map((_, i) => ({ g: $("p" + i), a: $("a" + i), face: $("p" + i).querySelector(".face") }));
   const talks = [
-    [[3, "Tonight’s question: how do we keep going when we don’t know what’s next?", "q"], [13, "Small routines. Tea, a walk, and then I can think."], [21, "I used to plan everything. Now I just plan the next Friday.", "laugh"], [6, "Honestly? That’s the best plan."]],
+    [[3, "How do we keep going when we don’t know what’s next?", "q"], [13, "Small routines. Tea, a walk, and then I can think."], [21, "I used to plan everything. Now I just plan the next Friday.", "laugh"], [6, "Honestly? That’s the best plan."]],
     [[18, "Okay, one thing from your bucket list. Go!", "q"], [2, "See the northern lights. With a thermos of tea."], [22, "Learn to say no in three languages.", "laugh"], [11, "Finish one book before I buy another one…"], [16, "That will never happen.", "laugh"]],
     [[20, "Be honest. Who checked their phone during the last topic?", "q"], [14, "Guilty! But I was looking up a word.", "laugh"], [19, "Which word?"], [14, "“Procrastination.”", "laugh"]],
     [[7, "Can I disagree a little? Kindly?"], [9, "Always. That’s why we’re here."], [7, "I think regret is useful. It shows you what you care about."], [12, "Ooh. Somebody write that down."]]
@@ -1738,7 +1738,7 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
     speaker = who;
     bubble.classList.remove("on");
     setTimeout(() => {
-      bubble.innerHTML = (kind === "q" ? "<b>Tonight’s question</b>" : "") + esc(text);
+      bubble.innerHTML = `<b>${esc(crowd[who].n)}${kind === "q" ? " · Tonight’s question" : ""}</b>` + esc(text);
       placeBubble(); bubble.classList.add("on");
     }, still ? 0 : 200);
     if (still) return;
