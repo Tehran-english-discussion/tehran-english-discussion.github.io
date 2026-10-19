@@ -1570,18 +1570,31 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
   const C = { wall: "#A63F2A", wallD: "#8E3423", plaster: "#F3ECE0", wood: "#B9824A", woodD: "#8A5A30", brass: "#C9A04A", brassHi: "#E7CB86", ink: "#2A1C12", lip: "#7A3324" };
   const skin = ["#F7DCC8", "#F1D0B8", "#EDC8AC", "#E8C0A2", "#F4D5BF", "#EAC4A8"];
   const shade = (hex, f) => "#" + [1, 3, 5].map(i => Math.min(255, Math.round(parseInt(hex.slice(i, i + 2), 16) * f)).toString(16).padStart(2, "0")).join("");
-  // Drawn from the regulars in the session 67 group photo, left to right as they stood.
+  // Everyone in the session 67 group photo, left to right as they stood. b: standing in the back row.
   const crowd = [
-    { x: 150, s: 4, hair: "wavyL", hc: "#3B2A20", shirt: "#F4F1EA", locks: 1 },
-    { x: 250, s: 0, hair: "bangsS", hc: "#1A1310", shirt: "#4F5B6B" },
-    { x: 350, s: 1, hair: "wavyL", hc: "url(#ombre)", bc: "#5A3B26", shirt: "#1F1F22", bag: 1 },
-    { x: 450, s: 2, hair: "bob", hc: "#1A1310", shirt: "#F4F1EA", tie: "#F2C230" },
-    { x: 550, s: 3, hair: "short", hc: "#1E1612", shirt: "url(#stripesT)", beard: 1 },
-    { x: 650, s: 0, hair: "tousled", hc: "#2A1C12", shirt: "#22283A", chain: 1 },
-    { x: 750, s: 4, hair: "bob", hc: "#3B2A20", shirt: "url(#paisley)", inner: "#1F1F22", chain: 1, lip: "#B23A3A" },
-    { x: 850, s: 1, hair: "shoulder", hc: "#2A1C12", shirt: "url(#confetti)", over: "#F4F1EA", glasses: 1 },
-    { x: 950, s: 3, hair: "cap", hc: "#2A1C12", shirt: "#6F7348", glasses: "rect", mous: 1, stubble: "#7A5A45" },
-    { x: 1050, s: 2, hair: "tousled", hc: "#1E1612", shirt: "#1F1F22", glasses: "rect", stubble: "#7A5A45" }
+    { x: 90, s: 1, hair: "long", hc: "#1A1310", shirt: "#A9BCD9", shades: "#1F1F22" },
+    { x: 132, b: 1, s: 1, hair: "curlyTop", hc: "#1A1310", shirt: "#22283A", beard: 1 },
+    { x: 175, s: 4, hair: "wavyL", hc: "#3B2A20", shirt: "#F4F1EA", locks: 1 },
+    { x: 260, s: 0, hair: "bangsS", hc: "#1A1310", shirt: "#4F5B6B" },
+    { x: 302, b: 1, s: 0, hair: "hijab", hc: "#16110F", shirt: "#16110F", glasses: 1, wrap: 1 },
+    { x: 387, b: 1, s: 4, hair: "hijab", hc: "url(#scarf)", fringe: "#1A1310", bc: "#1A1310", shirt: "#1F1F22" },
+    { x: 345, s: 1, hair: "wavyL", hc: "url(#ombre)", bc: "#5A3B26", shirt: "#1F1F22", bag: 1 },
+    { x: 472, b: 1, s: 3, hair: "long", hc: "#2A1C12", shirt: "#E9D36A" },
+    { x: 430, s: 0, hair: "wavyS", hc: "#3B2A20", shirt: "#A39A84", inner: "#22283A" },
+    { x: 515, s: 4, hair: "updo", hc: "#2A1C12", shirt: "url(#lace)", chain: 1 },
+    { x: 557, b: 1, s: 2, hair: "long", hc: "#120C0A", shirt: "#3A2A26", shades: "#F4F1EA", chain: 1 },
+    { x: 600, s: 2, hair: "bob", hc: "#1A1310", shirt: "#F4F1EA", tie: "#F2C230" },
+    { x: 642, b: 1, s: 0, hair: "wavyS", hc: "#4A2418", shirt: "#F4F1EA", flower: 1 },
+    { x: 685, s: 3, hair: "short", hc: "#1E1612", shirt: "url(#stripesT)", beard: 1 },
+    { x: 770, s: 0, hair: "tousled", hc: "#2A1C12", shirt: "#22283A", chain: 1 },
+    { x: 727, b: 1, s: 4, hair: "wavy", hc: "#5A3B26", shirt: "url(#floral)" },
+    { x: 812, b: 1, s: 2, hair: "short", hc: "#2A1C12", shirt: "#B39A6E", glasses: "rect", beard: 1 },
+    { x: 897, b: 1, s: 3, hair: "receding", hc: "#1A1310", shirt: "#F1E9D6", stubble: 1 },
+    { x: 855, s: 4, hair: "bob", hc: "#3B2A20", shirt: "url(#paisley)", inner: "#1F1F22", chain: 1, lip: "#B23A3A" },
+    { x: 982, b: 1, s: 3, hair: "short", hc: "#1A1310", shirt: "#7E9A6A", stubble: 1 },
+    { x: 940, s: 1, hair: "shoulder", hc: "#2A1C12", shirt: "url(#confetti)", over: "#F4F1EA", glasses: 1 },
+    { x: 1025, s: 3, hair: "cap", hc: "#2A1C12", shirt: "#6F7348", glasses: "rect", mous: 1, stubble: "#7A5A45" },
+    { x: 1110, s: 2, hair: "tousled", hc: "#1E1612", shirt: "#1F1F22", glasses: "rect", stubble: "#7A5A45" }
   ];
   function hairOf(p) {
     const hc = p.hc;
@@ -1606,19 +1619,20 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
       case "bob": return [`<path d="M-24 250Q-26 221 0 221Q26 221 24 250L25 279Q12 285 0 283Q-12 285-25 279Z" fill="${hc}"/>`, `<path d="M-20 250Q-21 225 0 224Q21 225 20 250Q12 232-3 234Q-14 236-20 250Z" fill="${hc}"/>`];
       case "pony": return [`<path d="M8 222Q32 212 31 238Q33 264 22 286Q19 262 14 242Z" fill="${hc}"/>`, `<path d="M-20 252Q-22 223 0 222Q22 223 20 252Q16 233 0 232Q-16 233-20 252Z" fill="${hc}"/>`];
       case "manbun": return [`<circle cx="0" cy="218" r="7.5" fill="${hc}"/>`, `<path d="M-20 251Q-23 224 0 222Q23 224 20 251Q16 233 0 233Q-14 233-20 251Z" fill="${hc}"/>`];
+      case "hijab": return [`<path d="M-27 258Q-29 214 0 213Q29 214 27 258Q31 282 36 300Q0 314-36 300Q-31 282-27 258Z" fill="${hc}"/>`, `${p.fringe ? `<path d="M-17 248Q-12 233 0 233Q12 233 17 248Q6 240-4 242Q-12 243-17 248Z" fill="${p.fringe}"/>` : ""}<path d="M-23 262Q-25 226 0 224Q25 226 23 262Q22 270 18 274Q20 256 17 ${p.fringe ? 240 : 246}Q10 ${p.fringe ? 229 : 233} 0 ${p.fringe ? 229 : 233}Q-10 ${p.fringe ? 229 : 233}-17 ${p.fringe ? 240 : 246}Q-20 256-18 274Q-22 270-23 262Z" fill="${hc}"/>${p.wrap ? `<path d="M-18 271Q0 292 18 271L22 284Q0 300-22 284Z" fill="${hc}"/>` : ""}`];
       case "bald": return ["", `<path d="M-12 236Q-4 231 4 232" stroke="#FFFFFF" stroke-width="2.5" opacity=".35" fill="none" stroke-linecap="round"/>`];
     }
   }
   function personSvg(p, i) {
-    const sk = skin[p.s], skD = shade(sk, .88), [back, front] = hairOf(p);
-    return `<g class="p" id="p${i}" transform="translate(${p.x} 0)" style="--bd:${(i * 1.7) % 5}s;--ld:${(i % 4) * .07}s">
+    const sk = skin[p.s], skD = shade(sk, .88), [back, front] = hairOf(p), low = p.b ? 480 : 400;
+    return `<g class="p" id="p${i}" transform="translate(${p.x} ${p.b ? "-26) scale(.82" : "0"})" style="--bd:${(i * 1.7) % 5}s;--ld:${(i % 4) * .07}s">
       <g class="head">${back}</g>
       <rect x="-7" y="268" width="14" height="30" rx="4" fill="${skD}"/>
-      <path d="M-38 400L-36 318Q-34 296-12 292H12Q34 296 36 318L38 400Z" fill="${p.shirt}"/>
+      <path d="M-38 ${low}L-36 318Q-34 296-12 292H12Q34 296 36 318L38 ${low}Z" fill="${p.shirt}"/>
       ${p.inner ? `<path d="M-12 292L0 328L12 292Z" fill="${p.inner}"/>` : ""}${p.chain ? `<path d="M-8 291Q0 302 8 291" stroke="${C.brass}" stroke-width="1.3" fill="none"/>` : ""}${p.over ? `<path d="M-38 400L-36 318Q-34 296-12 292L-13 400Z" fill="${p.over}"/><path d="M38 400L36 318Q34 296 12 292L13 400Z" fill="${p.over}"/>` : ""}${p.tie ? `<path d="M-11 291L0 300L11 291L7 289L0 294L-7 289Z" fill="#FFFFFF"/><path d="M-4 299H4L6 330L0 338L-6 330Z" fill="${p.tie}"/>` : ""}${p.locks ? `<path d="M-21 262Q-31 280-24 297Q-31 314-24 332Q-17 338-13 331Q-19 314-13 297Q-19 280-12 266Z" fill="${p.hc}"/><path d="M21 262Q31 280 24 297Q31 314 24 332Q17 338 13 331Q19 314 13 297Q19 280 12 266Z" fill="${p.hc}"/>` : ""}${p.bag ? `<path d="M-26 300L24 360" stroke="#B9B9B9" stroke-width="2" stroke-dasharray="3 2"/>` : ""}
       ${p.ns ? `<path d="M-15 289Q0 305 15 289L19 298Q0 316-19 298Z" fill="${p.ns}"/><path d="M5 303L9 336L17 331L12 301Z" fill="${shade(p.ns, .85)}"/>` : ""}
       <g class="head">
-        <circle cx="-19" cy="257" r="4.5" fill="${skD}"/><circle cx="19" cy="257" r="4.5" fill="${skD}"/>${p.ear ? `<circle cx="-19" cy="265" r="2" fill="${C.brass}"/><circle cx="19" cy="265" r="2" fill="${C.brass}"/>` : ""}
+        ${p.hair === "hijab" ? "" : `<circle cx="-19" cy="257" r="4.5" fill="${skD}"/><circle cx="19" cy="257" r="4.5" fill="${skD}"/>`}${p.ear ? `<circle cx="-19" cy="265" r="2" fill="${C.brass}"/><circle cx="19" cy="265" r="2" fill="${C.brass}"/>` : ""}
         <ellipse class="face" cx="0" cy="254" rx="19" ry="22" fill="${sk}"/>
         ${p.beard || p.stubble ? `<path d="M-18 257Q-17 283 0 285Q17 283 18 257Q14 273 0 274Q-14 273-18 257Z" fill="${p.beard ? p.hc : shade(sk, .86)}"/>` : ""}
         <g class="feat">
@@ -1629,11 +1643,12 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
           ${p.mous ? `<path d="M-11 264Q-5 258 0 261.5Q5 258 11 264Q12 268 8 266.5Q4 263.5 0 264.5Q-4 263.5-8 266.5Q-12 268-11 264Z" fill="${p.hc}"/>` : ""}${p.beard ? `<path d="M-7 263.5Q0 260.5 7 263.5" stroke="${p.hc}" stroke-width="2.6" fill="none" stroke-linecap="round"/>` : ""}
           <path class="mouth-r" d="M-5 266.5Q0 270.5 5 266.5" stroke="${p.lip || C.lip}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
           <ellipse class="mouth-o" cx="0" cy="267.5" rx="4" ry="3.2" fill="${p.lip || C.lip}"/>
-        </g>${front}
+        </g>${front}${p.shades ? `<g fill="${p.shades}" stroke="${p.shades === "#1F1F22" ? "#8C7A6A" : C.ink}" stroke-width="1.2"><ellipse cx="-8" cy="225" rx="7.5" ry="4"/><ellipse cx="8" cy="225" rx="7.5" ry="4"/></g>` : ""}${p.flower ? `<g transform="translate(9 212)"><path d="M0 10V2" stroke="#44603A" stroke-width="1.5"/>${[0, 72, 144, 216, 288].map(a => `<circle cx="${(3 * Math.cos(a * Math.PI / 180)).toFixed(1)}" cy="${(3 * Math.sin(a * Math.PI / 180)).toFixed(1)}" r="2.4" fill="#F2C230"/>`).join("")}<circle r="1.8" fill="#6B4A1E"/></g>` : ""}
       </g></g>`;
   }
   const armsSvg = (p, i) => {
     const sk = skin[p.s];
+    if (p.b) return `<g id="a${i}"></g>`;
     return `<g class="arms" id="a${i}" transform="translate(${p.x} 0)" fill="none" stroke="${p.arm === "skin" ? sk : p.over || p.shirt}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
       <path d="M-31 306Q-46 342-39 378L-15 386"/><circle cx="-13" cy="386" r="6.5" fill="${sk}" stroke="none"/>
       <path d="M31 306Q46 342 39 378"/><g class="fa"><path d="M39 378L15 386"/><circle cx="13" cy="386" r="6.5" fill="${sk}" stroke="none"/></g></g>`;
@@ -1657,6 +1672,8 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
       <pattern id="stripesO" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#F3F1E8"/><rect width="2" height="6" fill="#6F7460"/></pattern>
       <pattern id="stripesT" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#F6F5F1"/><rect width="1.2" height="4" fill="#A3A9B0"/></pattern>
       <pattern id="cherry" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#FBF8F2"/><circle cx="5" cy="6" r="1.1" fill="#C0392B"/><circle cx="7" cy="6.5" r="1.1" fill="#C0392B"/><circle cx="16" cy="17" r="1.1" fill="#C0392B"/><circle cx="18" cy="17.5" r="1.1" fill="#C0392B"/></pattern>
+      <pattern id="scarf" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#E7D7A8"/><circle cx="4" cy="4" r="2" fill="#B5543A"/><ellipse cx="10" cy="10" rx="2.6" ry="1.4" fill="#5B6B8A" transform="rotate(30 10 10)"/><circle cx="11" cy="3" r="1" fill="#C9A04A"/></pattern>
+      <pattern id="floral" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#F2EFEA"/><circle cx="3" cy="3" r="1.4" fill="#6E6A78"/><circle cx="9" cy="8" r="1.2" fill="#8A7F92"/><path d="M7 2l2 1" stroke="#6E6A78" stroke-width=".8"/></pattern>
       <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#FFFDF8"/><circle cx="3" cy="3" r="1.2" fill="#CDBDA3"/><circle cx="9" cy="9" r="1.2" fill="#CDBDA3"/></pattern>
       <pattern id="lace" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#F8F3EA"/><circle cx="7" cy="7" r="3.2" fill="none" stroke="#E4D8C5" stroke-width="1"/></pattern>
       <radialGradient id="glow"><stop offset="0" stop-color="#FFE3A0" stop-opacity=".6"/><stop offset="1" stop-color="#FFE3A0" stop-opacity="0"/></radialGradient>
@@ -1685,7 +1702,8 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
     </g>
     <rect y="430" width="1200" height="130" fill="#D8CAB2"/>
     <rect x="80" y="476" width="1040" height="100" fill="#8E2F22"/><rect x="94" y="488" width="1012" height="100" fill="none" stroke="#D9B26B" stroke-width="3" stroke-dasharray="10 6"/>
-    ${crowd.map(personSvg).join("")}
+    ${crowd.map((p, i) => (p.b ? personSvg(p, i) : "")).join("")}
+    ${crowd.map((p, i) => (p.b ? "" : personSvg(p, i))).join("")}
     <path d="M70 372H1130L1162 402H38Z" fill="url(#dots)"/><path d="M70 372H1130" stroke="#E6DCCB" stroke-width="2"/>
     ${crowd.map(armsSvg).join("")}
     ${tea(200, 0)}${tea(300, 1.1)}${bottle(400)}${tea(500, 2.2)}<path d="M582 392l40-6 12 8-40 6z" fill="#3F5C4A"/>${tea(700, .6)}${bottle(800)}${tea(900, 1.7)}${tea(1000, 2.8)}
@@ -1696,13 +1714,13 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
   const sceneSvg = sceneWrap.querySelector("svg");
   const P = crowd.map((_, i) => ({ g: $("p" + i), a: $("a" + i), face: $("p" + i).querySelector(".face") }));
   const talks = [
-    [[1, "Tonight’s question: how do we keep going when we don’t know what’s next?", "q"], [4, "Small routines. Tea, a walk, and then I can think."], [8, "I used to plan everything. Now I just plan the next Friday.", "laugh"], [2, "Honestly? That’s the best plan."]],
-    [[6, "Okay, one thing from your bucket list. Go!", "q"], [0, "See the northern lights. With a thermos of tea."], [9, "Learn to say no in three languages.", "laugh"], [3, "Finish one book before I buy another one…"], [5, "That will never happen.", "laugh"]],
-    [[7, "Be honest. Who checked their phone during the last topic?", "q"], [5, "Guilty! But I was looking up a word.", "laugh"], [1, "Which word?"], [5, "“Procrastination.”", "laugh"]],
-    [[2, "Can I disagree a little? Kindly?"], [8, "Always. That’s why we’re here."], [2, "I think regret is useful. It shows you what you care about."], [4, "Ooh. Somebody write that down."]]
+    [[3, "Tonight’s question: how do we keep going when we don’t know what’s next?", "q"], [13, "Small routines. Tea, a walk, and then I can think."], [21, "I used to plan everything. Now I just plan the next Friday.", "laugh"], [6, "Honestly? That’s the best plan."]],
+    [[18, "Okay, one thing from your bucket list. Go!", "q"], [2, "See the northern lights. With a thermos of tea."], [22, "Learn to say no in three languages.", "laugh"], [11, "Finish one book before I buy another one…"], [16, "That will never happen.", "laugh"]],
+    [[20, "Be honest. Who checked their phone during the last topic?", "q"], [14, "Guilty! But I was looking up a word.", "laugh"], [19, "Which word?"], [14, "“Procrastination.”", "laugh"]],
+    [[7, "Can I disagree a little? Kindly?"], [9, "Always. That’s why we’re here."], [7, "I think regret is useful. It shows you what you care about."], [12, "Ooh. Somebody write that down."]]
   ];
-  const pick = n => Math.floor(Math.random() * n);
-  const jarTalk = () => { const a = pick(10), b = (a + 3 + pick(5)) % 10, c = (b + 2 + pick(5)) % 10; return [[a, Q[pick(Q.length)][1], "q"], [b, "Ooh, that’s a hard one…"], [c, "Can I go first?"]]; };
+  const pick = n => Math.floor(Math.random() * n), N = crowd.length;
+  const jarTalk = () => { const a = pick(N), b = (a + 5 + pick(8)) % N, c = (b + 4 + pick(8)) % N; return [[a, Q[pick(Q.length)][1], "q"], [b, "Ooh, that’s a hard one…"], [c, "Can I go first?"]]; };
   const centerOf = i => { const w = sceneWrap.getBoundingClientRect(), r = P[i].face.getBoundingClientRect(); return { x: r.left + r.width / 2 - w.left, y: r.top - w.top, w: w.width }; };
   const visible = i => { const c = centerOf(i); if (c.x > 30 && c.x < c.w - 30) return i; let best = i, bd = 1e9; P.forEach((_, j) => { const d = centerOf(j); if (d.x > 30 && d.x < d.w - 30 && Math.abs(d.x - c.x) < bd) { bd = Math.abs(d.x - c.x); best = j; } }); return best; };
   let speaker = -1, sTimer = null, convo = talks[0], ti = 0, li = 0, loop = null, running = false;
@@ -1727,7 +1745,7 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
     P[who].g.classList.add("talk"); P[who].a.classList.add("talking-arm");
     const dur = 1200 + text.length * 45;
     sTimer = setTimeout(() => { P[who].g.classList.remove("talk"); P[who].a.classList.remove("talking-arm"); }, dur);
-    [pick(10), pick(10)].filter(j => j !== who).forEach(j => setTimeout(() => P[j].g.classList.add("nod"), 500 + pick(900)));
+    [pick(N), pick(N), pick(N)].filter(j => j !== who).forEach(j => setTimeout(() => P[j].g.classList.add("nod"), 500 + pick(900)));
     if (kind === "laugh") setTimeout(() => { sceneSvg.classList.add("laugh"); setTimeout(() => sceneSvg.classList.remove("laugh"), 1700); }, dur * .7);
   }
   function nextLine() {
