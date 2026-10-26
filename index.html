@@ -198,13 +198,13 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; 
 @media (max-width: 480px) { .wall { padding: 96px 18px 22px; } .chandelier { width: 120px; height: 90px; } }
 
 /* A Friday at the table: an illustrated, animated scene drawn from the club's photos */
-.scene-wrap { position: relative; aspect-ratio: 1710 / 560; border-radius: 28px; overflow: hidden; background: #F3ECE0; box-shadow: 0 30px 60px -36px rgba(58, 36, 22, .6); isolation: isolate; }
+.scene-wrap { position: relative; aspect-ratio: 1800 / 560; border-radius: 28px; overflow: hidden; background: #F3ECE0; box-shadow: 0 30px 60px -36px rgba(58, 36, 22, .6); isolation: isolate; }
 .scene-wrap svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 /* On phones the whole table stays visible: the scene keeps its height and scrolls sideways inside its own frame */
 @media (max-width: 700px) {
   .scene-wrap { aspect-ratio: auto; height: 380px; border-radius: 22px; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scrollbar-width: none; }
   .scene-wrap::-webkit-scrollbar { display: none; }
-  .scene-wrap svg { position: relative; inset: auto; width: calc(380px * 1710 / 560); height: 100%; }
+  .scene-wrap svg { position: relative; inset: auto; width: calc(380px * 1800 / 560); height: 100%; }
 }
 .scene-hint { display: none; margin: 10px 0 0; text-align: center; font-family: var(--ui); font-size: .8rem; color: var(--muted); }
 @media (max-width: 700px) { .scene-hint { display: block; } }
@@ -1607,7 +1607,7 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
     { n: "Faraz", b: 1, s: 2, hair: "short", hc: "#1A1310", shirt: "#26304A", stubble: 1 },
     { n: "Sajjad", b: 1, s: 3, hair: "short", hc: "#1A1310", shirt: "#F4F1EA", beard: 1 },
     { n: "Erfan", b: 1, s: 2, hair: "short", hc: "#1A1310", shirt: "#C9BC94", glasses: "rect", beard: 1 },
-    { n: "Pouria", b: 1, s: 2, hair: "short", hc: "#1E1612", shirt: "#1F1F22", glasses: "rect", beard: 1 },
+    { n: "Pouria", s: 2, hair: "short", hc: "#1E1612", shirt: "#F6F3EC", glasses: "rect", beard: 1 },
     { n: "Amir Z", b: 1, s: 1, hair: "tousled", hc: "#2A1C12", shirt: "#18181A", stubble: 1 },
     { n: "Amir", b: 1, s: 3, hair: "tousled", hc: "#1A1310", shirt: "#2E2B28", beard: 1 },
     { n: "Hadis", b: 1, s: 0, hair: "updo", hc: "#6B4A32", shirt: "#8A7A4E" },
@@ -1630,7 +1630,7 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
     { n: "Parnian", s: 0, hair: "curlyLong", full: 1, hc: "#120C0A", shirt: "#F6F4F0", inner: "#16110F", ear: 1 }
   ];
   // Seated people fill the front of the table in order; everyone standing spreads evenly behind them.
-  const W = 1710, seated = crowd.filter(p => !p.b), standing = crowd.filter(p => p.b);
+  const W = 1800, seated = crowd.filter(p => !p.b), standing = crowd.filter(p => p.b);
   seated.forEach((p, k) => (p.x = 90 + k * 85));
   standing.forEach((p, k) => (p.x = Math.round(130 + k * (W - 260) / (standing.length - 1))));
   function hairOf(p) {
@@ -1777,9 +1777,9 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
     ${crowd.map((p, i) => (p.b ? "" : personSvg(p, i))).join("")}
     <path d="M70 372H${W - 70}L${W - 38} 402H38Z" fill="url(#dots)"/><path d="M70 372H${W - 70}" stroke="#E6DCCB" stroke-width="2"/>
     ${crowd.map(armsSvg).join("")}
-    ${tea(200, 0)}${tea(300, 1.1)}${bottle(400)}${tea(500, 2.2)}<path d="M582 392l40-6 12 8-40 6z" fill="#3F5C4A"/>${tea(700, .6)}${bottle(800)}${tea(900, 1.7)}${tea(1000, 2.8)}${bottle(1150)}${tea(1240, .9)}${tea(1330, 2)}<path d="M1372 393l30-5 9 6-30 5z" fill="#E7CB86"/>${tea(1420, 1.4)}${tea(1520, .3)}${bottle(1580)}${tea(1630, 2.4)}
+    ${tea(200, 0)}${tea(300, 1.1)}${bottle(400)}${tea(500, 2.2)}<path d="M582 392l40-6 12 8-40 6z" fill="#3F5C4A"/>${tea(700, .6)}${bottle(800)}${tea(900, 1.7)}${tea(1000, 2.8)}${bottle(1150)}${tea(1240, .9)}${tea(1330, 2)}<path d="M1372 393l30-5 9 6-30 5z" fill="#E7CB86"/>${tea(1420, 1.4)}${tea(1520, .3)}${bottle(1580)}${tea(1630, 2.4)}${tea(1720, 1.2)}
     <rect x="38" y="402" width="${W - 76}" height="72" fill="url(#dots)"/><path d="M38 402H${W - 38}" stroke="#D8CAB2" stroke-width="2"/><path d="M38 474H${W - 38}" stroke="#C8B89D" stroke-width="3"/>
-    ${chair(240)}${chair(420)}${chair(600)}${chair(780, true)}${chair(960)}${chair(1140)}${chair(1320)}${chair(1500)}
+    ${chair(240)}${chair(420)}${chair(600)}${chair(780, true)}${chair(960)}${chair(1140)}${chair(1320)}${chair(1500)}${chair(1680)}
   </svg>`;
   sceneWrap.insertAdjacentHTML("afterbegin", svg);
   const sceneSvg = sceneWrap.querySelector("svg");
