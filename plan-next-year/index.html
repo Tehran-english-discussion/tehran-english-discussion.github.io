@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to Plan Next Year in Times of War · Tehran English Discussion</title>
+<meta name="description" content="A .TED Friday workshop: imagine next year has already happened, once as a failure and once as a success, and plan from there.">
+<meta property="og:title" content="How to Plan Next Year in Times of War">
+<meta property="og:description" content="A .TED Friday workshop with Pouria. The questions, the plan, and a private workbook for your answers.">
+<meta property="og:image" content="https://tehran-english-discussion.github.io/session-69.jpg">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:wght@400..700&family=Caveat:wght@500..700&display=swap">
+<style>
+:root {
+  --plaster: #F5EEE1; --plaster-2: #ECE2CF; --fg: #2A1C12; --muted: #7B6650; --line: #DCCDB2;
+  --wall: #A63F2A; --wall-deep: #7E2D1E; --brass: #B8892E; --brass-hi: #E2C27A; --walnut: #3A2416;
+  --leaf: #44603A; --on-dark: #F7EEDD; --on-dark-muted: #CDBB9C; --yolk: #FFC700; --on-yolk: #2A1C12;
+  --cloth: #FFFDF8; --on-cloth: #2A1C12;
+  --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --ui: "Instrument Sans", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --plaster: #1B1410; --plaster-2: #241B15; --fg: #F3E9D8; --muted: #B39F84; --line: #3A2C21;
+    --wall: #B04A33; --wall-deep: #84301F; --brass: #D2A74C; --brass-hi: #E9CD86;
+    --walnut: #110C08; --leaf: #6E8F5F; --cloth: #FBF6EC; color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body {
+  margin: 0; background: var(--plaster); color: var(--fg); overflow-x: hidden;
+  font-family: var(--display); font-optical-sizing: auto; font-variation-settings: "SOFT" 50;
+  font-size: 1.14rem; line-height: 1.62; font-weight: 380;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .14 0 0 0 0 .08 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px;
+}
+@media (prefers-color-scheme: dark) { body { background-blend-mode: soft-light; } }
+.wrap { max-width: 1000px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.05; font-weight: 700; font-variation-settings: "SOFT" 100, "WONK" 1; }
+h1 em, h2 em, h3 em { font-weight: 400; font-style: italic; color: var(--wall); }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+button, textarea { font: inherit; }
+:focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--wall); color: var(--on-dark); }
+.label { font-family: var(--ui); font-weight: 600; font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; }
+.logo { display: inline-block; width: 78px; aspect-ratio: 450 / 151; background: currentColor; -webkit-mask: url(../logo-mask.png) center / contain no-repeat; mask: url(../logo-mask.png) center / contain no-repeat; }
+
+/* Header */
+header.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--plaster) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 12px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand .chip { background: var(--yolk); color: var(--on-yolk); padding: 9px 11px; border-radius: 10px; display: grid; }
+.brand .name { font-family: var(--ui); font-weight: 600; font-size: .9rem; line-height: 1.2; }
+.top nav { display: flex; gap: 4px; }
+.top nav a { font-family: var(--ui); font-weight: 500; font-size: .92rem; text-decoration: none; padding: 7px 13px; border-radius: 999px; white-space: nowrap; transition: background-color .2s; }
+@media (hover: hover) { .top nav a:hover { background: var(--plaster-2); } }
+@media (max-width: 640px) { .brand .name, .top nav a.opt { display: none; } }
+@media (max-width: 420px) { .top nav a.opt-sm { display: none; } .top nav a { padding: 7px 10px; } }
+
+/* Hero */
+.hero .wrap { padding-block: clamp(40px, 7vw, 88px) clamp(28px, 4vw, 48px); }
+.kicker { display: flex; align-items: center; gap: 12px; color: var(--wall); flex-wrap: wrap; }
+.kicker .rule { flex: 0 0 40px; height: 1.5px; background: currentColor; }
+.hero h1 { margin-top: 22px; font-size: clamp(2.6rem, 8vw, 5.6rem); letter-spacing: -.03em; line-height: .98; max-width: 14ch; font-weight: 800; }
+.hero .lede { margin-top: 26px; font-size: 1.28rem; line-height: 1.55; max-width: 40ch; color: var(--muted); }
+.ticket { margin-top: 30px; display: inline-flex; flex-wrap: wrap; gap: 8px 22px; padding: 14px 20px; border-radius: 14px; background: var(--yolk); color: var(--on-yolk); font-family: var(--ui); font-size: .95rem; box-shadow: 0 18px 30px -22px rgba(58, 36, 22, .8); }
+.ticket b { font-weight: 700; }
+.steps-nav { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 8px; }
+.steps-nav a { font-family: var(--ui); font-size: .9rem; font-weight: 500; text-decoration: none; padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--plaster); }
+@media (hover: hover) { .steps-nav a:hover { border-color: var(--wall); color: var(--wall); } }
+
+/* Sections */
+section { scroll-margin-top: 80px; }
+.sec .wrap { padding-block: clamp(56px, 8vw, 100px) 0; }
+.head { display: grid; gap: 12px; max-width: 720px; margin-bottom: clamp(26px, 4vw, 40px); }
+.head .label { color: var(--wall); }
+.head h2 { font-size: clamp(2.1rem, 5vw, 3.4rem); letter-spacing: -.025em; }
+.head p { color: var(--muted); }
+
+/* The letter */
+.letter { position: relative; background: var(--cloth); color: var(--on-cloth); border-radius: 20px; border-top: 6px solid var(--yolk); padding: clamp(24px, 5vw, 52px); box-shadow: 0 1px 2px rgba(42, 28, 18, .1), 0 26px 44px -30px rgba(58, 36, 22, .7); max-width: 760px; }
+.letter p + p { margin-top: 1em; }
+.letter .hi { font-family: "Caveat", cursive; font-size: 1.9rem; line-height: 1.1; color: var(--wall); }
+.letter .pull { font-size: 1.32rem; font-style: italic; border-left: 3px solid var(--brass); padding-left: 18px; color: #4A3324; }
+.letter .sign { font-family: "Caveat", cursive; font-size: 1.8rem; color: var(--wall); margin-top: 1.2em; }
+.letter .sign small { display: block; font-family: var(--ui); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: #7B6650; }
+
+/* Plan */
+.part { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: clamp(14px, 3vw, 28px); padding-block: clamp(26px, 4vw, 40px); border-top: 1px solid var(--line); }
+.part:first-of-type { border-top: 0; padding-top: 0; }
+.part .num { font-family: var(--display); font-weight: 800; font-size: 3.6rem; line-height: .9; color: var(--wall); font-variation-settings: "SOFT" 100, "WONK" 1; }
+.part.fail .num { color: var(--muted); }
+.part.win .num { color: var(--leaf); }
+.part h3 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); letter-spacing: -.015em; }
+.part .scene { margin-top: 10px; font-style: italic; color: var(--muted); max-width: 52ch; }
+.qs { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 14px; }
+.q { background: var(--cloth); color: var(--on-cloth); border-radius: 16px; padding: 18px 20px; border: 1px solid color-mix(in srgb, var(--brass) 26%, transparent); box-shadow: 0 14px 26px -24px rgba(58, 36, 22, .7); }
+.q > p { font-size: 1.16rem; font-weight: 450; }
+.q.purpose { box-shadow: inset 0 0 0 2px var(--yolk), 0 14px 26px -24px rgba(58, 36, 22, .7); }
+.q .tag { display: inline-block; margin-bottom: 6px; font-family: var(--ui); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--brass); }
+.q textarea { display: block; width: 100%; margin-top: 12px; min-height: 76px; resize: vertical; border-radius: 10px; border: 1.5px dashed #D8C7A8; background: #FFFBF2; color: #2A1C12; padding: 10px 12px; font-family: var(--ui); font-size: 1rem; line-height: 1.5; }
+.q textarea:focus { outline: none; border-style: solid; border-color: var(--brass); }
+.q textarea::placeholder { color: #A8977F; }
+.hide-notes .q textarea { display: none; }
+.part.fail .q { border-left: 4px solid #A8977F; }
+.part.win .q { border-left: 4px solid var(--leaf); }
+.part.go .q { border-left: 4px solid var(--yolk); }
+
+.tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 30px; padding: 14px 16px; border-radius: 14px; background: var(--plaster-2); font-family: var(--ui); font-size: .92rem; color: var(--muted); }
+.tools p { flex: 1 1 260px; }
+.btn { font-family: var(--ui); font-weight: 600; font-size: .9rem; cursor: pointer; border: 0; border-radius: 999px; padding: 10px 18px; background: var(--walnut); color: var(--on-dark); transition: transform .2s, background-color .2s; }
+@media (prefers-color-scheme: dark) { .btn { background: var(--brass); color: #1B1410; } }
+.btn.ghost { background: transparent; color: var(--fg); box-shadow: inset 0 0 0 1.5px currentColor; }
+@media (hover: hover) { .btn:hover { transform: translateY(-1px); } }
+
+/* Reflection list */
+ol.reflect { list-style: none; counter-reset: r; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+ol.reflect li { counter-increment: r; position: relative; padding: 16px 18px 16px 58px; border-radius: 14px; background: var(--cloth); color: var(--on-cloth); border: 1px solid color-mix(in srgb, var(--brass) 22%, transparent); font-size: 1.04rem; line-height: 1.5; }
+ol.reflect li::before { content: counter(r); position: absolute; left: 16px; top: 14px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-family: var(--ui); font-weight: 700; font-size: .85rem; background: var(--plaster-2); color: #7B6650; }
+@media (max-width: 760px) { ol.reflect { grid-template-columns: minmax(0, 1fr); } }
+.note { margin-top: 22px; max-width: 64ch; color: var(--muted); font-size: 1.02rem; }
+
+/* Closing */
+.closing { margin-top: clamp(64px, 9vw, 110px); background: var(--wall); color: var(--on-dark); }
+.closing .wrap { padding-block: clamp(48px, 7vw, 84px); display: grid; gap: 16px; }
+.closing p.big { font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.2; font-style: italic; max-width: 26ch; font-weight: 400; }
+.closing p.small { font-family: var(--ui); color: var(--on-dark-muted); font-size: .95rem; }
+.closing a { color: var(--brass-hi); }
+footer.site .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 26px; font-family: var(--ui); font-size: .84rem; color: var(--muted); }
+footer.site a { color: var(--wall); text-underline-offset: 3px; }
+footer.site .logo { width: 60px; color: var(--fg); }
+
+@media (max-width: 520px) {
+  .part { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .part .num { font-size: 2.6rem; }
+  .q { padding: 16px; }
+  ol.reflect li { padding-left: 54px; }
+}
+@media print {
+  header.top, .tools, .lang, .steps-nav, .closing, footer.site { display: none; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .q, ol.reflect li, .letter { box-shadow: none; break-inside: avoid; }
+  .q textarea { border: 1px solid #bbb; min-height: 60px; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><span class="chip"><span class="logo" role="img" aria-label=".TED logo"></span></span><span class="name">Tehran English<br>Discussion</span></a>
+    <nav aria-label="Workshop">
+      <a href="#why" class="opt">Why</a>
+      <a href="#plan">The plan</a>
+      <a href="#reflect" class="opt-sm">Reflection</a>
+      <a href="../">← Club</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="kicker"><span class="rule" aria-hidden="true"></span><span class="label">A Friday workshop · with Pouria</span></div>
+      <h1>How to plan next year <em>in times of war.</em></h1>
+      <p class="lede">We can’t predict next month, let alone next year. So we’ll do it backwards: imagine the year has already happened, once as a failure and once as a success, and plan from there.</p>
+      <div class="ticket"><span><b>Friday</b> · at the café</span><span>Bring a pen, or use this page</span></div>
+      <nav class="steps-nav" aria-label="Jump to">
+        <a href="#why">1 · Why this topic</a>
+        <a href="#plan">2 · The plan, step by step</a>
+        <a href="#reflect">3 · Questions from the future</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="sec" id="why">
+    <div class="wrap">
+      <div class="head"><span class="label">Before Friday</span><h2>A note from <em>the moderator</em></h2></div>
+      <article class="letter">
+        <p class="hi">Hi everyone,</p>
+        <p>As you already know, our country is at war, and we are living in times of extreme uncertainty. The economy has been getting worse year by year, and most of us are in our 20s or 30s, the very years when we have the energy to build our lives and careers.</p>
+        <p>We could become victims and blame everything on the environment, which is not wrong, by the way. Or we could choose to take action and, even in the worst of times, build a fulfilling life for ourselves.</p>
+        <p>Some people think the only solution is to migrate to a better country, which is also a valid argument. But even as Iranians abroad, we still can’t make international transactions, and our currency has a low value, which makes the transition hard in the beginning. Being far away from our family, friends, and culture is hard, too. So migration is not a panacea. It might solve some problems, but it can create others, and it has its own hardships.</p>
+        <p class="pull">I believe each of us has a life purpose. No matter how messy our environment gets, we need to remember what that purpose is, put one foot in front of the other, and keep walking towards it.</p>
+        <p>I don’t have a one-size-fits-all answer to this question myself. I want to hear everyone’s thoughts and strategies, so that we can all make a better plan for the year ahead.</p>
+        <p class="sign">Pouria<small>Moderator</small></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="plan">
+    <div class="wrap">
+      <div class="head"><span class="label">On the night</span><h2>The plan, <em>step by step</em></h2><p>First we look ahead. Then we run the year twice in our heads: once where it goes wrong (a “pre-mortem”), and once where it goes right. We finish with one small step.</p></div>
+
+      <div class="tools">
+        <p>Your notes stay on this device only. Nobody else can see them.</p>
+        <button type="button" class="btn ghost" id="toggle-notes">Hide note boxes</button>
+        <button type="button" class="btn" id="copy-notes">Copy my answers</button>
+      </div>
+
+      <div class="part">
+        <div class="num" aria-hidden="true">1</div>
+        <div>
+          <h3>Look ahead</h3>
+          <ol class="qs">
+            <li class="q"><p>What are three things you hope to achieve in the next five years?</p><textarea data-k="p1" aria-label="Your notes" placeholder="1. …&#10;2. …&#10;3. …"></textarea></li>
+            <li class="q purpose"><span class="tag">Life purpose</span><p>Are these goals aligned with your life purpose? Why or why not?</p><textarea data-k="p2" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+            <li class="q"><p>Based on these, what is <strong>one target</strong> you want to hit by this time next year?</p><textarea data-k="p3" aria-label="Your notes" placeholder="By next autumn, I will…"></textarea></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="part fail">
+        <div class="num" aria-hidden="true">2</div>
+        <div>
+          <h3>Imagine it’s a year from now, and you <em>didn’t</em> reach your target.</h3>
+          <p class="scene">Be honest here. Naming the real risks now is how we avoid them.</p>
+          <ol class="qs">
+            <li class="q"><p>What did you do that led to this?</p><textarea data-k="f1" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+            <li class="q"><p>What did you fail to do that led to this?</p><textarea data-k="f2" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+            <li class="q"><p>Which relationships, knowledge, or skills were missing?</p><textarea data-k="f3" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+            <li class="q"><p>Which inner beliefs or habits held you back?</p><textarea data-k="f4" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="part win">
+        <div class="num" aria-hidden="true">3</div>
+        <div>
+          <h3>Imagine it’s a year from now, and you <em>did</em> reach your target.</h3>
+          <p class="scene">Now look back from the good ending. What got you there?</p>
+          <ol class="qs">
+            <li class="q"><p>What did you do that got you there?</p><textarea data-k="w1" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+            <li class="q"><p>What did you stop doing or avoid that helped you get there?</p><textarea data-k="w2" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+            <li class="q"><p>Which relationships, knowledge, and skills did you develop along the way?</p><textarea data-k="w3" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+            <li class="q"><p>Which inner qualities or mindsets did you build?</p><textarea data-k="w4" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="part go">
+        <div class="num" aria-hidden="true">4</div>
+        <div>
+          <h3>One small step</h3>
+          <ol class="qs">
+            <li class="q"><p>What is one small step you can take <strong>this week</strong> to move toward your target?</p><textarea data-k="s1" aria-label="Your notes" placeholder="This week, I will…"></textarea></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="reflect">
+    <div class="wrap">
+      <div class="head"><span class="label">At the table</span><h2>Questions <em>from the future</em></h2><p>Imagine it’s one year from now and you’ve reached the result you wanted. Looking back, think about these before Friday. We’ll talk about them together at the table.</p></div>
+
+      <ol class="reflect" id="reflect-list">
+        <li>What did I consistently do that brought me to this result?</li>
+        <li>Which inner strengths and potential did I invest in to get here? (My talents, skills, reading, training, and so on.)</li>
+        <li>Which practical skills did I spend time and money learning, instead of dismissing them with psychological excuses?</li>
+        <li>Where did I refuse to give up, no matter what happened and even when it was hard, and feel proud of myself for it?</li>
+        <li>How did I gracefully move past things I didn’t like in my interactions with people, the distractions and drama, and stay focused on the bigger result that mattered to me?</li>
+        <li>I added these things to my lifestyle, which made me healthier, more disciplined, and more purposeful: …</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <span class="label">Whether we stay or leave</span>
+      <p class="big">One foot in front of the other, and we keep walking. Together.</p>
+      <p class="small">Not a member yet? <a href="../#join">Send us a voice intro</a> and join us at the table.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span class="logo" role="img" aria-label=".TED logo"></span>
+    <span><a href="../">Back to the club</a> · Tehran English Discussion · Every Friday since spring 2025</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const KEY = "ted-plan-next-year";
+  let notes = {};
+  try { notes = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+  const boxes = [...document.querySelectorAll("textarea[data-k]")];
+  const grow = t => { t.style.height = "auto"; t.style.height = Math.max(76, t.scrollHeight + 4) + "px"; };
+  boxes.forEach(t => {
+    t.value = notes[t.dataset.k] || "";
+    if (t.value) grow(t);
+    t.addEventListener("input", () => {
+      notes[t.dataset.k] = t.value; grow(t);
+      try { localStorage.setItem(KEY, JSON.stringify(notes)); } catch (e) {}
+    });
+  });
+
+  const tog = document.getElementById("toggle-notes");
+  const setHidden = h => { document.body.classList.toggle("hide-notes", h); tog.textContent = h ? "Show note boxes" : "Hide note boxes"; try { localStorage.setItem(KEY + "-hide", h ? "1" : ""); } catch (e) {} };
+  setHidden(localStorage.getItem(KEY + "-hide") === "1");
+  tog.addEventListener("click", () => setHidden(!document.body.classList.contains("hide-notes")));
+
+  const copyBtn = document.getElementById("copy-notes");
+  copyBtn.addEventListener("click", async () => {
+    const out = ["How to Plan Next Year in Times of War", ""];
+    document.querySelectorAll("#plan .part").forEach(part => {
+      out.push("## " + part.querySelector("h3").textContent.trim());
+      part.querySelectorAll(".q").forEach(q => {
+        out.push("- " + q.querySelector("p").textContent.trim());
+        const v = q.querySelector("textarea").value.trim();
+        if (v) out.push("  " + v.replace(/\n/g, "\n  "));
+      });
+      out.push("");
+    });
+    const text = out.join("\n");
+    try { await navigator.clipboard.writeText(text); copyBtn.textContent = "Copied ✓"; }
+    catch (e) { copyBtn.textContent = "Couldn’t copy"; }
+    setTimeout(() => (copyBtn.textContent = "Copy my answers"), 1800);
+  });
+
+})();
+</script>
+</body>
+</html>
