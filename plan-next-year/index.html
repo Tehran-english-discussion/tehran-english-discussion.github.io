@@ -124,6 +124,24 @@ ol.reflect li::before { content: counter(r); position: absolute; left: 16px; top
 @media (max-width: 760px) { ol.reflect { grid-template-columns: minmax(0, 1fr); } }
 .note { margin-top: 22px; max-width: 64ch; color: var(--muted); font-size: 1.02rem; }
 
+/* Share round */
+.share-card { margin-top: 22px; max-width: 760px; background: var(--cloth); color: var(--on-cloth); border-radius: 16px; padding: 18px 20px; border-left: 4px solid var(--yolk); box-shadow: 0 14px 26px -24px rgba(58, 36, 22, .7); }
+.share-card .tag { display: inline-block; margin-bottom: 6px; font-family: var(--ui); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--brass); }
+.share-card > p { font-size: 1.16rem; font-weight: 450; }
+.share-card textarea { display: block; width: 100%; margin-top: 12px; min-height: 76px; resize: vertical; border-radius: 10px; border: 1.5px dashed #D8C7A8; background: #FFFBF2; color: #2A1C12; padding: 10px 12px; font-family: var(--ui); font-size: 1rem; line-height: 1.5; }
+.share-card textarea:focus { outline: none; border-style: solid; border-color: var(--brass); }
+.share-card textarea::placeholder { color: #A8977F; }
+.hide-notes .share-card textarea { display: none; }
+
+.rules { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; font-family: var(--ui); font-size: .92rem; }
+.rules span { padding: 7px 14px; border-radius: 999px; background: var(--plaster-2); color: var(--fg); }
+.part.test .num { color: var(--brass); }
+.part.test .q { border-left: 4px solid var(--brass); }
+
+.part.rule .num { color: var(--wall); }
+.q.ask { border-left: 4px solid var(--yolk); }
+.q.ask .how { margin-top: 6px; font-family: var(--ui); font-size: .9rem; color: #7B6650; }
+
 /* Closing */
 .closing { margin-top: clamp(64px, 9vw, 110px); background: var(--wall); color: var(--on-dark); }
 .closing .wrap { padding-block: clamp(48px, 7vw, 84px); display: grid; gap: 16px; }
@@ -155,8 +173,8 @@ footer.site .logo { width: 60px; color: var(--fg); }
     <a class="brand" href="../"><span class="chip"><span class="logo" role="img" aria-label=".TED logo"></span></span><span class="name">Tehran English<br>Discussion</span></a>
     <nav aria-label="Workshop">
       <a href="#why" class="opt">Why</a>
-      <a href="#plan">The plan</a>
-      <a href="#reflect" class="opt-sm">Reflection</a>
+      <a href="#rules">The 5 rules</a>
+      <a href="#plan" class="opt-sm">Plan</a>
       <a href="../">← Club</a>
     </nav>
   </div>
@@ -167,12 +185,12 @@ footer.site .logo { width: 60px; color: var(--fg); }
     <div class="wrap">
       <div class="kicker"><span class="rule" aria-hidden="true"></span><span class="label">A Friday workshop · with Pouria</span></div>
       <h1>How to plan next year <em>in times of war.</em></h1>
-      <p class="lede">We can’t predict next month, let alone next year. So we’ll do it backwards: imagine the year has already happened, once as a failure and once as a success, and plan from there.</p>
+      <p class="lede">We can’t predict next month, let alone next year. So on Friday we learn five simple rules for planning in times of war, and talk through each one together. At home, you turn them into your own plan.</p>
       <div class="ticket"><span><b>Friday</b> · at the café</span><span>Bring a pen, or use this page</span></div>
       <nav class="steps-nav" aria-label="Jump to">
         <a href="#why">1 · Why this topic</a>
-        <a href="#plan">2 · The plan, step by step</a>
-        <a href="#reflect">3 · Questions from the future</a>
+        <a href="#rules">2 · 5 rules, 5 questions</a>
+        <a href="#plan">3 · Plan your year at home</a>
       </nav>
     </div>
   </section>
@@ -192,9 +210,78 @@ footer.site .logo { width: 60px; color: var(--fg); }
     </div>
   </section>
 
+  <section class="sec" id="rules">
+    <div class="wrap">
+      <div class="head"><span class="label">On Friday · at the table</span><h2>5 rules for planning <em>in times of war</em></h2><p>One conversation, all of us together. We’ll go through the rules one by one, and each rule has one question we’ll discuss. Think about them before Friday.</p></div>
+
+      <div class="rules" aria-label="Ground rules" style="margin:0 0 30px"><span>Talk about your own life, not politics</span><span>You can always pass</span><span>About 1–2 minutes each</span></div>
+
+      <div class="part rule">
+        <div class="num" aria-hidden="true">1</div>
+        <div>
+          <h3>Protect your energy first</h3>
+          <p class="scene">You can’t plan anything if bad news knocks you down every day. Routines, a news diet, and people around you come before any goal.</p>
+          <ol class="qs">
+            <li class="q ask"><span class="tag">At the table · go-around</span><p>What is one thing you do differently now because of the war that helps you keep going?</p><p class="how">Everyone, 30 seconds each. Follow-up: when the news is bad, what gets you back to work?</p></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="part rule">
+        <div class="num" aria-hidden="true">2</div>
+        <div>
+          <h3>Aim at what you control</h3>
+          <p class="scene">The war can block outcomes, like a visa, a job offer, or a price. It can’t block your skills, your habits, or your English.</p>
+          <ol class="qs">
+            <li class="q ask"><span class="tag">At the table</span><p>What is one target you control that you want to hit by this time next year?</p><p class="how">Write it down for 3 minutes, then a few volunteers share.</p></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="part rule">
+        <div class="num" aria-hidden="true">3</div>
+        <div>
+          <h3>Imagine the failure first</h3>
+          <p class="scene">Name the risks now, like an internet shutdown, inflation, or a sudden move, so you can prepare for them instead of being surprised.</p>
+          <ol class="qs">
+            <li class="q ask"><span class="tag">At the table</span><p>Imagine it’s a year from now, and you didn’t reach your target. What happened?</p></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="part rule">
+        <div class="num" aria-hidden="true">4</div>
+        <div>
+          <h3>Make it work whether you stay or leave</h3>
+          <p class="scene">Nobody knows which future is coming. Build things that are useful in both: skills, savings, people, and work you can do from anywhere.</p>
+          <ol class="qs">
+            <li class="q ask"><span class="tag">At the table</span><p>Does your target still work if things get worse, or if you leave? If not, what’s your plan B?</p></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="part rule">
+        <div class="num" aria-hidden="true">5</div>
+        <div>
+          <h3>Plan short, check often</h3>
+          <p class="scene">A one-year plan will break. A plan you check every three months can bend. Start small, start this week, and tell someone.</p>
+          <ol class="qs">
+            <li class="q ask"><span class="tag">At the table · go-around</span><p>What is your first step this week, and who will you tell?</p><p class="how">Everyone, 30 seconds each. We’ll check in together at a club night in about three months.</p></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="share-card">
+        <span class="tag">Your notes from Friday</span>
+        <p>Write your own strategy for the go-around, and note the ideas from others that you want to try.</p>
+        <textarea data-k="share" aria-label="Strategies to try" placeholder="My strategy: …&#10;Ideas I heard on Friday: …"></textarea>
+      </div>
+    </div>
+  </section>
+
   <section class="sec" id="plan">
     <div class="wrap">
-      <div class="head"><span class="label">On the night</span><h2>The plan, <em>step by step</em></h2><p>First we look ahead. Then we run the year twice in our heads: once where it goes wrong (a “pre-mortem”), and once where it goes right. We finish with one small step.</p></div>
+      <div class="head"><span class="label">At home · before or after Friday</span><h2>Plan your year, <em>step by step</em></h2><p>The same 5 rules, on paper. Nine questions, about 15 minutes. Imagine the year has already happened, once where it goes wrong (a “pre-mortem”) and once where it goes right. Then test your plan and take one small step.</p></div>
 
       <div class="tools">
         <p>Your notes stay on this device only. Nobody else can see them.</p>
@@ -207,9 +294,8 @@ footer.site .logo { width: 60px; color: var(--fg); }
         <div>
           <h3>Look ahead</h3>
           <ol class="qs">
-            <li class="q"><p>What are three things you hope to achieve in the next five years?</p><textarea data-k="p1" aria-label="Your notes" placeholder="1. …&#10;2. …&#10;3. …"></textarea></li>
-            <li class="q purpose"><span class="tag">Life purpose</span><p>Are these goals aligned with your life purpose? Why or why not?</p><textarea data-k="p2" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-            <li class="q"><p>Based on these, what is <strong>one target</strong> you want to hit by this time next year?</p><textarea data-k="p3" aria-label="Your notes" placeholder="By next autumn, I will…"></textarea></li>
+            <li class="q purpose"><span class="tag">What matters</span><p>What matters most to you, and what are three things you hope to achieve in the next five years?</p><textarea data-k="p1" rows="4" style="min-height:118px" aria-label="Your notes" placeholder="What matters most: …&#10;1. …&#10;2. …&#10;3. …"></textarea></li>
+            <li class="q"><p>What is <strong>one target you control</strong> that you want to hit by this time next year?</p><textarea data-k="p3" aria-label="Your notes" placeholder="By next autumn, I will…"></textarea></li>
           </ol>
         </div>
       </div>
@@ -220,10 +306,8 @@ footer.site .logo { width: 60px; color: var(--fg); }
           <h3>Imagine it’s a year from now, and you <em>didn’t</em> reach your target.</h3>
           <p class="scene">Be honest here. Naming the real risks now is how we avoid them.</p>
           <ol class="qs">
-            <li class="q"><p>What did you do that led to this?</p><textarea data-k="f1" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-            <li class="q"><p>What did you fail to do that led to this?</p><textarea data-k="f2" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-            <li class="q"><p>Which relationships, knowledge, or skills were missing?</p><textarea data-k="f3" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-            <li class="q"><p>Which inner beliefs or habits held you back?</p><textarea data-k="f4" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+            <li class="q"><p>What did you do, or not do, that led to this?</p><textarea data-k="f1" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+            <li class="q"><span class="tag">The war</span><p>What happened in the country that knocked you off track? How could you have been ready for it?</p><textarea data-k="f5" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
           </ol>
         </div>
       </div>
@@ -234,38 +318,32 @@ footer.site .logo { width: 60px; color: var(--fg); }
           <h3>Imagine it’s a year from now, and you <em>did</em> reach your target.</h3>
           <p class="scene">Now look back from the good ending. What got you there?</p>
           <ol class="qs">
-            <li class="q"><p>What did you do that got you there?</p><textarea data-k="w1" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-            <li class="q"><p>What did you stop doing or avoid that helped you get there?</p><textarea data-k="w2" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-            <li class="q"><p>Which relationships, knowledge, and skills did you develop along the way?</p><textarea data-k="w3" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-            <li class="q"><p>Which inner qualities or mindsets did you build?</p><textarea data-k="w4" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+            <li class="q"><p>What did you do, and what did you stop doing, that got you there?</p><textarea data-k="w1" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+            <li class="q"><p>Which skills, people, and habits did you build along the way?</p><textarea data-k="w3" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+            <li class="q"><p>Where did you refuse to give up, even when it was hard?</p><textarea data-k="w6" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="part test">
+        <div class="num" aria-hidden="true">4</div>
+        <div>
+          <h3>Test it</h3>
+          <ol class="qs">
+            <li class="q"><span class="tag">Stay or leave</span><p>Does your target still work if things get worse, or if you leave the country? If not, how would you change it?</p><textarea data-k="t1" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
           </ol>
         </div>
       </div>
 
       <div class="part go">
-        <div class="num" aria-hidden="true">4</div>
+        <div class="num" aria-hidden="true">5</div>
         <div>
-          <h3>One small step</h3>
+          <h3>Start</h3>
           <ol class="qs">
-            <li class="q"><p>What is one small step you can take <strong>this week</strong> to move toward your target?</p><textarea data-k="s1" aria-label="Your notes" placeholder="This week, I will…"></textarea></li>
+            <li class="q"><p>What is one small step you can take <strong>this week</strong>, who will you tell, and when will you check this plan again?</p><textarea data-k="s1" aria-label="Your notes" placeholder="This week, I will… I’ll tell… I’ll check again on…"></textarea></li>
           </ol>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="sec" id="reflect">
-    <div class="wrap">
-      <div class="head"><span class="label">At the table</span><h2>Questions <em>from the future</em></h2><p>Imagine it’s one year from now and you’ve reached the result you wanted. Looking back, think about these before Friday. We’ll talk about them together at the table.</p></div>
-
-      <ol class="reflect" id="reflect-list">
-        <li>What did I consistently do that brought me to this result?</li>
-        <li>Which inner strengths and potential did I invest in to get here? (My talents, skills, reading, training, and so on.)</li>
-        <li>Which practical skills did I spend time and money learning, instead of dismissing them with psychological excuses?</li>
-        <li>Where did I refuse to give up, no matter what happened and even when it was hard, and feel proud of myself for it?</li>
-        <li>How did I gracefully move past things I didn’t like in my interactions with people, the distractions and drama, and stay focused on the bigger result that mattered to me?</li>
-        <li>I added these things to my lifestyle, which made me healthier, more disciplined, and more purposeful: …</li>
-      </ol>
     </div>
   </section>
 
@@ -291,7 +369,7 @@ footer.site .logo { width: 60px; color: var(--fg); }
   let notes = {};
   try { notes = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
   const boxes = [...document.querySelectorAll("textarea[data-k]")];
-  const grow = t => { t.style.height = "auto"; t.style.height = Math.max(76, t.scrollHeight + 4) + "px"; };
+  const grow = t => { t.style.height = "auto"; t.style.height = Math.max(parseInt(t.style.minHeight) || 76, t.scrollHeight + 4) + "px"; };
   boxes.forEach(t => {
     t.value = notes[t.dataset.k] || "";
     if (t.value) grow(t);
@@ -309,6 +387,8 @@ footer.site .logo { width: 60px; color: var(--fg); }
   const copyBtn = document.getElementById("copy-notes");
   copyBtn.addEventListener("click", async () => {
     const out = ["How to Plan Next Year in Times of War", ""];
+    const share = document.querySelector('textarea[data-k="share"]').value.trim();
+    if (share) out.push("## Strategies", share, "");
     document.querySelectorAll("#plan .part").forEach(part => {
       out.push("## " + part.querySelector("h3").textContent.trim());
       part.querySelectorAll(".q").forEach(q => {
