@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What’s the Catch? · Tehran English Discussion</title>
+<meta name="description" content="A .TED Friday session with Navid on tradeoffs and hidden costs. Friday, 22 Aban 1405, 6 to 8 p.m.">
+<meta property="og:title" content="What’s the Catch? Tradeoffs and hidden costs">
+<meta property="og:description" content="A .TED Friday session moderated by Navid. Friday, 22 Aban 1405, 6 to 8 p.m.">
+<meta property="og:image" content="https://tehran-english-discussion.github.io/whats-the-catch/midas.jpg">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:wght@400..700&family=Caveat:wght@500..700&display=swap">
+<style>
+:root {
+  --plaster: #F5EEE1; --plaster-2: #ECE2CF; --fg: #2A1C12; --muted: #7B6650; --line: #DCCDB2;
+  --wall: #A63F2A; --wall-deep: #7E2D1E; --brass: #B8892E; --brass-hi: #E2C27A; --walnut: #3A2416;
+  --leaf: #44603A; --on-dark: #F7EEDD; --on-dark-muted: #CDBB9C; --yolk: #FFC700; --on-yolk: #2A1C12;
+  --cloth: #FFFDF8; --on-cloth: #2A1C12;
+  --gold: linear-gradient(135deg, #8A5F14 0%, #D9AE4B 28%, #F6DE93 46%, #C08F2C 62%, #7A5210 100%);
+  --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --ui: "Instrument Sans", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --plaster: #1B1410; --plaster-2: #241B15; --fg: #F3E9D8; --muted: #B39F84; --line: #3A2C21;
+    --wall: #B04A33; --wall-deep: #84301F; --brass: #D2A74C; --brass-hi: #E9CD86;
+    --walnut: #110C08; --leaf: #6E8F5F; --cloth: #FBF6EC; color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body {
+  margin: 0; background: var(--plaster); color: var(--fg); overflow-x: hidden;
+  font-family: var(--display); font-optical-sizing: auto; font-variation-settings: "SOFT" 50;
+  font-size: 1.14rem; line-height: 1.62; font-weight: 380;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .14 0 0 0 0 .08 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px;
+}
+@media (prefers-color-scheme: dark) { body { background-blend-mode: soft-light; } }
+.wrap { max-width: 1000px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.05; font-weight: 700; font-variation-settings: "SOFT" 100, "WONK" 1; }
+h1 em, h2 em, h3 em { font-weight: 400; font-style: italic; color: var(--wall); }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--wall); color: var(--on-dark); }
+.label { font-family: var(--ui); font-weight: 600; font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; }
+.logo { display: inline-block; width: 78px; aspect-ratio: 450 / 151; background: currentColor; -webkit-mask: url(../logo-mask.png) center / contain no-repeat; mask: url(../logo-mask.png) center / contain no-repeat; }
+.gilt { background: var(--gold); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* Header */
+header.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--plaster) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 12px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand .chip { background: var(--yolk); color: var(--on-yolk); padding: 9px 11px; border-radius: 10px; display: grid; }
+.brand .name { font-family: var(--ui); font-weight: 600; font-size: .9rem; line-height: 1.2; }
+.top nav { display: flex; gap: 4px; }
+.top nav a { font-family: var(--ui); font-weight: 500; font-size: .92rem; text-decoration: none; padding: 7px 13px; border-radius: 999px; white-space: nowrap; transition: background-color .2s; }
+@media (hover: hover) { .top nav a:hover { background: var(--plaster-2); } }
+@media (max-width: 640px) { .brand .name, .top nav a.opt { display: none; } }
+@media (max-width: 420px) { .top nav a.opt-sm { display: none; } .top nav a { padding: 7px 10px; } }
+
+/* Hero */
+.hero .wrap { padding-block: clamp(40px, 7vw, 88px) clamp(28px, 4vw, 48px); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.kicker { display: flex; align-items: center; gap: 12px; color: var(--wall); flex-wrap: wrap; }
+.kicker .rule { flex: 0 0 40px; height: 1.5px; background: currentColor; }
+.hero h1 { margin-top: 22px; font-size: clamp(2.8rem, 8.4vw, 6rem); letter-spacing: -.035em; line-height: .95; font-weight: 800; }
+.hero h1 .q { font-style: italic; font-weight: 400; }
+.hero .lede { margin-top: 24px; font-size: 1.28rem; line-height: 1.55; max-width: 34ch; color: var(--muted); }
+.ticket { margin-top: 28px; display: inline-flex; flex-wrap: wrap; gap: 8px 22px; padding: 14px 20px; border-radius: 14px; background: var(--yolk); color: var(--on-yolk); font-family: var(--ui); font-size: .95rem; box-shadow: 0 18px 30px -22px rgba(58, 36, 22, .8); }
+.ticket b { font-weight: 700; }
+.steps-nav { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+.steps-nav a { font-family: var(--ui); font-size: .9rem; font-weight: 500; text-decoration: none; padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--plaster); }
+@media (hover: hover) { .steps-nav a:hover { border-color: var(--wall); color: var(--wall); } }
+
+/* Framed painting */
+.frame { margin: 0; justify-self: center; width: 100%; max-width: 380px; position: relative; padding: 14px; border-radius: 6px; background: var(--gold); box-shadow: inset 0 0 0 2px rgba(255, 240, 200, .45), inset 0 0 0 7px rgba(90, 60, 15, .35), 0 34px 50px -30px rgba(58, 36, 22, .9); transform: rotate(1.4deg); }
+.frame img { display: block; width: 100%; height: auto; border-radius: 2px; box-shadow: 0 0 0 1px rgba(60, 40, 10, .5); }
+.frame .plate { position: absolute; left: 50%; bottom: -16px; transform: translateX(-50%) rotate(-1.4deg); white-space: nowrap; font-family: var(--ui); font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; padding: 6px 12px; border-radius: 4px; background: var(--walnut); color: var(--brass-hi); box-shadow: 0 8px 16px -10px rgba(0, 0, 0, .8); }
+.hero .frame { animation: hang 1.2s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes hang { from { opacity: 0; transform: translateY(-14px) rotate(-1deg); } }
+@media (prefers-reduced-motion: reduce) { .hero .frame { animation: none; } }
+
+/* Sections */
+section { scroll-margin-top: 80px; }
+.sec .wrap { padding-block: clamp(56px, 8vw, 100px) 0; }
+.head { display: grid; gap: 12px; max-width: 720px; margin-bottom: clamp(26px, 4vw, 40px); }
+.head .label { color: var(--wall); }
+.head h2 { font-size: clamp(2.1rem, 5vw, 3.4rem); letter-spacing: -.025em; }
+.head p { color: var(--muted); }
+
+/* The myth */
+.myth { position: relative; background: var(--cloth); color: var(--on-cloth); border-radius: 20px; border-top: 6px solid var(--yolk); padding: clamp(24px, 5vw, 52px); box-shadow: 0 1px 2px rgba(42, 28, 18, .1), 0 26px 44px -30px rgba(58, 36, 22, .7); max-width: 760px; }
+.myth p + p { margin-top: 1em; }
+.myth p:first-child::first-letter { float: left; font-size: 4.4em; line-height: .8; font-weight: 800; margin: .06em .1em 0 0; color: #A63F2A; font-variation-settings: "SOFT" 100, "WONK" 1; }
+.myth .turn { font-size: 1.3rem; font-style: italic; border-left: 3px solid #B8892E; padding-left: 18px; color: #4A3324; }
+.myth .ps { margin-top: 1.6em; padding-top: 1.2em; border-top: 1px dashed #D8C7A8; font-size: 1.02rem; color: #6A5642; }
+.myth .ps b { font-family: var(--ui); font-size: .78rem; letter-spacing: .14em; color: #A63F2A; margin-right: 6px; }
+
+/* Questions */
+ol.qs { list-style: none; counter-reset: q; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+ol.qs li { counter-increment: q; position: relative; padding: 20px 22px 20px 70px; border-radius: 16px; background: var(--cloth); color: var(--on-cloth); border: 1px solid color-mix(in srgb, var(--brass) 26%, transparent); box-shadow: 0 14px 26px -24px rgba(58, 36, 22, .7); font-size: 1.1rem; line-height: 1.5; font-weight: 420; }
+ol.qs li::before { content: counter(q); position: absolute; left: 18px; top: 18px; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 1.1rem; background: var(--gold); color: #3A2416; box-shadow: inset 0 0 0 1px rgba(255, 240, 200, .5); }
+@media (max-width: 760px) { ol.qs { grid-template-columns: minmax(0, 1fr); } }
+
+/* Special section */
+.special { position: relative; overflow: hidden; margin-top: 18px; border-radius: 20px; background: var(--walnut); color: var(--on-dark); padding: clamp(26px, 5vw, 48px); display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(18px, 4vw, 36px); align-items: center; }
+.special::after { content: ""; position: absolute; inset: auto -60px -80px auto; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, rgba(226, 194, 122, .28), transparent 70%); pointer-events: none; }
+.special .die { width: 84px; height: 84px; border-radius: 18px; background: var(--yolk); color: var(--on-yolk); display: grid; place-items: center; font-family: var(--display); font-size: 3rem; font-weight: 800; transform: rotate(-8deg); box-shadow: 0 16px 26px -14px rgba(0, 0, 0, .8); }
+.special .label { color: var(--brass-hi); }
+.special h3 { margin-top: 8px; font-size: clamp(1.6rem, 3.6vw, 2.3rem); letter-spacing: -.015em; }
+.special h3 em { color: var(--brass-hi); }
+.special p { margin-top: 12px; color: var(--on-dark-muted); max-width: 56ch; }
+.chips { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips span { font-family: var(--ui); font-size: .82rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; border: 1.5px solid rgba(226, 194, 122, .45); color: var(--brass-hi); }
+@media (max-width: 520px) {
+  .special { grid-template-columns: minmax(0, 1fr); }
+  .special .die { width: 64px; height: 64px; font-size: 2.3rem; }
+  ol.qs li { padding: 18px 18px 18px 62px; }
+  ol.qs li::before { left: 14px; }
+}
+
+/* Closing */
+.closing { margin-top: clamp(64px, 9vw, 110px); background: var(--wall); color: var(--on-dark); }
+.closing .wrap { padding-block: clamp(48px, 7vw, 84px); display: grid; gap: 16px; }
+.closing p.big { font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.2; font-style: italic; max-width: 26ch; font-weight: 400; }
+.closing p.small { font-family: var(--ui); color: var(--on-dark-muted); font-size: .95rem; }
+.closing a { color: var(--brass-hi); }
+footer.site .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 26px; font-family: var(--ui); font-size: .84rem; color: var(--muted); }
+footer.site a { color: var(--wall); text-underline-offset: 3px; }
+footer.site .logo { width: 60px; color: var(--fg); }
+
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .frame { max-width: 300px; }
+}
+@media print {
+  header.top, .steps-nav, .closing, footer.site { display: none; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .myth, ol.qs li { box-shadow: none; break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><span class="chip"><span class="logo" role="img" aria-label=".TED logo"></span></span><span class="name">Tehran English<br>Discussion</span></a>
+    <nav aria-label="Session">
+      <a href="#myth" class="opt">The myth</a>
+      <a href="#questions">Questions</a>
+      <a href="#game" class="opt-sm">Mini-game</a>
+      <a href="../">← Club</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="kicker"><span class="rule" aria-hidden="true"></span><span class="label">A Friday session · with Navid</span></div>
+        <h1>What’s the <span class="gilt">catch</span><span class="q">?</span></h1>
+        <p class="lede">Tradeoffs and hidden costs. Every wish comes with a price tag. Let’s talk about the ones we’ve paid, and the ones we’d pay again.</p>
+        <div class="ticket"><span><b>Friday, 22 Aban 1405</b></span><span>6 to 8 p.m.</span><span>Moderator: <b>Navid</b></span></div>
+        <nav class="steps-nav" aria-label="Jump to">
+          <a href="#myth">1 · The golden touch</a>
+          <a href="#questions">2 · Sample questions</a>
+          <a href="#game">3 · Special section</a>
+        </nav>
+      </div>
+      <figure class="frame">
+        <img src="midas.jpg" width="500" height="743" alt="An old storybook painting: King Midas, in a red robe and crown, holds his daughter, who has turned to gold.">
+        <figcaption class="plate">Midas’ daughter turned to gold</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec" id="myth">
+    <div class="wrap">
+      <div class="head"><span class="label">An old Greek myth</span><h2>The <em>golden touch</em></h2></div>
+      <article class="myth">
+        <p>There is an old Greek myth where a king was once offered to make any wish he wanted. Midas (the king) asked that whatever he might touch should be changed into gold. So Dionysus granted the man’s wish. However, there was a catch. With the cunning old Greek gods there was always a catch.</p>
+        <p>At first, Midas touched flowers, trees, and stones; they all turned into gold. He felt happy. He finally had never-ending wealth. He returned to his palace and had the servants prepare a large feast so they could celebrate this newfound power.</p>
+        <p>He picked up a cup of wine, and the cup and the wine turned into solid gold. Whatever he tried to eat turned into gold.</p>
+        <p class="turn">That was when he realized that this golden touch was no blessing. Rather, it was a curse.</p>
+        <p class="ps"><b>P.S.</b>The picture shows another version of the story, where Midas had turned the roses in the garden into gold and his daughter was sad about the lost flowers. He tried to comfort his daughter and accidentally turned her into a golden statue.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="questions">
+    <div class="wrap">
+      <div class="head"><span class="label">At the table</span><h2>Sample <em>questions</em></h2><p>Think about these before Friday. We’ll talk about them together at the table.</p></div>
+      <ol class="qs">
+        <li>Would you rather have more money and less free time, or less money and more free time? Has your answer changed over the years?</li>
+        <li>Is there anything you willingly pay extra for because it saves you time or effort?</li>
+        <li>What’s something people desperately want but often underestimate the cost of achieving?</li>
+        <li>Would you accept a highly successful career if it meant sacrificing most of your personal time? How much would be too much?</li>
+        <li>What’s something that sounded like a dream come true until you actually achieved it or lived it, and realized its huge downsides?</li>
+        <li>Is making compromises an essential part of a happy life, or should we refuse to settle for less than what we really want?</li>
+      </ol>
+
+      <div class="special" id="game">
+        <div class="die" aria-hidden="true">?</div>
+        <div>
+          <span class="label">+ Special section</span>
+          <h3>An interactive <em>mini-game</em></h3>
+          <p>A speaking activity, played as the whole group or in pairs (Navid will decide on the night). Come ready to use a little creativity, imagination, and humor.</p>
+          <div class="chips" aria-label="You’ll need"><span>Creativity</span><span>Imagination</span><span>Humor</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <span class="label">Before you make a wish</span>
+      <p class="big">Ask the old question first: what’s the catch?</p>
+      <p class="small">Not a member yet? <a href="../#join">Send us a voice intro</a> and join us at the table.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span class="logo" role="img" aria-label=".TED logo"></span>
+    <span><a href="../">Back to the club</a> · Tehran English Discussion · Every Friday since spring 2025</span>
+  </div>
+</footer>
+</body>
+</html>
