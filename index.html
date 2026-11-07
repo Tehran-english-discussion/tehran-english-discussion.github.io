@@ -506,7 +506,7 @@ html.lights-off .chandelier .drops { animation-duration: 1.1s; }
 @media (prefers-reduced-motion: reduce) { .tile .face { transition: none; } }
 
 /* People */
-.crew { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 52px; }
+.crew { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 52px; }
 .mate { border-radius: 22px; padding: 22px; display: grid; gap: 4px; align-content: start; color: var(--on-dark); }
 .mate:nth-child(1) { background: var(--wall); }
 .mate:nth-child(2) { background: var(--leaf); }
@@ -515,6 +515,7 @@ html.lights-off .chandelier .drops { animation-duration: 1.1s; }
 .mate .label { font-size: .62rem; opacity: .75; }
 .mate b { font-weight: 800; font-size: 2.2rem; line-height: 1.05; font-variation-settings: "SOFT" 100, "WONK" 1; }
 .mate p { font-family: var(--ui); font-size: .86rem; line-height: 1.45; opacity: .9; }
+@media (max-width: 1000px) { .crew { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 700px) { .crew { grid-template-columns: minmax(0, 1fr); } }
 /* Name cards are buttons; tapping one opens a little card with that person's Fridays */
 .lt-wrap { position: relative; }
@@ -888,6 +889,7 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
         <div class="mate"><span class="label">Coordinator</span><b>Breeze</b><p>44 Fridays, moderated 7 of them.</p></div>
         <div class="mate"><span class="label">Coordinator</span><b>Pouria</b><p>31 Fridays, moderated 4 of them.</p></div>
         <div class="mate"><span class="label">Coordinator</span><b>Mo</b><p>34 Fridays, moderated 2. Coordinating with Breeze since summer 2026.</p></div>
+        <div class="mate"><span class="label">Coordinator</span><b>Bahar</b><p>The newest coordinator, alongside Breeze and Mo.</p></div>
       </div>
       <div class="board-wrap">
         <div class="head" style="margin-bottom:22px"><span class="label">Leaderboard</span><h3 class="board-title">Most Fridays <em>at the table</em></h3></div>
