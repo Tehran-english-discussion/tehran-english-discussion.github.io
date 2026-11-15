@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Who Decided That This Is Beautiful? · Tehran English Discussion</title>
+<meta name="description" content="A .TED free discussion with Sareh on beauty: psychology, cognitive science, art and culture. Friday, 29 Aban 1405, 4 to 6 p.m.">
+<meta property="og:title" content="Who decided that this is beautiful?">
+<meta property="og:description" content="A .TED free discussion moderated by Sareh. Friday, 29 Aban 1405, 4 to 6 p.m.">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:wght@400..700&display=swap">
+<style>
+:root {
+  --plaster: #F5EEE1; --plaster-2: #ECE2CF; --fg: #2A1C12; --muted: #7B6650; --line: #DCCDB2;
+  --wall: #A63F2A; --wall-deep: #7E2D1E; --brass: #B8892E; --brass-hi: #E2C27A; --walnut: #3A2416;
+  --leaf: #44603A; --on-dark: #F7EEDD; --on-dark-muted: #CDBB9C; --yolk: #FFC700; --on-yolk: #2A1C12;
+  --cloth: #FFFDF8; --on-cloth: #2A1C12; --cloth-muted: #7B6650;
+  --gold: linear-gradient(135deg, #8A5F14 0%, #D9AE4B 28%, #F6DE93 46%, #C08F2C 62%, #7A5210 100%);
+  --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --ui: "Instrument Sans", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --plaster: #1B1410; --plaster-2: #241B15; --fg: #F3E9D8; --muted: #B39F84; --line: #3A2C21;
+    --wall: #B04A33; --wall-deep: #84301F; --brass: #D2A74C; --brass-hi: #E9CD86;
+    --walnut: #110C08; --leaf: #6E8F5F; --cloth: #FBF6EC; color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body {
+  margin: 0; background: var(--plaster); color: var(--fg); overflow-x: hidden;
+  font-family: var(--display); font-optical-sizing: auto; font-variation-settings: "SOFT" 50;
+  font-size: 1.14rem; line-height: 1.62; font-weight: 380;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .14 0 0 0 0 .08 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px;
+}
+@media (prefers-color-scheme: dark) { body { background-blend-mode: soft-light; } }
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.05; font-weight: 700; font-variation-settings: "SOFT" 100, "WONK" 1; }
+h1 em, h2 em, h3 em { font-weight: 400; font-style: italic; color: var(--wall); }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--wall); color: var(--on-dark); }
+.label { font-family: var(--ui); font-weight: 600; font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; }
+.logo { display: inline-block; width: 78px; aspect-ratio: 450 / 151; background: currentColor; -webkit-mask: url(../logo-mask.png) center / contain no-repeat; mask: url(../logo-mask.png) center / contain no-repeat; }
+.gilt { background: var(--gold); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* Header */
+header.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--plaster) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 12px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand .chip { background: var(--yolk); color: var(--on-yolk); padding: 9px 11px; border-radius: 10px; display: grid; }
+.brand .name { font-family: var(--ui); font-weight: 600; font-size: .9rem; line-height: 1.2; }
+.top nav { display: flex; gap: 4px; }
+.top nav a { font-family: var(--ui); font-weight: 500; font-size: .92rem; text-decoration: none; padding: 7px 13px; border-radius: 999px; white-space: nowrap; transition: background-color .2s; }
+@media (hover: hover) { .top nav a:hover { background: var(--plaster-2); } }
+@media (max-width: 640px) { .brand .name, .top nav a.opt { display: none; } }
+@media (max-width: 420px) { .top nav a.opt-sm { display: none; } .top nav a { padding: 7px 10px; } }
+
+/* Hero */
+.hero .wrap { padding-block: clamp(40px, 7vw, 84px) clamp(28px, 4vw, 48px); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); align-items: center; }
+.kicker { display: flex; align-items: center; gap: 12px; color: var(--wall); flex-wrap: wrap; }
+.kicker .rule { flex: 0 0 40px; height: 1.5px; background: currentColor; }
+.hero h1 { margin-top: 22px; font-size: clamp(2.5rem, 7.4vw, 5.1rem); letter-spacing: -.035em; line-height: .96; font-weight: 800; }
+.hero h1 .l1 { display: block; font-weight: 400; font-style: italic; font-size: .52em; letter-spacing: -.01em; color: var(--muted); margin-bottom: .1em; }
+.hero h1 .this { position: relative; white-space: nowrap; }
+.hero h1 .this::after { content: ""; position: absolute; left: -.06em; right: -.06em; bottom: .02em; height: .14em; background: var(--yolk); z-index: -1; border-radius: 3px; transform: scaleX(0); transform-origin: left; animation: swipe 1s .6s cubic-bezier(.2, .8, .2, 1) forwards; }
+@keyframes swipe { to { transform: scaleX(1); } }
+.hero .lede { margin-top: 24px; font-size: 1.26rem; line-height: 1.55; max-width: 36ch; color: var(--muted); }
+.ticket { margin-top: 28px; display: inline-flex; flex-wrap: wrap; gap: 8px 22px; padding: 14px 20px; border-radius: 14px; background: var(--yolk); color: var(--on-yolk); font-family: var(--ui); font-size: .95rem; box-shadow: 0 18px 30px -22px rgba(58, 36, 22, .8); }
+.ticket b { font-weight: 700; }
+.steps-nav { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+.steps-nav a { font-family: var(--ui); font-size: .9rem; font-weight: 500; text-decoration: none; padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--plaster); }
+@media (hover: hover) { .steps-nav a:hover { border-color: var(--wall); color: var(--wall); } }
+
+/* The terracotta arch with a gilt frame on it */
+.exhibit { justify-self: center; width: 100%; max-width: 380px; display: grid; justify-items: center; }
+.arch { width: 100%; padding: 44px 30px 34px; border-radius: 999px 999px 18px 18px; background: radial-gradient(120% 80% at 50% 0%, color-mix(in srgb, var(--wall) 82%, #fff 18%), var(--wall) 55%, var(--wall-deep)); box-shadow: inset 0 -30px 50px -30px rgba(0, 0, 0, .35), 0 30px 60px -36px rgba(58, 36, 22, .9); display: grid; justify-items: center; position: relative; }
+.arch .lamp { position: absolute; top: 18px; width: 70%; height: 60px; background: radial-gradient(50% 100% at 50% 0%, rgba(255, 226, 150, .45), transparent 70%); pointer-events: none; }
+.frame { position: relative; width: 100%; max-width: 280px; padding: 14px; background: var(--gold); border-radius: 3px; box-shadow: inset 0 0 0 2px rgba(255, 238, 190, .55), inset 0 0 0 6px rgba(122, 82, 16, .5), inset 0 0 0 7px rgba(255, 238, 190, .45), 0 18px 28px -14px rgba(0, 0, 0, .6); animation: hang 1.2s cubic-bezier(.2, .8, .2, 1) both; transform-origin: 50% -40px; }
+.frame::before { content: ""; position: absolute; left: 50%; top: -22px; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: var(--gold); box-shadow: 0 2px 3px rgba(0,0,0,.4); }
+.frame .canvas { display: block; width: 100%; aspect-ratio: 5 / 6; background: #FBF5E8; box-shadow: inset 0 0 0 1px rgba(90, 60, 20, .35), inset 0 6px 14px rgba(90, 60, 20, .18); }
+@keyframes hang { 0% { opacity: 0; transform: rotate(-6deg) translateY(-10px); } 60% { transform: rotate(2deg); } 100% { opacity: 1; transform: rotate(0); } }
+.placard { margin-top: -6px; width: min(100%, 300px); background: var(--cloth); color: var(--on-cloth); padding: 14px 16px 12px; border-radius: 4px; box-shadow: 0 14px 24px -18px rgba(58, 36, 22, .8), 0 0 0 1px rgba(90, 60, 20, .12); font-family: var(--ui); font-size: .82rem; line-height: 1.45; position: relative; transform: translateY(18px); }
+.placard b { display: block; font-family: var(--display); font-size: 1.04rem; font-weight: 600; font-style: italic; margin-bottom: 2px; }
+.placard .meta { color: var(--cloth-muted); }
+.placard .verdict { margin-top: 8px; padding-top: 8px; border-top: 1px dashed rgba(58, 36, 22, .25); color: #A63F2A; font-weight: 600; }
+.repaint { margin-top: 34px; font-family: var(--ui); font-weight: 600; font-size: .9rem; display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--plaster); cursor: pointer; transition: border-color .2s, color .2s, transform .2s; }
+.repaint svg { width: 16px; height: 16px; transition: transform .5s; }
+@media (hover: hover) { .repaint:hover { border-color: var(--wall); color: var(--wall); } .repaint:hover svg { transform: rotate(180deg); } }
+.canvas .p { transform-origin: 0 0; animation: grow .9s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes grow { from { transform: scale(0); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .frame, .canvas .p, .hero h1 .this::after { animation: none; } .hero h1 .this::after { transform: none; } }
+
+/* Sections */
+section { scroll-margin-top: 80px; }
+.sec .wrap { padding-block: clamp(64px, 9vw, 110px) 0; }
+.head { display: grid; gap: 12px; max-width: 720px; margin-bottom: clamp(26px, 4vw, 40px); }
+.head .label { color: var(--wall); }
+.head h2 { font-size: clamp(2.1rem, 5vw, 3.4rem); letter-spacing: -.025em; }
+.head p { color: var(--muted); }
+
+/* Test your eye */
+.tests { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.test { background: var(--cloth); color: var(--on-cloth); border-radius: 20px; padding: 22px; border: 1px solid color-mix(in srgb, var(--brass) 26%, transparent); box-shadow: 0 18px 32px -28px rgba(58, 36, 22, .8); display: grid; gap: 14px; align-content: start; }
+.test.wide { grid-column: 1 / -1; }
+.test.wide .opts { max-width: 520px; }
+.hero h1 .gilt { background: linear-gradient(135deg, #7A5210 0%, #B8892E 35%, #D9AE4B 50%, #A87A22 65%, #6E4A0E 100%); -webkit-background-clip: text; background-clip: text; }
+@media (prefers-color-scheme: dark) { .hero h1 .gilt { background: var(--gold); -webkit-background-clip: text; background-clip: text; } }
+.test .n { font-family: var(--ui); font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #A63F2A; }
+.test h3 { font-size: 1.5rem; letter-spacing: -.01em; }
+.test .q { font-family: var(--ui); font-size: .92rem; color: var(--cloth-muted); margin-top: -6px; }
+.opts { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 12px; }
+.opt { position: relative; padding: 10px; border-radius: 14px; border: 2px solid #E8DCC4; background: #FBF5E8; cursor: pointer; display: grid; gap: 6px; justify-items: center; transition: border-color .2s, transform .25s cubic-bezier(.2, .8, .2, 1), box-shadow .25s; }
+.opt svg { width: 100%; height: auto; display: block; }
+.opt span { font-family: var(--ui); font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--cloth-muted); }
+@media (hover: hover) { .opt:hover { transform: translateY(-3px); border-color: #C9A35A; } }
+.opt[aria-pressed="true"] { border-color: #A63F2A; box-shadow: 0 0 0 4px rgba(166, 63, 42, .14); }
+.opt[aria-pressed="true"] span { color: #A63F2A; }
+.opt[aria-pressed="true"]::after { content: "✓"; position: absolute; top: -10px; right: -10px; width: 28px; height: 28px; border-radius: 50%; background: #A63F2A; color: #F7EEDD; display: grid; place-items: center; font-family: var(--ui); font-weight: 700; font-size: .9rem; }
+.test.answered .opt:not([aria-pressed="true"]) { opacity: .62; }
+.reveal { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s cubic-bezier(.2, .8, .2, 1); }
+.reveal > div { overflow: hidden; }
+.test.answered .reveal { grid-template-rows: 1fr; }
+.reveal p { font-size: 1rem; line-height: 1.55; color: #4A3324; padding-top: 12px; border-top: 1px dashed rgba(58, 36, 22, .22); }
+.reveal p b { color: #A63F2A; font-weight: 650; }
+.reveal p .tag { display: inline-block; margin-right: 6px; padding: 1px 8px; border-radius: 999px; font-family: var(--ui); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; vertical-align: 2px; background: #EFE3C8; color: #6B4A1C; }
+.tally { margin-top: 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 18px 22px; border-radius: 16px; background: var(--walnut); color: var(--on-dark); }
+.tally .dots { display: flex; gap: 6px; }
+.tally .dots i { width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid var(--brass-hi); transition: background .3s; }
+.tally .dots i.on { background: var(--brass-hi); }
+.tally p { font-size: 1.04rem; flex: 1 1 260px; }
+.tally p em { color: var(--brass-hi); }
+
+/* Ugly, then loved */
+.then { margin-top: 18px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.then article { padding: 18px 20px; border-radius: 14px; background: color-mix(in srgb, var(--brass) 12%, var(--plaster)); border: 1px solid color-mix(in srgb, var(--brass) 30%, transparent); }
+.then .yr { font-family: var(--ui); font-weight: 700; font-size: .78rem; letter-spacing: .16em; color: var(--wall); }
+.then h3 { font-size: 1.22rem; margin: 4px 0 6px; }
+.then p { font-family: var(--ui); font-size: .9rem; line-height: 1.5; color: var(--muted); }
+
+/* Lenses and questions */
+.lenses { display: grid; gap: 18px; }
+.lens { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 18px 32px; padding: clamp(22px, 4vw, 34px); border-radius: 22px; background: var(--cloth); color: var(--on-cloth); box-shadow: 0 1px 2px rgba(42, 28, 18, .08), 0 24px 40px -32px rgba(58, 36, 22, .8); border-top: 6px solid var(--c, var(--yolk)); }
+.lens aside { display: grid; gap: 10px; align-content: start; }
+.lens .glyph { width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 16%, #fff); color: var(--c); }
+.lens .glyph svg { width: 30px; height: 30px; }
+.lens h3 { font-size: 1.7rem; letter-spacing: -.015em; }
+.lens aside p { font-family: var(--ui); font-size: .9rem; line-height: 1.5; color: var(--cloth-muted); }
+.lens ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.lens li { position: relative; padding: 12px 0 12px 48px; border-bottom: 1px solid #EFE5D2; font-size: 1.1rem; line-height: 1.5; font-weight: 420; }
+.lens li:last-child { border-bottom: 0; }
+.lens li::before { content: attr(data-n); position: absolute; left: 0; top: 11px; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 1rem; background: var(--gold); color: #3A2416; box-shadow: inset 0 0 0 1px rgba(255, 240, 200, .5); }
+.lens li small { display: block; margin-top: 4px; font-family: var(--ui); font-size: .84rem; color: var(--cloth-muted); font-weight: 400; }
+.lens li.big { font-size: 1.24rem; font-style: italic; color: #A63F2A; }
+
+/* Where do you stand */
+.stand { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: center; padding: clamp(22px, 4vw, 40px); border-radius: 24px; background: var(--walnut); color: var(--on-dark); }
+.tri { width: 100%; max-width: 440px; justify-self: center; touch-action: none; user-select: none; -webkit-user-select: none; }
+.tri text { font-family: var(--ui); font-weight: 700; font-size: 13px; letter-spacing: .14em; fill: var(--brass-hi); }
+.tri .sub { font-weight: 500; font-size: 11px; letter-spacing: .02em; fill: var(--on-dark-muted); }
+.tri .knob { cursor: grab; }
+.tri .knob:active { cursor: grabbing; }
+.tri:focus-visible { outline: 3px solid var(--brass); outline-offset: 6px; border-radius: 10px; }
+.read { display: grid; gap: 16px; }
+.read .label { color: var(--brass-hi); }
+.read h3 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); }
+.read h3 em { color: var(--brass-hi); }
+.bars { display: grid; gap: 10px; font-family: var(--ui); font-size: .88rem; }
+.bar { display: grid; grid-template-columns: 90px minmax(0, 1fr) 44px; gap: 10px; align-items: center; }
+.bar .track { height: 10px; border-radius: 999px; background: rgba(226, 194, 122, .15); overflow: hidden; }
+.bar .fill { height: 100%; border-radius: inherit; background: var(--gold); transition: width .15s; }
+.bar b { text-align: right; font-weight: 600; color: var(--brass-hi); }
+.read .say { font-size: 1.08rem; line-height: 1.55; color: var(--on-dark); min-height: 3.2em; }
+.read .hint { font-family: var(--ui); font-size: .84rem; color: var(--on-dark-muted); }
+
+/* Words */
+.words { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 12px; }
+.word { padding: 16px 18px; border-radius: 14px; background: var(--plaster); border: 1.5px solid var(--line); display: grid; gap: 4px; align-content: start; }
+.word b { font-size: 1.16rem; font-weight: 650; }
+.word i { font-family: var(--ui); font-style: normal; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--wall); font-weight: 600; }
+.word span { font-family: var(--ui); font-size: .9rem; line-height: 1.5; color: var(--muted); }
+.word q { font-size: .98rem; font-style: italic; color: var(--fg); }
+
+@media (max-width: 820px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .exhibit { max-width: 340px; }
+  .lens { grid-template-columns: minmax(0, 1fr); }
+  .stand { grid-template-columns: minmax(0, 1fr); }
+  .then { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 680px) { .tests { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 420px) {
+  .test { padding: 18px 16px; }
+  .opts { gap: 8px; }
+  .opt { padding: 6px; }
+  .opt span { font-size: .68rem; letter-spacing: .06em; }
+  .lens li { padding-left: 44px; font-size: 1.04rem; }
+  .bar { grid-template-columns: 76px minmax(0, 1fr) 40px; }
+  .arch { padding: 38px 20px 30px; }
+}
+
+/* Closing */
+.closing { margin-top: clamp(64px, 9vw, 110px); background: var(--wall); color: var(--on-dark); position: relative; overflow: hidden; }
+.closing .wrap { padding-block: clamp(48px, 7vw, 84px); display: grid; gap: 16px; position: relative; }
+.closing .label { color: var(--brass-hi); }
+.closing p.big { font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.2; font-style: italic; max-width: 24ch; font-weight: 400; }
+.closing p.small { font-family: var(--ui); color: var(--on-dark-muted); font-size: .95rem; }
+.closing a { color: var(--brass-hi); }
+.closing .bg { position: absolute; right: -60px; top: 50%; width: 360px; height: 360px; transform: translateY(-50%); opacity: .14; pointer-events: none; }
+footer.site .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 26px; font-family: var(--ui); font-size: .84rem; color: var(--muted); }
+footer.site a { color: var(--wall); text-underline-offset: 3px; }
+footer.site .logo { width: 60px; color: var(--fg); }
+@media print {
+  header.top, .steps-nav, .closing, footer.site, .repaint, #eye, #stand { display: none; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .lens, .word { box-shadow: none; break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><span class="chip"><span class="logo" role="img" aria-label=".TED logo"></span></span><span class="name">Tehran English<br>Discussion</span></a>
+    <nav aria-label="Session">
+      <a href="#eye" class="opt-sm">Test your eye</a>
+      <a href="#questions">Questions</a>
+      <a href="../">← Club</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="kicker"><span class="rule" aria-hidden="true"></span><span class="label">Free discussion · with Sareh</span></div>
+        <h1><span class="l1">Who decided that</span><span class="this">this</span> is <span class="gilt">beautiful?</span></h1>
+        <p class="lede">Why do some things take our breath away while others leave us cold? This week we look at beauty through psychology, cognitive science, art and culture.</p>
+        <div class="ticket"><span><b>Friday, 29 Aban 1405</b></span><span>4 to 6 p.m.</span><span>Moderator: <b>Sareh</b></span></div>
+        <nav class="steps-nav" aria-label="Jump to">
+          <a href="#eye">1 · Test your eye</a>
+          <a href="#questions">2 · Four lenses</a>
+          <a href="#stand">3 · Where do you stand?</a>
+          <a href="#words">4 · Words</a>
+        </nav>
+      </div>
+      <figure class="exhibit" style="margin:0">
+        <div class="arch">
+          <span class="lamp" aria-hidden="true"></span>
+          <div class="frame">
+            <svg class="canvas" id="art" viewBox="0 0 300 360" role="img" aria-label="A generated flower-like pattern"></svg>
+          </div>
+        </div>
+        <figcaption class="placard" aria-live="polite">
+          <b id="art-title">Untitled (Is this beautiful?)</b>
+          <span class="meta" id="art-meta">Painted for you, just now · maths, chance and café colours</span>
+          <div class="verdict" id="art-verdict">You decide.</div>
+        </figcaption>
+        <button class="repaint" id="repaint" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Paint another</button>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec" id="eye">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Warm-up · before Friday</span>
+        <h2>Test your <em>eye</em></h2>
+        <p>Pick the one you like more. Don’t think, just choose. Then see what researchers have found, and whether your eye agrees with the lab.</p>
+      </div>
+      <div class="tests" id="tests"></div>
+      <div class="tally" aria-live="polite">
+        <div class="dots" id="dots" aria-hidden="true"></div>
+        <p id="tally-text">Make your choices above. Your result will appear here.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="questions">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">The discussion</span>
+        <h2>Four <em>lenses</em> on beauty</h2>
+        <p>Sample questions for the table. Come with your opinions, your examples and your curiosity. There are no wrong answers, only interesting ones.</p>
+      </div>
+      <div class="lenses">
+        <article class="lens" style="--c:#A63F2A">
+          <aside>
+            <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M12 5v13"/></svg></span>
+            <h3>The brain</h3>
+            <p>Psychology and cognitive science: what happens inside us when we call something beautiful?</p>
+          </aside>
+          <ol>
+            <li data-n="1">When you see something beautiful, is it a feeling, a judgement, or both? Can you describe the moment it happens?</li>
+            <li data-n="2">In experiments, babies only a few months old look longer at faces that adults rate as attractive. If that’s true, what does it tell us?</li>
+            <li data-n="3">Sunsets, the sea, a starry sky: is there anything that <i>everyone</i> finds beautiful?</li>
+            <li data-n="4">Can something be beautiful and useless? Beautiful and dangerous?</li>
+          </ol>
+        </article>
+
+        <article class="lens" style="--c:#44603A">
+          <aside>
+            <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+            <h3>Universal or cultural?</h3>
+            <p>Are we born with a sense of beauty, or does the place we grow up in shape it?</p>
+          </aside>
+          <ol>
+            <li data-n="5">Think of something your grandparents found beautiful that you don’t, or the other way round.</li>
+            <li data-n="6">For centuries pale skin was a sign of wealth, because poor people worked in the sun. Later a tan became the sign of a rich holiday. What other beauty “rules” are really about money or status?</li>
+            <li data-n="7">Is Persian calligraphy beautiful to someone who can’t read it? Is music in a scale you’ve never heard beautiful?</li>
+            <li data-n="8">Can you find beauty in imperfection: a cracked wall, an old face, a worn-out book?</li>
+          </ol>
+        </article>
+
+        <article class="lens" style="--c:#B8892E">
+          <aside>
+            <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M12 18h.01"/><path d="M9 7.5c1.5-1.5 4.5-1.5 6 0"/></svg></span>
+            <h3>Media &amp; mirrors</h3>
+            <p>Screens, filters, brands and algorithms: who is holding up the mirror today?</p>
+          </aside>
+          <ol>
+            <li data-n="9">How have social media filters changed what a “normal” face looks like?</li>
+            <li data-n="10">Have you ever started liking a song, a style or a face just because you saw it everywhere?
+              <small>Psychologists call this the mere-exposure effect: the more we see something, the more we tend to like it.</small></li>
+            <li data-n="11">Who decides what is beautiful today: artists, brands, algorithms, or us?</li>
+            <li data-n="12">Should edited photos of faces and bodies in adverts carry a label?</li>
+          </ol>
+        </article>
+
+        <article class="lens" style="--c:#7E2D1E">
+          <aside>
+            <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg></span>
+            <h3>Changing with time</h3>
+            <p>Yesterday’s “ugly” is often today’s masterpiece. Why do our ideas of beauty keep moving?</p>
+          </aside>
+          <ol>
+            <li data-n="13">Name something that was called ugly when it first appeared and is loved now. Why did people change their minds?</li>
+            <li data-n="14">Which of today’s beauty standards will look strange in fifty years?</li>
+            <li data-n="15">Does beauty matter more, or less, as we get older?</li>
+            <li data-n="16" class="big">Is beauty something we discover, something we learn, or something society teaches us?</li>
+          </ol>
+        </article>
+      </div>
+
+      <div class="then">
+        <article><span class="yr">1874 · PARIS</span><h3>“Impressionism”</h3><p>A critic mocked Monet’s <i>Impression, Sunrise</i> as an unfinished sketch. His insult became the name of one of the most loved movements in art.</p></article>
+        <article><span class="yr">1887 · PARIS</span><h3>The Eiffel Tower</h3><p>Before it was built, a group of famous artists and writers signed a protest calling it “useless and monstrous.” Today it is the symbol of the city.</p></article>
+        <article><span class="yr">1920s · RIVIERA</span><h3>The suntan</h3><p>A tan once meant outdoor work. Fashion icons like Coco Chanel are often credited with turning it into a sign of leisure and style.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="stand">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">The big question</span>
+        <h2>Where do <em>you</em> stand?</h2>
+        <p>Drag the gold dot. Is beauty mostly discovered, learned or taught? Remember your spot and defend it on Friday.</p>
+      </div>
+      <div class="stand">
+        <svg class="tri" id="tri" viewBox="0 0 400 380" tabindex="0" role="slider" aria-label="Where you stand between discovered, learned and taught. Use the arrow keys to move." aria-valuetext="">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8A5F14"/><stop offset=".3" stop-color="#D9AE4B"/><stop offset=".48" stop-color="#F6DE93"/><stop offset=".65" stop-color="#C08F2C"/><stop offset="1" stop-color="#7A5210"/></linearGradient>
+          </defs>
+          <polygon points="200,58 46,324 354,324" fill="rgba(226,194,122,.06)" stroke="rgba(226,194,122,.55)" stroke-width="1.5"/>
+          <g stroke="rgba(226,194,122,.14)" stroke-width="1">
+            <line x1="123" y1="191" x2="277" y2="191"/><line x1="123" y1="191" x2="200" y2="324"/><line x1="277" y1="191" x2="200" y2="324"/>
+          </g>
+          <circle cx="200" cy="235.3" r="3" fill="rgba(226,194,122,.4)"/>
+          <text x="200" y="26" text-anchor="middle">DISCOVERED</text>
+          <text class="sub" x="200" y="43" text-anchor="middle">it’s in our nature</text>
+          <text x="70" y="350" text-anchor="middle">LEARNED</text>
+          <text class="sub" x="70" y="367" text-anchor="middle">from experience</text>
+          <text x="330" y="350" text-anchor="middle">TAUGHT</text>
+          <text class="sub" x="330" y="367" text-anchor="middle">by society &amp; media</text>
+          <g class="knob" id="knob">
+            <circle r="22" fill="rgba(246,222,147,.18)"/>
+            <circle r="12" fill="url(#g)" stroke="#3A2416" stroke-width="2"/>
+          </g>
+        </svg>
+        <div class="read">
+          <span class="label">Your position</span>
+          <h3 id="stand-title">Right in the <em>middle</em></h3>
+          <div class="bars">
+            <div class="bar"><span>Discovered</span><span class="track"><span class="fill" id="f0"></span></span><b id="v0"></b></div>
+            <div class="bar"><span>Learned</span><span class="track"><span class="fill" id="f1"></span></span><b id="v1"></b></div>
+            <div class="bar"><span>Taught</span><span class="track"><span class="fill" id="f2"></span></span><b id="v2"></b></div>
+          </div>
+          <p class="say" id="stand-say"></p>
+          <p class="hint">Take a screenshot and bring it to the table.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="words">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Vocabulary</span>
+        <h2>Words worth <em>bringing</em></h2>
+        <p>A few words and phrases that will help on Friday.</p>
+      </div>
+      <div class="words">
+        <div class="word"><i>noun · adjective</i><b>aesthetic</b><span>A set of ideas about what looks good; also, relating to beauty.</span><q>The café has a warm, vintage aesthetic.</q></div>
+        <div class="word"><i>phrase</i><b>beauty standard</b><span>The look a society holds up as ideal at a certain time.</span><q>Beauty standards change every few decades.</q></div>
+        <div class="word"><i>phrase</i><b>conventionally attractive</b><span>Attractive in the way most people in a culture expect.</span><q>She isn’t conventionally attractive, but she’s unforgettable.</q></div>
+        <div class="word"><i>adjective</i><b>striking</b><span>Beautiful in an unusual way that catches your attention.</span><q>He has striking green eyes.</q></div>
+        <div class="word"><i>adjective</i><b>exquisite</b><span>Extremely beautiful and delicate, often finely made.</span><q>The tilework in the mosque is exquisite.</q></div>
+        <div class="word"><i>adjective</i><b>tacky · kitsch</b><span>Cheap-looking or showy, in poor taste. Kitsch is sometimes enjoyed on purpose, for fun.</span><q>Plastic flamingos are so kitsch I love them.</q></div>
+        <div class="word"><i>noun</i><b>the sublime</b><span>Beauty mixed with awe, even a little fear: a storm, a mountain, the night sky.</span><q>Standing at the edge of Damavand felt sublime.</q></div>
+        <div class="word"><i>noun · Japanese</i><b>wabi-sabi</b><span>Finding beauty in things that are imperfect, simple and not permanent.</span><q>A chipped old teacup has its own wabi-sabi.</q></div>
+        <div class="word"><i>noun</i><b>symmetry · proportion</b><span>Symmetry: two halves that match. Proportion: how the sizes of parts relate to each other.</span><q>Persian architecture loves symmetry.</q></div>
+        <div class="word"><i>idiom</i><b>beauty is in the eye of the beholder</b><span>What is beautiful depends on who is looking.</span><q>You hate it, I love it. Beauty is in the eye of the beholder.</q></div>
+        <div class="word"><i>idiom</i><b>beauty is only skin-deep</b><span>Looks are on the surface; character matters more.</span><q>Don’t judge him yet. Beauty is only skin-deep.</q></div>
+        <div class="word"><i>psychology</i><b>mere-exposure effect</b><span>We tend to like things more simply because we have seen them often.</span><q>That song grew on me. Mere exposure, I guess.</q></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <svg class="bg" viewBox="-100 -100 200 200" aria-hidden="true" fill="none" stroke="#F6DE93" stroke-width="1.2" id="closing-art"></svg>
+    <div class="wrap">
+      <span class="label">See you on Friday</span>
+      <p class="big">Come with your opinions, examples and curiosity. Let’s challenge our perceptions of beauty.</p>
+      <p class="small">Not a member yet? <a href="../#join">Send us a voice intro</a> and join us at the table.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span class="logo" role="img" aria-label=".TED logo"></span>
+    <span><a href="../">Back to the club</a> · Tehran English Discussion · Every Friday since spring 2025</span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const PAL = ['#A63F2A', '#B8892E', '#44603A', '#FFC700', '#3A2416', '#E2C27A', '#7E2D1E', '#D9774F'];
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  const seeded = s => () => { s |= 0; s = s + 0x6D2B79F5 | 0; let t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const petal = (l, w) => `M0 0C${w} ${-l * .28} ${w * .85} ${-l * .82} 0 ${-l}C${-w * .85} ${-l * .82} ${-w} ${-l * .28} 0 0Z`;
+
+  /* ---------- Hero: a new painting every click ---------- */
+  const art = document.getElementById('art');
+  const TITLES = ['Untitled (Is this beautiful?)', 'Bloom, after a Friday', 'Study in brass and terracotta', 'Symmetry No. ', 'The café, abstracted', 'Order, mostly'];
+  let count = 0;
+  function paint() {
+    count++;
+    const broken = count > 1 && Math.random() < .3;
+    const n = Math.floor(rnd(5, 13));
+    const layers = Math.floor(rnd(3, 6));
+    const colors = [...PAL].sort(() => Math.random() - .5);
+    const bg = Math.random() < .5 ? '#FBF5E8' : pick(['#F3E6CC', '#EFE0D0', '#E9EFE2']);
+    let s = `<rect width="300" height="360" fill="${bg}"/>`;
+    const rings = Math.floor(rnd(0, 3));
+    for (let r = 0; r < rings; r++) s += `<circle cx="150" cy="180" r="${rnd(118, 138) - r * 9}" fill="none" stroke="${colors[6]}" stroke-opacity=".35" stroke-width="${rnd(.6, 1.6)}" stroke-dasharray="${pick(['0', '2 5', '1 3', '8 4'])}"/>`;
+    let delay = 0;
+    for (let L = 0; L < layers; L++) {
+      const len = 122 - L * (100 / layers) + rnd(-6, 6);
+      const w = len * rnd(.18, .5);
+      const off = (L % 2 ? 180 / n : 0) + rnd(-3, 3);
+      const col = colors[L % colors.length];
+      const op = rnd(.75, 1);
+      const outline = Math.random() < .25;
+      for (let k = 0; k < n; k++) {
+        const j = broken ? rnd(-28, 28) : 0;
+        const sc = broken ? rnd(.55, 1.25) : 1;
+        const a = k * 360 / n + off + j;
+        s += `<g transform="translate(150 180) rotate(${a.toFixed(1)})"><path class="p" style="animation-delay:${(delay + k * 35).toFixed(0)}ms" d="${petal(len * sc, w)}" fill="${outline ? 'none' : col}" stroke="${outline ? col : 'rgba(42,28,18,.18)'}" stroke-width="${outline ? 1.6 : .6}" fill-opacity="${op}"/></g>`;
+      }
+      delay += 260;
+    }
+    const dots = Math.random() < .7;
+    if (dots) for (let k = 0; k < n * 2; k++) {
+      const a = (k * 180 / n + (broken ? rnd(-12, 12) : 0)) * Math.PI / 180, r = 132 + (broken ? rnd(-8, 8) : 0);
+      s += `<circle class="p" style="animation-delay:${delay + k * 20}ms" cx="${(150 + r * Math.sin(a)).toFixed(1)}" cy="${(180 - r * Math.cos(a)).toFixed(1)}" r="${k % 2 ? 2 : 3.4}" fill="${colors[1]}"/>`;
+    }
+    s += `<g transform="translate(150 180)"><circle class="p" style="animation-delay:${delay}ms" r="${rnd(9, 16)}" fill="${colors[3]}" stroke="${colors[4]}" stroke-width="1.5"/></g>`;
+    art.innerHTML = s;
+    let t = pick(TITLES); if (t.endsWith('No. ')) t += n;
+    document.getElementById('art-title').textContent = count === 1 ? TITLES[0] : t;
+    document.getElementById('art-meta').textContent = `Painted for you, just now · ${n}-fold ${broken ? 'symmetry, broken on purpose' : 'symmetry'} · maths, chance and café colours`;
+    document.getElementById('art-verdict').textContent = broken ? 'This one breaks its own rules. Still beautiful? Who decided?' : pick(['You decide.', 'Beautiful? Or just tidy?', 'Would you hang it at home?', 'A machine made this. Does that matter?', 'Is it beautiful, or only pleasant?']);
+  }
+  paint();
+  document.getElementById('repaint').addEventListener('click', paint);
+
+  /* closing ornament */
+  let cs = '';
+  for (let k = 0; k < 12; k++) cs += `<path transform="rotate(${k * 30})" d="${petal(92, 30)}"/><path transform="rotate(${k * 30 + 15})" d="${petal(56, 18)}"/>`;
+  document.getElementById('closing-art').innerHTML = cs + '<circle r="96"/><circle r="12"/>';
+
+  /* ---------- Test your eye ---------- */
+  const box = (inner, vb = '0 0 120 100') => `<svg viewBox="${vb}" aria-hidden="true">${inner}</svg>`;
+  const blob = () => {
+    const pts = [], N = 7, cx = 60, cy = 50;
+    const R = [36, 31, 38, 30, 35, 33, 37];
+    for (let i = 0; i < N; i++) { const a = i / N * Math.PI * 2; pts.push([cx + R[i] * Math.cos(a), cy + R[i] * Math.sin(a) * .95]); }
+    let d = '';
+    for (let i = 0; i < N; i++) {
+      const p0 = pts[(i - 1 + N) % N], p1 = pts[i], p2 = pts[(i + 1) % N], p3 = pts[(i + 2) % N];
+      if (!i) d += `M${p1[0].toFixed(1)} ${p1[1].toFixed(1)}`;
+      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6], c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+      d += `C${c1.map(v => v.toFixed(1))} ${c2.map(v => v.toFixed(1))} ${p2.map(v => v.toFixed(1))}`;
+    }
+    return `<path d="${d}Z" fill="#44603A"/>`;
+  };
+  const spiky = () => {
+    let d = '';
+    for (let i = 0; i < 14; i++) { const a = i / 14 * Math.PI * 2, r = i % 2 ? 22 : 40; d += (i ? 'L' : 'M') + (60 + r * Math.cos(a)).toFixed(1) + ' ' + (50 + r * Math.sin(a) * .95).toFixed(1); }
+    return `<path d="${d}Z" fill="#44603A"/>`;
+  };
+  const shapesSet = (sym) => {
+    const r = seeded(7);
+    const items = [[22, 30, 'c', 7, '#A63F2A'], [40, 64, 't', 9, '#B8892E'], [30, 82, 'c', 4, '#44603A'], [48, 26, 's', 6, '#3A2416'], [18, 56, 'c', 5, '#B8892E']];
+    let s = '';
+    const draw = (x, y, k, z, c, rot) => k === 'c' ? `<circle cx="${x}" cy="${y}" r="${z}" fill="${c}"/>` : k === 's' ? `<rect x="${x - z}" y="${y - z}" width="${z * 2}" height="${z * 2}" fill="${c}" transform="rotate(${rot} ${x} ${y})"/>` : `<path d="M${x} ${y - z}L${x + z} ${y + z * .8}L${x - z} ${y + z * .8}Z" fill="${c}" transform="rotate(${rot} ${x} ${y})"/>`;
+    items.forEach(([x, y, k, z, c]) => {
+      if (sym) { s += draw(x, y, k, z, c, 0) + draw(120 - x, y, k, z, c, 0); }
+      else { s += draw(10 + r() * 100, 10 + r() * 80, k, z, c, r() * 90) + draw(10 + r() * 100, 10 + r() * 80, k, z, c, r() * 90); }
+    });
+    if (sym) s += `<line x1="60" y1="8" x2="60" y2="92" stroke="#DCCDB2" stroke-dasharray="2 3"/>`;
+    return s;
+  };
+  const rect = ratio => { const w = 92, h = w / ratio; return `<rect x="${(120 - w) / 2}" y="${(100 - h) / 2}" width="${w}" height="${h.toFixed(1)}" fill="#B8892E" stroke="#3A2416" stroke-width="1.2"/>`; };
+  const skyline = (rough, seed) => {
+    const r = seeded(seed), N = 64; let ys = new Array(N + 1).fill(0);
+    ys[0] = 60; ys[N] = 54;
+    const go = (a, b, amp) => { if (b - a < 2) return; const m = (a + b) >> 1; ys[m] = (ys[a] + ys[b]) / 2 + (r() - .5) * amp; go(a, m, amp * rough); go(m, b, amp * rough); };
+    go(0, N, 46);
+    let d = 'M0 100'; ys.forEach((y, i) => d += `L${(i / N * 120).toFixed(1)} ${Math.max(14, Math.min(92, y)).toFixed(1)}`);
+    return `<path d="${d}L120 100Z" fill="#3A2416"/><circle cx="92" cy="22" r="7" fill="#FFC700"/>`;
+  };
+  const bowl = mended => {
+    let s = `<ellipse cx="60" cy="84" rx="26" ry="4" fill="rgba(58,36,22,.15)"/><path d="M18 40 Q20 80 60 82 Q100 80 102 40 Z" fill="#44603A"/><ellipse cx="60" cy="40" rx="42" ry="9" fill="#5A7A4D"/><ellipse cx="60" cy="40" rx="36" ry="6" fill="#2F4628"/>`;
+    if (mended) s += `<path d="M34 46 L42 56 L38 64 L48 74 L50 80" stroke="#E7BE4F" stroke-width="2.4" fill="none" stroke-linejoin="round"/><path d="M42 56 L56 58 L62 52" stroke="#E7BE4F" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M84 47 L78 58 L86 70" stroke="#E7BE4F" stroke-width="2.2" fill="none" stroke-linejoin="round"/>`;
+    return s;
+  };
+
+  const TESTS = [
+    { t: 'Curves or corners?', q: 'Which shape do you like more?', opts: [[box(spiky()), 'Sharp'], [box(blob()), 'Curved']], typical: 1,
+      note: 'In a 2006 study by Moshe Bar and Maital Neta, people liked everyday objects more when they had <b>curved</b> lines instead of sharp angles. One idea: sharp points quietly whisper “danger” to the brain.' },
+    { t: 'Balanced or free?', q: 'Which arrangement pleases your eye?', opts: [[box(shapesSet(true)), 'Mirrored'], [box(shapesSet(false)), 'Scattered']], typical: 0,
+      note: '<b>Symmetry</b> is one of the most reliable preferences in research on faces and patterns, maybe because the brain processes it easily. Yet many artists break it on purpose to make a picture feel alive.' },
+    { t: 'Which rectangle?', q: 'Pick the one with the nicest proportions.', opts: [[box(rect(1.25)), 'A'], [box(rect(1.618)), 'B'], [box(rect(2.2)), 'C']], typical: null,
+      note: 'B is the famous “golden rectangle” (1 : 1.618). In 1876 Gustav Fechner reported that people preferred it, but later studies mostly <b>failed to find a strong effect</b>. The golden-ratio rule is more legend than law, so there is no right answer here.' },
+    { t: 'Which skyline?', q: 'Which landscape would you rather look at?', opts: [[box(skyline(.3, 11)), 'Calm'], [box(skyline(.62, 11)), 'Lively'], [box(skyline(.88, 11)), 'Wild']], typical: 1,
+      note: 'Physicist Richard Taylor’s studies suggest many people prefer patterns of <b>medium</b> fractal complexity, like clouds, trees and coastlines: not too plain, not too busy.' },
+    { t: 'Perfect or mended?', q: 'Which bowl would you put on your shelf?', opts: [[box(bowl(false)), 'Perfect'], [box(bowl(true)), 'Mended with gold']], typical: null, wide: true,
+      note: 'In Japan, <b>kintsugi</b> repairs broken pottery with gold lacquer, so the break becomes part of the bowl’s story. The idea of <i>wabi-sabi</i> finds beauty in imperfection. Your answer here may say more about your culture and your life than about your brain.' },
+  ];
+  const tests = document.getElementById('tests'), dots = document.getElementById('dots'), tally = document.getElementById('tally-text');
+  const answers = TESTS.map(() => null);
+  TESTS.forEach((T, i) => {
+    const el = document.createElement('article');
+    el.className = 'test' + (T.wide ? ' wide' : '');
+    el.innerHTML = `<span class="n">Test ${i + 1} of ${TESTS.length}</span><h3>${T.t}</h3><p class="q">${T.q}</p>
+      <div class="opts" role="group" aria-label="${T.t}">${T.opts.map(([svg, l], k) => `<button type="button" class="opt" aria-pressed="false" data-k="${k}">${svg}<span>${l}</span></button>`).join('')}</div>
+      <div class="reveal"><div><p></p></div></div>`;
+    const p = el.querySelector('.reveal p');
+    el.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => {
+      const k = +b.dataset.k; answers[i] = k;
+      el.querySelectorAll('.opt').forEach(o => o.setAttribute('aria-pressed', o === b ? 'true' : 'false'));
+      el.classList.add('answered');
+      const tag = T.typical === null ? 'No right answer' : (k === T.typical ? 'Like most people' : 'Against the trend');
+      p.innerHTML = `<span class="tag">${tag}</span>${T.note}`;
+      update();
+    }));
+    tests.appendChild(el);
+    const d = document.createElement('i'); dots.appendChild(d);
+  });
+  function update() {
+    [...dots.children].forEach((d, i) => d.classList.toggle('on', answers[i] !== null));
+    const done = answers.filter(a => a !== null).length;
+    const scored = TESTS.map((T, i) => [T, answers[i]]).filter(([T, a]) => T.typical !== null && a !== null);
+    const agree = scored.filter(([T, a]) => a === T.typical).length;
+    if (done < TESTS.length) { tally.innerHTML = `${done} of ${TESTS.length} chosen. Keep going.`; return; }
+    const msg = agree === scored.length ? 'Your eye agrees with the lab every time. Is that your brain, or the world you grew up in?'
+      : agree === 0 ? 'You went against the trend every time. A rebel eye, or a different culture of seeing?'
+      : 'Sometimes you follow the trend, sometimes you don’t. So which part of your taste is nature, and which part is you?';
+    tally.innerHTML = `On the three tests with a typical lab answer, you matched it <em>${agree} of ${scored.length}</em> times. ${msg}`;
+  }
+
+  /* ---------- Where do you stand (ternary) ---------- */
+  const tri = document.getElementById('tri'), knob = document.getElementById('knob');
+  const A = [200, 58], B = [46, 324], C = [354, 324];
+  let w = [1 / 3, 1 / 3, 1 / 3];
+  const toXY = w => [w[0] * A[0] + w[1] * B[0] + w[2] * C[0], w[0] * A[1] + w[1] * B[1] + w[2] * C[1]];
+  function toW(x, y) {
+    const det = (B[1] - C[1]) * (A[0] - C[0]) + (C[0] - B[0]) * (A[1] - C[1]);
+    let a = ((B[1] - C[1]) * (x - C[0]) + (C[0] - B[0]) * (y - C[1])) / det;
+    let b = ((C[1] - A[1]) * (x - C[0]) + (A[0] - C[0]) * (y - C[1])) / det;
+    let c = 1 - a - b;
+    a = Math.max(0, a); b = Math.max(0, b); c = Math.max(0, c);
+    const s = a + b + c; return [a / s, b / s, c / s];
+  }
+  const NAMES = ['discovered', 'learned', 'taught'];
+  const SAY = [
+    'Beauty is out there, built into nature and into our brains. We find it, the way we find a sunset. Be ready for someone to ask: then why do tastes differ so much?',
+    'Beauty grows from what we live through: the faces, places and music of our own life. Be ready for: then why do so many people agree on a sunset?',
+    'Beauty is a lesson from society, history and the media. Be ready for: then why do babies seem to have preferences too?',
+  ];
+  function render() {
+    const [x, y] = toXY(w);
+    knob.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)})`);
+    const pct = w.map(v => Math.round(v * 100));
+    pct.forEach((v, i) => { document.getElementById('f' + i).style.width = v + '%'; document.getElementById('v' + i).textContent = v + '%'; });
+    const order = [0, 1, 2].sort((i, j) => w[j] - w[i]);
+    const top = order[0], title = document.getElementById('stand-title'), say = document.getElementById('stand-say');
+    if (w[top] < .42) { title.innerHTML = 'Right in the <em>middle</em>'; say.textContent = 'A bit of everything: nature gives us the basics, life and culture do the rest. The hard part on Friday will be saying which part matters most.'; }
+    else if (w[top] > .72) { title.innerHTML = `Mostly <em>${NAMES[top]}</em>`; say.textContent = SAY[top]; }
+    else { title.innerHTML = `${NAMES[top][0].toUpperCase() + NAMES[top].slice(1)}, with a bit of <em>${NAMES[order[1]]}</em>`; say.textContent = SAY[top]; }
+    tri.setAttribute('aria-valuetext', `Discovered ${pct[0]}%, learned ${pct[1]}%, taught ${pct[2]}%`);
+  }
+  function fromEvent(e) {
+    const pt = tri.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+    const p = pt.matrixTransform(tri.getScreenCTM().inverse());
+    w = toW(p.x, p.y); render();
+  }
+  let drag = false;
+  tri.addEventListener('pointerdown', e => { drag = true; tri.setPointerCapture(e.pointerId); fromEvent(e); });
+  tri.addEventListener('pointermove', e => { if (drag) fromEvent(e); });
+  tri.addEventListener('pointerup', () => drag = false);
+  tri.addEventListener('pointercancel', () => drag = false);
+  tri.addEventListener('keydown', e => {
+    const d = { ArrowUp: [0, -8], ArrowDown: [0, 8], ArrowLeft: [-8, 0], ArrowRight: [8, 0] }[e.key];
+    if (!d) return; e.preventDefault();
+    const [x, y] = toXY(w); w = toW(x + d[0], y + d[1]); render();
+  });
+  render();
+})();
+</script>
+</body>
+</html>
