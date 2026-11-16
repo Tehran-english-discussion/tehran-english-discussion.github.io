@@ -1,0 +1,13 @@
+{
+  "name": "Tehran English Discussion",
+  "short_name": ".TED",
+  "description": "An English discussion club in Tehran, every Friday.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F5EEE1",
+  "theme_color": "#A63F2A",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
