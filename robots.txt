@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tehran-english-discussion.github.io/sitemap.xml
