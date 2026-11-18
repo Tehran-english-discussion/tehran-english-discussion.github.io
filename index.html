@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Tehran English Discussion (.TED) is an English discussion club in Tehran for fluent speakers. Every Friday, 4–8 p.m., one long café table: life lessons, big ideas and real conversation.">
+<meta name="description" content="Tehran English Discussion (.TED) is a free English discussion club in Tehran for fluent speakers. Every Friday, 4–8 p.m., one long café table, and every other Monday online on Google Meet: life lessons, big ideas and real conversation.">
 <meta property="og:title" content="Tehran English Discussion">
-<meta property="og:description" content="Every Friday, one long table. Life lessons and big ideas, shared in fluent English in Tehran.">
+<meta property="og:description" content="A free English discussion club in Tehran. Every Friday, one long table; every other Monday, online.">
 <meta property="og:image" content="https://tehran-english-discussion.github.io/session-69.jpg">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -19,7 +19,7 @@
 .workshop-link + .workshop-link { margin-top: 10px; }
 .workshop-link .go { flex: none; margin-left: auto; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--wall); color: var(--on-dark); font-family: var(--ui); }
 </style>
-<title>Tehran English Discussion (.TED) · English Discussion Club in Tehran</title>
+<title>Tehran English Discussion (.TED) · Free English Discussion Club in Tehran</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preload" href="/fonts/fraunces-normal-latin-48a70ea0.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/instrument-sans-normal-latin-f587e727.woff2" as="font" type="font/woff2" crossorigin>
@@ -710,17 +710,46 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
   .ticker .track { animation: none; flex-wrap: wrap; width: auto; }
   .frame { transition: none; animation: none; }
 }
+
+/* the online table: a slice of night in the plaster room */
+#online-band .wrap { padding-top: clamp(8px, 2vw, 20px); }
+.night { position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(22px, 4vw, 48px); align-items: center; padding: clamp(26px, 4.5vw, 52px);
+  border-radius: 28px; text-decoration: none; color: #F7EEDD; overflow: hidden; isolation: isolate;
+  background: radial-gradient(70% 90% at 8% 0%, rgba(210, 167, 76, .30), transparent 62%), radial-gradient(60% 80% at 100% 100%, rgba(194, 90, 64, .26), transparent 60%), linear-gradient(140deg, #23181B, #140D10);
+  box-shadow: 0 40px 70px -44px rgba(30, 12, 6, .95); transition: transform .3s cubic-bezier(.2,.8,.2,1); }
+@media (hover: hover) { .night:hover { transform: translateY(-3px); } .night:hover .go { background: #FFC700; color: #2A1C12; } }
+.night .label { color: #E2C27A; display: inline-flex; align-items: center; gap: 10px; }
+.night .label .moon { width: 16px; height: 16px; border-radius: 50%; box-shadow: inset -4px -2px 0 0 #E9CF8C; transform: rotate(-20deg); }
+.night h2 { margin: 12px 0 12px; font-family: var(--display); font-weight: 600; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.02; font-variation-settings: "SOFT" 100, "WONK" 1; color: #F7EEDD; }
+.night h2 em { font-weight: 400; color: #E9CF8C; }
+.night p { margin: 0; color: #CDBB9C; max-width: 46ch; }
+.night p b { color: #FFC700; font-weight: 600; }
+.night .go { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; padding: 11px 18px; border-radius: 99px; border: 1.5px solid #FFC700; color: #FFC700; font-family: var(--ui); font-weight: 600; transition: background .25s, color .25s; }
+.mini { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; padding: 12px; border-radius: 20px; background: rgba(0, 0, 0, .28); border: 1px solid rgba(233, 207, 140, .18); }
+.mini i { aspect-ratio: 4 / 3; border-radius: 10px; display: grid; place-items: center; font-style: normal; font-family: var(--display); font-weight: 600; font-size: clamp(.8rem, 2vw, 1.1rem); color: rgba(247, 238, 221, .85);
+  background: radial-gradient(120% 90% at 30% 20%, var(--a, #5A3524), var(--b, #2A1810)); }
+.mini i:nth-child(3n+2) { --a: #3E4A33; --b: #1C2217; } .mini i:nth-child(3n) { --a: #6A2F22; --b: #2E130D; }
+.mini i.talk { outline: 2px solid #FFC700; outline-offset: -2px; }
+.mini i.seat { background: transparent; border: 1.5px dashed rgba(233, 207, 140, .25); color: rgba(233, 207, 140, .5); }
+.mini i.you { background: rgba(255, 199, 0, .18); border: 1.5px solid #FFC700; color: #FFC700; }
+.mini small { grid-column: 1 / -1; font-family: var(--ui); font-size: .78rem; color: #CDBB9C; display: flex; justify-content: space-between; gap: 8px; padding: 2px 2px 0; }
+@media (max-width: 760px) { .night { grid-template-columns: minmax(0, 1fr); } }
+.top nav a.fa-link { font-family: Vazirmatn, Tahoma, sans-serif; }
 </style>
 <!-- seo -->
 <meta name="msvalidate.01" content="0B21439DC3FFD3305DD4A1319FE8E688">
 <link rel="canonical" href="https://tehran-english-discussion.github.io/">
+<link rel="alternate" hreflang="en" href="https://tehran-english-discussion.github.io/">
+<link rel="alternate" hreflang="fa" href="https://tehran-english-discussion.github.io/fa/">
+<link rel="alternate" hreflang="x-default" href="https://tehran-english-discussion.github.io/">
 <meta property="og:url" content="https://tehran-english-discussion.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tehran English Discussion">
 <meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fa_IR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#A63F2A">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://tehran-english-discussion.github.io/#org","name":"Tehran English Discussion","alternateName":[".TED","TED Tehran English Discussion","Tehran English Discussion Club"],"url":"https://tehran-english-discussion.github.io/","logo":"https://tehran-english-discussion.github.io/favicon.png","sameAs":["https://instagram.com/tehran.english.discussion"],"description":"A free English discussion club in Tehran for fluent speakers. Members meet every Friday, 4–8 p.m., at Raya House café near Karim Khan.","foundingDate":"2025-03-07","location":{"@type":"Place","name":"Raya House café (خانه رایا)","address":{"@type":"PostalAddress","streetAddress":"No. 20, Khosrow Alley, District 6","addressLocality":"Tehran","addressRegion":"Tehran Province","addressCountry":"IR"},"geo":{"@type":"GeoCoordinates","latitude":35.712125,"longitude":51.417614}},"areaServed":"Tehran","knowsLanguage":"en","contactPoint":{"@type":"ContactPoint","contactType":"membership","url":"https://t.me/pjsofts","availableLanguage":["en","fa"]}},{"@type":"WebSite","@id":"https://tehran-english-discussion.github.io/#site","name":"Tehran English Discussion","alternateName":".TED","url":"https://tehran-english-discussion.github.io/","inLanguage":"en","publisher":{"@id":"https://tehran-english-discussion.github.io/#org"}},{"@type":"EventSeries","@id":"https://tehran-english-discussion.github.io/#fridays","name":"Tehran English Discussion Fridays","description":"A weekly English discussion club for fluent speakers: two tables every Friday, 4–6 p.m. and 6–8 p.m.","url":"https://tehran-english-discussion.github.io/","location":{"@type":"Place","name":"Raya House café (خانه رایا)","address":{"@type":"PostalAddress","streetAddress":"No. 20, Khosrow Alley, District 6","addressLocality":"Tehran","addressRegion":"Tehran Province","addressCountry":"IR"},"geo":{"@type":"GeoCoordinates","latitude":35.712125,"longitude":51.417614}},"organizer":{"@id":"https://tehran-english-discussion.github.io/#org"},"inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":0,"priceCurrency":"IRR","availability":"https://schema.org/InStock","url":"https://tehran-english-discussion.github.io/","validFrom":"2026-11-01T00:00:00+03:30"},"eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventSchedule":{"@type":"Schedule","repeatFrequency":"P1W","byDay":"https://schema.org/Friday","startTime":"16:00","endTime":"20:00","scheduleTimezone":"Asia/Tehran","startDate":"2025-03-07"}},{"@type":"FAQPage","@id":"https://tehran-english-discussion.github.io/#faq","mainEntity":[{"@type":"Question","name":"What is Tehran English Discussion (.TED)?","acceptedAnswer":{"@type":"Answer","text":"Tehran English Discussion (.TED) is an English discussion club in Tehran for people whose English is already fluent. Every Friday since March 2025, members meet at one long café table to share life lessons and talk through big ideas in English."}},{"@type":"Question","name":"When and where do you meet?","acceptedAnswer":{"@type":"Answer","text":"Every Friday at Raya House café (خانه رایا), No. 20, Khosrow Alley, near Karim Khan in central Tehran. There are two tables: 4 to 6 p.m. and 6 to 8 p.m., each with its own topic and moderator."}},{"@type":"Question","name":"Is it free?","acceptedAnswer":{"@type":"Answer","text":"Yes. .TED is a free club run by its members; there is no membership fee."}},{"@type":"Question","name":"Who can join?","acceptedAnswer":{"@type":"Answer","text":"Anyone whose English is fluent and who enjoys deep conversation. .TED is not a class: there are no drills or band scores. We use English to think out loud together, so we ask for a good level before your first Friday."}},{"@type":"Question","name":"How do I join?","acceptedAnswer":{"@type":"Answer","text":"Record a short voice message in English: who you are, what you do, and one idea or life lesson you’d like to talk about. Send it on Telegram to Pouria at @pjsofts. We listen, say hello, and let you know about the next Friday."}},{"@type":"Question","name":"What do you talk about?","acceptedAnswer":{"@type":"Answer","text":"Each session has a member as moderator and one topic, from relationships, happiness and philosophy to AI, murder mysteries and debates. Every past topic is listed on our session archive."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://tehran-english-discussion.github.io/#org","name":"Tehran English Discussion","alternateName":[".TED","TED Tehran English Discussion","Tehran English Discussion Club"],"url":"https://tehran-english-discussion.github.io/","logo":"https://tehran-english-discussion.github.io/favicon.png","sameAs":["https://instagram.com/tehran.english.discussion"],"description":"A free English discussion club in Tehran for fluent speakers. Members meet every Friday, 4–8 p.m., at Raya House café near Karim Khan.","foundingDate":"2025-03-07","location":{"@type":"Place","name":"Raya House café (خانه رایا)","address":{"@type":"PostalAddress","streetAddress":"No. 20, Khosrow Alley, District 6","addressLocality":"Tehran","addressRegion":"Tehran Province","addressCountry":"IR"},"geo":{"@type":"GeoCoordinates","latitude":35.712125,"longitude":51.417614}},"areaServed":"Tehran","knowsLanguage":"en","contactPoint":{"@type":"ContactPoint","contactType":"membership","url":"https://t.me/pjsofts","availableLanguage":["en","fa"]}},{"@type":"WebSite","@id":"https://tehran-english-discussion.github.io/#site","name":"Tehran English Discussion","alternateName":".TED","url":"https://tehran-english-discussion.github.io/","inLanguage":"en","publisher":{"@id":"https://tehran-english-discussion.github.io/#org"}},{"@type":"EventSeries","@id":"https://tehran-english-discussion.github.io/#fridays","name":"Tehran English Discussion Fridays","description":"A weekly English discussion club for fluent speakers: two tables every Friday, 4–6 p.m. and 6–8 p.m.","url":"https://tehran-english-discussion.github.io/","location":{"@type":"Place","name":"Raya House café (خانه رایا)","address":{"@type":"PostalAddress","streetAddress":"No. 20, Khosrow Alley, District 6","addressLocality":"Tehran","addressRegion":"Tehran Province","addressCountry":"IR"},"geo":{"@type":"GeoCoordinates","latitude":35.712125,"longitude":51.417614}},"organizer":{"@id":"https://tehran-english-discussion.github.io/#org"},"inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":0,"priceCurrency":"IRR","availability":"https://schema.org/InStock","url":"https://tehran-english-discussion.github.io/","validFrom":"2026-11-01T00:00:00+03:30"},"eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventSchedule":{"@type":"Schedule","repeatFrequency":"P1W","byDay":"https://schema.org/Friday","startTime":"16:00","endTime":"20:00","scheduleTimezone":"Asia/Tehran","startDate":"2025-03-07"}},{"@type":"FAQPage","@id":"https://tehran-english-discussion.github.io/#faq","mainEntity":[{"@type":"Question","name":"What is Tehran English Discussion (.TED)?","acceptedAnswer":{"@type":"Answer","text":"Tehran English Discussion (.TED) is an English discussion club in Tehran for people whose English is already fluent. Every Friday since March 2025, members meet at one long café table to share life lessons and talk through big ideas in English."}},{"@type":"Question","name":"When and where do you meet?","acceptedAnswer":{"@type":"Answer","text":"Every Friday at Raya House café (خانه رایا), No. 20, Khosrow Alley, near Karim Khan in central Tehran. There are two tables: 4 to 6 p.m. and 6 to 8 p.m., each with its own topic and moderator."}},{"@type":"Question","name":"Is it free?","acceptedAnswer":{"@type":"Answer","text":"Yes. .TED is a free discussion club run by its members: there is no membership fee and no ticket, you just order your own drink at the café."}},{"@type":"Question","name":"Do you have online sessions?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every other Monday, 8 to 10 p.m. Tehran time, we hold a free online English discussion on Google Meet for up to 12 people, with one topic and a member as moderator. It is open to fluent speakers outside Tehran too. See the online table page for the next call."}},{"@type":"Question","name":"Who can join?","acceptedAnswer":{"@type":"Answer","text":"Anyone whose English is fluent and who enjoys deep conversation. .TED is not a class: there are no drills or band scores. We use English to think out loud together, so we ask for a good level before your first Friday."}},{"@type":"Question","name":"How do I join?","acceptedAnswer":{"@type":"Answer","text":"Record a short voice message in English: who you are, what you do, and one idea or life lesson you’d like to talk about. Send it on Telegram to Pouria at @pjsofts. We listen, say hello, and let you know about the next Friday."}},{"@type":"Question","name":"What do you talk about?","acceptedAnswer":{"@type":"Answer","text":"Each session has a member as moderator and one topic, from relationships, happiness and philosophy to AI, murder mysteries and debates. Every past topic is listed on our session archive."}}]}]}</script>
 <!-- /seo -->
 </head>
 <body>
@@ -735,6 +764,8 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
       <a href="#archive">Archive</a>
       <a href="#people">People</a>
       <a href="#jar">Topic Jar</a>
+      <a href="online/">Online</a>
+      <a href="fa/" class="fa-link" lang="fa" hreflang="fa">فارسی</a>
       <a href="https://instagram.com/tehran.english.discussion" class="ig" target="_blank" rel="noopener" aria-label="Instagram: @tehran.english.discussion"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
       <a href="#join" class="pill">Join us</a>
     </nav>
@@ -746,7 +777,7 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
   <section class="hero">
     <div class="wrap">
       <div>
-        <div class="kicker"><span class="rule" aria-hidden="true"></span><span class="label">An English discussion club · Tehran</span></div>
+        <div class="kicker"><span class="rule" aria-hidden="true"></span><span class="label">A free English discussion club · Tehran</span></div>
         <h1>Every Friday, <em>one long table.</em></h1>
         <p class="lede"><strong>Deep, successful people sharing the lessons life has taught them.</strong> Once a week we sit under the same chandelier and trade what we’ve learned, the hard way and the happy way, in fluent English.</p>
         <div class="ticket" aria-live="polite">
@@ -760,7 +791,8 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
         </div>
         <p class="last" id="last-s"></p>
         <div class="hero-cta"><a class="cta" href="#join">Join us →</a><span>Great English and ideas to share? Send us a voice intro</span></div>
-        <p class="where">Fridays, 4–8 p.m. · Raya House café, Khosrow Alley, near Karim Khan, Tehran</p>
+        <p class="where">Free discussion · Fridays, 4–8 p.m., and online every other Monday · Raya House café, Khosrow Alley, near Karim Khan, Tehran</p>
+        <a class="workshop-link" href="online/"><span class="wl-t"><span class="label">Every other Monday · 8–10 p.m. · Google Meet</span><b>The online table <em>A free discussion, from anywhere</em></b></span><span class="go" aria-hidden="true">→</span></a>
         <a class="workshop-link" href="beauty/"><span class="wl-t"><span class="label">Fri 29 Aban · 4–6 p.m. · with Sareh</span><b>Who decided that this is beautiful? <em>A free discussion</em></b></span><span class="go" aria-hidden="true">→</span></a>
         <a class="workshop-link" href="golden-whisk/"><span class="wl-t"><span class="label">Fri 29 Aban · 6–8 p.m. · with Bahar</span><b>The Golden Whisk <em>A murder mystery night</em></b></span><span class="go" aria-hidden="true">→</span></a>
         <a class="workshop-link" href="criminology/"><span class="wl-t"><span class="label">Fri 22 Aban · 4–6 p.m. · with Parnian</span><b>Criminology, part 2 <em>Crime, justice &amp; punishment</em></b></span><span class="go" aria-hidden="true">→</span></a>
@@ -834,13 +866,27 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
       </div>
     </div>
   </section>
+  <section class="sec" id="online-band">
+    <div class="wrap">
+      <a class="night" href="online/">
+        <div>
+          <span class="label"><span class="moon" aria-hidden="true"></span>.TED Online · every other Monday</span>
+          <h2>The table, <em>after dark.</em></h2>
+          <p><b>A free English discussion on Google Meet,</b> 8–10 p.m. Tehran time. Same members, same kind of questions, for fluent speakers anywhere: up to twelve seats, one topic, a member moderating.</p>
+          <span class="go">See the online table <span aria-hidden="true">→</span></span>
+        </div>
+        <div class="mini" aria-hidden="true"><i>B</i><i class="talk">N</i><i>N</i><i>F</i><i>A</i><i>H</i><i>P</i><i>F</i><i class="seat">+</i><i class="seat">+</i><i class="seat">+</i><i class="you">✦</i><small><span>● Monday table</span><span>your seat ↑</span></small></div>
+      </a>
+    </div>
+  </section>
   <section class="sec" id="faq">
     <div class="wrap">
       <div class="head"><span class="label">Good to know</span><h2>Questions, <em>answered</em></h2></div>
       <div class="faq">
         <details class="faq-q"><summary>What is Tehran English Discussion (.TED)?</summary><p>Tehran English Discussion (.TED) is an English discussion club in Tehran for people whose English is already fluent. Every Friday since March 2025, members meet at one long café table to share life lessons and talk through big ideas in English.</p></details>
         <details class="faq-q"><summary>When and where do you meet?</summary><p>Every Friday at Raya House café (خانه رایا), No. 20, Khosrow Alley, near Karim Khan in central Tehran. There are two tables: 4 to 6 p.m. and 6 to 8 p.m., each with its own topic and moderator.</p></details>
-        <details class="faq-q"><summary>Is it free?</summary><p>Yes. .TED is a free club run by its members; there is no membership fee.</p></details>
+        <details class="faq-q"><summary>Is it free?</summary><p>Yes. .TED is a free discussion club run by its members: there is no membership fee and no ticket, you just order your own drink at the café.</p></details>
+        <details class="faq-q"><summary>Do you have online sessions?</summary><p>Yes. Every other Monday, 8 to 10 p.m. Tehran time, we hold a free online English discussion on Google Meet for up to 12 people, with one topic and a member as moderator. It is open to fluent speakers outside Tehran too. See <a href="online/">the online table page</a> for the next call.</p></details>
         <details class="faq-q"><summary>Who can join?</summary><p>Anyone whose English is fluent and who enjoys deep conversation. .TED is not a class: there are no drills or band scores. We use English to think out loud together, so we ask for a good level before your first Friday.</p></details>
         <details class="faq-q"><summary>How do I join?</summary><p>Record a short voice message in English: who you are, what you do, and one idea or life lesson you’d like to talk about. Send it on Telegram to Pouria at <a href="https://t.me/pjsofts" target="_blank" rel="noopener">@pjsofts</a>. We listen, say hello, and let you know about the next Friday.</p></details>
         <details class="faq-q"><summary>What do you talk about?</summary><p>Each session has a member as moderator and one topic, from relationships, happiness and philosophy to AI, murder mysteries and debates. Every past topic is listed on our <a href="sessions/">session archive</a>.</p></details>
@@ -1087,7 +1133,7 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
   <div class="wrap">
     <p class="foot-line">Come for the ideas, stay for the people. See you on Friday.</p>
     <span class="logo" role="img" aria-label=".TED logo"></span>
-    <nav aria-label="Footer"><a href="#fridays">Fridays</a><a href="#archive">Archive</a><a href="sessions/">All topics</a><a href="#people">People</a><a href="#jar">Topic Jar</a><a href="#join">Join us</a><a href="https://instagram.com/tehran.english.discussion" target="_blank" rel="noopener">Instagram</a></nav>
+    <nav aria-label="Footer"><a href="#fridays">Fridays</a><a href="#archive">Archive</a><a href="sessions/">All topics</a><a href="#people">People</a><a href="#jar">Topic Jar</a><a href="#join">Join us</a><a href="online/">Online</a><a href="fa/" lang="fa">فارسی</a><a href="https://instagram.com/tehran.english.discussion" target="_blank" rel="noopener">Instagram</a></nav>
     <span>Tehran English Discussion · Every Friday since spring 2025</span>
   </div>
 </footer>
