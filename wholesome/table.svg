@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" fill="none">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B5532F"/><stop offset="1" stop-color="#8E3A22"/></linearGradient>
+    <linearGradient id="crust" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0A04A"/><stop offset=".6" stop-color="#B9702B"/><stop offset="1" stop-color="#8A4E1C"/></linearGradient>
+    <linearGradient id="crumb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF4DC"/><stop offset="1" stop-color="#F3DDB0"/></linearGradient>
+    <linearGradient id="frost" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE3EC"/><stop offset=".5" stop-color="#F6B6CB"/><stop offset="1" stop-color="#E88AA9"/></linearGradient>
+    <linearGradient id="wrap" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7FB3C9"/><stop offset="1" stop-color="#5A93AE"/></linearGradient>
+    <linearGradient id="board" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8A5A34"/><stop offset="1" stop-color="#5A3A22"/></linearGradient>
+    <linearGradient id="mug" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFF8EA"/><stop offset="1" stop-color="#E9DCC3"/></linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF3C4" stop-opacity=".9"/><stop offset="1" stop-color="#FFF3C4" stop-opacity="0"/></radialGradient>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="2.4" fill="#B5532F" opacity=".35"/></pattern>
+  </defs>
+
+  <!-- wall + window light -->
+  <path d="M70 430 V120 Q70 70 120 70 H680 Q730 70 730 120 V430 Z" fill="url(#wall)"/>
+  <circle cx="400" cy="230" r="230" fill="url(#glow)" opacity=".5"/>
+  <!-- tablecloth -->
+  <path d="M30 420 H770 L790 540 H10 Z" fill="#FFF8EA"/>
+  <path d="M30 420 H770 L790 540 H10 Z" fill="url(#dots)"/>
+  <path d="M30 420 H770" stroke="#2B1B12" stroke-width="3"/>
+
+  <!-- steam from the bread -->
+  <g stroke="#FFF8EA" stroke-width="5" stroke-linecap="round" opacity=".85">
+    <path d="M250 180 c-14 -18 14 -30 0 -50 c-12 -16 10 -28 2 -42"/>
+    <path d="M300 170 c-12 -18 12 -28 0 -46"/>
+  </g>
+
+  <!-- cutting board + bread (nourishing) -->
+  <ellipse cx="270" cy="440" rx="190" ry="16" fill="#2B1B12" opacity=".25" filter="url(#blur)"/>
+  <path d="M100 400 h300 a14 14 0 0 1 0 28 h-300 a14 14 0 0 1 0 -28 z" fill="url(#board)" stroke="#2B1B12" stroke-width="3"/>
+  <circle cx="414" cy="414" r="5" fill="#2B1B12"/>
+  <!-- loaf -->
+  <path d="M120 402 C112 300 190 236 262 236 C340 236 392 300 372 402 Z" fill="url(#crust)" stroke="#2B1B12" stroke-width="3.5" stroke-linejoin="round"/>
+  <g stroke="#F6D9A0" stroke-width="7" stroke-linecap="round" opacity=".9">
+    <path d="M178 300 q26 -22 52 -8"/>
+    <path d="M222 272 q30 -20 58 -4"/>
+    <path d="M272 262 q30 -12 54 8"/>
+  </g>
+  <!-- cut slice leaning in front -->
+  <g transform="rotate(-8 380 360)">
+    <path d="M352 404 V320 C352 290 372 276 396 276 C420 276 440 290 440 320 V404 Z" fill="url(#crust)" stroke="#2B1B12" stroke-width="3.5"/>
+    <path d="M362 402 V322 C362 300 378 288 396 288 C414 288 430 300 430 322 V402 Z" fill="url(#crumb)"/>
+    <g fill="#E2C389"><circle cx="384" cy="330" r="3"/><circle cx="408" cy="350" r="2.5"/><circle cx="392" cy="372" r="3.2"/><circle cx="414" cy="384" r="2"/><circle cx="378" cy="392" r="2.2"/></g>
+  </g>
+
+  <!-- cupcake (just sweet) -->
+  <ellipse cx="560" cy="430" rx="80" ry="12" fill="#2B1B12" opacity=".25" filter="url(#blur)"/>
+  <!-- plate -->
+  <ellipse cx="560" cy="420" rx="96" ry="16" fill="#FFF8EA" stroke="#2B1B12" stroke-width="3"/>
+  <!-- wrapper -->
+  <path d="M506 330 h108 l-14 88 h-80 z" fill="url(#wrap)" stroke="#2B1B12" stroke-width="3.5" stroke-linejoin="round"/>
+  <g stroke="#2B1B12" stroke-opacity=".35" stroke-width="2.5"><path d="M528 334 l6 82 M550 334 l2 82 M572 334 l-2 82 M594 334 l-6 82"/></g>
+  <!-- frosting swirl -->
+  <path d="M494 334 C484 300 516 288 530 292 C522 262 560 244 580 262 C600 250 632 270 618 296 C640 300 640 336 622 338 Z" fill="url(#frost)" stroke="#2B1B12" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M520 312 q30 -16 66 -6 M540 280 q20 -10 40 -2" stroke="#FFF1F5" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+  <!-- sprinkles -->
+  <g stroke-width="4.5" stroke-linecap="round">
+    <path d="M516 322 l8 -4" stroke="#FFC700"/><path d="M604 318 l6 6" stroke="#44603A"/><path d="M560 300 l7 3" stroke="#FFF8EA"/><path d="M586 282 l-3 8" stroke="#FFC700"/><path d="M540 300 l-6 6" stroke="#B5532F"/>
+  </g>
+  <!-- cherry -->
+  <path d="M572 236 q4 -24 22 -30" stroke="#2B1B12" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="566" cy="248" r="16" fill="#C4291E" stroke="#2B1B12" stroke-width="3"/>
+  <circle cx="560" cy="242" r="4.5" fill="#FFF8EA" opacity=".8"/>
+
+  <!-- mug of tea -->
+  <g transform="translate(690 420)">
+    <path d="M-40 0 V-62 h56 V0 a8 8 0 0 1 -8 6 h-40 a8 8 0 0 1 -8 -6 z" fill="url(#mug)" stroke="#2B1B12" stroke-width="3.5" stroke-linejoin="round"/>
+    <path d="M16 -50 c22 0 22 34 0 34" stroke="#2B1B12" stroke-width="3.5" fill="none"/>
+    <path d="M-34 -56 h44" stroke="#A0522D" stroke-width="6" stroke-linecap="round"/>
+    <path d="M-28 -36 c6 -6 12 6 18 0" stroke="#B5532F" stroke-width="3" stroke-linecap="round"/>
+    <g stroke="#FFF8EA" stroke-width="4" stroke-linecap="round" opacity=".8"><path d="M-20 -76 c-8 -12 8 -18 0 -30"/><path d="M-2 -80 c-8 -10 8 -16 0 -26"/></g>
+  </g>
+
+  <!-- sparkles over the cupcake -->
+  <g fill="#FFF8EA">
+    <path d="M640 220 l5 14 14 5 -14 5 -5 14 -5 -14 -14 -5 14 -5z"/>
+    <path d="M490 250 l3.5 9 9 3.5 -9 3.5 -3.5 9 -3.5 -9 -9 -3.5 9 -3.5z"/>
+  </g>
+  <!-- little leaf sprig by the bread -->
+  <g transform="translate(120 408)">
+    <path d="M0 0 C-10 -20 -30 -26 -42 -24 C-30 -12 -14 -6 0 0 Z M0 0 C-4 -24 6 -40 18 -46 C18 -30 10 -14 0 0 Z" fill="#44603A" stroke="#2B1B12" stroke-width="2.5" stroke-linejoin="round"/>
+  </g>
+</svg>
