@@ -4,10 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Commit or Quit? · Tehran English Discussion</title>
-<meta name="description" content="A .TED Friday workshop with Pouria on commitment: open doors, the dizziness of freedom, and choosing one life. Friday, 6 Azar 1405, 6 to 8 p.m.">
-<meta property="og:title" content="Commit or Quit? A workshop on commitment">
-<meta property="og:description" content="A .TED Friday workshop with Pouria. Open doors, the dizziness of freedom, and choosing one life.">
-<meta property="og:image" content="https://tehran-english-discussion.github.io/session-69.jpg">
+<meta name="description" content="A .TED Friday workshop with Pouria on commitment: why we keep every door open, what choosing gives back, and when walking away is the right call. Friday, 6 Azar 1405, 6 to 8 p.m.">
+<meta property="og:title" content="Commit or quit? A workshop on commitment">
+<meta property="og:description" content="Keep every door open, or walk through one? A .TED Friday workshop with Pouria. Friday, 6 Azar 1405, 6 to 8 p.m.">
+<meta property="og:image" content="https://tehran-english-discussion.github.io/commit-or-quit/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
@@ -28,15 +30,16 @@
   --plaster: #F5EEE1; --plaster-2: #ECE2CF; --fg: #2A1C12; --muted: #7B6650; --line: #DCCDB2;
   --wall: #A63F2A; --wall-deep: #7E2D1E; --brass: #B8892E; --brass-hi: #E2C27A; --walnut: #3A2416;
   --leaf: #44603A; --on-dark: #F7EEDD; --on-dark-muted: #CDBB9C; --yolk: #FFC700; --on-yolk: #2A1C12;
-  --cloth: #FFFDF8; --on-cloth: #2A1C12;
+  --cloth: #FFFDF8; --on-cloth: #2A1C12; --cloth-muted: #7B6650;
   --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --ui: "Instrument Sans", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --hand: "Caveat", "Segoe Print", cursive;
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --plaster: #1B1410; --plaster-2: #241B15; --fg: #F3E9D8; --muted: #B39F84; --line: #3A2C21;
-    --wall: #B04A33; --wall-deep: #84301F; --brass: #D2A74C; --brass-hi: #E9CD86;
-    --walnut: #110C08; --leaf: #6E8F5F; --cloth: #FBF6EC; color-scheme: dark;
+    --wall: #C25A40; --wall-deep: #84301F; --brass: #D2A74C; --brass-hi: #E9CD86;
+    --walnut: #110C08; --leaf: #7FA06F; --cloth: #FBF6EC; color-scheme: dark;
   }
 }
 * { box-sizing: border-box; }
@@ -44,21 +47,23 @@ html { scroll-behavior: smooth; overflow-x: clip; }
 body {
   margin: 0; background: var(--plaster); color: var(--fg); overflow-x: hidden;
   font-family: var(--display); font-optical-sizing: auto; font-variation-settings: "SOFT" 50;
-  font-size: 1.14rem; line-height: 1.62; font-weight: 380;
+  font-size: 1.12rem; line-height: 1.6; font-weight: 380;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .14 0 0 0 0 .08 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 160px;
 }
 @media (prefers-color-scheme: dark) { body { background-blend-mode: soft-light; } }
-.wrap { max-width: 1000px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } html { scroll-behavior: auto; } }
+.wrap { max-width: 1060px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.05; font-weight: 700; font-variation-settings: "SOFT" 100, "WONK" 1; }
 h1 em, h2 em, h3 em { font-weight: 400; font-style: italic; color: var(--wall); }
 p { margin: 0; text-wrap: pretty; }
 a { color: inherit; }
-button, textarea { font: inherit; }
+button { font: inherit; color: inherit; }
 :focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; border-radius: 6px; }
 ::selection { background: var(--wall); color: var(--on-dark); }
 .label { font-family: var(--ui); font-weight: 600; font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; }
 .logo { display: inline-block; width: 78px; aspect-ratio: 450 / 151; background: currentColor; -webkit-mask: url(../logo-mask.png) center / contain no-repeat; mask: url(../logo-mask.png) center / contain no-repeat; }
+.hand { font-family: var(--hand); font-weight: 700; }
 
 /* Header */
 header.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--plaster) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
@@ -66,96 +71,220 @@ header.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srg
 .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
 .brand .chip { background: var(--yolk); color: var(--on-yolk); padding: 9px 11px; border-radius: 10px; display: grid; }
 .brand .name { font-family: var(--ui); font-weight: 600; font-size: .9rem; line-height: 1.2; }
-.top nav { display: flex; gap: 4px; }
-.top nav a { font-family: var(--ui); font-weight: 500; font-size: .92rem; text-decoration: none; padding: 7px 13px; border-radius: 999px; white-space: nowrap; transition: background-color .2s; }
+.top nav { display: flex; gap: 2px; }
+.top nav a { font-family: var(--ui); font-weight: 500; font-size: .92rem; text-decoration: none; padding: 7px 12px; border-radius: 999px; white-space: nowrap; transition: background-color .2s; }
 @media (hover: hover) { .top nav a:hover { background: var(--plaster-2); } }
-@media (max-width: 640px) { .brand .name, .top nav a.opt { display: none; } }
-@media (max-width: 420px) { .top nav a.opt-sm { display: none; } .top nav a { padding: 7px 10px; } }
+@media (max-width: 700px) { .brand .name, .top nav a.opt { display: none; } }
+@media (max-width: 400px) { .top nav a.opt-sm { display: none; } .top nav a { padding: 7px 9px; } }
 
 /* Hero */
-.hero .wrap { padding-block: clamp(40px, 7vw, 88px) clamp(28px, 4vw, 48px); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 56px); align-items: center; padding-block: clamp(36px, 6vw, 80px) clamp(24px, 4vw, 44px); }
 .kicker { display: flex; align-items: center; gap: 12px; color: var(--wall); flex-wrap: wrap; }
 .kicker .rule { flex: 0 0 40px; height: 1.5px; background: currentColor; }
-.hero h1 { margin-top: 22px; font-size: clamp(2.8rem, 8.4vw, 6rem); letter-spacing: -.035em; line-height: .95; max-width: 14ch; font-weight: 800; }
-.hero .lede { margin-top: 26px; font-size: 1.28rem; line-height: 1.55; max-width: 40ch; color: var(--muted); }
-.ticket { margin-top: 30px; display: inline-flex; flex-wrap: wrap; gap: 8px 22px; padding: 14px 20px; border-radius: 14px; background: var(--yolk); color: var(--on-yolk); font-family: var(--ui); font-size: .95rem; box-shadow: 0 18px 30px -22px rgba(58, 36, 22, .8); }
+.hero h1 { margin-top: 20px; font-size: clamp(3rem, 8.6vw, 6.2rem); letter-spacing: -.035em; line-height: .92; font-weight: 800; }
+.hero h1 em { display: block; }
+.hero .lede { margin-top: 24px; font-size: 1.24rem; line-height: 1.55; max-width: 34ch; color: var(--muted); }
+.hero .lede b { color: var(--fg); font-weight: 600; }
+.ticket { margin-top: 28px; display: inline-flex; flex-wrap: wrap; gap: 6px 20px; padding: 14px 20px; border-radius: 14px; background: var(--yolk); color: var(--on-yolk); font-family: var(--ui); font-size: .95rem; box-shadow: 0 18px 30px -22px rgba(58, 36, 22, .8); }
 .ticket b { font-weight: 700; }
-.steps-nav { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 8px; }
-.steps-nav a { font-family: var(--ui); font-size: .9rem; font-weight: 500; text-decoration: none; padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--plaster); }
-@media (hover: hover) { .steps-nav a:hover { border-color: var(--wall); color: var(--wall); } }
+.cta { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--ui); font-weight: 600; font-size: .95rem; text-decoration: none; cursor: pointer; border: 0; border-radius: 999px; padding: 12px 20px; background: var(--walnut); color: var(--on-dark); transition: transform .2s; }
+@media (prefers-color-scheme: dark) { .btn { background: var(--brass); color: #1B1410; } }
+.btn.ghost { background: transparent; color: var(--fg); box-shadow: inset 0 0 0 1.5px var(--line); }
+@media (hover: hover) { .btn:hover { transform: translateY(-1px); } }
+.hero-art { position: relative; }
+.hero-art img { display: block; width: 100%; height: auto; }
+.hero-art .note { position: absolute; font-family: var(--hand); font-weight: 700; font-size: clamp(1.1rem, 2.4vw, 1.55rem); line-height: 1; color: var(--fg); white-space: nowrap; }
+.hero-art .n1 { left: 0; top: 0; transform: rotate(-6deg); }
+.hero-art .n2 { right: 0; top: 2%; transform: rotate(5deg); }
+@media (max-width: 820px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .hero-art { order: -1; max-width: 520px; width: 100%; margin-inline: auto; }
+}
 
 /* Sections */
-section { scroll-margin-top: 80px; }
-.sec .wrap { padding-block: clamp(56px, 8vw, 100px) 0; }
-.head { display: grid; gap: 12px; max-width: 720px; margin-bottom: clamp(26px, 4vw, 40px); }
+section { scroll-margin-top: 76px; }
+.sec .wrap { padding-block: clamp(56px, 8vw, 104px) 0; }
+.head { display: grid; gap: 12px; max-width: 720px; margin-bottom: clamp(24px, 4vw, 40px); }
 .head .label { color: var(--wall); }
-.head h2 { font-size: clamp(2.1rem, 5vw, 3.4rem); letter-spacing: -.025em; }
+.head h2 { font-size: clamp(2.1rem, 5.4vw, 3.5rem); letter-spacing: -.025em; }
 .head p { color: var(--muted); }
+.card { background: var(--cloth); color: var(--on-cloth); border-radius: 20px; box-shadow: 0 1px 2px rgba(42, 28, 18, .1), 0 26px 44px -30px rgba(58, 36, 22, .7); }
 
-/* The story */
-.myth { position: relative; background: var(--cloth); color: var(--on-cloth); border-radius: 20px; border-top: 6px solid var(--yolk); padding: clamp(24px, 5vw, 52px); box-shadow: 0 1px 2px rgba(42, 28, 18, .1), 0 26px 44px -30px rgba(58, 36, 22, .7); max-width: 760px; }
-.myth p + p { margin-top: 1em; }
-.myth p:first-child::first-letter { float: left; font-size: 4.4em; line-height: .8; font-weight: 800; margin: .06em .1em 0 0; color: #A63F2A; font-variation-settings: "SOFT" 100, "WONK" 1; }
-.myth .turn { font-size: 1.3rem; font-style: italic; border-left: 3px solid #B8892E; padding-left: 18px; color: #4A3324; }
-.myth .ps { margin-top: 1.6em; padding-top: 1.2em; border-top: 1px dashed #D8C7A8; font-size: 1.02rem; color: #6A5642; }
-.myth .ps b { font-family: var(--ui); font-size: .78rem; letter-spacing: .14em; color: #A63F2A; margin-right: 6px; }
-.myth .src { margin-top: 1.2em; font-family: var(--ui); font-size: .8rem; color: #8A7660; }
+/* ---------- The door game ---------- */
+.game { padding: clamp(18px, 4vw, 36px); border-top: 6px solid var(--yolk); }
+.rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 22px; counter-reset: r; }
+.rules p { counter-increment: r; position: relative; font-family: var(--ui); font-size: .92rem; line-height: 1.45; color: #5A4634; padding: 12px 14px 12px 46px; background: #F7F0E2; border-radius: 12px; }
+.rules p::before { content: counter(r); position: absolute; left: 12px; top: 11px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: #2A1C12; color: #FFC700; font-weight: 700; font-size: .8rem; }
+.rules b { color: #2A1C12; }
+@media (max-width: 760px) { .rules { grid-template-columns: minmax(0, 1fr); } }
+.hud { display: flex; flex-wrap: wrap; gap: 8px; font-family: var(--ui); }
+.hud span { display: inline-flex; align-items: baseline; gap: 8px; padding: 8px 14px; border-radius: 999px; background: #F1E8D6; color: #5A4634; font-size: .85rem; }
+.hud b { font-size: 1.25rem; color: #2A1C12; font-variant-numeric: tabular-nums; }
+.hud .pts { background: #2A1C12; color: #E9D9B8; }
+.hud .pts b { color: #FFC700; }
+.taps { flex: 1 1 100%; height: 6px; border-radius: 3px; background: #EADFC9; overflow: hidden; }
+.taps i { display: block; height: 100%; width: 100%; background: #A63F2A; transform-origin: left; transition: transform .25s; }
 
-/* Plan */
-.part { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: clamp(14px, 3vw, 28px); padding-block: clamp(26px, 4vw, 40px); border-top: 1px solid var(--line); }
-.part:first-of-type { border-top: 0; padding-top: 0; }
-.part .num { font-family: var(--display); font-weight: 800; font-size: 3.6rem; line-height: .9; color: var(--wall); font-variation-settings: "SOFT" 100, "WONK" 1; }
-.part.dizzy .num { color: var(--muted); }
-.part.real .num { color: var(--leaf); }
-.part h3 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); letter-spacing: -.015em; }
-.part .scene { margin-top: 10px; font-style: italic; color: var(--muted); max-width: 52ch; }
-.qs { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 14px; }
-.q { background: var(--cloth); color: var(--on-cloth); border-radius: 16px; padding: 18px 20px; border: 1px solid color-mix(in srgb, var(--brass) 26%, transparent); box-shadow: 0 14px 26px -24px rgba(58, 36, 22, .7); }
-.q > p { font-size: 1.16rem; font-weight: 450; }
-.q.carry { box-shadow: inset 0 0 0 2px var(--yolk), 0 14px 26px -24px rgba(58, 36, 22, .7); }
-.q .tag { display: inline-block; margin-bottom: 6px; font-family: var(--ui); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--brass); }
-.q textarea { display: block; width: 100%; margin-top: 12px; min-height: 76px; resize: vertical; border-radius: 10px; border: 1.5px dashed #D8C7A8; background: #FFFBF2; color: #2A1C12; padding: 10px 12px; font-family: var(--ui); font-size: 1rem; line-height: 1.5; }
-.q textarea:focus { outline: none; border-style: solid; border-color: var(--brass); }
-.q textarea::placeholder { color: #A8977F; }
-.hide-notes .q textarea { display: none; }
-.part.dizzy .q { border-left: 4px solid #A8977F; }
-.part.real .q { border-left: 4px solid var(--leaf); }
-.part.go .q { border-left: 4px solid var(--yolk); }
+.hall { position: relative; margin-top: 18px; padding: clamp(18px, 4vw, 30px) clamp(10px, 3vw, 30px) 0; border-radius: 18px; background: linear-gradient(#B5532F, #8E3A22); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 3vw, 34px); align-items: end; overflow: hidden; }
+.hall::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 14px; background: #5A3A22; }
+.slot { position: relative; width: 100%; max-width: 190px; justify-self: center; aspect-ratio: 3 / 5; display: flex; align-items: flex-end; justify-content: center; }
+.slot .ghost { position: absolute; inset: 0 0 14px; border: 2.5px dashed rgba(255, 248, 234, .5); border-bottom: 0; border-radius: 999px 999px 0 0 / 60% 60% 0 0; }
+.door { position: relative; z-index: 1; width: 100%; height: calc(100% - 14px); margin-bottom: 14px; padding: 0; border: 0; background: none; cursor: pointer; transform-origin: 50% 100%; transition: transform .35s cubic-bezier(.3, 1.4, .5, 1), opacity .35s; -webkit-tap-highlight-color: transparent; }
+.door .frame { position: absolute; inset: 0; border-radius: 999px 999px 0 0 / 60% 60% 0 0; background: #4A2E1B; padding: 7% 7% 0; }
+.door .room { position: absolute; inset: 7% 7% 0; border-radius: 999px 999px 0 0 / 60% 60% 0 0; background: linear-gradient(#FFF8DE, #FFE58A 60%, #FFC700); overflow: hidden; }
+.door .room::after { content: ""; position: absolute; left: 30%; right: 30%; top: 26%; height: 18%; border-radius: 999px 999px 2px 2px / 70% 70% 2px 2px; background: #FFF8EA; box-shadow: inset 0 0 0 2px #FFD24D; }
+.door .leaf { position: absolute; inset: 7% 7% 0; border-radius: 999px 999px 0 0 / 60% 60% 0 0; background: linear-gradient(135deg, #7A5030, #3E2716); box-shadow: inset 0 0 0 2px #2B1B12; transform-origin: 0 50%; transition: transform .5s cubic-bezier(.3, .9, .4, 1); }
+.door .leaf::before { content: ""; position: absolute; inset: 14% 16% 52%; border: 2px solid rgba(43, 27, 18, .5); border-radius: 999px 999px 4px 4px / 70% 70% 4px 4px; }
+.door .leaf::after { content: ""; position: absolute; inset: 54% 16% 8%; border: 2px solid rgba(43, 27, 18, .5); border-radius: 4px; }
+.door .knob { position: absolute; right: 16%; top: 52%; width: 9%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #F6DE93, #9A6B1C); }
+.door .name { position: absolute; z-index: 2; left: 50%; top: 30%; transform: translate(-50%, -50%); font-family: var(--display); font-weight: 800; font-size: clamp(1.4rem, 4.6vw, 2.6rem); color: #F7EEDD; text-shadow: 0 2px 0 rgba(0, 0, 0, .25); pointer-events: none; transition: color .3s; }
+.door.in .leaf { transform: perspective(520px) rotateY(74deg); }
+.door.in .knob { opacity: 0; }
+.door.in .name { color: #A63F2A; text-shadow: none; }
+.door.in { filter: drop-shadow(0 0 22px rgba(255, 220, 120, .55)); }
+.door.gone { opacity: 0; pointer-events: none; }
+.slot .bricked { position: absolute; left: 50%; bottom: 40%; transform: translateX(-50%) rotate(-8deg); font-family: var(--hand); font-weight: 700; font-size: clamp(1.1rem, 3.4vw, 1.6rem); color: #FFF8EA; opacity: 0; transition: opacity .4s .2s; white-space: nowrap; }
+.slot.is-gone .bricked { opacity: 1; }
+.slot.is-gone .ghost { border-color: rgba(255, 248, 234, .3); }
+.pop { position: absolute; z-index: 3; left: 50%; top: 12%; font-family: var(--ui); font-weight: 700; font-size: 1.2rem; color: #2A1C12; background: #FFC700; padding: 2px 10px; border-radius: 999px; transform: translateX(-50%); animation: pop .9s ease-out forwards; pointer-events: none; }
+@keyframes pop { from { opacity: 0; transform: translate(-50%, 10px); } 20% { opacity: 1; } to { opacity: 0; transform: translate(-50%, -34px); } }
+.warn-badge { position: absolute; z-index: 3; top: 6px; right: 6px; min-width: 26px; height: 26px; padding: 0 7px; border-radius: 999px; display: grid; place-items: center; background: #FFF8EA; color: #A63F2A; font-family: var(--ui); font-weight: 700; font-size: .78rem; opacity: 0; transition: opacity .2s; }
+.slot.shrinking .warn-badge { opacity: 1; }
+.g-msg { margin-top: 16px; min-height: 3.2em; font-family: var(--ui); font-size: .98rem; color: #5A4634; }
+.g-msg b { color: #2A1C12; }
+.g-end { margin-top: 18px; padding: clamp(18px, 4vw, 28px); border-radius: 16px; background: #2A1C12; color: #F7EEDD; }
+.g-end[hidden] { display: none; }
+.g-end h3 { font-size: clamp(1.6rem, 4vw, 2.2rem); color: #FFC700; }
+.g-end h3 em { color: #F7EEDD; }
+.stats { margin-top: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.stats div { padding: 12px 14px; border-radius: 12px; background: rgba(255, 248, 234, .07); font-family: var(--ui); font-size: .84rem; color: #CDBB9C; line-height: 1.35; }
+.stats b { display: block; font-family: var(--display); font-size: 1.9rem; line-height: 1.1; color: #F7EEDD; font-variation-settings: "SOFT" 100, "WONK" 1; }
+@media (max-width: 560px) { .stats { grid-template-columns: minmax(0, 1fr); } }
+.g-end .verdict { margin-top: 16px; font-size: 1.08rem; color: #E9D9B8; }
+.g-end .reveal { margin-top: 16px; padding-top: 16px; border-top: 1px dashed rgba(255, 248, 234, .25); font-size: 1.02rem; color: #E9D9B8; }
+.g-end .reveal b { color: #FFC700; font-weight: 600; }
+.g-end .btn { margin-top: 18px; background: #FFC700; color: #2A1C12; }
 
-.tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 30px; padding: 14px 16px; border-radius: 14px; background: var(--plaster-2); font-family: var(--ui); font-size: .92rem; color: var(--muted); }
-.tools p { flex: 1 1 260px; }
-.btn { font-family: var(--ui); font-weight: 600; font-size: .9rem; cursor: pointer; border: 0; border-radius: 999px; padding: 10px 18px; background: var(--walnut); color: var(--on-dark); transition: transform .2s, background-color .2s; }
-@media (prefers-color-scheme: dark) { .btn { background: var(--brass); color: #1B1410; } }
-.btn.ghost { background: transparent; color: var(--fg); box-shadow: inset 0 0 0 1.5px currentColor; }
-@media (hover: hover) { .btn:hover { transform: translateY(-1px); } }
+/* ---------- The story ---------- */
+.story-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(20px, 4vw, 48px); align-items: start; }
+@media (max-width: 820px) { .story-grid { grid-template-columns: minmax(0, 1fr); } }
+.letter { position: relative; padding: clamp(22px, 4vw, 40px); background: var(--cloth); color: var(--on-cloth); border-radius: 6px; box-shadow: 0 1px 2px rgba(42, 28, 18, .12), 0 30px 40px -30px rgba(58, 36, 22, .75); transform: rotate(-1deg); }
+.letter::before { content: ""; position: absolute; top: -12px; left: 50%; width: 92px; height: 24px; margin-left: -46px; background: rgba(255, 199, 0, .65); transform: rotate(2deg); }
+.letter p + p { margin-top: .9em; }
+.letter .date { font-family: var(--ui); font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: #A63F2A; font-weight: 600; }
+.letter blockquote { margin: 14px 0 0; font-size: 1.5rem; line-height: 1.3; font-style: italic; font-weight: 400; color: #3A2416; }
+.letter .sig { margin-top: 14px; font-family: var(--hand); font-size: 1.5rem; color: #7B6650; }
+.letter .ring { position: absolute; right: 18px; bottom: 14px; width: 54px; height: 54px; border-radius: 50%; border: 7px solid #C9A045; box-shadow: inset 0 0 0 1px #8A5F14, 0 0 0 1px #8A5F14; opacity: .9; }
+.tl { list-style: none; margin: 0; padding: 0; position: relative; }
+.tl::before { content: ""; position: absolute; left: 9px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.tl li { position: relative; padding: 0 0 22px 38px; }
+.tl li::before { content: ""; position: absolute; left: 2px; top: 7px; width: 16px; height: 16px; border-radius: 50%; background: var(--plaster); border: 3px solid var(--wall); }
+.tl li:last-child { padding-bottom: 0; }
+.tl .when { font-family: var(--ui); font-weight: 700; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--wall); }
+.tl p { margin-top: 2px; }
+.tl q { font-style: italic; }
 
-/* Reflection list */
-ol.reflect { list-style: none; counter-reset: r; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-ol.reflect li { counter-increment: r; position: relative; padding: 16px 18px 16px 58px; border-radius: 14px; background: var(--cloth); color: var(--on-cloth); border: 1px solid color-mix(in srgb, var(--brass) 22%, transparent); font-size: 1.04rem; line-height: 1.5; }
-ol.reflect li::before { content: counter(r); position: absolute; left: 16px; top: 14px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-family: var(--ui); font-weight: 700; font-size: .85rem; background: var(--plaster-2); color: #7B6650; }
-@media (max-width: 760px) { ol.reflect { grid-template-columns: minmax(0, 1fr); } }
+/* ---------- Three ways to live ---------- */
+.stages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 860px) { .stages { grid-template-columns: minmax(0, 1fr); } }
+.stage { position: relative; display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+.stage .top { position: relative; height: 150px; display: grid; place-items: end center; }
+.stage .top svg { width: 120px; height: 140px; display: block; }
+.stage.a .top { background: linear-gradient(#F1D7CC, #E8C3B4); }
+.stage.e .top { background: linear-gradient(#DCE6D2, #C7D7B9); }
+.stage.r .top { background: linear-gradient(#FBE9B0, #F6D976); }
+.stage .body { padding: 20px 22px 24px; display: grid; gap: 10px; }
+.stage .n { font-family: var(--ui); font-weight: 700; font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: #A63F2A; }
+.stage h3 { font-size: 1.7rem; letter-spacing: -.015em; }
+.stage .motto { font-style: italic; color: #4A3324; }
+.stage .who { margin-top: 4px; padding: 14px 16px; border-radius: 12px; background: #F7F0E2; font-size: .98rem; line-height: 1.5; color: #4A3324; }
+.stage .who b { display: block; font-family: var(--ui); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: #7B6650; margin-bottom: 4px; }
+.aside-note { margin-top: 18px; display: flex; gap: 14px; align-items: flex-start; max-width: 760px; color: var(--muted); }
+.aside-note .hand { flex: none; font-size: 1.6rem; line-height: 1; color: var(--wall); transform: rotate(-4deg); }
 
-/* Closing */
-.closing { margin-top: clamp(64px, 9vw, 110px); background: var(--wall); color: var(--on-dark); }
-.closing .wrap { padding-block: clamp(48px, 7vw, 84px); display: grid; gap: 16px; }
-.closing p.big { font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.2; font-style: italic; max-width: 26ch; font-weight: 400; }
-.closing p.small { font-family: var(--ui); color: var(--on-dark-muted); font-size: .95rem; }
-.closing a { color: var(--brass-hi); }
+/* ---------- Findings ---------- */
+.finds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 900px) { .finds { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .finds { grid-template-columns: minmax(0, 1fr); } }
+.find { padding: 22px 22px 20px; display: flex; flex-direction: column; gap: 10px; }
+.find .big { font-family: var(--display); font-weight: 800; font-size: 3rem; line-height: .95; letter-spacing: -.03em; color: #A63F2A; font-variation-settings: "SOFT" 100, "WONK" 1; }
+.find .big small { font-size: .42em; font-weight: 600; letter-spacing: 0; color: #7B6650; }
+.find h3 { font-size: 1.25rem; line-height: 1.2; }
+.find p { font-size: 1rem; line-height: 1.5; color: #4A3324; }
+.find .ask { margin-top: auto; padding-top: 12px; border-top: 1px dashed #D8C7A8; font-family: var(--hand); font-weight: 700; font-size: 1.3rem; line-height: 1.15; color: #A63F2A; }
+.find .src { font-family: var(--ui); font-size: .74rem; color: #8A7660; }
+.find.club { background: #2A1C12; color: #F7EEDD; }
+.find.club .big { color: #FFC700; }
+.find.club .big small, .find.club .src { color: #CDBB9C; }
+.find.club p { color: #E9D9B8; }
+.find.club .ask { color: #FFC700; border-top-color: rgba(255, 248, 234, .2); }
+
+/* ---------- Marcia grid ---------- */
+.marcia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(18px, 4vw, 40px); align-items: center; }
+@media (max-width: 820px) { .marcia { grid-template-columns: minmax(0, 1fr); } }
+.grid2 { position: relative; display: grid; grid-template-columns: 30px repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)) 30px; gap: 8px; aspect-ratio: 1.05; max-width: 480px; width: 100%; }
+.grid2 .ax { font-family: var(--ui); font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); display: grid; place-items: center; text-align: center; }
+.grid2 .ax.y { writing-mode: vertical-rl; transform: rotate(180deg); }
+.grid2 .ax.ys { grid-column: 1; }
+.grid2 .ax.xs { grid-row: 3; }
+.quad { border: 0; cursor: pointer; border-radius: 16px; padding: 12px; display: grid; align-content: center; justify-items: center; gap: 4px; text-align: center; background: var(--cloth); color: var(--on-cloth); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--brass) 30%, transparent); transition: transform .2s, box-shadow .2s, background-color .2s; }
+.quad b { font-family: var(--display); font-size: clamp(1.05rem, 3.4vw, 1.35rem); font-weight: 700; line-height: 1.1; }
+.quad span { font-family: var(--ui); font-size: .78rem; color: #7B6650; }
+@media (hover: hover) { .quad:hover { transform: translateY(-2px); } }
+.quad[aria-pressed="true"] { background: #FFC700; box-shadow: none; }
+.quad[aria-pressed="true"] span { color: #2A1C12; }
+.mdesc { min-height: 220px; padding: clamp(20px, 4vw, 30px); }
+.mdesc h3 { font-size: 1.8rem; }
+.mdesc .tag { font-family: var(--ui); font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: #A63F2A; }
+.mdesc p { margin-top: 10px; color: #4A3324; }
+.mdesc .eg { font-style: italic; color: #6A5642; }
+
+/* ---------- Counterfeits ---------- */
+.fakes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 860px) { .fakes { grid-template-columns: minmax(0, 1fr); } }
+.fake { padding: 22px; display: grid; gap: 8px; align-content: start; }
+.fake .pair { font-family: var(--ui); font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #7B6650; }
+.fake .pair s { color: #A63F2A; text-decoration-thickness: 2px; }
+.fake h3 { font-size: 1.45rem; }
+.fake p { font-size: 1rem; line-height: 1.5; color: #4A3324; }
+.fake .test { margin-top: 6px; padding: 12px 14px; border-radius: 12px; background: #F7F0E2; font-size: .98rem; color: #2A1C12; }
+.fake .test b { display: block; font-family: var(--ui); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: #44603A; margin-bottom: 2px; }
+.oneq { margin-top: clamp(22px, 4vw, 36px); padding: clamp(24px, 5vw, 44px); border-radius: 22px; background: var(--wall); color: var(--on-dark); display: grid; gap: 12px; }
+.oneq .label { color: #F6D976; }
+.oneq p { font-size: clamp(1.4rem, 3.6vw, 2.2rem); line-height: 1.2; font-style: italic; font-weight: 400; max-width: 30ch; }
+
+/* ---------- Questions ---------- */
+.rounds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 820px) { .rounds { grid-template-columns: minmax(0, 1fr); } }
+.round { padding: 22px 22px 18px; }
+.round header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.round header .num { font-family: var(--display); font-weight: 800; font-size: 2.4rem; line-height: .9; color: #A63F2A; font-variation-settings: "SOFT" 100, "WONK" 1; }
+.round header h3 { font-size: 1.4rem; }
+.round ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.round li { position: relative; padding: 12px 14px 12px 40px; border-radius: 12px; background: #F7F0E2; font-size: 1.02rem; line-height: 1.5; color: #2A1C12; }
+.round li::before { content: "?"; position: absolute; left: 14px; top: 11px; font-family: var(--display); font-weight: 800; color: #B8892E; }
+.carry { margin-top: 18px; padding: 18px 22px; border-radius: 16px; background: var(--yolk); color: var(--on-yolk); display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.carry .hand { font-size: 1.5rem; line-height: 1; }
+.carry p { font-size: 1.2rem; font-style: italic; flex: 1 1 280px; }
+
+/* ---------- Closing ---------- */
+.closing { margin-top: clamp(64px, 9vw, 110px); background: #2A1C12; color: #F7EEDD; }
+.closing .wrap { padding-block: clamp(48px, 7vw, 90px); display: grid; gap: 18px; }
+.closing .label { color: #E2C27A; }
+.closing p.big { font-size: clamp(1.5rem, 3.8vw, 2.5rem); line-height: 1.22; font-style: italic; max-width: 30ch; font-weight: 400; }
+.closing p.big b { font-style: normal; font-weight: 700; color: #FFC700; }
+.closing p.small { font-family: var(--ui); color: #CDBB9C; font-size: .95rem; max-width: 62ch; }
+.closing a { color: #FFC700; }
+.reads { display: flex; flex-wrap: wrap; gap: 8px; }
+.reads span { font-family: var(--ui); font-size: .85rem; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255, 248, 234, .2); color: #E9D9B8; }
 footer.site .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 26px; font-family: var(--ui); font-size: .84rem; color: var(--muted); }
 footer.site a { color: var(--wall); text-underline-offset: 3px; }
 footer.site .logo { width: 60px; color: var(--fg); }
-
-@media (max-width: 520px) {
-  .part { grid-template-columns: minmax(0, 1fr); gap: 6px; }
-  .part .num { font-size: 2.6rem; }
-  .q { padding: 16px; }
-  ol.reflect li { padding-left: 54px; }
-}
 @media print {
-  header.top, .tools, .steps-nav, .closing, footer.site { display: none; }
+  header.top, .cta, #game, .closing, footer.site { display: none; }
   body { background: #fff; color: #000; font-size: 11pt; }
-  .q, ol.reflect li, .myth { box-shadow: none; break-inside: avoid; }
-  .q textarea { border: 1px solid #bbb; min-height: 60px; }
+  .card, .letter { box-shadow: none; break-inside: avoid; }
 }
 </style>
 <!-- seo -->
@@ -166,7 +295,7 @@ footer.site .logo { width: 60px; color: var(--fg); }
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#A63F2A">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"Commit or Quit? (.TED workshop on commitment)","description":"An English workshop with Pouria on commitment: open doors, the dizziness of freedom, and choosing one life.","startDate":"2026-11-27T18:00:00+03:30","endDate":"2026-11-27T20:00:00+03:30","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"Raya House café (خانه رایا)","address":{"@type":"PostalAddress","streetAddress":"No. 20, Khosrow Alley, District 6","addressLocality":"Tehran","addressRegion":"Tehran Province","addressCountry":"IR"},"geo":{"@type":"GeoCoordinates","latitude":35.712125,"longitude":51.417614}},"organizer":{"@type":"Organization","name":"Tehran English Discussion","url":"https://tehran-english-discussion.github.io/"},"performer":{"@type":"Person","name":"Pouria"},"inLanguage":"en","url":"https://tehran-english-discussion.github.io/commit-or-quit/","image":["https://tehran-english-discussion.github.io/session-69.jpg"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":0,"priceCurrency":"IRR","availability":"https://schema.org/InStock","url":"https://tehran-english-discussion.github.io/commit-or-quit/","validFrom":"2026-11-21T00:00:00+03:30"},"superEvent":{"@id":"https://tehran-english-discussion.github.io/#fridays"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"Commit or Quit? (.TED workshop on commitment)","description":"A free English workshop with Pouria on commitment: why we keep every door open, what choosing gives back, and when walking away is the right call.","startDate":"2026-11-27T18:00:00+03:30","endDate":"2026-11-27T20:00:00+03:30","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"Raya House café (خانه رایا)","address":{"@type":"PostalAddress","streetAddress":"No. 20, Khosrow Alley, District 6","addressLocality":"Tehran","addressRegion":"Tehran Province","addressCountry":"IR"},"geo":{"@type":"GeoCoordinates","latitude":35.712125,"longitude":51.417614}},"organizer":{"@type":"Organization","name":"Tehran English Discussion","url":"https://tehran-english-discussion.github.io/"},"performer":{"@type":"Person","name":"Pouria"},"inLanguage":"en","url":"https://tehran-english-discussion.github.io/commit-or-quit/","image":["https://tehran-english-discussion.github.io/commit-or-quit/og.jpg"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":0,"priceCurrency":"IRR","availability":"https://schema.org/InStock","url":"https://tehran-english-discussion.github.io/commit-or-quit/","validFrom":"2026-11-21T00:00:00+03:30"},"superEvent":{"@id":"https://tehran-english-discussion.github.io/#fridays"}}</script>
 <!-- /seo -->
 </head>
 <body>
@@ -174,9 +303,10 @@ footer.site .logo { width: 60px; color: var(--fg); }
 <header class="top">
   <div class="wrap">
     <a class="brand" href="../"><span class="chip"><span class="logo" role="img" aria-label=".TED logo"></span></span><span class="name">Tehran English<br>Discussion</span></a>
-    <nav aria-label="Workshop">
-      <a href="#story" class="opt">The story</a>
-      <a href="#plan">The workshop</a>
+    <nav aria-label="On this page">
+      <a href="#game">The game</a>
+      <a href="#map" class="opt">Three lives</a>
+      <a href="#counterfeit" class="opt">Real or fake</a>
       <a href="#questions" class="opt-sm">Questions</a>
       <a href="../">← Club</a>
     </nav>
@@ -186,114 +316,277 @@ footer.site .logo { width: 60px; color: var(--fg); }
 <main>
   <section class="hero">
     <div class="wrap">
-      <div class="kicker"><span class="rule" aria-hidden="true"></span><span class="label">A Friday workshop · with Pouria</span></div>
-      <h1>Commit <em>or quit?</em></h1>
-      <p class="lede">Keep every door open, or walk through one and see what grows there? A workshop on commitment: why choosing is so hard, what it gives back when we finally do, and when walking away is the right call.</p>
-      <div class="ticket"><span><b>Friday, 6 Azar 1405</b></span><span>6 to 8 p.m.</span><span>Moderator: <b>Pouria</b></span></div>
-      <nav class="steps-nav" aria-label="Jump to">
-        <a href="#story">1 · The man who returned the ring</a>
-        <a href="#plan">2 · The workshop, step by step</a>
-        <a href="#questions">3 · Questions for the table</a>
-      </nav>
+      <div>
+        <div class="kicker"><span class="rule" aria-hidden="true"></span><span class="label">A Friday workshop · with Pouria</span></div>
+        <h1>Commit <em>or quit?</em></h1>
+        <p class="lede">You could still change careers. Move cities. Start over. <b>There is something comforting about knowing you still could.</b> But keep every door open long enough and you never walk far enough through one to see what’s on the other side.</p>
+        <div class="ticket"><span><b>Friday, 6 Azar</b> (27 Nov)</span><span>6 to 8 p.m.</span><span>Led by <b>Pouria</b></span><span>Free</span></div>
+        <div class="cta">
+          <a class="btn" href="#game">Play the door game first <span aria-hidden="true">↓</span></a>
+          <a class="btn ghost" href="#questions">Questions for Friday</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="doors.svg" width="800" height="560" alt="Three arched doors in a terracotta wall. The middle one stands open, with warm light pouring out; the doors on either side are shrinking inside dotted outlines of their old size.">
+        <span class="note n1" aria-hidden="true">keep them all open?</span>
+        <span class="note n2" aria-hidden="true">or walk through one?</span>
+      </div>
     </div>
   </section>
 
+  <!-- ============ GAME ============ -->
+  <section class="sec" id="game">
+    <div class="wrap">
+      <div class="head"><span class="label">Before you read anything · 1 minute</span><h2>Three doors, <em>forty taps</em></h2><p>Play once before Friday. Don’t overthink it. We’ll compare scores at the table.</p></div>
+
+      <div class="card game">
+        <div class="rules">
+          <p>Each door hides points. <b>Tap a door to walk in.</b> That tap earns nothing.</p>
+          <p>Once you’re inside, <b>tap the same door again</b> to collect. Each door pays a different amount.</p>
+          <p>Every tap, the doors you’re <b>not</b> using shrink. <b>Ignore one for 8 taps</b> and it’s gone for good.</p>
+        </div>
+        <div class="hud" aria-live="polite">
+          <span>Taps left <b id="g-left">40</b></span>
+          <span class="pts">Points <b id="g-pts">0</b></span>
+          <span>Doors open <b id="g-open">3</b></span>
+          <div class="taps" aria-hidden="true"><i id="g-bar"></i></div>
+        </div>
+        <div class="hall" id="hall"></div>
+        <p class="g-msg" id="g-msg" aria-live="polite">Pick a door. Any door.</p>
+        <div class="g-end" id="g-end" hidden>
+          <h3 id="g-title">Done. <em>Let’s see.</em></h3>
+          <div class="stats">
+            <div><b id="s-pts">0</b>points in total</div>
+            <div><b id="s-walk">0</b>taps spent walking between doors instead of collecting</div>
+            <div><b id="s-best">0</b>points for someone who peeks into each door once, then stays in the best one</div>
+          </div>
+          <p class="verdict" id="g-verdict"></p>
+          <p class="reveal">You just played a short version of an <b>MIT experiment</b> (Shin &amp; Ariely, 2004). Players had three doors and 100 clicks. The smart move was to explore briefly, find the best door and stay. Instead, people kept running back to rescue doors that were about to vanish, and earned less for it. The researchers gave them the payoffs, let them practise, made switching more expensive. They even let a vanished door come back <b>for free</b>. People <em>still</em> ran around keeping doors open. Closing one simply felt intolerable.</p>
+          <button type="button" class="btn" id="g-again">Play again</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORY ============ -->
   <section class="sec" id="story">
     <div class="wrap">
-      <div class="head"><span class="label">A true story from Copenhagen</span><h2>The man who <em>returned the ring</em></h2></div>
-      <article class="myth">
-        <p>Copenhagen, 1841. Søren Kierkegaard — rich, brilliant, and melancholic — has been engaged to Regine Olsen for a year. A year spent in dread: he is certain his darkness and his writing make marriage impossible. So he tries a strange exit. He starts acting cold and cruel, hoping she will end it and spare him the choice. She sees right through it.</p>
-        <p>On his last visit, she asks if he will ever marry. Yes, he says, in ten years, once he has “had his fling.” She asks him to think of her. He promises. She asks him for a kiss. He gives it — “without passion. Merciful God!” — and writes that down later, crying through the nights in a Berlin hotel room, by day “even more flippant and witty than called for.” He returns the ring by mail, leaves the country, and writes <em>Either/Or</em>: a huge, strange book in praise of the very commitment he ran from.</p>
-        <p class="turn">For the next decade they passed each other on the streets of Copenhagen — “almost every blessed day” — exchanging glances, never a word.</p>
-        <p>Eight years after the break he admitted in his journal that marrying her “would have made me happy beyond my dreams,” then finished the thought with: without her, he could be happier in his unhappiness than with her. He died at forty-two and left her everything he owned.</p>
-        <p class="ps"><b>P.S.</b>This is the man who called anxiety “the dizziness of freedom”: the vertigo of standing at the edge of a choice, free to go in any direction — which is exactly why it terrifies. His whole life became one long argument that a self is not found. It is chosen, then re-chosen.</p>
-        <p class="src">Our workshop is based on the SOLVED guide <em>Commitment, Solved.</em>, which opens with this story.</p>
-      </article>
+      <div class="head"><span class="label">Copenhagen, 1841</span><h2>The man who <em>mailed back the ring</em></h2><p>The philosopher who wrote the book on commitment couldn’t keep one.</p></div>
+      <div class="story-grid">
+        <article class="letter">
+          <p class="date">From his journal, years later</p>
+          <blockquote>Marrying her “would have made me happy beyond my dreams.” And yet “without her I could be happier in my unhappiness than with her.”</blockquote>
+          <p class="sig">— Søren Kierkegaard</p>
+          <span class="ring" aria-hidden="true"></span>
+        </article>
+        <ol class="tl">
+          <li><span class="when">1840</span><p>Søren, 27, proposes to Regine Olsen, 18. She is singing; he snatches the sheet music out of her hands and tells her he has wanted her for two years. She says yes.</p></li>
+          <li><span class="when">The next year</span><p>Months of dread. He tries to make <em>her</em> leave by acting like a scoundrel. She sees right through it.</p></li>
+          <li><span class="when">11 August 1841</span><p>He breaks it off and returns the ring <b>by mail</b>, the 19th-century breakup text. Then he flees to Berlin and writes <em>Either/Or</em>, a huge book in praise of marriage.</p></li>
+          <li><span class="when">The next decade</span><p>They pass each other on the streets of Copenhagen <q>almost every blessed day.</q> They never speak again.</p></li>
+          <li><span class="when">1855</span><p>He dies at 42 and leaves her everything he owns. She has married her old tutor, who turns it down.</p></li>
+        </ol>
+      </div>
+      <p class="aside-note"><span class="hand" aria-hidden="true">he named it →</span><span>Kierkegaard called anxiety <b>“the dizziness of freedom”</b>: standing at a cliff edge, the drop in your stomach comes partly from knowing you <em>could</em> step forward. A rock on the same ledge feels nothing. It has no choice to make.</span></p>
     </div>
   </section>
 
-  <section class="sec" id="plan">
+  <!-- ============ THREE LIVES ============ -->
+  <section class="sec" id="map">
     <div class="wrap">
-      <div class="head"><span class="label">On the night</span><h2>The workshop, <em>step by step</em></h2><p>We map the doors we keep open, sit with the dizziness of choosing, test which of our commitments are real — and each pick one door to close, or walk through, this week. Bring a pen, or use this page.</p></div>
-
-      <div class="tools">
-        <p>Your notes stay on this device only. Nobody else can see them.</p>
-        <button type="button" class="btn ghost" id="toggle-notes">Hide note boxes</button>
-        <button type="button" class="btn" id="copy-notes">Copy my answers</button>
+      <div class="head"><span class="label">Kierkegaard’s map</span><h2>Three ways <em>to live</em></h2><p>He thought people move through three stages, each one an answer to the emptiness of the one before. It isn’t a staircase you climb once: you can slip back on any given Tuesday.</p></div>
+      <div class="stages">
+        <article class="card stage a">
+          <div class="top" aria-hidden="true">
+            <svg viewBox="0 0 120 140"><path d="M14 140 V60 a46 46 0 0 1 92 0 V140" fill="none" stroke="#A63F2A" stroke-width="3" stroke-dasharray="4 7"/><path d="M34 140 V74 a26 26 0 0 1 52 0 V140" fill="#7A5030" stroke="#2B1B12" stroke-width="2.5"/><path d="M60 22 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z M96 36 l1.5 4 4 1.5 -4 1.5 -1.5 4 -1.5 -4 -4 -1.5 4 -1.5z M24 34 l1.5 4 4 1.5 -4 1.5 -1.5 4 -1.5 -4 -4 -1.5 4 -1.5z" fill="#A63F2A"/></svg>
+          </div>
+          <div class="body">
+            <span class="n">Stage 1</span>
+            <h3>The aesthetic life</h3>
+            <p class="motto">Sample everything, savour everything, commit to nothing. Closed doors are boring.</p>
+            <p class="who"><b>Casanova</b>Law degree at 17, never used it. Seminary, army, violin, alchemy, spying, 120 lovers, a famous escape from a Venetian prison. He ended up as a lonely librarian in a Bohemian castle, rewriting his old adventures. <i>The only commitment he ever kept was a commitment to getting out.</i></p>
+          </div>
+        </article>
+        <article class="card stage e">
+          <div class="top" aria-hidden="true">
+            <svg viewBox="0 0 120 140"><path d="M22 140 V62 a38 38 0 0 1 76 0 V140" fill="#44603A" stroke="#2B1B12" stroke-width="2.5"/><path d="M32 140 V66 a28 28 0 0 1 56 0 V140" fill="#5C7D4E"/><circle cx="80" cy="102" r="4" fill="#E2C27A"/><path d="M8 140 H112" stroke="#2B1B12" stroke-width="3"/></svg>
+          </div>
+          <div class="body">
+            <span class="n">Stage 2</span>
+            <h3>The ethical life</h3>
+            <p class="motto">Choose, take responsibility, and let the choices build a person. <i>Decide</i> comes from the Latin <i>decidere</i>: to cut off.</p>
+            <p class="who"><b>Daniel Gilbert</b>A high-school dropout takes a bus across Denver to sign up for creative writing. It’s full. “What’s open?” Psychology. Twenty years later he’s a Harvard professor and one of the best-known happiness researchers. <i>The door he wanted was closed, so he walked through the open one and stayed.</i></p>
+          </div>
+        </article>
+        <article class="card stage r">
+          <div class="top" aria-hidden="true">
+            <svg viewBox="0 0 120 140"><path d="M22 140 V62 a38 38 0 0 1 76 0 V140" fill="#5A3A22"/><path d="M30 140 V64 a30 30 0 0 1 60 0 V140 Z" fill="#FFF3C4"/><path d="M30 140 V64 Q28 40 12 34 L6 146 Z" fill="#7A5030" stroke="#2B1B12" stroke-width="2"/><path d="M30 140 H90 L108 152 H14 Z" fill="#FFE58A" opacity=".8"/></svg>
+          </div>
+          <div class="body">
+            <span class="n">Stage 3</span>
+            <h3>The “religious” life</h3>
+            <p class="motto">Not only about God. A commitment that goes past what evidence can prove, until it stops feeling like a choice and starts feeling like who you are.</p>
+            <p class="who"><b>Charles Bukowski</b>1969: a publisher offers $100 a month for life if he quits his post-office job of fourteen years and writes full time. Guaranteed misery or probable starvation. He chose to starve. <i>Certainty shows up afterwards, as a by-product of committing.</i></p>
+          </div>
+        </article>
       </div>
+      <p class="aside-note"><span class="hand" aria-hidden="true">no shortcuts →</span><span>Everyone wants to jump straight from stage 1 to stage 3, to the musician who never wonders whether to play. But you can’t leap from a place where you’ve never closed a door. The ethical stage is where you practise.</span></p>
+    </div>
+  </section>
 
-      <div class="part">
-        <div class="num" aria-hidden="true">1</div>
-        <div>
-          <h3>Your open doors</h3>
-          <p class="scene">Career, city, relationship, the project you keep “we’ll see”-ing. Get them all on the table first.</p>
-          <ol class="qs">
-            <li class="q"><p>Which doors are you keeping open right now? A career change, a move, a person, a project, a version of yourself?</p><textarea data-k="d1" aria-label="Your notes" placeholder="1. …&#10;2. …&#10;3. …"></textarea></li>
-            <li class="q"><p>For each door: are you still <strong>genuinely exploring</strong> — or just avoiding the moment of closing it?</p><textarea data-k="d2" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-            <li class="q"><p>Which open door costs you the most to keep open — in money, energy, attention, sleep?</p><textarea data-k="d3" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-          </ol>
-        </div>
-      </div>
-
-      <div class="part dizzy">
-        <div class="num" aria-hidden="true">2</div>
-        <div>
-          <h3>The dizziness</h3>
-          <p class="scene">Too much freedom, Kierkegaard said, and you feel dizzy: you could go anywhere, so you freeze, or keep one more option open “just in case.”</p>
-          <ol class="qs">
-            <li class="q"><p>Where in your life do you feel that dizziness most strongly right now?</p><textarea data-k="z1" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-            <li class="q"><p>What is your favorite way to avoid choosing? More research, more options, waiting for certainty, asking one more person…</p><textarea data-k="z2" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-            <li class="q carry"><span class="tag">Carry this one</span><p>Am I choosing this — or using this to avoid the experience of choosing?</p><textarea data-k="z3" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-          </ol>
-        </div>
-      </div>
-
-      <div class="part real">
-        <div class="num" aria-hidden="true">3</div>
-        <div>
-          <h3>Real or counterfeit?</h3>
-          <p class="scene">Not everything that looks like commitment is. Sometimes perseverance is just sunk cost with a halo on it.</p>
-          <ol class="qs">
-            <li class="q"><p>Name one commitment you would keep even if it were <strong>guaranteed to fail</strong>. If nothing comes to mind, that is worth sitting with.</p><textarea data-k="r1" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-            <li class="q"><p>Is there something you keep mainly because of everything you have already put into it? If the sunk costs were forgiven, would you still choose it?</p><textarea data-k="r2" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-            <li class="q"><p>Who are you without your biggest commitment? Take away the career, the person, the role. What is left?</p><textarea data-k="r3" aria-label="Your notes" placeholder="Your notes…"></textarea></li>
-          </ol>
-        </div>
-      </div>
-
-      <div class="part go">
-        <div class="num" aria-hidden="true">4</div>
-        <div>
-          <h3>Commit or quit</h3>
-          <p class="scene">One door. This week. Not “someday.”</p>
-          <ol class="qs">
-            <li class="q"><p>Pick your one door, and write the decision: close it for good — or walk through it, with a date.</p><textarea data-k="g1" aria-label="Your notes" placeholder="I will…"></textarea></li>
-            <li class="q"><p>What is the first small step, and when exactly will you take it?</p><textarea data-k="g2" aria-label="Your notes" placeholder="This week, on …, I will…"></textarea></li>
-          </ol>
-        </div>
+  <!-- ============ FINDINGS ============ -->
+  <section class="sec" id="findings">
+    <div class="wrap">
+      <div class="head"><span class="label">The research</span><h2>Six findings <em>to argue with</em></h2><p>Each one has a question for the table. Agree, disagree, or tell us where it breaks in your own life.</p></div>
+      <div class="finds">
+        <article class="card find">
+          <div class="big">+20% <small>salary</small></div>
+          <h3>Maximisers win, then feel worse</h3>
+          <p>Job-seekers who checked every option got starting salaries about 20% higher than those who stopped at “good enough.” They were also less happy, had more regret and were more depressed. They keep auditing the choice, so it never quite lands.</p>
+          <p class="ask">Are you a maximiser or a satisficer? About what?</p>
+          <span class="src">Iyengar, Wells &amp; Schwartz, 2006</span>
+        </article>
+        <article class="card find">
+          <div class="big">Final <small>beats flexible</small></div>
+          <h3>The photo you can’t swap</h3>
+          <p>Harvard students each kept one of their own photos. Half were told the choice was final; half could swap later. The “final” group grew to like their photo more. Almost nobody actually swapped. Just having the option kept them from settling in.</p>
+          <p class="ask">Is “let’s see how it goes” freedom or a trap?</p>
+          <span class="src">Gilbert &amp; Ebert, 2002</span>
+        </article>
+        <article class="card find">
+          <div class="big">84%</div>
+          <h3>We regret what we didn’t do</h3>
+          <p>In the short term, regrets are split. Looking back over a whole life, 84% of people name something they <i>failed</i> to do. And no one regretted the time spent learning a skill, even one they later dropped.</p>
+          <p class="ask">Does that match the regrets you see around you?</p>
+          <span class="src">Gilovich &amp; Medvec, 1994–95</span>
+        </article>
+        <article class="card find">
+          <div class="big">+63%</div>
+          <h3>We love what we finish</h3>
+          <p>People who built an IKEA box would pay 63% more for it than for one already built. But only if they finished. Stopped halfway, or made to take it apart, and the love disappeared. You don’t love it and then build it. You build it, and then you love it.</p>
+          <p class="ask">What did you quit just before it would have paid off?</p>
+          <span class="src">Norton, Mochon &amp; Ariely, 2012</span>
+        </article>
+        <article class="card find">
+          <div class="big">Slide <small>vs decide</small></div>
+          <h3>Did you choose it, or drift into it?</h3>
+          <p>Moving in because the lease ran out. Staying in a job because quitting felt scary. Psychologists call it <i>sliding</i>, and it’s a different act from <i>deciding</i> with your eyes open and your weight behind it.</p>
+          <p class="ask">Name something big in life that most people slide into.</p>
+          <span class="src">Stanley &amp; Rhoades, 2006</span>
+        </article>
+        <article class="card find club">
+          <div class="big">3 → 0</div>
+          <h3>The bowling alley is still open</h3>
+          <p>In 1985, the most common number of people Americans could confide in was three. By 2004 it was zero. The bowling alleys didn’t close; the <i>leagues</i> did, the thing that expected you every Thursday whether you felt like it or not.</p>
+          <p class="ask">Is a Friday club a league? What makes people keep coming back?</p>
+          <span class="src">McPherson et al., 2006 · Putnam, <i>Bowling Alone</i></span>
+        </article>
       </div>
     </div>
   </section>
 
+  <!-- ============ MARCIA ============ -->
+  <section class="sec" id="where">
+    <div class="wrap">
+      <div class="head"><span class="label">Where are you?</span><h2>Explored? <em>Committed?</em></h2><p>The psychologist James Marcia crossed two questions and got four ways to hold an identity. Tap a box. You might be in a different one for work, for where you live and for love.</p></div>
+      <div class="marcia">
+        <div class="grid2" role="group" aria-label="Marcia’s four identity statuses">
+          <span class="ax y ys" style="grid-row:1">Committed</span>
+          <button type="button" class="quad" data-q="foreclosed" style="grid-row:1;grid-column:2"><b>Foreclosed</b><span>committed, never explored</span></button>
+          <button type="button" class="quad" data-q="achieved" style="grid-row:1;grid-column:3" aria-pressed="true"><b>Achieved</b><span>explored, then chose</span></button>
+          <span class="ax y ys" style="grid-row:2">Not yet</span>
+          <button type="button" class="quad" data-q="diffusion" style="grid-row:2;grid-column:2"><b>Diffusion</b><span>neither</span></button>
+          <button type="button" class="quad" data-q="moratorium" style="grid-row:2;grid-column:3"><b>Moratorium</b><span>searching, not chosen</span></button>
+          <span class="ax xs" style="grid-column:2">Never explored</span>
+          <span class="ax xs" style="grid-column:3">Explored</span>
+        </div>
+        <div class="card mdesc" id="mdesc" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COUNTERFEITS ============ -->
+  <section class="sec" id="counterfeit">
+    <div class="wrap">
+      <div class="head"><span class="label">The dark side</span><h2>Real commitment, <em>or a counterfeit?</em></h2><p>Staying isn’t automatically brave. Three fakes feel exactly like the real thing from the inside, and each comes with a test.</p></div>
+      <div class="fakes">
+        <article class="card fake">
+          <span class="pair">Perseverance → <s>Escalation</s></span>
+          <h3>Waist deep in the Big Muddy</h3>
+          <p>Business students who had made a bad investment themselves put more money back into it than students who inherited the same bad call. Perseverance looks forward. Escalation looks back, trying to prove the old decision was right.</p>
+          <p class="test"><b>The honesty test</b>What would leaving force you to believe about your past?</p>
+        </article>
+        <article class="card fake">
+          <span class="pair">Conviction → <s>Foreclosure</s></span>
+          <h3>Certainty that was never tested</h3>
+          <p>The son who joined his father’s firm straight out of college: calm, stable, satisfied, until something challenges him in a way his father never would have, and he has no way of handling it. The commitment was borrowed, not built.</p>
+          <p class="test"><b>The defence test</b>When someone you trust questions it, does it feel like a personal attack?</p>
+        </article>
+        <article class="card fake">
+          <span class="pair">Devotion → <s>Fusion</s></span>
+          <h3>When the job is the person</h3>
+          <p>The founder who can’t imagine life without the company. The executive who can’t answer “Who are you?” without a job title. The commitment has eaten the person who once chose it.</p>
+          <p class="test"><b>The separation test</b>If it disappeared tomorrow, would you recognise who was left?</p>
+        </article>
+      </div>
+      <div class="oneq">
+        <span class="label">If you only ask one question</span>
+        <p>Knowing everything you know now, would you choose this again today if you had no history with it?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUESTIONS ============ -->
   <section class="sec" id="questions">
     <div class="wrap">
-      <div class="head"><span class="label">At the table</span><h2>Questions <em>for Friday</em></h2><p>Think about these before Friday. We’ll talk about them together at the table.</p></div>
-
-      <ol class="reflect">
-        <li>If you could never change careers, never move cities, and never leave your current relationship, would that feel like a prison sentence or a relief? What does your gut answer tell you?</li>
-        <li>Where do you feel the “dizziness of freedom” most right now — and what do you do to avoid it?</li>
-        <li>Think of a commitment that felt like relief when you made it. Did you choose it with your eyes open, or so you could stop having to choose?</li>
-        <li>Have you genuinely not found the right thing yet — or is it the finality of choosing that you can’t tolerate?</li>
-        <li>When you feel dissatisfied, is your first instinct to add something new, or to go deeper into what you already have? What would trying the opposite look like?</li>
-        <li>What’s the biggest regret you carry right now — something you did, or something you never decided?</li>
-      </ol>
+      <div class="head"><span class="label">At the table</span><h2>Questions <em>for Friday</em></h2><p>Have a think before you come. Bring a story, not a verdict.</p></div>
+      <div class="rounds">
+        <article class="card round">
+          <header><span class="num">1</span><h3>Open doors</h3></header>
+          <ol>
+            <li>If you could never change careers, never move cities and never leave your current relationship, would that feel like a prison sentence or a relief?</li>
+            <li>Why does keeping options open feel like freedom, even when we know we won’t use them?</li>
+            <li>When you feel dissatisfied, is your first instinct to add something new, or to go deeper into what you already have?</li>
+          </ol>
+        </article>
+        <article class="card round">
+          <header><span class="num">2</span><h3>Choosing</h3></header>
+          <ol>
+            <li>Think of a commitment that felt like relief. Did you choose it with your eyes open, or so you could stop having to choose?</li>
+            <li>Which box on Marcia’s grid are you in for work? For where you live? Has that moved over the years?</li>
+            <li>Have you ever made a commitment because it was expected of you, and another because it really fit? Did they feel different?</li>
+          </ol>
+        </article>
+        <article class="card round">
+          <header><span class="num">3</span><h3>Staying, or leaving well</h3></header>
+          <ol>
+            <li>Many relationships only last because they survived a stretch where nobody was enjoying it. Is that a good reason to stay through the boring parts?</li>
+            <li>When people explain why they stay, how much is about the future and how much is about what they’ve already put in?</li>
+            <li>What would you keep doing even if it were guaranteed to fail?</li>
+          </ol>
+        </article>
+        <article class="card round">
+          <header><span class="num">4</span><h3>The lives we didn’t live</h3></header>
+          <ol>
+            <li>Every choice kills a few possible versions of you. Is there one you still think about, like the you who moved abroad or studied something else?</li>
+            <li>When you feel a pang for a life you didn’t choose, is it a sign you chose wrong, or a sign the choice was real?</li>
+            <li>After Friday: what’s one thing you’ll <i>do</i>? Not think about, not read about. Do.</li>
+          </ol>
+        </article>
+      </div>
+      <div class="carry">
+        <span class="hand" aria-hidden="true">carry this one →</span>
+        <p>Am I choosing this, or am I using this to avoid the experience of choosing?</p>
+      </div>
     </div>
   </section>
 
   <section class="closing">
     <div class="wrap">
       <span class="label">One life</span>
-      <p class="big">What if a good life begins when you stop looking for a better one?</p>
+      <p class="big">Kierkegaard never married Regine. He became one of the most important philosophers in the West, and died alone. <b>Commitment doesn’t come with a guarantee.</b> It’s the decision to act anyway, build anyway, stay anyway.</p>
+      <p class="small">The ideas and research on this page come from <i>Commitment, Solved.</i>, a guide from the Solved podcast. If you want to go further: <i>Either/Or</i> and <i>Fear and Trembling</i> by Kierkegaard, or one of these:</p>
+      <div class="reads"><span>Man’s Search for Meaning · Frankl</span><span>So Good They Can’t Ignore You · Newport</span><span>The Second Mountain · Brooks</span><span>The War of Art · Pressfield</span></div>
       <p class="small">Not a member yet? <a href="../#join">Send us a voice intro</a> and join us at the table.</p>
     </div>
   </section>
@@ -307,44 +600,130 @@ footer.site .logo { width: 60px; color: var(--fg); }
 </footer>
 
 <script>
+/* ---------- The door game ---------- */
 (function () {
-  const KEY = "ted-commit-or-quit";
-  let notes = {};
-  try { notes = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
-  const boxes = [...document.querySelectorAll("textarea[data-k]")];
-  const grow = t => { t.style.height = "auto"; t.style.height = Math.max(76, t.scrollHeight + 4) + "px"; };
-  boxes.forEach(t => {
-    t.value = notes[t.dataset.k] || "";
-    if (t.value) grow(t);
-    t.addEventListener("input", () => {
-      notes[t.dataset.k] = t.value; grow(t);
-      try { localStorage.setItem(KEY, JSON.stringify(notes)); } catch (e) {}
+  const TAPS = 40, LIFE = 8;
+  const hall = document.getElementById("hall"), msg = document.getElementById("g-msg");
+  const $ = id => document.getElementById(id);
+  let doors, cur, left, pts, walks, collected, history;
+
+  // Each game shuffles three payout ranges: one door is clearly richer on average but noisier.
+  const RANGES = [[3, 9], [2, 14], [5, 7]];
+  const rnd = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+
+  function build() {
+    const r = RANGES.slice().sort(() => Math.random() - .5);
+    doors = ["A", "B", "C"].map((n, i) => ({ n, lo: r[i][0], hi: r[i][1], life: LIFE, gone: false, earned: 0, hits: 0 }));
+    cur = -1; left = TAPS; pts = 0; walks = 0; collected = 0;
+    hall.innerHTML = doors.map((d, i) => `
+      <div class="slot" data-i="${i}">
+        <span class="ghost" aria-hidden="true"></span>
+        <span class="bricked" aria-hidden="true">gone</span>
+        <span class="warn-badge" aria-hidden="true"></span>
+        <button type="button" class="door" data-i="${i}" aria-label="Door ${d.n}">
+          <span class="frame"></span><span class="room"></span><span class="leaf"><span class="knob"></span></span>
+          <span class="name">${d.n}</span>
+        </button>
+      </div>`).join("");
+    hall.querySelectorAll(".door").forEach(b => b.addEventListener("click", () => tap(+b.dataset.i)));
+    $("g-end").hidden = true;
+    msg.innerHTML = "Pick a door. Any door.";
+    render();
+  }
+
+  function render() {
+    $("g-left").textContent = left;
+    $("g-pts").textContent = pts;
+    $("g-open").textContent = doors.filter(d => !d.gone).length;
+    $("g-bar").style.transform = `scaleX(${left / TAPS})`;
+    doors.forEach((d, i) => {
+      const slot = hall.children[i], btn = slot.querySelector(".door");
+      const s = d.gone ? 0 : 0.28 + 0.72 * (d.life / LIFE);
+      btn.style.transform = `scale(${s})`;
+      btn.classList.toggle("in", i === cur);
+      btn.classList.toggle("gone", d.gone);
+      slot.classList.toggle("is-gone", d.gone);
+      slot.classList.toggle("shrinking", !d.gone && d.life < LIFE);
+      slot.querySelector(".warn-badge").textContent = d.life;
+      btn.setAttribute("aria-label", d.gone ? `Door ${d.n}, gone` : i === cur ? `Door ${d.n}, you are inside. Tap to collect.` : `Door ${d.n}, ${d.life} taps before it disappears. Tap to walk in.`);
+      btn.disabled = d.gone || left <= 0;
     });
-  });
+  }
 
-  const tog = document.getElementById("toggle-notes");
-  const setHidden = h => { document.body.classList.toggle("hide-notes", h); tog.textContent = h ? "Show note boxes" : "Hide note boxes"; try { localStorage.setItem(KEY + "-hide", h ? "1" : ""); } catch (e) {} };
-  setHidden(localStorage.getItem(KEY + "-hide") === "1");
-  tog.addEventListener("click", () => setHidden(!document.body.classList.contains("hide-notes")));
+  function pop(i, text) {
+    const el = document.createElement("span");
+    el.className = "pop"; el.textContent = text;
+    hall.children[i].appendChild(el);
+    setTimeout(() => el.remove(), 900);
+  }
 
-  const copyBtn = document.getElementById("copy-notes");
-  copyBtn.addEventListener("click", async () => {
-    const out = ["Commit or Quit? — workshop notes", ""];
-    document.querySelectorAll("#plan .part").forEach(part => {
-      out.push("## " + part.querySelector("h3").textContent.trim());
-      part.querySelectorAll(".q").forEach(q => {
-        out.push("- " + q.querySelector("p").textContent.trim());
-        const v = q.querySelector("textarea").value.trim();
-        if (v) out.push("  " + v.replace(/\n/g, "\n  "));
-      });
-      out.push("");
+  function tap(i) {
+    if (left <= 0 || doors[i].gone) return;
+    left--;
+    const d = doors[i];
+    if (i === cur) {
+      const v = rnd(d.lo, d.hi);
+      pts += v; d.earned += v; d.hits++; collected++;
+      pop(i, "+" + v);
+      msg.innerHTML = `Door <b>${d.n}</b> paid <b>${v}</b>.`;
+    } else {
+      if (cur !== -1) walks++;
+      cur = i;
+      msg.innerHTML = `You walked into door <b>${d.n}</b>. Tap it again to collect.`;
+    }
+    d.life = LIFE;
+    doors.forEach((o, j) => {
+      if (j === i || o.gone) return;
+      o.life--;
+      if (o.life <= 0) { o.gone = true; msg.innerHTML += ` Door <b>${o.n}</b> just disappeared.`; }
     });
-    const text = out.join("\n");
-    try { await navigator.clipboard.writeText(text); copyBtn.textContent = "Copied ✓"; }
-    catch (e) { copyBtn.textContent = "Couldn’t copy"; }
-    setTimeout(() => (copyBtn.textContent = "Copy my answers"), 1800);
-  });
+    const dying = doors.filter((o, j) => j !== i && !o.gone && o.life <= 3);
+    if (dying.length && left > 0) msg.innerHTML += ` <b>${dying.map(o => o.n).join(" and ")}</b> ${dying.length > 1 ? "are" : "is"} about to vanish…`;
+    render();
+    if (left === 0) setTimeout(end, 450);
+  }
 
+  function end() {
+    const means = doors.map(d => (d.lo + d.hi) / 2);
+    const best = Math.max(...means), bi = means.indexOf(best);
+    // Peek strategy: enter + collect once in each door (6 taps), walk back to the best (1 tap), collect the rest.
+    const ideal = Math.round(means.reduce((a, b) => a + b, 0) + (TAPS - 7) * best);
+    $("s-pts").textContent = pts;
+    $("s-walk").textContent = walks;
+    $("s-best").textContent = "≈ " + ideal;
+    const gone = doors.filter(d => d.gone).length;
+    let v;
+    if (walks >= 6) v = `You walked between doors ${walks} times. Every one of those taps earned nothing: that’s roughly ${Math.round(walks * best)} points spent on keeping options alive.`;
+    else if (gone === 2 && walks <= 3) v = `You let two doors go and stayed put. That’s the move most people in the experiment couldn’t bring themselves to make.`;
+    else v = `You switched ${walks} time${walks === 1 ? "" : "s"} and let ${gone} door${gone === 1 ? "" : "s"} vanish. Did closing one feel like a loss, even though it cost you nothing?`;
+    v += ` (Door ${doors[bi].n} was the best one on average this time.)`;
+    $("g-title").innerHTML = (walks <= 3 && pts >= ideal * 0.9) ? "Nicely done. <em>You committed.</em>" : "Time’s up. <em>How did it feel?</em>";
+    $("g-verdict").textContent = v;
+    $("g-end").hidden = false;
+    msg.innerHTML = "Out of taps.";
+    render();
+  }
+
+  $("g-again").addEventListener("click", () => { build(); hall.scrollIntoView({ behavior: "smooth", block: "center" }); });
+  build();
+})();
+
+/* ---------- Marcia grid ---------- */
+(function () {
+  const D = {
+    achieved: ["Explored, then chose", "Identity achieved", "You tried the alternatives and picked one anyway. When the work gets brutal you don’t spiral into “maybe I should have been a lawyer”, because you already closed that door with your eyes open.", "In Marcia’s lab, these were the students who adjusted their goals after failing and kept going."],
+    foreclosed: ["Committed, never explored", "Foreclosed", "An identity taken whole from parents, culture or circumstance. Often calm and stable, sometimes as happy as the achieved, until something challenges it that it was never tested against.", "Marcia saw “a certain rigidity”: they set impossible goals and cracked hardest under pressure."],
+    moratorium: ["Searching, not chosen yet", "Moratorium", "Actively testing: anxious, a bit sleep-deprived, harder to be around. But not drifting. When people in moratorium move, they overwhelmingly move forward, into a commitment.", "The catch: exploring as a permanent lifestyle, not a phase, ends up with a thinner sense of self."],
+    diffusion: ["Neither exploring nor choosing", "Identity diffusion", "Works a job they fell into, dates without intention, has been “figuring things out” in the same tone since 22. Not searching, not choosing: waiting for something to happen to them.", "Sartre called the story people tell here bad faith: pretending you have no choice when you do."]
+  };
+  const box = document.getElementById("mdesc"), qs = document.querySelectorAll(".quad");
+  function show(k) {
+    const [tag, h, p, eg] = D[k];
+    box.innerHTML = `<span class="tag">${tag}</span><h3>${h}</h3><p>${p}</p><p class="eg">${eg}</p>`;
+    qs.forEach(q => q.setAttribute("aria-pressed", q.dataset.q === k ? "true" : "false"));
+  }
+  qs.forEach(q => q.addEventListener("click", () => show(q.dataset.q)));
+  show("achieved");
 })();
 </script>
 </body>

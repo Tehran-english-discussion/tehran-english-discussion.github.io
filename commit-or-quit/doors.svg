@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" fill="none">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B5532F"/><stop offset="1" stop-color="#8E3A22"/></linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6B4428"/><stop offset="1" stop-color="#3E2716"/></linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4A2E1B"/><stop offset=".7" stop-color="#6E4A2E"/><stop offset="1" stop-color="#83593A"/></linearGradient>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF8DE"/><stop offset=".55" stop-color="#FFE58A"/><stop offset="1" stop-color="#FFC700"/></linearGradient>
+    <linearGradient id="spill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A0" stop-opacity=".95"/><stop offset="1" stop-color="#FFE9A0" stop-opacity="0"/></linearGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8A5F14"/><stop offset=".45" stop-color="#F6DE93"/><stop offset="1" stop-color="#9A6B1C"/></linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF3C4" stop-opacity=".9"/><stop offset="1" stop-color="#FFF3C4" stop-opacity="0"/></radialGradient>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+    <clipPath id="wallclip"><path d="M70 470 V120 Q70 70 120 70 H680 Q730 70 730 120 V470 Z"/></clipPath>
+  </defs>
+
+  <!-- wall -->
+  <path d="M70 470 V120 Q70 70 120 70 H680 Q730 70 730 120 V470 Z" fill="url(#wall)"/>
+  <g clip-path="url(#wallclip)" opacity=".16" stroke="#FFF8EA" stroke-width="2">
+    <path d="M70 140 H730 M70 400 H730"/>
+  </g>
+  <circle cx="400" cy="250" r="230" fill="url(#glow)" opacity=".55"/>
+  <!-- floor -->
+  <path d="M40 470 H760" stroke="#5A3A22" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="400" cy="494" rx="360" ry="22" fill="#5A3A22" opacity=".18" filter="url(#blur)"/>
+
+  <!-- LEFT door: shrinking, ghost of its full size -->
+  <path d="M80 470 V250 a70 70 0 0 1 140 0 V470" stroke="#FFF8EA" stroke-width="3" stroke-dasharray="3 10" stroke-linecap="round" opacity=".7"/>
+  <g>
+    <path d="M104 470 V312 a46 46 0 0 1 92 0 V470 Z" fill="url(#wood)" stroke="#2B1B12" stroke-width="3"/>
+    <path d="M117 460 V392 h66 V460 Z M117 378 V318 a33 33 0 0 1 66 0 V378 Z" stroke="#2B1B12" stroke-opacity=".45" stroke-width="2.5"/>
+    <circle cx="184" cy="398" r="5.5" fill="url(#brass)"/>
+  </g>
+  <!-- shrink arrows -->
+  <g stroke="#FFF8EA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
+    <path d="M82 244 l18 18 m0 -10 v10 h-10"/>
+    <path d="M218 244 l-18 18 m0 -10 v10 h10"/>
+  </g>
+
+  <!-- RIGHT door: almost gone -->
+  <path d="M580 470 V250 a70 70 0 0 1 140 0 V470" stroke="#FFF8EA" stroke-width="3" stroke-dasharray="3 10" stroke-linecap="round" opacity=".7"/>
+  <g opacity=".55">
+    <path d="M625 470 V378 a25 25 0 0 1 50 0 V470 Z" fill="url(#wood)" stroke="#2B1B12" stroke-width="3"/>
+    <circle cx="667" cy="428" r="4" fill="url(#brass)"/>
+  </g>
+  <g stroke="#FFF8EA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
+    <path d="M582 244 l26 26 m0 -10 v10 h-10"/>
+    <path d="M718 244 l-26 26 m0 -10 v10 h10"/>
+  </g>
+
+  <!-- CENTER door: open, lit -->
+  <!-- light spilling on the floor -->
+  <path d="M312 470 H488 L600 552 H200 Z" fill="url(#spill)"/>
+  <!-- frame -->
+  <path d="M298 472 V214 a102 102 0 0 1 204 0 V472" fill="#5A3A22"/>
+  <!-- the lit room -->
+  <path d="M312 470 V214 a88 88 0 0 1 176 0 V470 Z" fill="url(#room)"/>
+  <!-- far window inside the room -->
+  <path d="M372 300 V262 a28 28 0 0 1 56 0 V300 Z" fill="#FFF8EA" opacity=".9"/>
+  <path d="M400 236 V300 M372 272 H428" stroke="#FFD24D" stroke-width="3"/>
+  <!-- floor line inside -->
+  <path d="M312 418 H488" stroke="#E8B200" stroke-width="2" opacity=".6"/>
+  <!-- little plant inside -->
+  <g transform="translate(448 380)">
+    <path d="M-12 38 h24 l-4 -22 h-16 z" fill="#B5532F"/>
+    <path d="M0 16 C-4 0 -18 -6 -22 -16 C-8 -14 -2 -4 0 10 C2 -6 8 -20 20 -24 C16 -10 6 -2 0 16" fill="#44603A"/>
+  </g>
+  <!-- the door leaf, swung open toward us -->
+  <path d="M312 470 V214 Q302 156 268 142 L256 496 Z" fill="url(#leaf)" stroke="#2B1B12" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M271 330 L274 174 Q294 186 300 224 L299 330 Z M269 360 L299 356 L298 452 L266 474 Z" stroke="#2B1B12" stroke-opacity=".5" stroke-width="2.5"/>
+  <circle cx="292" cy="342" r="6" fill="url(#brass)" stroke="#2B1B12" stroke-width="1.5"/>
+  <!-- brass keystone -->
+  <path d="M388 106 h24 l-4 18 h-16 z" fill="url(#brass)" stroke="#2B1B12" stroke-width="2"/>
+
+  <!-- sparkles -->
+  <g fill="#FFF8EA">
+    <path d="M540 120 l5 14 14 5 -14 5 -5 14 -5 -14 -14 -5 14 -5z"/>
+    <path d="M250 96 l3.5 9 9 3.5 -9 3.5 -3.5 9 -3.5 -9 -9 -3.5 9 -3.5z"/>
+    <path d="M556 214 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" opacity=".8"/>
+  </g>
+
+  <!-- potted plant beside the open door -->
+  <g transform="translate(541 470)">
+    <path d="M-22 0 h44 l6 -44 h-56 z" fill="#B5532F" stroke="#2B1B12" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M-26 -44 h52" stroke="#2B1B12" stroke-width="3" stroke-linecap="round"/>
+    <path d="M0 -46 C-6 -80 -34 -92 -44 -110 C-14 -108 -4 -84 0 -60 C2 -92 18 -118 40 -128 C34 -100 14 -80 2 -50" fill="#44603A" stroke="#2B1B12" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M-2 -50 C-20 -64 -40 -60 -54 -70 C-38 -48 -18 -48 -2 -50" fill="#5C7D4E" stroke="#2B1B12" stroke-width="2.5" stroke-linejoin="round"/>
+  </g>
+</svg>
