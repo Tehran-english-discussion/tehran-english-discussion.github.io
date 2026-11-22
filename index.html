@@ -20,6 +20,27 @@
 .workshop-link b { font-family: var(--display); font-weight: 700; font-size: 1.12rem; line-height: 1.2; font-variation-settings: "SOFT" 100, "WONK" 1; }
 .workshop-link b em { font-weight: 400; color: #A63F2A; }
 .workshop-link + .workshop-link { margin-top: 10px; }
+.wl-friday { margin-top: 22px; max-width: 460px; padding: 14px 8px 8px 16px; border-radius: 16px; background: var(--cloth); color: var(--on-cloth); border: 1.5px solid color-mix(in srgb, var(--wall) 22%, var(--line)); box-shadow: 0 16px 30px -24px rgba(58, 36, 22, .7); }
+.wl-friday > .label { color: var(--wall); font-size: .68rem; }
+.wl-row { display: flex; align-items: center; gap: 12px; padding: 9px 8px 9px 0; text-decoration: none; color: inherit; border-top: 1px dashed color-mix(in srgb, var(--wall) 20%, var(--line)); }
+.wl-friday > .label + .wl-row { border-top: 0; }
+.wl-row .tm { flex: none; width: 58px; font-family: var(--ui); font-size: .78rem; font-weight: 600; color: #7B6650; }
+.wl-row b { flex: 1; min-width: 0; font-family: var(--display); font-weight: 700; font-size: 1.05rem; line-height: 1.25; font-variation-settings: "SOFT" 100, "WONK" 1; }
+.wl-row b small { display: block; font-family: var(--ui); font-weight: 500; font-size: .78rem; color: #A63F2A; }
+.wl-row .go { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--wall); color: var(--on-dark); font-family: var(--ui); transition: transform .25s; }
+@media (hover: hover) { .wl-row:hover .go { transform: translateX(3px); } .wl-row:hover b { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--wall) 50%, transparent); text-underline-offset: 3px; } }
+.wl-friday + .workshop-link { margin-top: 10px; }
+.wl-past { margin-top: 10px; max-width: 460px; border-radius: 14px; border: 1.5px dashed color-mix(in srgb, var(--wall) 25%, var(--line)); }
+.wl-past summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 10px; padding: 11px 16px; font-family: var(--ui); font-size: .9rem; font-weight: 600; }
+.wl-past summary::-webkit-details-marker { display: none; }
+.wl-past summary .n { font-size: .75rem; padding: 1px 8px; border-radius: 999px; background: color-mix(in srgb, var(--wall) 14%, transparent); color: var(--wall); }
+.wl-past summary::after { content: "+"; margin-left: auto; font-size: 1.2rem; line-height: 1; color: var(--wall); }
+.wl-past[open] summary::after { content: "–"; }
+.wl-past ul { list-style: none; margin: 0; padding: 0 16px 10px; }
+.wl-past li a { display: flex; gap: 12px; align-items: baseline; padding: 7px 0; border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent); text-decoration: none; color: inherit; }
+.wl-past li a span { flex: 1; min-width: 0; font-family: var(--display); font-weight: 600; font-size: .98rem; line-height: 1.3; }
+.wl-past li a small { flex: none; width: 96px; font-family: var(--ui); font-size: .74rem; color: #7B6650; }
+@media (hover: hover) { .wl-past li a:hover span { color: var(--wall); } }
 .workshop-link .go { flex: none; margin-left: auto; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--wall); color: var(--on-dark); font-family: var(--ui); }
 </style>
 <title>Free English Discussion Club in Tehran · .TED</title>
@@ -795,14 +816,14 @@ footer.site nav a { color: var(--muted); text-decoration: none; }
         <p class="last" id="last-s"></p>
         <div class="hero-cta"><a class="cta" href="#join">Join us →</a><span>Great English and ideas to share? Send us a voice intro</span></div>
         <p class="where">Free discussion · Fridays, 4–8 p.m., and online every Monday · Raya House café, Khosrow Alley, near Karim Khan, Tehran</p>
+        <div class="wl-friday"><span class="label">This Friday · 6 Azar · Raya House</span><a class="wl-row" href="wholesome/" data-date="2026-11-27" data-when="6 Azar · Maede" data-title="Wholesome, or just sweet?"><span class="tm">4–6 p.m.</span><b>Wholesome, or just sweet?<small>with Maede</small></b><span class="go" aria-hidden="true">→</span></a><a class="wl-row" href="commit-or-quit/" data-date="2026-11-27" data-when="6 Azar · Pouria" data-title="Commit or Quit?"><span class="tm">6–8 p.m.</span><b>Commit or Quit?<small>with Pouria</small></b><span class="go" aria-hidden="true">→</span></a></div>
         <a class="workshop-link" href="online/"><span class="wl-t"><span class="label">Every Monday · 8–10 p.m. · Google Meet</span><b>The online table <em>A free discussion, from anywhere</em></b></span><span class="go" aria-hidden="true">→</span></a>
-        <a class="workshop-link" href="wholesome/"><span class="wl-t"><span class="label">Fri 6 Azar · 4–6 p.m. · with Maede</span><b>Wholesome, or just sweet? <em>A free discussion</em></b></span><span class="go" aria-hidden="true">→</span></a>
-        <a class="workshop-link" href="commit-or-quit/"><span class="wl-t"><span class="label">Fri 6 Azar · 6–8 p.m. · with Pouria</span><b>Commit or Quit? <em>A workshop on commitment</em></b></span><span class="go" aria-hidden="true">→</span></a>
-        <a class="workshop-link" href="beauty/"><span class="wl-t"><span class="label">Fri 29 Aban · 4–6 p.m. · with Sareh</span><b>Who decided that this is beautiful? <em>A free discussion</em></b></span><span class="go" aria-hidden="true">→</span></a>
-        <a class="workshop-link" href="golden-whisk/"><span class="wl-t"><span class="label">Fri 29 Aban · 6–8 p.m. · with Bahar</span><b>The Golden Whisk <em>A murder mystery night</em></b></span><span class="go" aria-hidden="true">→</span></a>
-        <a class="workshop-link" href="criminology/"><span class="wl-t"><span class="label">Fri 22 Aban · 4–6 p.m. · with Parnian</span><b>Criminology, part 2 <em>Crime, justice &amp; punishment</em></b></span><span class="go" aria-hidden="true">→</span></a>
-        <a class="workshop-link" href="whats-the-catch/"><span class="wl-t"><span class="label">Fri 22 Aban · 6–8 p.m. · with Navid</span><b>What’s the catch? <em>Tradeoffs &amp; hidden costs</em></b></span><span class="go" aria-hidden="true">→</span></a>
-        <a class="workshop-link" href="plan-next-year/"><span class="wl-t"><span class="label">Workshop · questions &amp; workbook</span><b>How to plan next year <em>in times of war</em></b></span><span class="go" aria-hidden="true">→</span></a>
+        <details class="wl-past"><summary>Earlier session pages <span class="n">5</span></summary><ul><li><a href="beauty/"><small>29 Aban · Sareh</small><span>Who decided that this is beautiful?</span></a></li><li><a href="golden-whisk/"><small>29 Aban · Bahar</small><span>The Golden Whisk</span></a></li><li><a href="criminology/"><small>22 Aban · Parnian</small><span>Criminology, part 2</span></a></li><li><a href="whats-the-catch/"><small>22 Aban · Navid</small><span>What’s the catch?</span></a></li><li><a href="plan-next-year/"><small>Workshop · Pouria</small><span>How to plan next year in times of war</span></a></li></ul></details><script>
+/* Friday rows move into "Earlier session pages" once their Friday is over (8 p.m. Tehran). */
+(function(){var f=document.querySelector('.wl-friday'),p=document.querySelector('.wl-past');if(!f||!p)return;var ul=p.querySelector('ul'),n=0;
+Array.prototype.slice.call(f.querySelectorAll('.wl-row')).reverse().forEach(function(r){if(Date.now()>Date.parse(r.dataset.date+'T20:00:00+03:30')){var li=document.createElement('li');li.innerHTML='<a href="'+r.getAttribute('href')+'"><small>'+r.dataset.when+'</small><span>'+r.dataset.title+'</span></a>';ul.insertBefore(li,ul.firstChild);r.remove();n++;}});
+if(!f.querySelector('.wl-row'))f.hidden=true;p.querySelector('.n').textContent=ul.children.length;})();
+</script>
       </div>
       <div class="wall">
         <svg class="chandelier" viewBox="0 0 150 110" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
