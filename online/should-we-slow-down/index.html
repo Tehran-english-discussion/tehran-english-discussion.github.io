@@ -55,6 +55,14 @@ a { color: var(--brass-hi); text-underline-offset: 3px; }
 .top nav a:hover { color: var(--ink); }
 @media (max-width: 560px) { .brand .txt, .top nav .opt { display: none; } }
 .hero { padding: clamp(36px, 7vw, 84px) 0 clamp(24px, 4vw, 40px); }
+.has-art .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 48px); align-items: center; }
+.has-art .art { order: 2; position: relative; }
+.art svg { display: block; width: 100%; height: auto; }
+.art .note { position: absolute; font-family: var(--hand); font-weight: 700; font-size: clamp(1.1rem, 2.6vw, 1.6rem); line-height: 1; color: var(--ink); white-space: nowrap; }
+.art .n1 { left: 0; top: 0; transform: rotate(-6deg); }
+.art .n2 { right: 0; top: 2%; transform: rotate(5deg); }
+.has-art h1 { font-size: clamp(2.5rem, 6.4vw, 4.2rem); }
+@media (max-width: 820px) { .has-art .wrap { grid-template-columns: minmax(0, 1fr); } .has-art .art { order: 0; max-width: 480px; width: 100%; margin-inline: auto; } }
 .kicker { display: flex; align-items: center; gap: 10px; color: var(--brass-hi); flex-wrap: wrap; }
 .kicker .live { width: 9px; height: 9px; border-radius: 50%; background: #E5484D; box-shadow: 0 0 0 4px rgba(229, 72, 77, .2); }
 h1 { margin: 16px 0 0; font-family: var(--display); font-weight: 600; font-size: clamp(2.5rem, 7.6vw, 4.8rem); line-height: 1; letter-spacing: -.025em; text-wrap: balance; }
@@ -120,6 +128,8 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: s
 <main>
   <section class="hero">
     <div class="wrap">
+      
+      <div class="txt-col">
       <div class="kicker"><span class="label">.TED Online · a past call</span></div>
       <h1>Should We Slow Down?</h1>
       <p class="lede">Hurry, boredom and the strange discomfort of having nothing to do.</p>
@@ -128,6 +138,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: s
         <div class="who"><img src="../navid.jpg" width="52" height="52" alt="Navid"><div><small>Moderated by</small><b>Navid</b></div></div>
       </div>
       <div class="cta"><a class="btn" href="../#next">See the next call →</a><a class="plain" href="../#calls">All past calls</a></div>
+      </div>
     </div>
   </section>
   <section class="sec"><div class="wrap"><span class="label">What the moderator asked</span><h2>The <em>questions</em></h2><p style="margin:-8px 0 20px;color:var(--ink-2)">Borrow them for your own table.</p><ol class="qs"><li>How often do you feel that you are in a hurry, even when there is no real reason to be?</li><li>Why do you think people often feel uncomfortable when they have “nothing to do”?</li><li>When was the last time you deliberately slowed down and enjoyed doing something without worrying about the time?</li><li>If you could remove one source of unnecessary hurry from your life, what would it be?</li></ol></div></section>

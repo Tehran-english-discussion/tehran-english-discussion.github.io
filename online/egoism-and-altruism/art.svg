@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" fill="none">
+  <defs>
+    <linearGradient id="box" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D9684C"/><stop offset="1" stop-color="#9A3622"/></linearGradient>
+    <linearGradient id="lid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E77A5C"/><stop offset="1" stop-color="#B5452C"/></linearGradient>
+    <linearGradient id="rib" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E8B300"/><stop offset=".5" stop-color="#FFD84A"/><stop offset="1" stop-color="#D9A400"/></linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFC700" stop-opacity=".45"/><stop offset="1" stop-color="#FFC700" stop-opacity="0"/></radialGradient>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <!-- call window -->
+  <rect x="60" y="40" width="680" height="480" rx="30" fill="#21171A" stroke="#3A2A2C" stroke-width="3"/>
+  
+  <rect x="320" y="60" width="160" height="24" rx="12" fill="#2C1F20"/>
+  <circle cx="340" cy="72" r="5" fill="#E5484D"/>
+  <rect x="352" y="68" width="110" height="8" rx="4" fill="#4A3A3C"/>
+  <!-- glow -->
+  <circle cx="400" cy="270" r="190" fill="url(#glow)"/>
+  <!-- the gift -->
+  <ellipse cx="400" cy="400" rx="140" ry="14" fill="#000" opacity=".4" filter="url(#blur)"/>
+  <rect x="290" y="250" width="220" height="150" rx="10" fill="url(#box)" stroke="#1A120C" stroke-width="4"/>
+  <rect x="276" y="212" width="248" height="50" rx="10" fill="url(#lid)" stroke="#1A120C" stroke-width="4"/>
+  <rect x="384" y="212" width="32" height="188" fill="url(#rib)" stroke="#1A120C" stroke-width="3"/>
+  <!-- bow -->
+  <path d="M400 212 C370 160 318 168 330 196 C338 214 372 214 400 212 Z" fill="url(#rib)" stroke="#1A120C" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M400 212 C430 160 482 168 470 196 C462 214 428 214 400 212 Z" fill="url(#rib)" stroke="#1A120C" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="400" cy="210" r="14" fill="#FFD84A" stroke="#1A120C" stroke-width="4"/>
+  <!-- tag on a string -->
+  <path d="M470 196 C520 214 540 250 548 286" stroke="#F7EEDD" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>
+  <g transform="rotate(14 572 320)">
+    <path d="M536 290 h88 a8 8 0 0 1 8 8 v52 a8 8 0 0 1 -8 8 h-88 l-22 -34 z" fill="#F7EEDD" stroke="#1A120C" stroke-width="3.5" stroke-linejoin="round"/>
+    <circle cx="530" cy="324" r="6" fill="#21171A"/>
+    <text x="584" y="333" text-anchor="middle" font-family="Caveat, cursive" font-weight="700" font-size="30" fill="#A63F2A">for you</text>
+  </g>
+  <!-- a heart rising out of the box -->
+  <path d="M400 150 c-14 -22 -48 -14 -44 12 c3 20 30 34 44 46 c14 -12 41 -26 44 -46 c4 -26 -30 -34 -44 -12 z" fill="#FFC700" stroke="#1A120C" stroke-width="3.5" transform="translate(0 -36) scale(1) "/>
+  <g fill="#FFF3C4"><path d="M300 150 l4 11 11 4 -11 4 -4 11 -4 -11 -11 -4 11 -4z"/><path d="M500 120 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z"/></g>
+  <!-- participant tiles -->
+  <g>
+    <rect x="96" y="420" width="120" height="76" rx="14" fill="#2C1F20"/>
+    <circle cx="156" cy="452" r="18" fill="#C25A40"/><text x="156" y="459" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-weight="700" font-size="18" fill="#F7EEDD">N</text>
+    <rect x="584" y="420" width="120" height="76" rx="14" fill="#2C1F20"/>
+    <circle cx="644" cy="452" r="18" fill="#7C9A6B"/><text x="644" y="459" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-weight="700" font-size="18" fill="#F7EEDD">+</text>
+    <rect x="96" y="330" width="120" height="76" rx="14" fill="#2C1F20"/>
+    <circle cx="156" cy="362" r="18" fill="#D2A74C"/><text x="156" y="369" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-weight="700" font-size="18" fill="#1A120C">B</text>
+  </g>
+  <!-- toolbar -->
+  <g transform="translate(400 488)">
+    <circle cx="-48" cy="0" r="16" fill="#3A2A2C"/><circle cx="0" cy="0" r="16" fill="#3A2A2C"/><rect x="34" y="-12" width="44" height="24" rx="12" fill="#E5484D"/>
+    <rect x="-53" y="-7" width="10" height="14" rx="5" fill="#F7EEDD"/><rect x="-7" y="-6" width="14" height="12" rx="3" fill="#F7EEDD"/>
+  </g>
+</svg>
