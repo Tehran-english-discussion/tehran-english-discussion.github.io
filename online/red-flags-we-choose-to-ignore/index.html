@@ -112,6 +112,16 @@ ol.qs li::before { content: counter(q); position: absolute; left: 18px; top: 17p
 .others .is-next small { color: #4A3418; }
 footer { margin-top: clamp(56px, 8vw, 96px); padding: 26px 0 44px; border-top: 1px solid rgba(247, 238, 221, .07); font-size: .86rem; color: var(--ink-3); }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+/* "theme": "light" on a call: the daytime café look (plaster, cloth, walnut ink) instead of the night palette */
+body.light { --night: #F5EEE1; --night-2: #FFFDF8; --night-3: #EFE4D0; --ink: #2A1C12; --ink-2: #5E4A36; --ink-3: #7B6650; --brass-hi: #9A6A1F;
+  background-image: radial-gradient(900px 500px at 85% -10%, rgba(255, 199, 0, .22), transparent 60%), radial-gradient(700px 500px at -10% 30%, rgba(194, 90, 64, .10), transparent 60%); }
+body.light .who, body.light ol.qs li, body.light .how div, body.light .others a { border-color: #DCCDB2; box-shadow: 0 1px 0 rgba(90, 58, 34, .05); }
+body.light .others .is-next { border-color: transparent; }
+body.light footer { border-top-color: #DCCDB2; }
+body.light .who .av { color: #FFF8EA; }
+body.light .when .cal small { color: #CDBB9C; }
+body.light .watch { color: #FFF8EA; } body.light .watch .play { background: #FFF8EA; }
+body.light .kicker .live { box-shadow: 0 0 0 4px rgba(229, 72, 77, .15); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } html { scroll-behavior: auto; } }
 </style>
 </head>
@@ -146,7 +156,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: s
   <section class="sec"><div class="wrap"><span class="label">How it works</span><h2>A small circle, <em>on Google Meet</em></h2>
     <div class="how"><div><b>Free, member-led</b>No teacher and no script. A member moderates and brings the questions.</div><div><b>Up to 12 people</b>A small circle so everyone gets airtime. Names go on a list in our Telegram group.</div><div><b>Fluent English</b>It’s a conversation, not a class. New? <a href="../#join">Send us a voice intro</a>.</div></div>
   </div></section>
-  <section class="sec"><div class="wrap"><span class="label">More Monday conversations</span><h2>Other <em>calls</em></h2><ul class="others"><li><a href="../egoism-and-altruism/" class="is-next"><small>Next · Mon 23 Nov 2026 · with Navid</small><b>Egoism and Altruism</b></a></li><li><a href="../lost-friendships-and-relationships/"><small>Mon 2 Nov 2026 · with Bahar 🌱</small><b>Lost Friendships and Relationships</b></a></li><li><a href="../from-junior-to-senior/"><small>Mon 26 Oct 2026 · with Navid</small><b>From Junior to Senior</b></a></li><li><a href="../do-you-avoid-people-you-disagree-with/"><small>Mon 19 Oct 2026 · with Fatemeh 💙</small><b>Do You Avoid People You Disagree With?</b></a></li><li><a href="../how-do-you-choose-what-deserves-your-attention/"><small>Mon 12 Oct 2026 · with Negar</small><b>How Do You Choose What Deserves Your Attention?</b></a></li><li><a href="../should-we-slow-down/"><small>Mon 5 Oct 2026 · with Navid</small><b>Should We Slow Down?</b></a></li><li><a href="../the-other-side-of-change/"><small>Mon 28 Sep 2026 · with Bahar 🌱</small><b>The Other Side of Change</b></a></li></ul></div></section>
+  <section class="sec"><div class="wrap"><span class="label">More Monday conversations</span><h2>Other <em>calls</em></h2><ul class="others"><li><a href="../luck/" class="is-next"><small>Next · Mon 30 Nov 2026 · with Amir 🏜</small><b>Luck</b></a></li><li><a href="../egoism-and-altruism/"><small>Mon 23 Nov 2026 · with Navid</small><b>Egoism and Altruism</b></a></li><li><a href="../lost-friendships-and-relationships/"><small>Mon 2 Nov 2026 · with Bahar 🌱</small><b>Lost Friendships and Relationships</b></a></li><li><a href="../from-junior-to-senior/"><small>Mon 26 Oct 2026 · with Navid</small><b>From Junior to Senior</b></a></li><li><a href="../do-you-avoid-people-you-disagree-with/"><small>Mon 19 Oct 2026 · with Fatemeh 💙</small><b>Do You Avoid People You Disagree With?</b></a></li><li><a href="../how-do-you-choose-what-deserves-your-attention/"><small>Mon 12 Oct 2026 · with Negar</small><b>How Do You Choose What Deserves Your Attention?</b></a></li><li><a href="../should-we-slow-down/"><small>Mon 5 Oct 2026 · with Navid</small><b>Should We Slow Down?</b></a></li><li><a href="../the-other-side-of-change/"><small>Mon 28 Sep 2026 · with Bahar 🌱</small><b>The Other Side of Change</b></a></li></ul></div></section>
 </main>
 <footer><div class="wrap"><span>© Tehran English Discussion (TED) · a free English discussion club, in Tehran and online</span><span><a href="../">Online table</a> · <a href="/">Home</a> · <a href="/sessions/">Archive</a></span></div></footer>
 

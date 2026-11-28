@@ -112,6 +112,16 @@ ol.qs li::before { content: counter(q); position: absolute; left: 18px; top: 17p
 .others .is-next small { color: #4A3418; }
 footer { margin-top: clamp(56px, 8vw, 96px); padding: 26px 0 44px; border-top: 1px solid rgba(247, 238, 221, .07); font-size: .86rem; color: var(--ink-3); }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+/* "theme": "light" on a call: the daytime café look (plaster, cloth, walnut ink) instead of the night palette */
+body.light { --night: #F5EEE1; --night-2: #FFFDF8; --night-3: #EFE4D0; --ink: #2A1C12; --ink-2: #5E4A36; --ink-3: #7B6650; --brass-hi: #9A6A1F;
+  background-image: radial-gradient(900px 500px at 85% -10%, rgba(255, 199, 0, .22), transparent 60%), radial-gradient(700px 500px at -10% 30%, rgba(194, 90, 64, .10), transparent 60%); }
+body.light .who, body.light ol.qs li, body.light .how div, body.light .others a { border-color: #DCCDB2; box-shadow: 0 1px 0 rgba(90, 58, 34, .05); }
+body.light .others .is-next { border-color: transparent; }
+body.light footer { border-top-color: #DCCDB2; }
+body.light .who .av { color: #FFF8EA; }
+body.light .when .cal small { color: #CDBB9C; }
+body.light .watch { color: #FFF8EA; } body.light .watch .play { background: #FFF8EA; }
+body.light .kicker .live { box-shadow: 0 0 0 4px rgba(229, 72, 77, .15); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } html { scroll-behavior: auto; } }
 </style>
 </head>
@@ -179,41 +189,25 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: s
   </g>
 </svg><span class="note n1" aria-hidden="true">for them?</span><span class="note n2" aria-hidden="true">or for me?</span></div>
       <div class="txt-col">
-      <div class="kicker"><span class="live" aria-hidden="true"></span><span class="label">Next online call · Google Meet</span></div>
+      <div class="kicker"><span class="label">TED Online · a past call</span></div>
       <h1>Egoism and Altruism</h1>
       <p class="lede">Why do we help each other? Family, strangers, charity, and whether doing good is secretly selfish.</p>
       <div class="meta">
         <div class="when"><div class="cal"><div><small>Nov</small><b>23</b></div></div><div><b class="d">Monday, 23 Nov 2026</b><span class="s">2 Azar · 8–10 p.m. Tehran time</span></div></div>
-        <div class="who"><img src="../navid.jpg" width="52" height="52" alt="Navid"><div><small>Your moderator</small><b>Navid</b></div></div>
+        <div class="who"><img src="../navid.jpg" width="52" height="52" alt="Navid"><div><small>Moderated by</small><b>Navid</b></div></div>
       </div>
-      <div class="cta"><a class="btn" href="../#join">Take a seat →</a><a class="plain" id="ics" href="#" download="ted-online.ics">Add to my calendar ↓</a><span class="count" id="count" aria-label="Time until the call"></span></div>
+      <div class="cta"><a class="btn" href="../#next">See the next call →</a><a class="plain" href="../#calls">All past calls</a></div>
       </div>
     </div>
   </section>
-  <section class="sec"><div class="wrap"><span class="label">Think about these before Monday</span><h2>The <em>questions</em></h2><ol class="qs"><li>How have your family and friends helped you in your life?</li><li>Among people who you are not related to, who has helped you most in your life?</li><li>When people are wealthy or successful, do they have a special responsibility to ‘give back’ and help others? In other words, do you believe in “With great power comes great responsibility”?</li><li>Do people help each other because it makes them feel good? If so, is helping others essentially a selfish act?</li><li>Do you trust charitable organizations? Which organizations are most trustworthy?</li></ol></div></section>
+  <section class="sec"><div class="wrap"><span class="label">What the moderator asked</span><h2>The <em>questions</em></h2><p style="margin:-8px 0 20px;color:var(--ink-2)">Borrow them for your own table.</p><ol class="qs"><li>How have your family and friends helped you in your life?</li><li>Among people who you are not related to, who has helped you most in your life?</li><li>When people are wealthy or successful, do they have a special responsibility to ‘give back’ and help others? In other words, do you believe in “With great power comes great responsibility”?</li><li>Do people help each other because it makes them feel good? If so, is helping others essentially a selfish act?</li><li>Do you trust charitable organizations? Which organizations are most trustworthy?</li></ol></div></section>
   <section class="sec"><div class="wrap"><span class="label">Worth watching before</span><h2>A video <em>to start with</em></h2><a class="watch" href="https://www.youtube.com/watch?v=rvskMHn0sqQ" target="_blank" rel="noopener"><span class="play" aria-hidden="true">▶</span><span><small>Kurzgesagt – In a Nutshell</small><b>A Selfish Argument for Making the World a Better Place – Egoistic Altruism</b><i>Not directly about the questions, but worth watching. The whole channel usually makes high-quality content.</i></span></a></div></section>
   <section class="sec"><div class="wrap"><span class="label">How it works</span><h2>A small circle, <em>on Google Meet</em></h2>
     <div class="how"><div><b>Free, member-led</b>No teacher and no script. A member moderates and brings the questions.</div><div><b>Up to 12 people</b>A small circle so everyone gets airtime. Names go on a list in our Telegram group.</div><div><b>Fluent English</b>It’s a conversation, not a class. New? <a href="../#join">Send us a voice intro</a>.</div></div>
   </div></section>
-  <section class="sec"><div class="wrap"><span class="label">More Monday conversations</span><h2>Other <em>calls</em></h2><ul class="others"><li><a href="../red-flags-we-choose-to-ignore/"><small>Mon 9 Nov 2026 · with Negar</small><b>Red Flags We Choose to Ignore</b></a></li><li><a href="../lost-friendships-and-relationships/"><small>Mon 2 Nov 2026 · with Bahar 🌱</small><b>Lost Friendships and Relationships</b></a></li><li><a href="../from-junior-to-senior/"><small>Mon 26 Oct 2026 · with Navid</small><b>From Junior to Senior</b></a></li><li><a href="../do-you-avoid-people-you-disagree-with/"><small>Mon 19 Oct 2026 · with Fatemeh 💙</small><b>Do You Avoid People You Disagree With?</b></a></li><li><a href="../how-do-you-choose-what-deserves-your-attention/"><small>Mon 12 Oct 2026 · with Negar</small><b>How Do You Choose What Deserves Your Attention?</b></a></li><li><a href="../should-we-slow-down/"><small>Mon 5 Oct 2026 · with Navid</small><b>Should We Slow Down?</b></a></li><li><a href="../the-other-side-of-change/"><small>Mon 28 Sep 2026 · with Bahar 🌱</small><b>The Other Side of Change</b></a></li></ul></div></section>
+  <section class="sec"><div class="wrap"><span class="label">More Monday conversations</span><h2>Other <em>calls</em></h2><ul class="others"><li><a href="../luck/" class="is-next"><small>Next · Mon 30 Nov 2026 · with Amir 🏜</small><b>Luck</b></a></li><li><a href="../red-flags-we-choose-to-ignore/"><small>Mon 9 Nov 2026 · with Negar</small><b>Red Flags We Choose to Ignore</b></a></li><li><a href="../lost-friendships-and-relationships/"><small>Mon 2 Nov 2026 · with Bahar 🌱</small><b>Lost Friendships and Relationships</b></a></li><li><a href="../from-junior-to-senior/"><small>Mon 26 Oct 2026 · with Navid</small><b>From Junior to Senior</b></a></li><li><a href="../do-you-avoid-people-you-disagree-with/"><small>Mon 19 Oct 2026 · with Fatemeh 💙</small><b>Do You Avoid People You Disagree With?</b></a></li><li><a href="../how-do-you-choose-what-deserves-your-attention/"><small>Mon 12 Oct 2026 · with Negar</small><b>How Do You Choose What Deserves Your Attention?</b></a></li><li><a href="../should-we-slow-down/"><small>Mon 5 Oct 2026 · with Navid</small><b>Should We Slow Down?</b></a></li><li><a href="../the-other-side-of-change/"><small>Mon 28 Sep 2026 · with Bahar 🌱</small><b>The Other Side of Change</b></a></li></ul></div></section>
 </main>
 <footer><div class="wrap"><span>© Tehran English Discussion (TED) · a free English discussion club, in Tehran and online</span><span><a href="../">Online table</a> · <a href="/">Home</a> · <a href="/sessions/">Archive</a></span></div></footer>
-<script>
-(() => {
-  const t = Date.parse("2026-11-23" + "T20:00:00+03:30"), LEN = 2 * 36e5, c = document.getElementById("count");
-  const tick = () => { const ms = t - Date.now();
-    if (ms <= -LEN) { c.textContent = "This call has ended"; return; }
-    if (ms <= 0) { c.textContent = "On now · until 10 p.m."; return; }
-    const d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60;
-    c.innerHTML = (d ? `<span>${d}<small>d</small></span>` : "") + `<span>${h}<small>h</small></span><span>${m}<small>m</small></span>`; };
-  tick(); setInterval(tick, 30000);
-  const iso = x => new Date(x).toISOString().replace(/[-:]/g, "").replace(/\.\d+/, "");
-  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Tehran English Discussion//Online//EN", "BEGIN:VEVENT",
-    "UID:ted-online-" + t + "@tehran-english-discussion.github.io", "DTSTAMP:" + iso(Date.now()), "DTSTART:" + iso(t), "DTEND:" + iso(t + LEN),
-    "SUMMARY:TED Online · Egoism and Altruism", "DESCRIPTION:The Google Meet link is posted in the TED Online Telegram group. https://tehran-english-discussion.github.io/online/egoism-and-altruism/",
-    "URL:https://tehran-english-discussion.github.io/online/egoism-and-altruism/", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
-  document.getElementById("ics").href = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
-})();
-</script>
+
 </body>
 </html>
